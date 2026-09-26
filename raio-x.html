@@ -181,7 +181,7 @@ button,input{font-family:inherit}
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var WHATSAPP_NUMBER = "5561999531848";
   // Deixe vazio ("") enquanto não existir: o botão mostra "em breve".
-  var PLANILHA_URL = "";   // ex.: "planilha-sai-ae.xlsx" (arquivo publicado junto do site)
+  var PLANILHA_URL = "planilha-controle-vendas-sai-ae.xlsx";   // arquivo publicado junto do site
   var CADASTRO_URL = "";   // tela de cadastro do aplicativo
 
   var ms = function(n, f){ return '<span class="ms' + (f ? ' f' : '') + '" aria-hidden="true">' + n + '</span>'; };
@@ -533,7 +533,7 @@ button,input{font-family:inherit}
     var soonNote = h("p", {class:"soonNote", hidden:"hidden", role:"status"});
     function soonMsg(what){ soonNote.textContent = what + " chega em breve. Enquanto isso, fale com a gente no WhatsApp."; soonNote.hidden = false; }
     var dl = h("a", {class:"btnDark", href: PLANILHA_URL || "#", html: ms("download") + "Baixar planilha grátis"});
-    if (PLANILHA_URL) dl.setAttribute("download", ""); else dl.addEventListener("click", function(e){ e.preventDefault(); soonMsg("A planilha"); });
+    if (PLANILHA_URL) dl.setAttribute("download", "Controle de Vendas - Sai aê.xlsx"); else dl.addEventListener("click", function(e){ e.preventDefault(); soonMsg("A planilha"); });
     var cad = h("a", {class:"btnOut", href: CADASTRO_URL || "#", html: "Criar minha conta grátis " + ms("arrow_forward")});
     if (!CADASTRO_URL) cad.addEventListener("click", function(e){ e.preventDefault(); soonMsg("O cadastro no aplicativo"); });
     done.appendChild(dl); done.appendChild(cad); done.appendChild(soonNote);
