@@ -49,6 +49,7 @@ head_part = re.sub(r'<title>.*?</title>\n?', '', head_part, count=1)
 body_part = body_part.replace("trialUrl: 'raio-x.html',", "trialUrl: '/raio-x',")
 if not APP_ONLINE:
     body_part = body_part.replace("loginUrl: 'https://app.saiae.com.br',", "loginUrl: 'COLE_AQUI_LINK_APP',")
+    body_part = body_part.replace("assinarUrl: 'https://app.saiae.com.br/assinar',", "assinarUrl: 'COLE_AQUI_LINK_APP',")
 (OUT / 'index.html').write_text(HEAD + head_part.strip() + '\n</head>\n<body>\n' + body_part.strip() + '\n</body>\n</html>\n')
 
 # ---------- raio-x.html (teste) ----------

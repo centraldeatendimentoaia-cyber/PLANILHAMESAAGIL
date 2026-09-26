@@ -1040,26 +1040,19 @@ body{margin:0;background:#F6F5F2}
 var SX_LINKS = {
   trialUrl: '/raio-x',                          // Raio-X do Negócio (teste que libera os 7 dias grátis)
   loginUrl: 'https://app.saiae.com.br',
+  assinarUrl: 'https://app.saiae.com.br/assinar',   // botões dos planos (o app leva pro checkout da Kirvano)
   playStoreUrl: 'COLE_AQUI_LINK_GOOGLE_PLAY',
   posUrl: 'COLE_AQUI_LINK_MAQUININHA',
   whatsappUrl: 'https://wa.me/5561999531848'
 };
 var SX_PLANS = {
   essencial: {
-    checkout: { // links de pagamento (Kirvano)
-      mensal: 'https://pay.kirvano.com/83b4bb2a-4004-41dc-bb3f-c76ef27856ee',
-      anual: 'https://pay.kirvano.com/3a01dd0a-cd26-4367-87d6-727ac6cc04b4'
-    },
     de: 86.90, mensal: 57.90, anual: { mes: 49.22, total: 590.58, economia: 104.22, off: '15% OFF' },
     itens: ['1 ponto de venda', 'Lançar pedido (balcão, mesa e viagem)', 'Cozinha em tempo real com cronômetro',
             'Chamada de senha com seu logo', 'Pix, dinheiro, débito e crédito', 'Cardápio digital com QR code', 'Relatório do dia',
             'Histórico de 7 dias', 'Tema claro e escuro']
   },
   pro: {
-    checkout: { // links de pagamento (Kirvano)
-      mensal: 'https://pay.kirvano.com/a566f40c-6b60-459d-bc9e-259476c9f03b',
-      anual: 'https://pay.kirvano.com/0c85f948-b1df-45e4-8ecd-3eadc380ee5f'
-    },
     de: 131.90, mensal: 87.90, anual: { mes: 70.32, total: 843.84, economia: 210.96, off: '20% OFF' },
     itens: ['Tudo do Essencial', 'Vários pontos na mesma conta', 'Histórico completo e por período',
             'Exportar relatórios', 'Nota fiscal (com certificado digital, em breve)', 'Custo do dia, lucro e taxas da maquininha',
@@ -1090,8 +1083,9 @@ var SX_PLANS = {
   }
   function linkFor(a) {
     if (a.hasAttribute('data-plan-cta')) {
-      var c = SX_PLANS[a.closest('[data-plan]').dataset.plan].checkout;
-      return isSet(c && c[cycle]) ? c[cycle] : null;
+      // passa pelo app: ele pede login/cadastro e manda pra Kirvano com o id da conta (?src=)
+      var base = SX_LINKS.assinarUrl;
+      return isSet(base) ? base + '?plano=' + a.closest('[data-plan]').dataset.plan + '&ciclo=' + cycle : null;
     }
     var u = SX_LINKS[a.dataset.link];
     return isSet(u) ? u : null;
