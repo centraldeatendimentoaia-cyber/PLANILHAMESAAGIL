@@ -113,6 +113,18 @@ button,input{font-family:inherit}
 .btnWhats:hover{background:var(--t700)}
 .btnWhats:active{transform:scale(.97)}
 .btnWhats svg{fill:#25D366}
+.doneTag{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:var(--balao);background:var(--t900);color:#fff;font-size:13px;font-weight:700}
+.doneTag .ms{color:var(--m500);font-size:18px}
+.ctaBody{font-size:15px;color:var(--t800);line-height:1.5;margin-top:-6px}
+.btnDark,.btnOut{width:100%;height:56px;border-radius:999px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:16px;font-weight:700;text-decoration:none;transition:transform .12s,background-color .12s}
+.btnDark{background:var(--t900);color:#fff}
+.btnDark:hover{background:var(--t700)}
+.btnOut{background:transparent;color:var(--t900);box-shadow:inset 0 0 0 1.5px var(--t900)}
+.btnOut:hover{background:var(--m400)}
+.btnDark:active,.btnOut:active{transform:scale(.97)}
+.soonNote{font-size:14px;font-weight:600;color:var(--t900);text-align:center}
+.waCard{background:var(--t0);border:1px solid var(--t100);border-radius:24px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.waTitle{font-size:15px;font-weight:600;color:var(--t700)}
 .sentNote{font-size:14px;color:var(--t900);font-weight:700;text-align:center;display:flex;align-items:center;justify-content:center;gap:6px}
 .copyLink{min-height:44px;text-align:center;font-size:14px;font-weight:600;color:var(--t600);background:none;border:none;cursor:pointer;text-decoration:underline;text-underline-offset:3px;padding:4px}
 .restartLink{min-height:44px;text-align:center;font-size:14px;color:var(--t500);background:none;border:none;cursor:pointer}
@@ -167,7 +179,10 @@ button,input{font-family:inherit}
   "use strict";
 
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var WHATSAPP_NUMBER = "5511999999999"; // TODO: troque pelo número de WhatsApp do Sai aê antes de divulgar
+  var WHATSAPP_NUMBER = "5561999531848";
+  // Deixe vazio ("") enquanto não existir: o botão mostra "em breve".
+  var PLANILHA_URL = "";   // ex.: "planilha-sai-ae.xlsx" (arquivo publicado junto do site)
+  var CADASTRO_URL = "";   // tela de cadastro do aplicativo
 
   var ms = function(n, f){ return '<span class="ms' + (f ? ' f' : '') + '" aria-hidden="true">' + n + '</span>'; };
   var ICONS = {
@@ -292,7 +307,7 @@ button,input{font-family:inherit}
 
   function buildWhatsAppText(a, diag){
     var linhas = [
-      "Oi! Fiz o Raio-X do meu negócio no Sai aê e quero ativar meus 7 dias grátis 🙌",
+      "Oi! Fiz o Raio-X do meu negócio no Sai aê e quero saber mais 🙌",
       "",
       "Nome: " + a.nome,
       "WhatsApp: " + a.whatsapp,
@@ -363,7 +378,7 @@ button,input{font-family:inherit}
     var items = [
       ["clock","Menos de 2 minutos, direto no celular"],
       ["bulb","Diagnóstico personalizado pro seu tipo de negócio"],
-      ["gift","7 dias grátis do Sai aê liberados no final"]
+      ["gift","Planilha grátis e 7 dias do Sai aê liberados no final"]
     ];
     items.forEach(function(it){
       var row = h("div", {class:"miniItem"});
@@ -511,10 +526,23 @@ button,input{font-family:inherit}
     });
     wrap.appendChild(insightList);
 
-    var cta = h("div", {class:"ctaCard"});
-    cta.appendChild(h("p", {class:"ctaTitle"}, [document.createTextNode("Envie seu diagnóstico no WhatsApp e ative seus 7 dias grátis do Sai aê agora mesmo.")]));
-    var waBtn = h("button", {class:"btnWhats"}, [ (function(){var s=document.createElement("span"); s.innerHTML=ICONS.whats; return s;})(), document.createTextNode("Enviar e ativar 7 dias grátis")]);
-    var sentNote = h("p", {class:"sentNote", hidden:"hidden"}, [document.createTextNode("Se o WhatsApp abriu, é só apertar enviar 🙂")]);
+    var done = h("div", {class:"ctaCard"});
+    done.appendChild(h("span", {class:"doneTag", html: ms("task_alt", true) + "Teste concluído"}));
+    done.appendChild(h("p", {class:"ctaTitle"}, [document.createTextNode("Pronto, " + (answers.nome.split(" ")[0] || "tudo certo") + "! Sua planilha grátis está liberada.")]));
+    done.appendChild(h("p", {class:"ctaBody"}, [document.createTextNode("Baixe a planilha e crie sua conta para usar o Sai aê por 7 dias grátis.")]));
+    var soonNote = h("p", {class:"soonNote", hidden:"hidden", role:"status"});
+    function soonMsg(what){ soonNote.textContent = what + " chega em breve. Enquanto isso, fale com a gente no WhatsApp."; soonNote.hidden = false; }
+    var dl = h("a", {class:"btnDark", href: PLANILHA_URL || "#", html: ms("download") + "Baixar planilha grátis"});
+    if (PLANILHA_URL) dl.setAttribute("download", ""); else dl.addEventListener("click", function(e){ e.preventDefault(); soonMsg("A planilha"); });
+    var cad = h("a", {class:"btnOut", href: CADASTRO_URL || "#", html: "Criar minha conta grátis " + ms("arrow_forward")});
+    if (!CADASTRO_URL) cad.addEventListener("click", function(e){ e.preventDefault(); soonMsg("O cadastro no aplicativo"); });
+    done.appendChild(dl); done.appendChild(cad); done.appendChild(soonNote);
+    wrap.appendChild(done);
+
+    var cta = h("div", {class:"waCard"});
+    cta.appendChild(h("p", {class:"waTitle"}, [document.createTextNode("Prefere falar com a gente? Mande seu diagnóstico no WhatsApp.")]));
+    var waBtn = h("button", {class:"btnWhats"}, [ (function(){var s=document.createElement("span"); s.innerHTML=ICONS.whats; return s;})(), document.createTextNode("Enviar no WhatsApp")]);
+    var sentNote = h("p", {class:"sentNote", hidden:"hidden"}, [document.createTextNode("Se o WhatsApp abriu, é só apertar enviar.")]);
     waBtn.addEventListener("click", function(){
       var text = buildWhatsAppText(answers, diag);
       var url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
