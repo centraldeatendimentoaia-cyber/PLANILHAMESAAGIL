@@ -8,13 +8,15 @@ OUT.mkdir(exist_ok=True)
 
 # Endereço público do site. Troque para 'https://saiae.com.br' quando o domínio estiver ativo.
 SITE_URL = 'https://saiae.com.br'
-TITLE = 'Sai aê · Pedido, cozinha e senha para feira, food truck e lanchonete'
+TITLE = 'Sai aê · Sistema de pedidos para feira, food truck e lanchonete'
 DESC = ('Teste 7 dias grátis. O pedido sai do caixa direto pra cozinha e a senha aparece na TV. '
         'Feito pra feira, food truck e lanchonete, por preço de barraca.')
 HEAD = f'''<!doctype html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
+<title>{TITLE}</title>
+<link rel="canonical" href="{SITE_URL}/">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="{DESC}">
 <meta name="theme-color" content="#FFC21A">
@@ -25,6 +27,8 @@ HEAD = f'''<!doctype html>
 <meta property="og:url" content="{SITE_URL}/">
 <meta property="og:site_name" content="Sai aê">
 <meta property="og:image" content="{SITE_URL}/og-image.png">
+<meta property="og:image:secure_url" content="{SITE_URL}/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Sai aê: sem papel, sem grito, sem pedido esquecido. Teste 7 dias grátis.">
@@ -38,7 +42,7 @@ HEAD = f'''<!doctype html>
 lp = (ROOT / 'saiae-lp.html').read_text()
 cut = lp.index('<div id="saiae-lp">')
 head_part, body_part = lp[:cut], lp[cut:]
-head_part = re.sub(r'<title>.*?</title>', f'<title>{TITLE}</title>', head_part, count=1)
+head_part = re.sub(r'<title>.*?</title>\n?', '', head_part, count=1)
 body_part = body_part.replace("trialUrl: 'raio-x.html',", "trialUrl: '/raio-x',")
 (OUT / 'index.html').write_text(HEAD + head_part.strip() + '\n</head>\n<body>\n' + body_part.strip() + '\n</body>\n</html>\n')
 
