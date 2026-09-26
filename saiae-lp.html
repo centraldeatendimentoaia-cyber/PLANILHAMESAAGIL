@@ -1,10 +1,10 @@
-<title>saiaê</title>
+<title>Sai aê</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,500,0..1,0&display=block">
 <style>
-/* saiaê · página de vendas. Tudo escopado em #saiae-lp (pode colar num widget HTML do Elementor). */
+/* Sai aê · página de vendas. Tudo escopado em #saiae-lp (pode colar num widget HTML do Elementor). */
 body{margin:0;background:#F6F5F2}
 #saiae-lp{
   color-scheme:light;
@@ -38,6 +38,7 @@ body{margin:0;background:#F6F5F2}
 #saiae-lp [hidden]{display:none!important}
 #saiae-lp .sprite{position:absolute;width:0;height:0;overflow:hidden}
 #saiae-lp .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+#saiae-lp .nw{white-space:nowrap}
 #saiae-lp .tn{font-variant-numeric:tabular-nums}
 
 #saiae-lp .ms{font-family:'Material Symbols Rounded';font-weight:500;font-style:normal;font-size:22px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;direction:ltr;-webkit-font-smoothing:antialiased;font-variation-settings:'FILL' 0,'wght' 500,'GRAD' 0,'opsz' 24;flex:none;overflow:hidden;width:1em}
@@ -52,11 +53,11 @@ body{margin:0;background:#F6F5F2}
 #saiae-lp .head--c{margin-inline:auto;text-align:center;align-items:center}
 #saiae-lp .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--t500)}
 #saiae-lp .eyebrow i{width:8px;height:8px;border-radius:2px 2px 2px 0;background:var(--m500);transform:rotate(0)}
-#saiae-lp .h1{font-family:var(--fd);font-weight:800;font-size:clamp(40px,5vw + 16px,72px);line-height:1.04;letter-spacing:-.035em;text-wrap:balance}
-#saiae-lp .h2{font-family:var(--fd);font-weight:800;font-size:clamp(30px,2.8vw + 16px,50px);line-height:1.08;letter-spacing:-.03em;text-wrap:balance}
+#saiae-lp .h1{font-family:var(--fd);font-weight:800;font-size:clamp(40px,5vw + 16px,72px);line-height:1.12;letter-spacing:-.035em;text-wrap:balance}
+#saiae-lp .h2{font-family:var(--fd);font-weight:800;font-size:clamp(30px,2.8vw + 16px,50px);line-height:1.14;letter-spacing:-.03em;text-wrap:balance}
 #saiae-lp .h3{font-family:var(--fd);font-weight:700;font-size:21px;line-height:1.25;letter-spacing:-.01em}
 #saiae-lp .lead{font-size:18px;line-height:1.6;color:var(--t600);max-width:60ch;text-wrap:pretty}
-#saiae-lp .mark{background:var(--m500);color:var(--t900);padding:0 .16em;border-radius:.3em .3em .3em .08em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+#saiae-lp .mark{display:inline-block;line-height:1;background:var(--m500);color:var(--t900);padding:.04em .14em .08em;margin-inline:-.04em;border-radius:.28em .28em .28em .08em}
 
 /* ---------- botões ---------- */
 #saiae-lp .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 20px;border-radius:14px;font-family:var(--fb);font-weight:600;font-size:16px;line-height:1;white-space:nowrap;cursor:pointer;user-select:none;transition:transform .12s cubic-bezier(.2,.8,.2,1),background-color .12s,box-shadow .12s}
@@ -120,8 +121,8 @@ body{margin:0;background:#F6F5F2}
 #saiae-lp .cx-row b{font-weight:600;flex:1;min-width:0}
 #saiae-lp .cx-row .pr{color:var(--t500);font-size:13px}
 #saiae-lp .qty{display:inline-flex;align-items:center;gap:6px}
-#saiae-lp .qty span{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:var(--t100)}
-#saiae-lp .qty span .ms{font-size:18px}
+#saiae-lp .qty>span{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:var(--t100)}
+#saiae-lp .qty>span .ms{font-size:18px}
 #saiae-lp .qty .p{background:var(--m500)}
 #saiae-lp .qty em{font-style:normal;font-weight:700;min-width:14px;text-align:center}
 #saiae-lp .cx-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px}
@@ -217,8 +218,8 @@ body{margin:0;background:#F6F5F2}
 #saiae-lp .bc.dark .bc-h p{color:var(--t300)}
 #saiae-lp .mock{border-radius:16px;background:var(--t50);border:1px solid var(--t100);padding:12px;display:flex;flex-direction:column;gap:10px;font-size:14px}
 #saiae-lp .seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;padding:4px;border-radius:14px;background:var(--t100);font-size:13px;font-weight:600}
-#saiae-lp .seg span{display:flex;align-items:center;justify-content:center;gap:4px;height:36px;border-radius:10px;color:var(--t600)}
-#saiae-lp .seg span .ms{font-size:17px}
+#saiae-lp .seg>span{display:flex;align-items:center;justify-content:center;gap:4px;height:36px;border-radius:10px;color:var(--t600)}
+#saiae-lp .seg>span .ms{font-size:17px}
 #saiae-lp .seg .on{background:var(--t0);color:var(--t900);box-shadow:var(--sh-sm)}
 #saiae-lp .chips{display:flex;flex-wrap:wrap;gap:6px}
 #saiae-lp .chip{display:inline-flex;align-items:center;height:30px;padding:0 12px;border-radius:999px;background:var(--t0);border:1px solid var(--t200);font-size:12px;font-weight:600;color:var(--t600)}
@@ -232,10 +233,12 @@ body{margin:0;background:#F6F5F2}
 #saiae-lp .prod.sel{border-color:var(--m500);box-shadow:0 0 0 3px var(--m100)}
 #saiae-lp .badge{align-self:flex-start;display:inline-flex;align-items:center;gap:3px;height:22px;padding:0 8px;border-radius:var(--balao);background:var(--m500);font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
 #saiae-lp .badge .ms{font-size:13px}
+#saiae-lp .soon-tag{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:var(--balao);background:var(--in-bg);color:var(--in-tx);font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;vertical-align:middle;margin-left:6px}
+#saiae-lp .bc.dark .soon-tag{background:var(--in);color:#fff}
 /* cozinha grande */
 #saiae-lp .kds{display:grid;gap:8px}
 #saiae-lp .legend{display:flex;flex-wrap:wrap;gap:6px;font-size:12px;font-weight:600;color:var(--t300)}
-#saiae-lp .legend span{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:999px;background:var(--t800)}
+#saiae-lp .legend>span{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:999px;background:var(--t800)}
 #saiae-lp .legend i{width:8px;height:8px;border-radius:50%;background:var(--c)}
 /* senha */
 #saiae-lp .tvbig{border-radius:16px;background:var(--t900);color:#fff;padding:18px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px}
@@ -244,10 +247,10 @@ body{margin:0;background:#F6F5F2}
 #saiae-lp .tvbig p{font-weight:700;font-size:15px}
 /* pagamento */
 #saiae-lp .pay{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-#saiae-lp .pay span{display:flex;align-items:center;gap:8px;height:48px;padding:0 12px;border-radius:14px;background:var(--t0);border:1px solid var(--t200);font-weight:600;font-size:14px}
-#saiae-lp .pay span .ms{color:var(--t500)}
-#saiae-lp .pay span.on{border-color:var(--t900);box-shadow:inset 0 0 0 1px var(--t900)}
-#saiae-lp .pay span.on .ms{color:var(--pix)}
+#saiae-lp .pay>span{display:flex;align-items:center;gap:8px;height:48px;padding:0 12px;border-radius:14px;background:var(--t0);border:1px solid var(--t200);font-weight:600;font-size:14px}
+#saiae-lp .pay>span .ms{color:var(--t500)}
+#saiae-lp .pay>span.on{border-color:var(--t900);box-shadow:inset 0 0 0 1px var(--t900)}
+#saiae-lp .pay>span.on .ms{color:var(--pix)}
 #saiae-lp .row{display:flex;align-items:center;justify-content:space-between;gap:10px}
 #saiae-lp .row small{font-size:13px;color:var(--t500)}
 #saiae-lp .row .v{font-family:var(--fd);font-weight:700}
@@ -282,6 +285,9 @@ body{margin:0;background:#F6F5F2}
   #saiae-lp .bc--tv{grid-column:span 2}#saiae-lp .bc--pay{grid-column:span 2}#saiae-lp .bc--rep{grid-column:span 2}
   #saiae-lp .bc--wide{grid-column:span 6}
 }
+#saiae-lp .qr-flow{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+#saiae-lp .qr-flow li{display:flex;align-items:center;gap:10px;padding:14px;border-radius:14px;background:var(--t800);border:1px solid var(--t700);font-weight:600;font-size:15px}
+#saiae-lp .qr-flow .ms{color:var(--m500)}
 #saiae-lp .rep-grid{display:grid;gap:14px}
 @media (min-width:1024px){#saiae-lp .bc--rep .rep-grid{grid-template-columns:1fr}}
 
@@ -308,7 +314,7 @@ body{margin:0;background:#F6F5F2}
 #saiae-lp .tr-c{display:flex;gap:16px;padding:24px;border-radius:24px;background:var(--t0);border:1px solid var(--t100)}
 #saiae-lp .tr-c .ic{flex:none;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px}
 #saiae-lp .tr-c--y .ic{background:var(--ok-bg);color:var(--ok-tx)}
-#saiae-lp .tr-c--n .ic{background:var(--t100);color:var(--t500)}
+#saiae-lp .tr-c--n .ic{background:var(--er-bg);color:var(--er-tx)}
 #saiae-lp .tr-c h3{font-family:var(--fd);font-size:19px;font-weight:700}
 #saiae-lp .tr-c p{margin-top:4px;color:var(--t500);font-size:15px}
 #saiae-lp .tr-end{margin-top:14px;display:flex;align-items:center;gap:12px;padding:18px 20px;border-radius:var(--balao);background:var(--m100);font-weight:600}
@@ -336,6 +342,11 @@ body{margin:0;background:#F6F5F2}
 #saiae-lp .trial li{display:flex;gap:14px;align-items:center;padding:18px;border-radius:20px;background:var(--t0);border:1px solid var(--t100);font-weight:600}
 #saiae-lp .trial li b{flex:none;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:12px;background:var(--t900);color:var(--m500);font-family:var(--fd);font-weight:800;font-size:18px}
 @media (min-width:768px){#saiae-lp .trial{grid-template-columns:repeat(3,1fr)}}
+#saiae-lp .launch{display:flex;align-items:center;justify-content:center;gap:8px;width:fit-content;max-width:100%;margin:-16px auto 20px;padding:10px 16px;border-radius:var(--balao);background:var(--t900);color:#fff;font-size:15px;text-align:left}
+#saiae-lp .launch .ms{color:var(--m500)}
+#saiae-lp .launch b{color:var(--m500)}
+#saiae-lp .was{display:block;font-size:14px;color:var(--t500);font-weight:600}
+#saiae-lp .was s{text-decoration-thickness:1.5px}
 #saiae-lp .cyc{display:flex;justify-content:center;margin-bottom:28px}
 #saiae-lp .cyc-in{display:inline-grid;grid-auto-flow:column;gap:4px;padding:4px;border-radius:999px;background:var(--t100)}
 #saiae-lp .cyc button{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;font-weight:600;font-size:15px;color:var(--t600);transition:background-color .2s,color .2s}
@@ -348,6 +359,7 @@ body{margin:0;background:#F6F5F2}
 #saiae-lp .plan-seal .ms{font-size:15px}
 #saiae-lp .plan h3{font-family:var(--fd);font-size:26px;font-weight:800}
 #saiae-lp .plan-d{color:var(--t500);font-size:15px;margin-top:-8px}
+#saiae-lp .plan .was{margin-bottom:-12px}
 #saiae-lp .price{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px}
 #saiae-lp .price small{font-family:var(--fd);font-weight:700;font-size:18px}
 #saiae-lp .price b{font-family:var(--fd);font-weight:800;font-size:48px;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
@@ -435,7 +447,7 @@ body{margin:0;background:#F6F5F2}
 
 <header class="hdr" data-hdr>
   <div class="wrap hdr-in">
-    <a class="logo" href="#topo" aria-label="saiaê, voltar ao início">
+    <a class="logo" href="#topo" aria-label="Sai aê, voltar ao início">
       <svg viewBox="0 0 273 164" role="img" aria-hidden="true" style="--ae:#18171C"><use href="#logo-cheio"/></svg>
     </a>
     <nav class="nav" aria-label="Seções da página">
@@ -469,7 +481,7 @@ body{margin:0;background:#F6F5F2}
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <p class="eyebrow"><i></i>Para feira, food truck, lanchonete e barraca</p>
-      <h1 class="h1" id="sx-hero-t">Sem papel, <span class="mark">sem grito</span>, sem pedido esquecido.</h1>
+      <h1 class="h1" id="sx-hero-t">Sem papel, <span class="nw"><span class="mark">sem grito</span>,</span> sem pedido esquecido.</h1>
       <p class="lead">Lança no caixa, aparece na cozinha e chama a senha na TV. Tudo no celular que você já tem, por preço de barraca.</p>
       <div class="hero-cta">
         <a class="btn btn--pri btn--pill btn--lg" href="#" data-link="trialUrl" data-soon="O teste grátis">Testar 3 dias grátis <span class="ms">arrow_forward</span></a>
@@ -483,7 +495,7 @@ body{margin:0;background:#F6F5F2}
     </div>
 
     <div class="stage" data-stage aria-label="Exemplo: um pedido saindo do caixa, passando pela cozinha e chamado na TV">
-      <div class="toast is-off" data-toast role="status"><span class="ms f">check_circle</span><span>Saiaê! Senha <b class="tn" data-toast-n>132</b></span></div>
+      <div class="toast is-off" data-toast role="status"><span class="ms f">check_circle</span><span>Sai aê! Senha <b class="tn" data-toast-n>132</b></span></div>
 
       <div class="panel cx">
         <p class="scap"><span class="ms">point_of_sale</span>Caixa · Pedido #<span class="tn" data-cx-n>132</span></p>
@@ -520,7 +532,7 @@ body{margin:0;background:#F6F5F2}
     <div class="head" style="margin-bottom:0">
       <p class="eyebrow"><i></i>Feito para quem o mercado esqueceu</p>
       <h2 class="h2" id="sx-mani-t">Os sistemas grandes nunca olharam para o seu balcão. <span class="mark">A gente olhou.</span></h2>
-      <p class="lead">Sistema de restaurante foi pensado para quem tem gerente, garçom e computador no caixa. Quem vende pastel na feira, açaí na praça ou lanche no food truck ficou com o bloquinho, a caneta e a memória. O saiaê nasceu para esse balcão.</p>
+      <p class="lead">Sistema de restaurante foi pensado para quem tem gerente, garçom e computador no caixa. Quem vende pastel na feira, açaí na praça ou lanche no food truck ficou com o bloquinho, a caneta e a memória. O Sai aê nasceu para esse balcão.</p>
     </div>
     <ul class="mani-list">
       <li class="mani-item"><span class="ic"><span class="ms">payments</span></span><div><h3>Preço de barraca</h3><p>Você paga pelo que usa no dia a dia. Nada de pacote de restaurante grande.</p></div></li>
@@ -549,7 +561,7 @@ body{margin:0;background:#F6F5F2}
       <li class="step"><div class="step-top"><span class="ic"><span class="ms">receipt_long</span></span><span class="n">1 de 5</span></div><h3>Lance o pedido</h3><p>Escolha no cardápio, marque balcão, mesa ou viagem e anote a observação de cada item.</p></li>
       <li class="step"><div class="step-top"><span class="ic"><span class="ms">qr_code_2</span></span><span class="n">2 de 5</span></div><h3>Receba</h3><p>Pix, dinheiro, débito ou crédito. A senha sai na confirmação do pagamento.</p></li>
       <li class="step"><div class="step-top"><span class="ic"><span class="ms">skillet</span></span><span class="n">3 de 5</span></div><h3>A cozinha vê na hora</h3><p>O pedido chega com número, horário e itens. O cronômetro muda de cor com o tempo.</p></li>
-      <li class="step"><div class="step-top"><span class="ic"><span class="ms">campaign</span></span><span class="n">4 de 5</span></div><h3>Saiaê!</h3><p>Um toque em "Pronto" e a senha aparece na TV com o logo da sua barraca.</p></li>
+      <li class="step"><div class="step-top"><span class="ic"><span class="ms">campaign</span></span><span class="n">4 de 5</span></div><h3>Sai aê!</h3><p>Um toque em "Pronto" e a senha aparece na TV com o logo da sua barraca.</p></li>
       <li class="step"><div class="step-top"><span class="ic"><span class="ms">bar_chart</span></span><span class="n">5 de 5</span></div><h3>Feche o dia</h3><p>Vendas por hora e por pagamento, os mais vendidos e o lucro, no celular.</p></li>
     </ol>
 
@@ -564,11 +576,12 @@ body{margin:0;background:#F6F5F2}
         </ul>
       </article>
       <article class="ba-card ba-card--d">
-        <span class="ba-tag"><span class="ms">check</span>Com saiaê</span>
+        <span class="ba-tag"><span class="ms">check</span>Com Sai aê</span>
         <h3>Tudo na tela, na ordem certa.</h3>
         <ul class="ba-list">
           <li><span class="ms">check</span>A cozinha recebe o pedido no mesmo segundo</li>
           <li><span class="ms">check</span>A senha aparece na TV e o cliente retira</li>
+          <li><span class="ms">check</span>Quem quiser pede e paga pelo celular, sem fila</li>
           <li><span class="ms">check</span>Relatório do dia pronto quando você baixa a porta</li>
         </ul>
       </article>
@@ -633,11 +646,21 @@ body{margin:0;background:#F6F5F2}
           </div>
         </div>
       </article>
+      <article class="bc dark bc--wide bc--qr">
+        <div class="bc-h"><span class="tag"><span class="ms">qr_code_2</span>Cardápio digital</span><h3>O cliente pede e paga pelo celular, sem fila <span class="soon-tag">Em breve</span></h3><p>Ele aponta a câmera para o QR code, escolhe no seu cardápio, paga no Pix ou no cartão e o pedido cai direto na cozinha. Quando fica pronto, a senha aparece na TV. O caixa fica livre para quem prefere pedir no balcão.</p></div>
+        <ol class="qr-flow" aria-hidden="true">
+          <li><span class="ms">qr_code_scanner</span>Lê o QR code</li>
+          <li><span class="ms">restaurant_menu</span>Escolhe no cardápio</li>
+          <li><span class="ms">qr_code_2</span>Paga no Pix ou cartão</li>
+          <li><span class="ms">skillet</span>Cai na cozinha</li>
+          <li><span class="ms">campaign</span>Sai aê! Retira</li>
+        </ol>
+      </article>
     </div>
 
     <div class="minis">
-      <article class="mini"><span class="ic"><span class="ms">savings</span></span><h3>Custo e lucro</h3><p>Desconta o custo do dia e as taxas da maquininha e mostra quanto sobrou.</p></article>
-      <article class="mini"><span class="ic"><span class="ms">history</span></span><h3>Histórico e exportação</h3><p>Filtre por período, pagamento ou local e exporte quando precisar.</p></article>
+      <article class="mini"><span class="ic"><span class="ms">savings</span></span><h3>Custo, lucro e histórico</h3><p>Desconta o custo do dia e as taxas da maquininha. Filtre por período e exporte quando precisar.</p></article>
+      <article class="mini"><span class="ic"><span class="ms">receipt</span></span><h3>Nota fiscal <span class="soon-tag">Em breve</span></h3><p>Tem CNPJ e certificado digital? O Sai aê emite a nota do pedido. Não tem? Continua usando normal, sem nota.</p></article>
       <article class="mini"><span class="ic"><span class="ms">storefront</span></span><h3>Várias barracas</h3><p>Cardápio, pedidos e histórico separados por ponto, na mesma conta.</p></article>
       <article class="mini"><span class="ic"><span class="ms">shield_person</span></span><h3>Cada um no seu lugar</h3><p>Senha de operador, senha de administrador e Face ID.</p></article>
     </div>
@@ -650,14 +673,14 @@ body{margin:0;background:#F6F5F2}
     <div class="head" style="margin-bottom:0">
       <p class="eyebrow"><i></i>Maquininha e bancos</p>
       <h2 class="h2" id="sx-pos-t">Lança, cobra e manda para a cozinha. Tudo na maquininha.</h2>
-      <p class="lead">O saiaê roda dentro da maquininha e se integra com bancos e adquirentes. Um aparelho só no balcão.</p>
+      <p class="lead">O Sai aê roda dentro da maquininha e se integra com bancos e adquirentes. Um aparelho só no balcão.</p>
       <ul class="checks">
         <li><span class="ms">check</span>Cardápio e pedidos na tela da maquininha</li>
         <li><span class="ms">check</span>Débito, crédito e Pix no mesmo fluxo do pedido</li>
         <li><span class="ms">check</span>Comanda impressa na hora</li>
         <li><span class="ms">check</span>Menos digitação, menos erro no valor cobrado</li>
       </ul>
-      <div class="hero-cta" style="margin-top:8px"><a class="btn btn--sec btn--pill btn--lg" href="#" data-link="posUrl" data-soon="O saiaê na maquininha">Quero usar na maquininha <span class="ms">arrow_forward</span></a></div>
+      <div class="hero-cta" style="margin-top:8px"><a class="btn btn--sec btn--pill btn--lg" href="#" data-link="posUrl" data-soon="O Sai aê na maquininha">Quero usar na maquininha <span class="ms">arrow_forward</span></a></div>
       <p class="pos-note"><span class="pill">Cielo</span><span class="pill">Bancos</span><span class="pill">Pix</span></p>
     </div>
     <div class="pos" aria-hidden="true">
@@ -678,13 +701,13 @@ body{margin:0;background:#F6F5F2}
   <div class="wrap">
     <div class="head">
       <p class="eyebrow"><i></i>Sem letra miúda</p>
-      <h2 class="h2" id="sx-tr-t">O que o saiaê faz, e o que ele não faz.</h2>
+      <h2 class="h2" id="sx-tr-t">O que o Sai aê faz, e o que ele não faz.</h2>
     </div>
     <div class="tr-grid">
-      <article class="tr-c tr-c--y"><span class="ic"><span class="ms">check</span></span><div><h3>Faz a operação andar</h3><p>Pedido, cozinha, senha, pagamento e relatório.</p></div></article>
-      <article class="tr-c tr-c--n"><span class="ic"><span class="ms">remove</span></span><div><h3>O que ele não faz</h3><p>Não emite nota fiscal, não é cardápio digital para o cliente e não integra com delivery.</p></div></article>
+      <article class="tr-c tr-c--y"><span class="ic"><span class="ms">check</span></span><div><h3>O que ele faz</h3><p>Pedido, cozinha, senha, pagamento e relatório. Em breve, também cardápio digital com pedido e pagamento pelo celular, e nota fiscal para quem tem certificado.</p></div></article>
+      <article class="tr-c tr-c--n"><span class="ic"><span class="ms">block</span></span><div><h3>O que ele não faz</h3><p>Não integra com aplicativos de delivery. O foco é o seu balcão e a sua fila.</p></div></article>
     </div>
-    <p class="tr-end"><span class="ms">sell</span>Por isso custa menos: você paga só pelo que usa no dia a dia.</p>
+    <p class="tr-end"><span class="ms">sell</span>Você paga só pelo que usa no dia a dia, por preço de barraca.</p>
   </div>
 </section>
 
@@ -695,7 +718,7 @@ body{margin:0;background:#F6F5F2}
       <p class="eyebrow"><i></i>Aplicativo</p>
       <h2 class="h2" id="sx-app-t">O balcão inteiro no seu bolso.</h2>
       <p class="lead">Baixe no Android e tenha caixa, cozinha e relatório na palma da mão. Prefere não instalar? Ele abre no navegador de qualquer celular.</p>
-      <div class="app-ic"><svg viewBox="0 0 196 196" role="img" aria-label="Ícone do app saiaê"><use href="#icone-cheio"/></svg><div><b>saiaê</b><small>Android e navegador</small></div></div>
+      <div class="app-ic"><svg viewBox="0 0 196 196" role="img" aria-label="Ícone do app Sai aê"><use href="#icone-cheio"/></svg><div><b>Sai aê</b><small>Android e navegador</small></div></div>
       <div class="app-act">
         <a class="gp" href="#" data-link="playStoreUrl" data-soon="O app na Google Play"><span class="ms f">shop</span><span><small>Disponível no</small><b>Google Play</b></span></a>
         <a class="btn btn--out btn--lg" href="#" data-link="loginUrl" data-soon="A versão no navegador">Usar no navegador</a>
@@ -728,6 +751,7 @@ body{margin:0;background:#F6F5F2}
       <p class="eyebrow"><i></i>Planos</p>
       <h2 class="h2" id="sx-planos-t">Preço de barraca, não de restaurante grande.</h2>
     </div>
+    <div class="launch"><span class="ms f">local_fire_department</span><span><b>Preço de lançamento:</b> 33% OFF para quem entrar agora.</span></div>
     <div class="cyc">
       <div class="cyc-in" role="radiogroup" aria-label="Ciclo de cobrança" data-cyc>
         <button type="button" role="radio" aria-checked="true" data-c="mensal">Mensal</button>
@@ -738,6 +762,7 @@ body{margin:0;background:#F6F5F2}
       <article class="plan" data-plan="essencial">
         <h3>Essencial</h3>
         <p class="plan-d">Para quem tem uma barraca e quer largar o papel.</p>
+        <p class="was" data-f="was">De <s>R$ 86,90</s> por</p>
         <div class="price"><small>R$</small><b data-f="price">57,90</b><span>/mês</span><span class="off" data-f="off" hidden></span></div>
         <p class="aux" data-f="aux" aria-live="polite">Cobrado todo mês. Sem fidelidade.</p>
         <a class="btn btn--out btn--lg btn--block" href="#" data-link="signupUrl" data-plan-cta data-soon="A assinatura do Essencial">Começar com o Essencial</a>
@@ -747,6 +772,7 @@ body{margin:0;background:#F6F5F2}
         <span class="plan-seal"><span class="ms f">star</span>MAIS COMPLETO</span>
         <h3>Pro</h3>
         <p class="plan-d">Para quem quer controle total ou tem mais de um ponto.</p>
+        <p class="was" data-f="was">De <s>R$ 131,90</s> por</p>
         <div class="price"><small>R$</small><b data-f="price">87,90</b><span>/mês</span><span class="off" data-f="off" hidden></span></div>
         <p class="aux" data-f="aux" aria-live="polite">Cobrado todo mês. Sem fidelidade.</p>
         <a class="btn btn--pri btn--lg btn--block" href="#" data-link="signupUrl" data-plan-cta data-soon="A assinatura do Pro">Quero o Pro</a>
@@ -769,8 +795,9 @@ body{margin:0;background:#F6F5F2}
     <div class="faq">
       <details><summary>Funciona em qualquer celular?<span class="ms">add</span></summary><p>Sim. Tem app para Android e também abre no navegador de qualquer celular, que você pode adicionar à tela inicial.</p></details>
       <details><summary>Precisa de internet?<span class="ms">add</span></summary><p>Sim, é a internet que liga o caixa à cozinha em tempo real. Se ela cair, o pedido fica salvo e sobe quando voltar.</p></details>
-      <details><summary>Emite nota fiscal?<span class="ms">add</span></summary><p>Não. O saiaê cuida da operação: pedido, cozinha, senha e relatório.</p></details>
-      <details><summary>Funciona na maquininha?<span class="ms">add</span></summary><p>Sim. O saiaê se integra com bancos e maquininhas, como a Cielo: você lança o pedido e recebe no mesmo aparelho.</p></details>
+      <details><summary>Emite nota fiscal?<span class="ms">add</span></summary><p>Em breve, para quem tem CNPJ e certificado digital: a nota sai junto com o pedido. Quem não emite nota continua usando o Sai aê normalmente.</p></details>
+      <details><summary>O cliente pode pedir pelo celular?<span class="ms">add</span></summary><p>Pode. Com o cardápio digital, ele lê o QR code e escolhe no seu cardápio. Em breve, também vai pagar por ali, e o pedido vai direto para a cozinha, sem passar pela fila do caixa.</p></details>
+      <details><summary>Funciona na maquininha?<span class="ms">add</span></summary><p>Sim. O Sai aê se integra com bancos e maquininhas, como a Cielo: você lança o pedido e recebe no mesmo aparelho.</p></details>
       <details><summary>Como funciona a chamada de senha?<span class="ms">add</span></summary><p>É uma tela cheia com a senha e o logo da sua barraca. Pode ficar num tablet ou numa TV.</p></details>
       <details><summary>Posso usar em mais de uma barraca?<span class="ms">add</span></summary><p>Sim, no plano Pro. Cada barraca tem seu cardápio, seus pedidos e seu histórico.</p></details>
       <details><summary>Tem teste grátis?<span class="ms">add</span></summary><p>Tem. São 3 dias para testar no seu movimento de verdade antes de escolher um plano.</p></details>
@@ -796,13 +823,13 @@ body{margin:0;background:#F6F5F2}
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <svg viewBox="0 0 224 72" role="img" aria-label="saiaê"><use href="#logo-texto" style="--sai:#F6F5F2;--ae:#FFC21A"/></svg>
+        <svg viewBox="0 0 224 72" role="img" aria-label="Sai aê"><use href="#logo-texto" style="--sai:#F6F5F2;--ae:#FFC21A"/></svg>
         <p>Pedido, cozinha e senha para feira, food truck, lanchonete e barraca.</p>
       </div>
       <div><h4>Navegação</h4><ul><li><a href="#como-funciona">Como funciona</a></li><li><a href="#planos">Planos</a></li><li><a href="#maquininha">Maquininha</a></li><li><a href="#duvidas">Dúvidas</a></li></ul></div>
       <div><h4>Comece</h4><ul><li><a href="#" data-link="trialUrl" data-soon="O teste grátis">Teste grátis</a></li><li><a href="#" data-link="playStoreUrl" data-soon="O app na Google Play">Baixar o app</a></li><li><a href="#" data-link="whatsappUrl" data-soon="O atendimento no WhatsApp">WhatsApp</a></li><li><a href="#" data-link="loginUrl" data-soon="O acesso ao sistema">Entrar</a></li></ul></div>
     </div>
-    <p class="foot-bot">© <span data-year>2026</span> saiaê. Todos os direitos reservados. Powered by AIA</p>
+    <p class="foot-bot">© <span data-year>2026</span> Sai aê. Todos os direitos reservados. Powered by AIA</p>
   </div>
 </footer>
 
@@ -811,7 +838,7 @@ body{margin:0;background:#F6F5F2}
 
 <script>
 /* ==========================================================
-   saiaê · configuração (edite só este bloco)
+   Sai aê · configuração (edite só este bloco)
    Links que começam com COLE_AQUI mostram o aviso "Em breve".
    ========================================================== */
 var SX_LINKS = {
@@ -824,15 +851,15 @@ var SX_LINKS = {
 };
 var SX_PLANS = {
   essencial: {
-    mensal: 57.90, anual: { mes: 49.22, total: 590.58, economia: 104.22, off: '15% OFF' },
+    de: 86.90, mensal: 57.90, anual: { mes: 49.22, total: 590.58, economia: 104.22, off: '15% OFF' },
     itens: ['1 barraca', 'Lançar pedido (balcão, mesa e viagem)', 'Cozinha em tempo real com cronômetro',
-            'Chamada de senha com seu logo', 'Pix, dinheiro, débito e crédito', 'Relatório do dia',
+            'Chamada de senha com seu logo', 'Pix, dinheiro, débito e crédito', 'Cardápio digital com QR code', 'Relatório do dia',
             'Histórico de 7 dias', 'Tema claro e escuro']
   },
   pro: {
-    mensal: 87.90, anual: { mes: 70.32, total: 843.84, economia: 210.96, off: '20% OFF' },
+    de: 131.90, mensal: 87.90, anual: { mes: 70.32, total: 843.84, economia: 210.96, off: '20% OFF' },
     itens: ['Tudo do Essencial', 'Várias barracas na mesma conta', 'Histórico completo e por período',
-            'Exportar relatórios', 'Custo do dia, lucro e taxas da maquininha',
+            'Exportar relatórios', 'Nota fiscal (com certificado digital, em breve)', 'Custo do dia, lucro e taxas da maquininha',
             'Mais vendidos, ritmo e pontos de atenção', 'Senha de operador e de administrador',
             'Suporte prioritário no WhatsApp']
   }
@@ -902,9 +929,12 @@ var SX_PLANS = {
         $('[data-f="aux"]', card).textContent = 'R$ ' + brl(p.anual.total) + ' por ano. Você economiza R$ ' + brl(p.anual.economia) + '.';
       } else {
         $('[data-f="price"]', card).textContent = brl(p.mensal);
-        off.hidden = true;
+        off.textContent = '33% OFF'; off.hidden = false;
         $('[data-f="aux"]', card).textContent = 'Cobrado todo mês. Sem fidelidade.';
       }
+      var was = $('[data-f="was"]', card);
+      was.innerHTML = 'De <s>R$ ' + brl(p.de) + '</s> por';
+      was.style.visibility = cycle === 'anual' ? 'hidden' : '';
       var ul = $('[data-f="itens"]', card);
       if (!ul.children.length) {
         ul.innerHTML = p.itens.map(function (t) { return '<li><span class="ms f">check_circle</span><span>' + t + '</span></li>'; }).join('');
