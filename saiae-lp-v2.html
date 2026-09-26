@@ -468,8 +468,8 @@ body{margin:0;background:#F6F5F2}
 @media (min-width:1024px){#saiae-lp .phones{grid-template-columns:repeat(4,1fr);gap:24px}}
 #saiae-lp .phone{margin:0;display:flex;flex-direction:column;align-items:center;gap:12px}
 #saiae-lp .phone figcaption{font-family:var(--fd);font-weight:700;font-size:16px;text-align:center}
-#saiae-lp .phone-scr{width:100%;max-width:240px;aspect-ratio:9/19;border-radius:32px;border:8px solid var(--t900);background:var(--t0);box-shadow:var(--sh-lg);overflow:hidden;position:relative}
-#saiae-lp .phone-scr img{width:100%;height:100%;object-fit:cover;display:block}
+#saiae-lp .phone-scr{width:100%;max-width:240px;aspect-ratio:540/1168;border-radius:32px;border:8px solid var(--t900);background:var(--t900);box-shadow:var(--sh-lg);overflow:hidden;position:relative}
+#saiae-lp .phone-scr img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;background:var(--t900)}
 #saiae-lp .ph-scr{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:12px;color:var(--t500);background:repeating-linear-gradient(135deg,var(--t50) 0 12px,var(--t0) 12px 24px);font-size:13px}
 #saiae-lp .ph-scr .ms{font-size:36px;color:var(--t400)}
 /* comparação */
@@ -721,10 +721,10 @@ body{margin:0;background:#F6F5F2}
       <p class="lead">Poucas telas, botões grandes e tudo na ordem certa.</p>
     </div>
     <div class="phones">
-      <figure class="phone"><div class="phone-scr ph-scr" data-print="lancar"><span class="ms">smartphone</span><b>Print: Lançar pedido</b></div><figcaption>Lance o pedido</figcaption></figure>
-      <figure class="phone"><div class="phone-scr ph-scr" data-print="pagamento"><span class="ms">smartphone</span><b>Print: Pagamento</b></div><figcaption>Receba no Pix ou cartão</figcaption></figure>
-      <figure class="phone"><div class="phone-scr ph-scr" data-print="cozinha"><span class="ms">smartphone</span><b>Print: Cozinha</b></div><figcaption>A cozinha vê na hora</figcaption></figure>
-      <figure class="phone"><div class="phone-scr ph-scr" data-print="relatorio"><span class="ms">smartphone</span><b>Print: Relatório</b></div><figcaption>Feche o dia</figcaption></figure>
+      <figure class="phone"><div class="phone-scr"><img src="img/app-inicio.jpg" alt="Tela inicial do Sai aê com os módulos Caixa, Cozinha, Chamada e Histórico" loading="lazy" width="540" height="1168"></div><figcaption>Tudo a um toque</figcaption></figure>
+      <figure class="phone"><div class="phone-scr"><img src="img/app-lancar.jpg" alt="Tela Lançar pedido com os mais pedidos e botão Adicionar" loading="lazy" width="540" height="1168"></div><figcaption>Lance o pedido</figcaption></figure>
+      <figure class="phone"><div class="phone-scr"><img src="img/app-cozinha.jpg" alt="Tela da Cozinha com pedidos no prazo e botão Pronto" loading="lazy" width="540" height="1168"></div><figcaption>A cozinha vê na hora</figcaption></figure>
+      <figure class="phone"><div class="phone-scr"><img src="img/app-historico.jpg" alt="Tela Histórico com comandas do dia e botão Emitir nota fiscal" loading="lazy" width="540" height="1168"></div><figcaption>Histórico e nota fiscal</figcaption></figure>
     </div>
   </div>
 </section>
