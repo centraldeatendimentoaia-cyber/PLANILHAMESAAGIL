@@ -842,7 +842,7 @@ body{margin:0;background:#F6F5F2}
    Links que começam com COLE_AQUI mostram o aviso "Em breve".
    ========================================================== */
 var SX_LINKS = {
-  trialUrl: 'https://mesaagil.pages.dev/cadastro',
+  trialUrl: 'raio-x.html',                          // Raio-X do Negócio (teste que libera os 7 dias grátis)
   signupUrl: 'https://mesaagil.pages.dev/assinar',   // recebe ?plano=essencial|pro&ciclo=mensal|anual
   loginUrl: 'https://mesaagil.pages.dev',
   playStoreUrl: 'COLE_AQUI_LINK_GOOGLE_PLAY',
@@ -897,7 +897,7 @@ var SX_PLANS = {
   function paintLinks() {
     $$('[data-link]').forEach(function (a) {
       var u = linkFor(a);
-      if (u) { a.href = u; a.target = '_blank'; a.rel = 'noopener'; } else { a.href = '#'; a.removeAttribute('target'); }
+      if (u) { a.href = u; if (/^https?:/.test(u)) { a.target = '_blank'; a.rel = 'noopener'; } else a.removeAttribute('target'); } else { a.href = '#'; a.removeAttribute('target'); }
     });
   }
   root.addEventListener('click', function (e) {
