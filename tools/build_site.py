@@ -7,7 +7,7 @@ OUT = ROOT / 'site'
 OUT.mkdir(exist_ok=True)
 
 # Endereço público do site. Troque para 'https://saiae.com.br' quando o domínio estiver ativo.
-SITE_URL = 'https://saiae-site.vercel.app'
+SITE_URL = 'https://saiae.com.br'
 TITLE = 'Sai aê · Pedido, cozinha e senha para feira, food truck e lanchonete'
 DESC = ('Teste 7 dias grátis. O pedido sai do caixa direto pra cozinha e a senha aparece na TV. '
         'Feito pra feira, food truck e lanchonete, por preço de barraca.')
