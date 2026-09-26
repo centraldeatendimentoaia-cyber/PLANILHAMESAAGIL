@@ -183,6 +183,9 @@ button,input{font-family:inherit}
   // Deixe vazio ("") enquanto não existir: o botão mostra "em breve".
   var PLANILHA_URL = "planilha-controle-vendas-sai-ae.xlsx";   // arquivo publicado junto do site
   var CADASTRO_URL = "";   // tela de cadastro do aplicativo
+  // Planilha de contatos (Google Apps Script publicado como App da Web). Vazio = não grava.
+  var PLANILHA_LEADS_URL = "";
+  var PLANILHA_LEADS_TOKEN = "saiae-raiox-2026";
 
   var ms = function(n, f){ return '<span class="ms' + (f ? ' f' : '') + '" aria-hidden="true">' + n + '</span>'; };
   var ICONS = {
@@ -465,13 +468,35 @@ button,input{font-family:inherit}
       }
       answers.nome = nome;
       answers.whatsapp = whats;
+      saveLead();
       goNext();
     }
     btn.addEventListener("click", submit);
     whatsInput.addEventListener("keydown", function(e){ if (e.key === "Enter") submit(); });
     bottom.appendChild(btn);
+    bottom.appendChild(h("p", {class:"footNote"}, [document.createTextNode("Ao continuar, você concorda em receber seu diagnóstico e o contato do Sai aê pelo WhatsApp.")]));
     wrap.appendChild(bottom);
     return wrap;
+  }
+
+  // Grava o contato na planilha do Google. Nunca trava o teste: se falhar, a pessoa segue normalmente.
+  function saveLead(){
+    if (!PLANILHA_LEADS_URL) return;
+    var diag = computeDiagnosis(answers);
+    var q = new URLSearchParams(location.search);
+    var payload = {
+      token: PLANILHA_LEADS_TOKEN,
+      nome: answers.nome, whatsapp: answers.whatsapp,
+      tipo: LABELS.tipo[answers.tipo], pedidos: LABELS.pedidos[answers.pedidos], ticket: LABELS.ticket[answers.ticket],
+      anota: LABELS.anota[answers.anota], erros: LABELS.erros[answers.erros], fila: LABELS.fila[answers.fila],
+      potencial: Math.round(diag.potencial), faturamento: Math.round(diag.faturamentoMensal),
+      origem: q.get("utm_source") || document.referrer || "direto",
+      campanha: q.get("utm_campaign") || ""
+    };
+    try {
+      fetch(PLANILHA_LEADS_URL, { method:"POST", mode:"no-cors", keepalive:true,
+        headers:{ "Content-Type":"text/plain;charset=utf-8" }, body: JSON.stringify(payload) }).catch(function(){});
+    } catch(e){}
   }
 
   function animateCount(el, target){
