@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Gera a planilha financeira do Mesa Ágil (Mesa_Agil_Financeiro.xlsx).
 
-Estrutura inspirada na planilha Precifica Beleza Premium; cores do design system do app
+Estrutura inspirada na planilha Precifica Beleza Premium; cores do design system Saiaê
 (esmeralda = marca/positivo, slate = texto, âmbar = células que você preenche, vermelho = negativo).
 Rode:  python3 gerar_planilha.py
 """
@@ -26,9 +26,9 @@ wb.remove(wb.active)
 # ====================================================================== COMECE AQUI
 guia = base(wb, "Comece Aqui", "MESA ÁGIL  ·  PLANEJAMENTO FINANCEIRO  ·  GUIA RÁPIDO", "C", MARCA,
             larguras={"B": 12, "C": 100, "D": 18})
-botao(guia, "D2", "▦ DASHBOARD →", "#'Dashboard'!A1", AMBAR_CTA, "FFFFFF")
+botao(guia, "D2", "▦ DASHBOARD →", "#'Dashboard'!A1", AMBAR_CTA, PRETO)
 passos = [
-    ("PREMISSAS — preços dos planos (já vêm do escopo), cenários de venda, custos variáveis, marketing e custos fixos. Os campos VERDE-CLAROS você edita.", "Premissas"),
+    ("PREMISSAS — preços dos planos (já vêm do escopo), cenários de venda, custos variáveis, marketing e custos fixos. Os campos AMARELO-CLAROS você edita.", "Premissas"),
     ("PREMISSAS › Cenário em uso — escolha Pessimista, Realista ou Otimista. Projeção, Fluxo de Caixa, Unit Economics e Dashboard passam a usar esse cenário.", "Premissas"),
     ("PROJEÇÃO 24 MESES — clientes (novos, cancelados, ativos por plano), MRR, ARR, ticket médio, custos, margem bruta e lucro líquido mês a mês.", "Projeção 24 meses"),
     ("FLUXO DE CAIXA — separa o dinheiro das mensalidades do dinheiro do plano anual (que entra de uma vez) e mostra a receita anual ainda a reconhecer.", "Fluxo de Caixa"),
@@ -39,17 +39,17 @@ passos = [
 ]
 for k, (txt, aba) in enumerate(passos):
     r = 4 + k
-    put(guia, f"B{r}", f"{k + 1:02d}", 12, True, VERDE)
+    put(guia, f"B{r}", f"{k + 1:02d}", 14, True, MOSTARDA_700, fam=F_DISPLAY)
     put(guia, f"C{r}", txt, 11, wrap=True, borda=borda_linha)
-    botao(guia, f"D{r}", "ABRIR  →", f"#'{aba}'!A1", CARD, VERDE, borda=CLARO)
+    botao(guia, f"D{r}", "ABRIR  →", f"#'{aba}'!A1", CARD, PRETO, borda=CLARO)
     guia.row_dimensions[r].height = 34
 r = 4 + len(passos) + 1
-put(guia, f"B{r}", "IMPORTANTE", 9, True, "D97706")
-put(guia, f"C{r}", "Só os PREÇOS dos planos vieram do escopo. Todos os outros campos verde-claros (clientes, churn, mix, custos, marketing) "
+put(guia, f"B{r}", "IMPORTANTE", 9, True, ATN_TXT)
+put(guia, f"C{r}", "Só os PREÇOS dos planos vieram do escopo. Todos os outros campos amarelo-claros (clientes, churn, mix, custos, marketing) "
     "são EXEMPLOS estimados para a planilha já sair funcionando — troque pelos seus dados reais.", 9, cor=GRAFITE, wrap=True)
 guia.row_dimensions[r].height = 30
 put(guia, f"B{r + 2}", "CORES", 9, True, GRAFITE)
-put(guia, f"C{r + 2}", "Campos VERDE-CLAROS com borda verde = você preenche (clique neles para ver uma dica).  Células brancas = cálculo automático, não digite por cima.  "
+put(guia, f"C{r + 2}", "Campos AMARELO-CLAROS com borda mostarda = você preenche (clique neles para ver uma dica).  Células brancas = cálculo automático, não digite por cima.  "
     "Vermelho = resultado negativo.  Verde = resultado positivo.", 9, cor=GRAFITE, wrap=True)
 guia.row_dimensions[r + 2].height = 30
 put(guia, f"B{r + 4}", "COMO LER", 9, True, GRAFITE)
@@ -60,8 +60,8 @@ put(guia, f"C{r + 6}", "Mesa Ágil (Powered by AIA) · comanda digital SaaS para
     9, cor=GRAFITE)
 
 # ====================================================================== PREMISSAS
-pr = base(wb, "Premissas", "PREMISSAS  ·  TODOS OS CAMPOS EDITÁVEIS", "G", "D97706",
-          "Campos VERDE-CLAROS = você preenche. Preços dos planos vieram do escopo; o restante são exemplos para substituir pelos seus números.",
+pr = base(wb, "Premissas", "PREMISSAS  ·  TODOS OS CAMPOS EDITÁVEIS", "G", MOSTARDA_600,
+          "Campos AMARELO-CLAROS = você preenche. Preços dos planos vieram do escopo; o restante são exemplos para substituir pelos seus números.",
           {"B": 46, "C": 15, "D": 15, "E": 15, "F": 15, "G": 60})
 
 secao(pr, "B5", "GERAL")
@@ -604,7 +604,7 @@ def grafico_linhas(ws, titulo, c1, c2, r_ini, r_fim, cat_col, ancora, fmt_y, cor
     return ch
 
 
-CORES3 = [VERMELHO, PRETO, VERDE]
+CORES3 = [ERR_COR, SERIE1, OK_COR]
 TRACOS3 = ["dash", None, None]
 grafico_linhas(ce, "MRR por cenário", 3, 5, gd1, gd2, 2, "G5", '"R$ "#,##0', CORES3, TRACOS3)
 grafico_linhas(ce, "Clientes ativos por cenário", 6, 8, gd1, gd2, 2, "G21", "#,##0", CORES3, TRACOS3)
@@ -617,9 +617,9 @@ for c in range(2, 19):
     larg_db[L(c)] = 3 if (c - 1) % 3 == 0 else 12
 db = base(wb, "Dashboard", "", "R", MARCA, larguras=larg_db)
 db["B2"].value = '="DASHBOARD  ·  "&UPPER(Premissas!$C$6)&"  ·  CENÁRIO "&UPPER(Premissas!$C$9)'
-db["B2"].font = font(16, True, "FFFFFF")
+db["B2"].font = font(18, True, "FFFFFF", fam=F_DISPLAY)
 put(db, "B3", "Tudo automático, sempre no cenário em uso. Para trocar o cenário ou os números, vá em Premissas.", 9, cor=GRAFITE)
-botao(db, "Q3", "Premissas  →", "#'Premissas'!C9", AMBAR_CTA, "FFFFFF", mescla="Q3:R3")
+botao(db, "Q3", "Premissas  →", "#'Premissas'!C9", AMBAR_CTA, PRETO, mescla="Q3:R3")
 
 VPJ = lambda k, r: f"'{PJ}'!${mapa[k][1]}${r}"
 
@@ -653,7 +653,7 @@ put(db, "P15", "='Unit Economics'!$C$33", 9, cor=GRAFITE, fmt='"meta: "#,##0" cl
 db.row_dimensions[15].height = 30
 card(db, "B", "R", 15, 15)
 db.conditional_formatting.add("H15", FormulaRule(formula=["$O$15>=1"], font=Font(color=VERDE)))
-db.conditional_formatting.add("H15", FormulaRule(formula=["$O$15<1"], font=Font(color=AMBAR)))
+db.conditional_formatting.add("H15", FormulaRule(formula=["$O$15<1"], font=Font(color=MOSTARDA_600)))
 db.conditional_formatting.add("O15", FormulaRule(formula=["$O$15>=1"], font=Font(color=VERDE)))
 
 secao(db, "B17", "EVOLUÇÃO EM 24 MESES")
@@ -674,27 +674,27 @@ cats = Reference(pj, min_col=openpyxl_col(mapa["mes"][1]), min_row=FR, max_row=L
 colpj = lambda k: openpyxl_col(mapa[k][1])
 
 c1 = novo("line", "MRR × custos totais", '"R$ "#,##0')
-serie_ref(c1, pj, colpj("mrr"), VERDE)
-serie_ref(c1, pj, colpj("custot"), AMBAR, traco="dash")
+serie_ref(c1, pj, colpj("mrr"), SERIE1)
+serie_ref(c1, pj, colpj("custot"), PRETO, traco="dash")
 c1.set_categories(cats)
 db.add_chart(c1, "B18")
 
 c2 = novo("bar", "Clientes ativos", "#,##0")
-serie_ref(c2, pj, colpj("ativos"), VERDE, tipo="bar")
+serie_ref(c2, pj, colpj("ativos"), SERIE_BAR, tipo="bar")
 c2.set_categories(cats)
 c2.legend = None
 db.add_chart(c2, "K18")
 
 c3 = novo("bar", "Lucro líquido mensal", '"R$ "#,##0')
-s3 = serie_ref(c3, pj, colpj("lucro"), VERDE, tipo="bar")
+s3 = serie_ref(c3, pj, colpj("lucro"), SERIE_BAR, tipo="bar")
 s3.invertIfNegative = False
 c3.set_categories(cats)
 c3.legend = None
 db.add_chart(c3, "B35")
 
 c4 = novo("line", "Caixa: entradas × saldo acumulado", '"R$ "#,##0')
-serie_ref(c4, fc, openpyxl_col(mapa["cxin"][1]), AMBAR, traco="dash")
-serie_ref(c4, fc, openpyxl_col(mapa["cxac"][1]), VERDE)
+serie_ref(c4, fc, openpyxl_col(mapa["cxin"][1]), PRETO, traco="dash")
+serie_ref(c4, fc, openpyxl_col(mapa["cxac"][1]), SERIE1)
 c4.set_categories(Reference(fc, min_col=3, min_row=FR, max_row=LR))
 db.add_chart(c4, "K35")
 
@@ -713,10 +713,10 @@ for k, (cond, ruim, bom) in enumerate(alertas):
     put(db, f"B{r}", f'=IF({L(AUXA)}{r},"✖   {ruim}","✔   {bom}")', 11, True, al="left")
     db.row_dimensions[r].height = 26
     # selo (pill): vermelho-claro ou esmeralda-claro, como os chips do app
-    db.conditional_formatting.add(f"B{r}:R{r}", FormulaRule(formula=[f"${L(AUXA)}${r}"], font=Font(color="991B1B", bold=True),
-                                                            fill=fill("FEF2F2"), border=Border(bottom=Side("thin", color="FCA5A5"), top=Side("thin", color="FCA5A5"))))
-    db.conditional_formatting.add(f"B{r}:R{r}", FormulaRule(formula=[f"NOT(${L(AUXA)}${r})"], font=Font(color="065F46", bold=True),
-                                                            fill=fill("ECFDF5"), border=Border(bottom=Side("thin", color="10B981"), top=Side("thin", color="10B981"))))
+    db.conditional_formatting.add(f"B{r}:R{r}", FormulaRule(formula=[f"${L(AUXA)}${r}"], font=Font(color=ERR_TXT, bold=True),
+                                                            fill=fill(ERR_BG), border=Border(bottom=Side("thin", color=ERR_COR), top=Side("thin", color=ERR_COR))))
+    db.conditional_formatting.add(f"B{r}:R{r}", FormulaRule(formula=[f"NOT(${L(AUXA)}${r})"], font=Font(color=OK_TXT, bold=True),
+                                                            fill=fill(OK_BG), border=Border(bottom=Side("thin", color=OK_COR), top=Side("thin", color=OK_COR))))
 db.column_dimensions[L(AUXA)].hidden = True
 
 

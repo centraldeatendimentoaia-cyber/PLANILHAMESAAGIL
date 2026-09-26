@@ -3,7 +3,7 @@
 
 Para a rotina do dia a dia: 4 abas, ~15 campos para preencher uma vez e 6 números por mês.
 A versão completa (gerar_planilha.py) continua para apresentar a sócio/investidor.
-Mesmo visual: estilo_app.py (design system do app).
+Mesmo visual: estilo_app.py (design system Saiaê).
 Rode:  python3 gerar_planilha_enxuta.py
 """
 import datetime as dt
@@ -30,7 +30,7 @@ wb.remove(wb.active)
 
 # ====================================================================== PREMISSAS
 pr = base(wb, PR, "PREMISSAS  ·  PREENCHA UMA VEZ", "G", AMBAR_CTA,
-          "Campos VERDE-CLAROS = você preenche. Preços vieram do escopo; o resto são exemplos para trocar pelos seus números.",
+          "Campos AMARELO-CLAROS = você preenche. Preços vieram do escopo; o resto são exemplos para trocar pelos seus números.",
           {"B": 46, "C": 15, "D": 15, "E": 15, "F": 15, "G": 56}, **NAV)
 
 secao(pr, "B5", "GERAL")
@@ -176,7 +176,7 @@ pj.freeze_panes = "D6"
 
 # ====================================================================== MEU MÊS
 mm = base(wb, MM, "MEU MÊS  ·  O QUE ACONTECEU DE VERDADE", "N", GRAFITE,
-          "No fim de cada mês, preencha os 6 campos verde-claros da linha do mês. O resto compara com a projeção sozinho.",
+          "No fim de cada mês, preencha os 6 campos amarelo-claros da linha do mês. O resto compara com a projeção sozinho.",
           {"B": 7, "C": 10, **{L(c): 14 for c in range(4, 15)}}, **NAV)
 mm.merge_cells("D4:I4")
 put(mm, "D4", "VOCÊ LANÇA", 9, True, "FFFFFF", bg=MARCA_2, al="center")
@@ -198,7 +198,7 @@ for r in range(FR, LR + 1):
     put(mm, f"N{r}", f'=IF(OR(G{r}="",H{r}=""),"",G{r}-H{r})', fmt=MOEDA, borda=borda_linha, b=True)
 cor_condicional(mm, f"K{FR}:K{LR}", f"AND(ISNUMBER(K{FR}),K{FR}<-0.1)", f"AND(ISNUMBER(K{FR}),K{FR}>=0)")
 cor_condicional(mm, f"N{FR}:N{LR}", f"AND(ISNUMBER(N{FR}),N{FR}<0)", f"AND(ISNUMBER(N{FR}),N{FR}>0)")
-put(mm, f"B{LR + 2}", "A linha do mês 1 é um EXEMPLO de preenchimento — apague e lance os seus números.", 9, True, AMBAR_CTA)
+put(mm, f"B{LR + 2}", "A linha do mês 1 é um EXEMPLO de preenchimento — apague e lance os seus números.", 9, True, ATN_TXT)
 put(mm, f"B{LR + 3}", "Churn real = cancelados ÷ clientes no início do mês.  CAC real = anúncios ÷ novos clientes.  "
     "Real × projetado em vermelho = mais de 10% abaixo do planejado.", 9, cor=GRAFITE)
 for ref, t, txt in [
@@ -216,13 +216,13 @@ mm.freeze_panes = "D6"
 TILES = [2, 5, 8, 11, 14, 17]
 db = base(wb, PAINEL, "", "R", MARCA, larguras={L(c): (3 if (c - 1) % 3 == 0 else 12) for c in range(2, 19)}, **NAV)
 db["B2"].value = '="MESA ÁGIL  ·  PAINEL  ·  CENÁRIO "&UPPER(Premissas!$C$8)'
-db["B2"].font = font(16, True, "FFFFFF")
+db["B2"].font = font(18, True, "FFFFFF", fam=F_DISPLAY)
 botao(db, "B1", "⚙  Premissas", f"#'{PR}'!A1", CARD, PRETO, mescla="B1:C1", borda=CLARO)
 botao(db, "E1", "✎  Meu Mês", f"#'{MM}'!A1", CARD, PRETO, mescla="E1:F1", borda=CLARO)
 botao(db, "H1", "↗  Projeção", f"#'{PJ}'!A1", CARD, PRETO, mescla="H1:I1", borda=CLARO)
 put(db, "B3", "Como usar:  1) Premissas — ajuste uma vez.   2) Meu Mês — no fim de cada mês, lance 6 números.   3) Painel — veja se está no rumo.",
     9, cor=GRAFITE)
-botao(db, "Q3", "Lançar o mês  →", f"#'{MM}'!D6", AMBAR_CTA, "FFFFFF", mescla="Q3:R3")
+botao(db, "Q3", "Lançar o mês  →", f"#'{MM}'!D6", AMBAR_CTA, PRETO, mescla="Q3:R3")
 
 P_ = lambda col, r: f"'{PJ}'!${col}${r}"
 M_ = lambda col: f"'{MM}'!${col}${FR}:${col}${LR}"
@@ -265,16 +265,16 @@ g1.add_data(Reference(pj, min_col=6, min_row=FR, max_row=LR))
 estilo_serie(g1.series[-1], CINZA, "dash", 28000)
 g1.series[-1].tx = SeriesLabel(v="Plano")
 g1.add_data(Reference(mm, min_col=4, min_row=FR, max_row=LR))
-estilo_serie(g1.series[-1], VERDE, None, 32000)
+estilo_serie(g1.series[-1], SERIE1, None, 32000)
 g1.series[-1].tx = SeriesLabel(v="Real")
 g1.series[-1].marker.symbol = "circle"
 g1.series[-1].marker.size = 6
-g1.series[-1].marker.graphicalProperties = GraphicalProperties(solidFill=VERDE, ln=LineProperties(solidFill=VERDE))
+g1.series[-1].marker.graphicalProperties = GraphicalProperties(solidFill=PRETO, ln=LineProperties(solidFill=PRETO))
 g1.set_categories(cats)
 db.add_chart(g1, "B16")
 g2 = novo("line", "Caixa acumulado (plano)", '"R$ "#,##0')
 g2.add_data(Reference(pj, min_col=11, min_row=5, max_row=LR), titles_from_data=True)
-estilo_serie(g2.series[-1], VERDE, None, 28000)
+estilo_serie(g2.series[-1], SERIE1, None, 28000)
 g2.set_categories(cats)
 g2.legend = None
 db.add_chart(g2, "K16")
@@ -296,11 +296,11 @@ for k, (cond, ruim, bom) in enumerate(alertas):
     put(db, f"B{r}", f'=IF({L(AUX)}{r},"✖   {ruim}","✔   {bom}")', 11, True, al="left")
     db.row_dimensions[r].height = 26
     db.conditional_formatting.add(f"B{r}:R{r}", FormulaRule(
-        formula=[f"${L(AUX)}${r}"], font=Font(color="991B1B", bold=True), fill=fill("FEF2F2"),
-        border=Border(top=Side("thin", color="FCA5A5"), bottom=Side("thin", color="FCA5A5"))))
+        formula=[f"${L(AUX)}${r}"], font=Font(color=ERR_TXT, bold=True), fill=fill(ERR_BG),
+        border=Border(top=Side("thin", color=ERR_COR), bottom=Side("thin", color=ERR_COR))))
     db.conditional_formatting.add(f"B{r}:R{r}", FormulaRule(
-        formula=[f"NOT(${L(AUX)}${r})"], font=Font(color="065F46", bold=True), fill=fill("ECFDF5"),
-        border=Border(top=Side("thin", color="10B981"), bottom=Side("thin", color="10B981"))))
+        formula=[f"NOT(${L(AUX)}${r})"], font=Font(color=OK_TXT, bold=True), fill=fill(OK_BG),
+        border=Border(top=Side("thin", color=OK_COR), bottom=Side("thin", color=OK_COR))))
 db.column_dimensions[L(AUX)].hidden = True
 put(db, "B38", "Quer mais detalhe (plano anual separado, unit economics por plano, três cenários lado a lado)? "
     "Use a versão completa: Mesa_Agil_Financeiro.xlsx.", 9, cor=GRAFITE)

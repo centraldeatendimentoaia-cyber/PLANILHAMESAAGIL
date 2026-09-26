@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
-"""Estilo compartilhado das planilhas do Mesa Ágil — design system do app
-(Space Grotesk, canvas #F8FAFC, cards brancos com borda slate, esmeralda = marca/positivo,
-vermelho = negativo, âmbar = ação, campos editáveis no estilo "chip selecionado")."""
+"""Estilo compartilhado das planilhas do Mesa Ágil — design system Saiaê v1.0.
+
+Mostarda #FFC21A = cor principal (um destaque por tela; texto sobre mostarda é sempre tinta),
+tinta #18171C = texto e fundos escuros, papel #F6F5F2 = fundo, branco = superfícies.
+Outfit (títulos e números) + Figtree (interface). Status: no prazo / atenção / atrasado / info."""
 from openpyxl.chart import BarChart, LineChart
 from openpyxl.formatting.rule import FormulaRule
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
@@ -9,14 +11,26 @@ from openpyxl.utils import get_column_letter as L
 from openpyxl.worksheet.datavalidation import DataValidation
 from openpyxl.cell.cell import MergedCell
 
-# ---------------------------------------------------------------- estilo (design system do app)
-PRETO, GRAFITE, CINZA, CLARO, LINHA = "0F172A", "64748B", "94A3B8", "CBD5E1", "E2E8F0"  # slate 900/500/400/300/200
-MARCA, MARCA_2 = "006948", "00855D"            # primary / primary-container
-VERDE, VERMELHO = "059669", "EF4444"           # completo / urgente
-AMBAR, AMBAR_CTA = "F59E0B", "D97706"          # ação / CTA
-CANVAS, SUB, CARD = "F8FAFC", "F1F5F9", "FFFFFF"  # nível 0, sub-canvas, nível 1 (cards)
-INPUT, INPUT_TXT, INPUT_BORDA = "ECFDF5", "065F46", "10B981"  # chip selecionado = campo editável
-F = "Space Grotesk"   # tipografia do app (gratuita no Google Fonts)
+# ---------------------------------------------------------------- tokens Saiaê v1.0
+# tinta (neutros)
+PRETO, GRAFITE, CINZA, CLARO, LINHA = "18171C", "5E5C66", "8A8893", "B5B3BB", "D9D7DC"  # 900/500/400/300/200
+MARCA, MARCA_2 = "18171C", "2E2C35"            # barra de título (tinta 900) / faixas de grupo (tinta 700)
+# mostarda
+MOSTARDA, MOSTARDA_600, MOSTARDA_700, MOSTARDA_50 = "FFC21A", "E6A800", "B38300", "FFF8E1"
+AMBAR_CTA = MOSTARDA                           # botão primário (um por tela), texto sempre tinta
+# status semânticos: cor / fundo / texto
+OK_COR, OK_BG, OK_TXT = "1FBF6A", "E3F7EC", "0E7A40"        # no prazo (positivo)
+ATN_COR, ATN_BG, ATN_TXT = "FF8A1C", "FFF0E0", "A34E00"     # atenção
+ERR_COR, ERR_BG, ERR_TXT = "F0412F", "FDE7E4", "B22514"     # atrasado / erro (negativo)
+INFO_COR, INFO_BG, INFO_TXT = "2F7BF5", "E6F0FE", "1A4FA8"  # info
+VERDE, VERMELHO, AMBAR = OK_TXT, ERR_TXT, ATN_COR           # texto positivo / negativo (contraste AA)
+# superfícies
+CANVAS, SUB, CARD = "F6F5F2", "ECEAE6", "FFFFFF"            # papel 50 / tinta 100 / branco
+INPUT, INPUT_TXT, INPUT_BORDA = MOSTARDA_50, PRETO, MOSTARDA_600  # campo que você preenche
+# gráficos
+SERIE1, SERIE_BAR = MOSTARDA_600, MOSTARDA
+# tipografia (gratuitas no Google Fonts)
+F, F_DISPLAY = "Figtree", "Outfit"
 
 MOEDA = '"R$ "#,##0.00;"-R$ "#,##0.00;"-"'
 MOEDA0 = '"R$ "#,##0;"-R$ "#,##0;"R$ 0"'
@@ -34,14 +48,19 @@ borda_linha = Border(left=_s(LINHA), right=_s(LINHA), top=_s(LINHA), bottom=_s(L
 borda_total = Border(left=_s(LINHA), right=_s(LINHA), top=Side("medium", color=CLARO), bottom=_s(LINHA))
 
 
-def font(sz=11, b=False, cor=PRETO, i=False):
-    return Font(name=F, size=sz, bold=b, color=cor, italic=i)
+def openpyxl_col(letra):
+    from openpyxl.utils import column_index_from_string
+    return column_index_from_string(letra)
 
 
-def put(ws, ref, valor, sz=11, b=False, cor=PRETO, fmt=None, bg=None, al=None, borda=None, wrap=False, i=False):
+def font(sz=11, b=False, cor=PRETO, i=False, fam=None):
+    return Font(name=fam or F, size=sz, bold=b, color=cor, italic=i)
+
+
+def put(ws, ref, valor, sz=11, b=False, cor=PRETO, fmt=None, bg=None, al=None, borda=None, wrap=False, i=False, fam=None):
     c = ws[ref]
     c.value = valor
-    c.font = font(sz, b, cor, i)
+    c.font = font(sz, b, cor, i, fam)
     if fmt:
         c.number_format = fmt
     if bg:
@@ -55,12 +74,12 @@ def put(ws, ref, valor, sz=11, b=False, cor=PRETO, fmt=None, bg=None, al=None, b
 
 
 def entrada(ws, ref, valor, fmt=None, al="right"):
-    """Célula CINZA: o usuário preenche."""
+    """Campo que você preenche: fundo mostarda 50, borda mostarda 600, texto tinta."""
     return put(ws, ref, valor, cor=INPUT_TXT, b=True, fmt=fmt, bg=INPUT, al=al, borda=borda_input)
 
 
 def botao(ws, ref, texto, link, bg, cor, mescla=None, borda=None):
-    """Botão no estilo do app: CTA (esmeralda/âmbar) ou secundário (branco com borda slate)."""
+    """Botão: primário (mostarda, texto tinta) ou secundário (branco com borda tinta 300)."""
     if mescla:
         ws.merge_cells(mescla)
     c = put(ws, ref, texto, 10, True, cor, bg=bg, al="center")
@@ -78,7 +97,7 @@ def dica(ws, ref, titulo, texto):
 
 def base(wb, nome, titulo, ultima_col, aba_cor, subtitulo=None, larguras=None,
          inicio=("⌂  Início", "Comece Aqui"), painel=("▦  Dashboard", "Dashboard")):
-    """Aba no padrão do app: botões de navegação, barra de título esmeralda e subtítulo."""
+    """Aba no padrão Saiaê: botões de navegação, barra de título tinta com filete mostarda e subtítulo."""
     ws = wb.create_sheet(nome)
     ws.sheet_view.showGridLines = False
     ws.sheet_properties.tabColor = aba_cor
@@ -91,15 +110,18 @@ def base(wb, nome, titulo, ultima_col, aba_cor, subtitulo=None, larguras=None,
             botao(ws, "C1", painel[0], f"#'{painel[1]}'!A1", CARD, PRETO, borda=CLARO)
     ws.row_dimensions[1].height = 24
     ws.merge_cells(f"B2:{ultima_col}2")
-    put(ws, "B2", titulo, 14, True, "FFFFFF", bg=MARCA, al="left")
-    ws.row_dimensions[2].height = 38
+    put(ws, "B2", titulo, 16, True, "FFFFFF", bg=MARCA, al="left", fam=F_DISPLAY)
+    ws["B2"].alignment = Alignment(horizontal="left", vertical="center", indent=1)
+    for cc in range(2, openpyxl_col(ultima_col) + 1):
+        ws.cell(2, cc).border = Border(bottom=Side("thick", color=MOSTARDA))
+    ws.row_dimensions[2].height = 42
     if subtitulo:
         put(ws, "B3", subtitulo, 9, cor=GRAFITE)
     return ws
 
 
 def secao(ws, ref, texto):
-    put(ws, ref, texto, 9, True, MARCA)
+    put(ws, ref, texto, 11, True, PRETO, fam=F_DISPLAY)
 
 
 def cabecalho(ws, linha, col_ini, textos, altura=30):
@@ -131,7 +153,7 @@ def estilo_grafico(ch, titulo, fmt_y):
     from openpyxl.chart.title import Title
     from openpyxl.chart.text import Text
     from openpyxl.drawing.text import RegularTextRun
-    ct = CharacterProperties(latin=DFont(typeface=F), sz=1100, b=True, solidFill=PRETO)
+    ct = CharacterProperties(latin=DFont(typeface=F_DISPLAY), sz=1200, b=True, solidFill=PRETO)
     ch.title = Title(tx=Text(rich=RichText(p=[Paragraph(pPr=ParagraphProperties(defRPr=ct), r=[RegularTextRun(rPr=ct, t=titulo)])])),
                      overlay=False)
     ch.plot_visible_only = False
@@ -148,13 +170,8 @@ def estilo_grafico(ch, titulo, fmt_y):
     ch.txPr = RichText(p=[Paragraph(pPr=ParagraphProperties(defRPr=cp), endParaRPr=cp)])
 
 
-def openpyxl_col(letra):
-    from openpyxl.utils import column_index_from_string
-    return column_index_from_string(letra)
-
-
 def card(ws, c1, c2, r1, r2, borda_cor=LINHA):
-    """Card bento: superfície branca, borda slate 1px."""
+    """Card: superfície branca, borda tinta 200."""
     for rr in range(r1, r2 + 1):
         for cc in range(openpyxl_col(c1), openpyxl_col(c2) + 1):
             cel = ws.cell(rr, cc)
@@ -172,7 +189,7 @@ def tile(ws, col, linha, rotulo, formula, fmt, sub, sub_fmt=None, neg=False):
     for rr in (linha, linha + 1, linha + 2):
         ws.merge_cells(f"{c1}{rr}:{c2}{rr}")
     put(ws, f"{c1}{linha}", rotulo, 9, True, GRAFITE, al="left")
-    put(ws, f"{c1}{linha + 1}", formula, 20, True, fmt=fmt, al="left")
+    put(ws, f"{c1}{linha + 1}", formula, 22, True, fmt=fmt, al="left", fam=F_DISPLAY)
     put(ws, f"{c1}{linha + 2}", sub, 9, cor=GRAFITE, fmt=sub_fmt, al="left")
     ws.row_dimensions[linha].height = 22
     ws.row_dimensions[linha + 1].height = 32
@@ -195,7 +212,7 @@ def novo(tipo, titulo, fmt):
 
 
 def canvas(ws):
-    """Fundo nível 0 (#F8FAFC); células com borda viram cards brancos (nível 1)."""
+    """Fundo papel (#F6F5F2); células com borda viram superfícies brancas."""
     for row in ws.iter_rows(min_row=1, max_row=ws.max_row + 25, max_col=ws.max_column + 6):
         for c in row:
             if isinstance(c, MergedCell) or c.fill.fill_type:
