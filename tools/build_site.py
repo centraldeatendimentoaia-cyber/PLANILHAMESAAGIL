@@ -10,7 +10,7 @@ OUT.mkdir(exist_ok=True)
 SITE_URL = 'https://saiae.com.br'
 # Troque para True quando https://app.saiae.com.br estiver abrindo o app.
 # Enquanto False, os botões do app (Entrar, Usar no navegador, Criar minha conta) mostram "em breve".
-APP_ONLINE = False
+APP_ONLINE = True
 TITLE = 'Sai aê · Sistema de pedidos para feira, food truck e lanchonete'
 DESC = ('Teste 7 dias grátis. O pedido sai do caixa direto pra cozinha e a senha aparece na TV. '
         'Feito pra feira, food truck e lanchonete, por preço de barraca.')
