@@ -512,6 +512,8 @@ button,input{font-family:inherit}
       if (p < 1) requestAnimationFrame(frame);
     }
     requestAnimationFrame(frame);
+    // Se a aba estiver em segundo plano a animação pausa: garante o valor final mesmo assim.
+    setTimeout(function(){ el.textContent = fmtBRL(target); }, duration + 150);
   }
 
   function renderResult(){
