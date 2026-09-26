@@ -8,6 +8,9 @@ OUT.mkdir(exist_ok=True)
 
 # Endereço público do site. Troque para 'https://saiae.com.br' quando o domínio estiver ativo.
 SITE_URL = 'https://saiae.com.br'
+# Troque para True quando https://app.saiae.com.br estiver abrindo o app.
+# Enquanto False, os botões do app (Entrar, Usar no navegador, Criar minha conta) mostram "em breve".
+APP_ONLINE = False
 TITLE = 'Sai aê · Sistema de pedidos para feira, food truck e lanchonete'
 DESC = ('Teste 7 dias grátis. O pedido sai do caixa direto pra cozinha e a senha aparece na TV. '
         'Feito pra feira, food truck e lanchonete, por preço de barraca.')
@@ -44,6 +47,8 @@ cut = lp.index('<div id="saiae-lp">')
 head_part, body_part = lp[:cut], lp[cut:]
 head_part = re.sub(r'<title>.*?</title>\n?', '', head_part, count=1)
 body_part = body_part.replace("trialUrl: 'raio-x.html',", "trialUrl: '/raio-x',")
+if not APP_ONLINE:
+    body_part = body_part.replace("loginUrl: 'https://app.saiae.com.br',", "loginUrl: 'COLE_AQUI_LINK_APP',")
 (OUT / 'index.html').write_text(HEAD + head_part.strip() + '\n</head>\n<body>\n' + body_part.strip() + '\n</body>\n</html>\n')
 
 # ---------- raio-x.html (teste) ----------
@@ -62,6 +67,8 @@ rx = rx.replace('<meta name="viewport" content="width=device-width,initial-scale
                 '<meta name="twitter:card" content="summary_large_image">', 1)
 rx = rx.replace('<div class="brand"><svg', '<a class="brand" href="/" aria-label="Sai aê, voltar ao site"><svg', 1)
 rx = rx.replace('<use href="#logo-cheio"/></svg></div>', '<use href="#logo-cheio"/></svg></a>', 1)
+if not APP_ONLINE:
+    rx = rx.replace('var CADASTRO_URL = "https://app.saiae.com.br";', 'var CADASTRO_URL = "";')
 rx = rx.replace('var PLANILHA_URL = "planilha-controle-vendas-sai-ae.xlsx";', 'var PLANILHA_URL = "/planilha-controle-vendas-sai-ae.xlsx";')
 (OUT / 'raio-x.html').write_text(rx)
 
@@ -69,6 +76,11 @@ rx = rx.replace('var PLANILHA_URL = "planilha-controle-vendas-sai-ae.xlsx";', 'v
 shutil.copy(ROOT / 'assets' / 'og-image.png', OUT / 'og-image.png')
 shutil.copy(ROOT / 'assets' / 'icon-180.png', OUT / 'apple-touch-icon.png')
 shutil.copy(ROOT / 'assets' / 'icon-512.png', OUT / 'icon-512.png')
+
+# fotos e telas do app usadas na página
+(OUT / 'img').mkdir(exist_ok=True)
+for f in list((ROOT / 'assets' / 'fotos').glob('*.webp')) + list((ROOT / 'assets' / 'app').glob('*.jpg')):
+    shutil.copy(f, OUT / 'img' / f.name)
 
 # ---------- planilha limpa ----------
 shutil.copy(ROOT / 'planilha-controle-vendas-sai-ae.xlsx', OUT / 'planilha-controle-vendas-sai-ae.xlsx')

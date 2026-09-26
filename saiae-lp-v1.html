@@ -1,4 +1,4 @@
-<title>Sai aê · Versão 2</title>
+<title>Sai aê</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
@@ -419,102 +419,6 @@ body{margin:0;background:#F6F5F2}
 #saiae-lp .soon .ms{color:var(--m500)}
 
 @media (min-width:768px){#saiae-lp .sec{padding-block:96px}#saiae-lp{--gut:24px}}
-
-/* ===== v2: hero com foto, calculadora, fatos, fotos, telas, comparação, passos, compra segura ===== */
-#saiae-lp .hero2{padding-block:32px 64px;background:var(--t50)}
-#saiae-lp .hero2-grid{display:grid;gap:40px;align-items:center}
-#saiae-lp .hero-bul{display:flex;flex-direction:column;gap:8px;font-weight:600}
-#saiae-lp .hero-bul li{display:flex;align-items:center;gap:8px}
-#saiae-lp .hero-bul .ms{color:var(--ok)}
-#saiae-lp .hero2-vis{position:relative;display:grid;gap:14px}
-#saiae-lp .seal{position:absolute;top:-14px;right:-6px;z-index:2;width:108px;height:108px;border-radius:50%;background:var(--t900);color:var(--m500);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(-10deg);box-shadow:var(--sh-lg);border:4px solid var(--m500)}
-#saiae-lp .seal b{font-family:var(--fd);font-weight:800;font-size:44px;line-height:.9}
-#saiae-lp .seal span{font-family:var(--fd);font-weight:700;font-size:13px;line-height:1.05;text-transform:uppercase;color:#fff}
-/* foto provisória */
-#saiae-lp .ph{position:relative;margin:0;overflow:hidden;border-radius:28px;background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.35),transparent 55%),repeating-linear-gradient(135deg,var(--m400) 0 18px,var(--m500) 18px 36px);display:flex;align-items:flex-end;justify-content:flex-start;min-height:220px}
-#saiae-lp .ph-ic{position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);width:72px;height:72px;border-radius:50%;background:rgba(24,23,28,.12);display:flex;align-items:center;justify-content:center;color:var(--t900)}
-#saiae-lp .ph-ic .ms{font-size:34px}
-#saiae-lp .ph figcaption{position:relative;margin:14px;padding:12px 14px;border-radius:var(--balao);background:rgba(24,23,28,.88);color:#fff;font-size:13px;line-height:1.45;max-width:380px}
-#saiae-lp .ph figcaption b{display:block;color:var(--m500);font-size:11px;letter-spacing:.08em;margin-bottom:2px}
-#saiae-lp .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-#saiae-lp .ph--hero{min-height:420px;border-radius:32px 32px 32px 8px}
-#saiae-lp .ph--port{aspect-ratio:4/5;min-height:0}
-#saiae-lp .ph--land{aspect-ratio:4/3;min-height:0}
-#saiae-lp .ph-row{display:grid;gap:14px;margin-top:48px}
-@media (min-width:768px){#saiae-lp .ph-row{grid-template-columns:repeat(3,1fr)}}
-/* calculadora */
-#saiae-lp .calc{background:var(--t0);border-radius:24px;padding:20px;box-shadow:var(--sh-lg);display:flex;flex-direction:column;gap:10px;border:1px solid var(--t100);z-index:1}
-#saiae-lp .calc-k{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--t500)}
-#saiae-lp .calc-k .ms{font-size:18px}
-#saiae-lp .calc-t{font-family:var(--fd);font-size:21px;font-weight:800;line-height:1.2;letter-spacing:-.01em;margin-bottom:4px}
-#saiae-lp .calc-f{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;font-weight:600;color:var(--t700)}
-#saiae-lp .calc-f output{font-family:var(--fd);font-weight:800;font-size:16px;color:var(--t900)}
-#saiae-lp .calc input[type=range]{width:100%;height:28px;accent-color:var(--t900);margin:0 0 4px}
-#saiae-lp .calc-res{border-radius:18px;background:var(--m500);padding:14px 16px;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px}
-#saiae-lp .calc-res small{width:100%;font-size:13px;font-weight:600}
-#saiae-lp .calc-res strong{font-family:var(--fd);font-weight:800;font-size:34px;line-height:1;letter-spacing:-.02em}
-#saiae-lp .calc-res span{font-weight:600}
-#saiae-lp .calc-res p{width:100%;font-size:13px;font-weight:600;color:var(--t800)}
-#saiae-lp .calc-note{font-size:12px;color:var(--t500);text-align:center}
-/* faixa de fatos */
-#saiae-lp .facts{background:var(--m500);padding-block:28px}
-#saiae-lp .facts-in{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-#saiae-lp .fact{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:20px;background:var(--t0)}
-#saiae-lp .fact b{font-family:var(--fd);font-weight:800;font-size:44px;line-height:1;letter-spacing:-.02em}
-#saiae-lp .fact span{font-size:13px;font-weight:600;line-height:1.35;color:var(--t700)}
-@media (min-width:1024px){#saiae-lp .facts-in{grid-template-columns:repeat(4,1fr)}}
-/* telas do app */
-#saiae-lp .phones{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-@media (min-width:1024px){#saiae-lp .phones{grid-template-columns:repeat(4,1fr);gap:24px}}
-#saiae-lp .phone{margin:0;display:flex;flex-direction:column;align-items:center;gap:12px}
-#saiae-lp .phone figcaption{font-family:var(--fd);font-weight:700;font-size:16px;text-align:center}
-#saiae-lp .phone-scr{width:100%;max-width:240px;aspect-ratio:540/1168;border-radius:32px;border:8px solid var(--t900);background:var(--t900);box-shadow:var(--sh-lg);overflow:hidden;position:relative}
-#saiae-lp .phone-scr img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;background:var(--t900)}
-#saiae-lp .ph-scr{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:12px;color:var(--t500);background:repeating-linear-gradient(135deg,var(--t50) 0 12px,var(--t0) 12px 24px);font-size:13px}
-#saiae-lp .ph-scr .ms{font-size:36px;color:var(--t400)}
-/* comparação */
-#saiae-lp .cmp-wrap{overflow-x:auto;border-radius:24px;border:1px solid var(--t100);background:var(--t0)}
-#saiae-lp .cmp{width:100%;min-width:640px;border-collapse:collapse;font-size:15px}
-#saiae-lp .cmp th,#saiae-lp .cmp td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--t100);vertical-align:middle}
-#saiae-lp .cmp thead th{font-family:var(--fd);font-weight:800;font-size:16px;background:var(--t50)}
-#saiae-lp .cmp tbody th{font-weight:600;color:var(--t800)}
-#saiae-lp .cmp tr:last-child th,#saiae-lp .cmp tr:last-child td{border-bottom:0}
-#saiae-lp .cmp .us{background:var(--m50)}
-#saiae-lp .cmp thead .us{background:var(--m500)}
-#saiae-lp .cmp .yes,#saiae-lp .cmp .no,#saiae-lp .cmp .mid{display:inline-flex;align-items:center;gap:6px;font-weight:600}
-#saiae-lp .cmp .yes::before,#saiae-lp .cmp .no::before,#saiae-lp .cmp .mid::before{font-family:'Material Symbols Rounded';font-size:20px;font-weight:500;width:1em;overflow:hidden;line-height:1}
-#saiae-lp .cmp .yes::before{content:"check_circle";color:var(--ok)}
-#saiae-lp .cmp .no::before{content:"cancel";color:var(--er)}
-#saiae-lp .cmp .mid::before{content:"remove_circle";color:var(--at)}
-#saiae-lp .cmp .no{color:var(--t600)}
-/* 3 passos */
-#saiae-lp .start{display:grid;gap:24px;align-items:center;margin-bottom:72px}
-#saiae-lp .start-steps{display:flex;flex-direction:column;gap:14px}
-#saiae-lp .start-steps li{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;padding:16px;border-radius:20px;background:var(--t0);border:1px solid var(--t100)}
-#saiae-lp .start-steps b{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:var(--m500);font-family:var(--fd);font-weight:800;font-size:20px}
-#saiae-lp .start-steps h3{font-family:var(--fd);font-weight:700;font-size:18px}
-#saiae-lp .start-steps p{font-size:15px;color:var(--t500)}
-@media (min-width:1024px){#saiae-lp .start{grid-template-columns:1fr 1fr;gap:48px}}
-@media (min-width:1024px){
-  #saiae-lp .hero2{padding-block:48px 96px}
-  #saiae-lp .hero2-grid{grid-template-columns:1fr 1.05fr;gap:48px}
-  #saiae-lp .hero2-vis{display:block;min-height:620px}
-  #saiae-lp .ph--hero{position:absolute;inset:0 0 0 90px}
-  #saiae-lp .calc{position:absolute;left:0;bottom:-24px;width:340px}
-  #saiae-lp .seal{top:-18px;right:-18px}
-}
-#saiae-lp .ph--hero{align-items:flex-start;justify-content:flex-end}
-#saiae-lp .seal{right:8px}
-@media (min-width:1024px){#saiae-lp .ph--hero figcaption{margin-top:110px;max-width:300px}}
-#saiae-lp .ph:has(img){background:var(--t100)}
-/* compra segura */
-#saiae-lp .safe{display:grid;gap:10px;max-width:960px;margin:28px auto 0}
-#saiae-lp .safe li{display:flex;gap:12px;align-items:flex-start;padding:16px;border-radius:18px;background:var(--t0);border:1px solid var(--t100)}
-#saiae-lp .safe .ms{color:var(--ok);font-size:24px}
-#saiae-lp .safe b{display:block;font-family:var(--fd);font-weight:700}
-#saiae-lp .safe span:not(.ms){font-size:14px;color:var(--t500)}
-@media (min-width:768px){#saiae-lp .safe{grid-template-columns:repeat(2,1fr)}}
-@media (min-width:1024px){#saiae-lp .safe{grid-template-columns:repeat(4,1fr)}}
 @media (prefers-reduced-motion:reduce){
   #saiae-lp *,#saiae-lp *::before,#saiae-lp *::after{animation:none!important;transition:none!important}
 }
@@ -565,8 +469,6 @@ body{margin:0;background:#F6F5F2}
     <div class="wrap subnav-in" data-subnav>
       <a href="#por-que" data-sec="por-que"><span class="ms">favorite</span>Por que o Sai aê</a>
       <a href="#como-funciona" data-sec="como-funciona"><span class="ms">route</span>Como funciona</a>
-      <a href="#telas" data-sec="telas"><span class="ms">smartphone</span>Telas</a>
-      <a href="#comparar" data-sec="comparar"><span class="ms">compare_arrows</span>Comparar</a>
       <a href="#recursos" data-sec="recursos"><span class="ms">apps</span>Recursos</a>
       <a href="#cardapio-digital" data-sec="cardapio-digital"><span class="ms">qr_code_2</span>Cardápio digital</a>
       <a href="#maquininha" data-sec="maquininha"><span class="ms">point_of_sale</span>Maquininha</a>
@@ -588,55 +490,52 @@ body{margin:0;background:#F6F5F2}
 </header>
 
 <!-- HERO -->
-<section class="hero2" id="topo" aria-labelledby="sx-hero-t">
-  <div class="wrap hero2-grid">
+<section class="hero" id="topo" aria-labelledby="sx-hero-t">
+  <div class="wrap hero-grid">
     <div class="hero-copy">
       <p class="eyebrow"><i></i>Para feira, food truck, lanchonete e barraca</p>
       <h1 class="h1" id="sx-hero-t">Sem papel, <span class="nw"><span class="mark">sem grito</span>,</span> sem pedido esquecido.</h1>
       <p class="lead">Lança no caixa, aparece na cozinha e chama a senha na TV. Tudo no celular que você já tem, por preço de barraca.</p>
-      <ul class="hero-bul">
-        <li><span class="ms f">check_circle</span>7 dias grátis para testar</li>
-        <li><span class="ms f">check_circle</span>Pix, dinheiro, débito e crédito</li>
-        <li><span class="ms f">check_circle</span>Sem fidelidade no plano mensal</li>
-      </ul>
       <div class="hero-cta">
         <a class="btn btn--pri btn--pill btn--lg" href="#" data-link="trialUrl" data-soon="O teste grátis">Testar 7 dias grátis <span class="ms">arrow_forward</span></a>
         <a class="btn btn--out btn--pill btn--lg" href="#como-funciona">Ver como funciona</a>
       </div>
+      <ul class="hero-note">
+        <li class="pill"><span class="ms">event_available</span>7 dias grátis</li>
+        <li class="pill"><span class="ms">lock_open</span>Sem fidelidade no mensal</li>
+        <li class="pill"><span class="ms">smartphone</span>Roda no celular</li>
+      </ul>
     </div>
 
-    <div class="hero2-vis">
-      <figure class="ph ph--hero" data-foto="1"><img src="img/foto-feira.webp" alt="Feira com tendas mostarda e clientes na fila de uma barraca de lanche" loading="eager" fetchpriority="high" width="1100" height="1100"></figure>
-      <div class="seal" aria-hidden="true"><b>7</b><span>dias<br>grátis</span></div>
+    <div class="stage" data-stage aria-label="Exemplo: um pedido saindo do caixa, passando pela cozinha e chamado na TV">
+      <div class="toast is-off" data-toast role="status"><span class="ms f">check_circle</span><span>Sai aê! Senha <b class="tn" data-toast-n>132</b></span></div>
 
-      <form class="calc" data-calc aria-labelledby="sx-calc-t" onsubmit="return false">
-        <p class="calc-k"><span class="ms">calculate</span>Calculadora rápida</p>
-        <h2 class="calc-t" id="sx-calc-t">Quanto a comanda de papel te custa?</h2>
-        <label class="calc-f" for="sx-ped">Pedidos num dia bom <output class="tn" data-o="ped">60</output></label>
-        <input id="sx-ped" type="range" min="10" max="300" step="5" value="60" data-i="ped">
-        <label class="calc-f" for="sx-tic">Valor médio do pedido <output class="tn" data-o="tic">R$ 25</output></label>
-        <input id="sx-tic" type="range" min="5" max="100" step="1" value="25" data-i="tic">
-        <label class="calc-f" for="sx-dia">Dias de trabalho no mês <output class="tn" data-o="dia">20</output></label>
-        <input id="sx-dia" type="range" min="4" max="30" step="1" value="20" data-i="dia">
-        <div class="calc-res" aria-live="polite">
-          <small>Você pode estar deixando na mesa</small>
-          <strong class="tn" data-o="perda">R$ 1.500</strong><span>por mês</span>
-          <p data-o="paga">Isso paga o plano Essencial 26 vezes.</p>
+      <div class="panel cx">
+        <p class="scap"><span class="ms">point_of_sale</span>Caixa · Pedido #<span class="tn" data-cx-n>132</span></p>
+        <div class="cx-row"><b>Pastel de carne</b><span class="pr tn">R$ 12,00</span><span class="qty"><span><span class="ms">remove</span></span><em class="tn">2</em><span class="p"><span class="ms">add</span></span></span></div>
+        <div class="cx-row"><b>Caldo de cana 500ml</b><span class="pr tn">R$ 8,00</span><span class="qty"><span><span class="ms">remove</span></span><em class="tn">1</em><span class="p"><span class="ms">add</span></span></span></div>
+        <div class="cx-foot">
+          <div><small>Total · Pix</small><strong class="tn">R$ 32,00</strong></div>
+          <span class="cx-btn" data-cx-btn><span class="ms">add</span>Lançar pedido</span>
         </div>
-        <a class="btn btn--sec btn--pill btn--block" href="#" data-link="trialUrl" data-soon="O teste grátis">Fazer o Raio-X grátis <span class="ms">arrow_forward</span></a>
-        <p class="calc-note">Estimativa: 5% dos pedidos perdidos com erro, esquecimento e desistência na fila.</p>
-      </form>
-    </div>
-  </div>
-</section>
+      </div>
 
-<!-- FAIXA DE FATOS -->
-<section class="facts" aria-label="Sai aê em números">
-  <div class="wrap facts-in">
-    <div class="fact"><b class="tn">3</b><span>telas conectadas:<br>caixa, cozinha e TV</span></div>
-    <div class="fact"><b class="tn">4</b><span>formas de pagamento<br>no mesmo fluxo</span></div>
-    <div class="fact"><b class="tn">7</b><span>dias grátis para<br>testar no seu ponto</span></div>
-    <div class="fact"><b class="tn">0</b><span>computador no balcão:<br>roda no celular</span></div>
+      <div class="panel dark kd">
+        <p class="scap"><span class="ms">skillet</span>Cozinha</p>
+        <div class="kcard" data-kcard>
+          <div class="kcard-h"><b class="tn">#<span data-k-n>132</span></b><span class="timer" data-timer data-lv="0"><span class="ms">timer</span><span class="tn" data-timer-t>00:00</span></span></div>
+          <ul><li><b>2</b>Pastel de carne</li><li><b>1</b>Caldo de cana</li></ul>
+          <span class="kbtn" data-kbtn><span class="ms">check</span>Pronto</span>
+        </div>
+      </div>
+
+      <div class="panel dark tv">
+        <p class="scap"><span class="ms">campaign</span>Senha na TV</p>
+        <div class="tv-n" data-tv-n>131</div>
+        <p>Pode retirar!</p>
+        <div class="tv-last tn" data-tv-last><span>130</span><span>129</span><span>128</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -654,13 +553,6 @@ body{margin:0;background:#F6F5F2}
       <li class="mani-item"><span class="ic"><span class="ms">bolt</span></span><div><h3>Feito para a correria</h3><p>Botões grandes, poucas telas e tudo na ordem certa. Dá para usar com a mão engordurada.</p></div></li>
       <li class="mani-item"><span class="ic"><span class="ms">forum</span></span><div><h3>Gente de verdade no WhatsApp</h3><p>Ficou com dúvida no meio do movimento? Chama a gente.</p></div></li>
     </ul>
-  </div>
-  <div class="wrap">
-    <div class="ph-row">
-      <figure class="ph ph--port" data-foto="2"><img src="img/foto-acai.webp" alt="Atendente de camiseta mostarda entregando um copo de açaí ao cliente" loading="lazy" width="900" height="1125"></figure>
-      <figure class="ph ph--port" data-foto="3"><img src="img/foto-foodtruck.webp" alt="Atendente de viseira mostarda entregando lanches na janela do food truck" loading="lazy" width="900" height="1125"></figure>
-      <figure class="ph ph--port" data-foto="4"><img src="img/foto-lanchonete.webp" alt="Cozinheira de avental mostarda olhando a tela de pedidos na cozinha" loading="lazy" width="900" height="1125"></figure>
-    </div>
   </div>
   <div class="marq" aria-label="Feito para feira, food truck, lanchonete, pastelaria, açaí, evento e quermesse.">
     <div class="marq-t" aria-hidden="true">
@@ -706,48 +598,6 @@ body{margin:0;background:#F6F5F2}
           <li><span class="ms">check</span>Relatório do dia pronto quando você baixa a porta</li>
         </ul>
       </article>
-    </div>
-  </div>
-</section>
-
-<!-- TELAS DO APP -->
-<section class="sec sec--p" id="telas" aria-labelledby="sx-telas-t">
-  <div class="wrap">
-    <div class="head head--c">
-      <p class="eyebrow"><i></i>Telas do app</p>
-      <h2 class="h2" id="sx-telas-t">É assim no seu celular.</h2>
-      <p class="lead">Poucas telas, botões grandes e tudo na ordem certa.</p>
-    </div>
-    <div class="phones">
-      <figure class="phone"><div class="phone-scr"><img src="img/app-inicio.jpg" alt="Tela inicial do Sai aê com os módulos Caixa, Cozinha, Chamada e Histórico" loading="lazy" width="540" height="1168"></div><figcaption>Tudo a um toque</figcaption></figure>
-      <figure class="phone"><div class="phone-scr"><img src="img/app-lancar.jpg" alt="Tela Lançar pedido com os mais pedidos e botão Adicionar" loading="lazy" width="540" height="1168"></div><figcaption>Lance o pedido</figcaption></figure>
-      <figure class="phone"><div class="phone-scr"><img src="img/app-cozinha.jpg" alt="Tela da Cozinha com pedidos no prazo e botão Pronto" loading="lazy" width="540" height="1168"></div><figcaption>A cozinha vê na hora</figcaption></figure>
-      <figure class="phone"><div class="phone-scr"><img src="img/app-historico.jpg" alt="Tela Histórico com comandas do dia e botão Emitir nota fiscal" loading="lazy" width="540" height="1168"></div><figcaption>Histórico e nota fiscal</figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<!-- COMPARAÇÃO -->
-<section class="sec sec--w" id="comparar" aria-labelledby="sx-cmp-t">
-  <div class="wrap">
-    <div class="head head--c">
-      <p class="eyebrow"><i></i>Compare</p>
-      <h2 class="h2" id="sx-cmp-t">Papel, planilha ou Sai aê?</h2>
-      <p class="lead">O que muda no seu dia quando o pedido deixa de depender da memória.</p>
-    </div>
-    <div class="cmp-wrap">
-      <table class="cmp">
-        <thead><tr><th scope="col"><span class="sr">Recurso</span></th><th scope="col">Papel e caneta</th><th scope="col">Planilha</th><th scope="col" class="us">Sai aê</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Pedido chega na cozinha na hora</th><td><span class="no">Não</span></td><td><span class="no">Não</span></td><td class="us"><span class="yes">Sim</span></td></tr>
-          <tr><th scope="row">Chama a senha na TV</th><td><span class="no">Não, no grito</span></td><td><span class="no">Não</span></td><td class="us"><span class="yes">Sim</span></td></tr>
-          <tr><th scope="row">Mostra quem espera há mais tempo</th><td><span class="no">Não</span></td><td><span class="no">Não</span></td><td class="us"><span class="yes">Cronômetro por cor</span></td></tr>
-          <tr><th scope="row">Pix, dinheiro e cartão no mesmo fluxo</th><td><span class="no">Não</span></td><td><span class="mid">Anota à parte</span></td><td class="us"><span class="yes">Sim</span></td></tr>
-          <tr><th scope="row">Relatório do dia pronto</th><td><span class="no">Conta à mão</span></td><td><span class="mid">Se você digitar tudo</span></td><td class="us"><span class="yes">Automático</span></td></tr>
-          <tr><th scope="row">Funciona na correria, com uma mão</th><td><span class="mid">Mais ou menos</span></td><td><span class="no">Não</span></td><td class="us"><span class="yes">Feito para isso</span></td></tr>
-          <tr><th scope="row">Custo por mês</th><td>O bloquinho</td><td>Grátis, mas toma seu tempo</td><td class="us"><b>A partir de R$ 57,90</b></td></tr>
-        </tbody>
-      </table>
     </div>
   </div>
 </section>
@@ -900,18 +750,15 @@ body{margin:0;background:#F6F5F2}
 <section class="sec sec--p" id="planos" aria-labelledby="sx-planos-t">
   <div class="wrap">
     <div class="head head--c">
-      <p class="eyebrow"><i></i>Comece em 3 passos</p>
+      <p class="eyebrow"><i></i>7 dias grátis</p>
       <h2 class="h2">Teste no seu movimento de verdade.</h2>
       <p class="lead">Cadastre o cardápio, lance pedidos e veja a cozinha funcionando. Depois escolha o plano que cabe no seu negócio.</p>
     </div>
-    <div class="start">
-      <ol class="start-steps">
-        <li><b>1</b><div><h3>Crie sua conta</h3><p>Leva poucos minutos e já libera os 7 dias grátis.</p></div></li>
-        <li><b>2</b><div><h3>Cadastre o cardápio</h3><p>Foto, preço e categoria de cada produto. Dá para fazer pelo celular.</p></div></li>
-        <li><b>3</b><div><h3>Lance o primeiro pedido</h3><p>Veja chegar na cozinha e chame a senha na TV no mesmo dia.</p></div></li>
-      </ol>
-      <figure class="ph ph--port" data-foto="5"><img src="img/foto-comecando.webp" alt="Atendente de camiseta mostarda usando o celular no balcão da padaria" loading="lazy" width="900" height="1125"></figure>
-    </div>
+    <ol class="trial">
+      <li><b>1</b>Crie sua conta em poucos minutos</li>
+      <li><b>2</b>Cadastre o cardápio com foto, preço e categoria</li>
+      <li><b>3</b>Lance o primeiro pedido e veja chegar na cozinha</li>
+    </ol>
 
     <div class="head head--c">
       <p class="eyebrow"><i></i>Planos</p>
@@ -945,12 +792,7 @@ body{margin:0;background:#F6F5F2}
         <ul class="feat" data-f="itens"></ul>
       </article>
     </div>
-    <ul class="safe">
-      <li><span class="ms f">verified_user</span><div><b>Pagamento seguro</b><span>Pagamento processado pela Kirvano.</span></div></li>
-      <li><span class="ms f">event_available</span><div><b>7 dias grátis</b><span>Teste no seu movimento antes de pagar.</span></div></li>
-      <li><span class="ms f">lock_open</span><div><b>Sem fidelidade</b><span>No mensal, cancele quando quiser.</span></div></li>
-      <li><span class="ms f">support_agent</span><div><b>Gente de verdade</b><span>Suporte pelo WhatsApp.</span></div></li>
-    </ul>
+    <p class="plans-note"><b>7 dias grátis para testar.</b> Sem fidelidade no mensal. Cancele quando quiser.</p>
   </div>
 </section>
 
@@ -1094,24 +936,6 @@ var SX_PLANS = {
   }
   burger.addEventListener('click', function () { setMenu(menu.hidden); });
   $$('a', menu).forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
-
-  /* calculadora rápida (estimativa: 5% dos pedidos perdidos) */
-  var calc = $('[data-calc]');
-  if (calc) {
-    var CALC_TAXA = 0.05, PRECO_ESSENCIAL = 57.90;
-    var inr = function (v) { return 'R$ ' + Math.round(v).toLocaleString('pt-BR'); };
-    var upd = function () {
-      var ped = +$('[data-i="ped"]', calc).value, tic = +$('[data-i="tic"]', calc).value, dia = +$('[data-i="dia"]', calc).value;
-      var perda = ped * tic * dia * CALC_TAXA, vezes = Math.floor(perda / PRECO_ESSENCIAL);
-      $('[data-o="ped"]', calc).textContent = ped;
-      $('[data-o="tic"]', calc).textContent = inr(tic);
-      $('[data-o="dia"]', calc).textContent = dia;
-      $('[data-o="perda"]', calc).textContent = inr(perda);
-      $('[data-o="paga"]', calc).textContent = vezes >= 2 ? 'Isso paga o plano Essencial ' + vezes + ' vezes.' : 'Isso já cobre o plano Essencial.';
-    };
-    $$('input[type=range]', calc).forEach(function (i) { i.addEventListener('input', upd); });
-    upd();
-  }
 
   /* navegação por seções: destaca a seção visível */
   var subnav = $('[data-subnav]'), chips = $$('[data-sec]', subnav), current = null;
