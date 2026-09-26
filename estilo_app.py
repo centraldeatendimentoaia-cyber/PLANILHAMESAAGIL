@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Estilo compartilhado das planilhas do Mesa Ágil — design system Saiaê v1.0.
+"""Estilo compartilhado das planilhas do Saiaê — design system Saiaê v1.0.
 
 Mostarda #FFC21A = cor principal (um destaque por tela; texto sobre mostarda é sempre tinta),
 tinta #18171C = texto e fundos escuros, papel #F6F5F2 = fundo, branco = superfícies.

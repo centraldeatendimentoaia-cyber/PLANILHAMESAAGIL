@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Gera a versão ENXUTA da planilha do Mesa Ágil (Mesa_Agil_Enxuta.xlsx).
+"""Gera a versão ENXUTA da planilha do Saiaê (Saiae_Enxuta.xlsx).
 
 Para a rotina do dia a dia: 4 abas, ~15 campos para preencher uma vez e 6 números por mês.
 A versão completa (gerar_planilha.py) continua para apresentar a sócio/investidor.
@@ -20,7 +20,7 @@ from openpyxl.worksheet.datavalidation import DataValidation
 
 from estilo_app import *  # noqa: F401,F403  (cores, fontes, put, entrada, botao, tile, card...)
 
-SAIDA = "Mesa_Agil_Enxuta.xlsx"
+SAIDA = "Saiae_Enxuta.xlsx"
 PAINEL, PR, PJ, MM = "Painel", "Premissas", "Projeção", "Meu Mês"
 NAV = dict(inicio=("⌂  Painel", PAINEL), painel=None)
 FR, LR = 6, 29  # meses 1..24
@@ -215,7 +215,7 @@ mm.freeze_panes = "D6"
 # ====================================================================== PAINEL
 TILES = [2, 5, 8, 11, 14, 17]
 db = base(wb, PAINEL, "", "R", MARCA, larguras={L(c): (3 if (c - 1) % 3 == 0 else 12) for c in range(2, 19)}, **NAV)
-db["B2"].value = '="MESA ÁGIL  ·  PAINEL  ·  CENÁRIO "&UPPER(Premissas!$C$8)'
+db["B2"].value = '="SAIAÊ  ·  PAINEL  ·  CENÁRIO "&UPPER(Premissas!$C$8)'
 db["B2"].font = font(18, True, "FFFFFF", fam=F_DISPLAY)
 botao(db, "B1", "⚙  Premissas", f"#'{PR}'!A1", CARD, PRETO, mescla="B1:C1", borda=CLARO)
 botao(db, "E1", "✎  Meu Mês", f"#'{MM}'!A1", CARD, PRETO, mescla="E1:F1", borda=CLARO)
@@ -291,19 +291,20 @@ alertas = [
 AUX = 21  # U (oculta)
 for k, (cond, ruim, bom) in enumerate(alertas):
     r = 34 + k
-    put(db, f"{L(AUX)}{r}", f"={cond}", 8, cor=GRAFITE)
+    put(db, f"{L(AUX)}{r}", f'=IF(COUNT(Premissas!$C$17:$E$21)=0,"",{cond})', 8, cor=GRAFITE)
     db.merge_cells(f"B{r}:R{r}")
-    put(db, f"B{r}", f'=IF({L(AUX)}{r},"✖   {ruim}","✔   {bom}")', 11, True, al="left")
+    put(db, f"B{r}", f'=IF({L(AUX)}{r}="","·   Preencha as Premissas para ver este alerta",IF({L(AUX)}{r},"✖   {ruim}","✔   {bom}"))',
+        11, True, GRAFITE, al="left")
     db.row_dimensions[r].height = 26
     db.conditional_formatting.add(f"B{r}:R{r}", FormulaRule(
-        formula=[f"${L(AUX)}${r}"], font=Font(color=ERR_TXT, bold=True), fill=fill(ERR_BG),
+        formula=[f"${L(AUX)}${r}=TRUE"], font=Font(color=ERR_TXT, bold=True), fill=fill(ERR_BG),
         border=Border(top=Side("thin", color=ERR_COR), bottom=Side("thin", color=ERR_COR))))
     db.conditional_formatting.add(f"B{r}:R{r}", FormulaRule(
-        formula=[f"NOT(${L(AUX)}${r})"], font=Font(color=OK_TXT, bold=True), fill=fill(OK_BG),
+        formula=[f"${L(AUX)}${r}=FALSE"], font=Font(color=OK_TXT, bold=True), fill=fill(OK_BG),
         border=Border(top=Side("thin", color=OK_COR), bottom=Side("thin", color=OK_COR))))
 db.column_dimensions[L(AUX)].hidden = True
 put(db, "B38", "Quer mais detalhe (plano anual separado, unit economics por plano, três cenários lado a lado)? "
-    "Use a versão completa: Mesa_Agil_Financeiro.xlsx.", 9, cor=GRAFITE)
+    "Use a versão completa: Saiae_Financeiro.xlsx.", 9, cor=GRAFITE)
 
 finalizar(wb, [PAINEL, PR, MM, PJ], PAINEL)
 wb.save(SAIDA)

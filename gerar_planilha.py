@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Gera a planilha financeira do Mesa Ágil (Mesa_Agil_Financeiro.xlsx).
+"""Gera a planilha financeira do Saiaê (Saiae_Financeiro.xlsx).
 
 Estrutura inspirada na planilha Precifica Beleza Premium; cores do design system Saiaê
 (esmeralda = marca/positivo, slate = texto, âmbar = células que você preenche, vermelho = negativo).
@@ -18,13 +18,13 @@ from openpyxl.cell.cell import MergedCell
 from estilo_app import *  # noqa: F401,F403  (cores, fontes, put, entrada, botao, tile, card...)
 from estilo_app import _s  # noqa: F401
 
-SAIDA = "Mesa_Agil_Financeiro.xlsx"
+SAIDA = "Saiae_Financeiro.xlsx"
 
 wb = Workbook()
 wb.remove(wb.active)
 
 # ====================================================================== COMECE AQUI
-guia = base(wb, "Comece Aqui", "MESA ÁGIL  ·  PLANEJAMENTO FINANCEIRO  ·  GUIA RÁPIDO", "C", MARCA,
+guia = base(wb, "Comece Aqui", "SAIAÊ  ·  PLANEJAMENTO FINANCEIRO  ·  GUIA RÁPIDO", "C", MARCA,
             larguras={"B": 12, "C": 100, "D": 18})
 botao(guia, "D2", "▦ DASHBOARD →", "#'Dashboard'!A1", AMBAR_CTA, PRETO)
 passos = [
@@ -56,7 +56,7 @@ put(guia, f"B{r + 4}", "COMO LER", 9, True, GRAFITE)
 put(guia, f"C{r + 4}", "Receita (MRR, lucro) é por COMPETÊNCIA: o plano anual é distribuído em 12 meses.  Caixa é quando o dinheiro ENTRA: "
     "o plano anual entra inteiro no mês da venda/renovação.  Clientes aparecem com casas decimais porque são médias estatísticas.", 9, cor=GRAFITE, wrap=True)
 guia.row_dimensions[r + 4].height = 42
-put(guia, f"C{r + 6}", "Mesa Ágil (Powered by AIA) · comanda digital SaaS para barracas, food trucks, lanchonetes e restaurantes pequenos · mesaagil.pages.dev",
+put(guia, f"C{r + 6}", "Saiaê (Powered by AIA) · comanda digital SaaS para barracas, food trucks, lanchonetes e restaurantes pequenos · mesaagil.pages.dev",
     9, cor=GRAFITE)
 
 # ====================================================================== PREMISSAS
@@ -65,7 +65,7 @@ pr = base(wb, "Premissas", "PREMISSAS  ·  TODOS OS CAMPOS EDITÁVEIS", "G", MOS
           {"B": 46, "C": 15, "D": 15, "E": 15, "F": 15, "G": 60})
 
 secao(pr, "B5", "GERAL")
-put(pr, "B6", "Nome do produto"); entrada(pr, "C6", "Mesa Ágil", al="left")
+put(pr, "B6", "Nome do produto"); entrada(pr, "C6", "Saiaê", al="left")
 put(pr, "B7", "Mês de início da projeção"); entrada(pr, "C7", dt.date(2026, 10, 1), fmt=MES)
 put(pr, "D7", "Primeiro mês de vendas (mês 1 da projeção)", 9, cor=GRAFITE)
 put(pr, "B8", "Caixa inicial (R$)"); entrada(pr, "C8", 0, fmt=MOEDA)
@@ -491,7 +491,7 @@ eq = [
     ("Clientes necessários para cobrir fixos + marketing do mês 24", f"=IFERROR(ROUNDUP((C32+{V('ads', LR)}+{V('comis', LR)})/C31,0),0)", NUM),
     ("Clientes ativos no mês 24", f"={V('ativos', LR)}", NUM),
     ("Primeiro mês com lucro líquido positivo",
-     f"=IF(COUNT('{PJ}'!${mapa['lucropos'][1]}${FR}:${mapa['lucropos'][1]}${LR})=0,\"Não atinge em 24 meses\","
+     f"=IF(COUNT('{PJ}'!${mapa['lucropos'][1]}${FR}:${mapa['lucropos'][1]}${LR})=0,\"Não atinge\","
      f"INDEX('{PJ}'!${mapa['mes'][1]}${FR}:${mapa['mes'][1]}${LR},MIN('{PJ}'!${mapa['lucropos'][1]}${FR}:${mapa['lucropos'][1]}${LR})))", MES),
 ]
 for k, (rot, f_, fmt) in enumerate(eq):
@@ -708,14 +708,15 @@ alertas = [
 AUXA = 22  # V
 for k, (cond, ruim, bom) in enumerate(alertas):
     r = 53 + k
-    put(db, f"{L(AUXA)}{r}", cond, 8, cor=GRAFITE)
+    put(db, f"{L(AUXA)}{r}", f'=IF(COUNT(Premissas!$C$19:$E$25)=0,"",{cond[1:]})', 8, cor=GRAFITE)
     db.merge_cells(f"B{r}:R{r}")
-    put(db, f"B{r}", f'=IF({L(AUXA)}{r},"✖   {ruim}","✔   {bom}")', 11, True, al="left")
+    put(db, f"B{r}", f'=IF({L(AUXA)}{r}="","·   Preencha as Premissas para ver este alerta",IF({L(AUXA)}{r},"✖   {ruim}","✔   {bom}"))',
+        11, True, GRAFITE, al="left")
     db.row_dimensions[r].height = 26
     # selo (pill): vermelho-claro ou esmeralda-claro, como os chips do app
-    db.conditional_formatting.add(f"B{r}:R{r}", FormulaRule(formula=[f"${L(AUXA)}${r}"], font=Font(color=ERR_TXT, bold=True),
+    db.conditional_formatting.add(f"B{r}:R{r}", FormulaRule(formula=[f"${L(AUXA)}${r}=TRUE"], font=Font(color=ERR_TXT, bold=True),
                                                             fill=fill(ERR_BG), border=Border(bottom=Side("thin", color=ERR_COR), top=Side("thin", color=ERR_COR))))
-    db.conditional_formatting.add(f"B{r}:R{r}", FormulaRule(formula=[f"NOT(${L(AUXA)}${r})"], font=Font(color=OK_TXT, bold=True),
+    db.conditional_formatting.add(f"B{r}:R{r}", FormulaRule(formula=[f"${L(AUXA)}${r}=FALSE"], font=Font(color=OK_TXT, bold=True),
                                                             fill=fill(OK_BG), border=Border(bottom=Side("thin", color=OK_COR), top=Side("thin", color=OK_COR))))
 db.column_dimensions[L(AUXA)].hidden = True
 
