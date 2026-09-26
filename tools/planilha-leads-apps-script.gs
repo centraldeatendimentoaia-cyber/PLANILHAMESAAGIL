@@ -48,3 +48,19 @@ function limpo(v) {
 function resposta(ok) {
   return ContentService.createTextOutput(JSON.stringify({ ok: ok })).setMimeType(ContentService.MimeType.JSON);
 }
+
+// Abrir o endereço /exec no navegador mostra esta mensagem: serve para conferir se a implantação está pública.
+function doGet() {
+  return ContentService.createTextOutput('Sai aê · planilha de contatos no ar. Envios chegam por POST do site.');
+}
+
+// Para testar direto no editor: escolha "testarGravacao" no menu ao lado de "Executar" e clique em Executar.
+// Deve aparecer uma linha "TESTE" na aba Contatos. Depois é só apagar a linha.
+function testarGravacao() {
+  const r = doPost({ postData: { contents: JSON.stringify({
+    token: TOKEN, nome: 'TESTE', whatsapp: '(61) 90000-0000', tipo: 'Barraca de feira',
+    pedidos: 'até 20 pedidos', ticket: 'até R$ 15', anota: 'no papel', erros: 'quase nunca',
+    fila: 'não, nunca', potencial: 0, faturamento: 0, origem: 'teste no editor', campanha: ''
+  }) } });
+  Logger.log(r.getContent());
+}
