@@ -67,4 +67,7 @@ chapeu = re.search(r'<path id="I-chapeu" d="([^"]+)"', lp).group(1)
   ]
 }
 ''')
+# vercel.json da raiz: faz a Vercel publicar a pasta site/ mesmo sem configurar Root Directory
+import json
+(ROOT / 'vercel.json').write_text(json.dumps({'framework': None, 'outputDirectory': 'site', **json.loads((OUT / 'vercel.json').read_text())}, ensure_ascii=False, indent=2) + '\n')
 print('site/ gerado:', sorted(p.name for p in OUT.iterdir()))

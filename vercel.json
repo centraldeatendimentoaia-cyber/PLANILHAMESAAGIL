@@ -1,0 +1,21 @@
+{
+  "framework": null,
+  "outputDirectory": "site",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/(.*)\\.xlsx",
+      "headers": [
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"Controle de Vendas - Sai ae.xlsx\""
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        }
+      ]
+    }
+  ]
+}
