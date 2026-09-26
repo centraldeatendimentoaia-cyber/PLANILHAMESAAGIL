@@ -800,7 +800,7 @@ body{margin:0;background:#F6F5F2}
         <p class="was" data-f="was">De <s>R$ 86,90</s> por</p>
         <div class="price"><small>R$</small><b data-f="price">57,90</b><span>/mês</span><span class="off" data-f="off" hidden></span></div>
         <p class="aux" data-f="aux" aria-live="polite">Cobrado todo mês. Sem fidelidade.</p>
-        <a class="btn btn--out btn--lg btn--block" href="#" data-link="signupUrl" data-plan-cta data-soon="A assinatura do Essencial">Começar com o Essencial</a>
+        <a class="btn btn--out btn--lg btn--block" href="#" data-link="checkout" data-plan-cta data-soon="A assinatura do Essencial">Começar com o Essencial</a>
         <ul class="feat" data-f="itens"></ul>
       </article>
       <article class="plan plan--pro" data-plan="pro">
@@ -810,7 +810,7 @@ body{margin:0;background:#F6F5F2}
         <p class="was" data-f="was">De <s>R$ 131,90</s> por</p>
         <div class="price"><small>R$</small><b data-f="price">87,90</b><span>/mês</span><span class="off" data-f="off" hidden></span></div>
         <p class="aux" data-f="aux" aria-live="polite">Cobrado todo mês. Sem fidelidade.</p>
-        <a class="btn btn--pri btn--lg btn--block" href="#" data-link="signupUrl" data-plan-cta data-soon="A assinatura do Pro">Quero o Pro</a>
+        <a class="btn btn--pri btn--lg btn--block" href="#" data-link="checkout" data-plan-cta data-soon="A assinatura do Pro">Quero o Pro</a>
         <ul class="feat" data-f="itens"></ul>
       </article>
     </div>
@@ -878,7 +878,6 @@ body{margin:0;background:#F6F5F2}
    ========================================================== */
 var SX_LINKS = {
   trialUrl: '/raio-x',                          // Raio-X do Negócio (teste que libera os 7 dias grátis)
-  signupUrl: 'COLE_AQUI_LINK_ASSINATURA',   // recebe ?plano=essencial|pro&ciclo=mensal|anual
   loginUrl: 'COLE_AQUI_LINK_APP',
   playStoreUrl: 'COLE_AQUI_LINK_GOOGLE_PLAY',
   posUrl: 'COLE_AQUI_LINK_MAQUININHA',
@@ -886,12 +885,20 @@ var SX_LINKS = {
 };
 var SX_PLANS = {
   essencial: {
+    checkout: { // links de pagamento (Kirvano)
+      mensal: 'https://pay.kirvano.com/83b4bb2a-4004-41dc-bb3f-c76ef27856ee',
+      anual: 'https://pay.kirvano.com/3a01dd0a-cd26-4367-87d6-727ac6cc04b4'
+    },
     de: 86.90, mensal: 57.90, anual: { mes: 49.22, total: 590.58, economia: 104.22, off: '15% OFF' },
     itens: ['1 ponto de venda', 'Lançar pedido (balcão, mesa e viagem)', 'Cozinha em tempo real com cronômetro',
             'Chamada de senha com seu logo', 'Pix, dinheiro, débito e crédito', 'Cardápio digital com QR code', 'Relatório do dia',
             'Histórico de 7 dias', 'Tema claro e escuro']
   },
   pro: {
+    checkout: { // links de pagamento (Kirvano)
+      mensal: 'https://pay.kirvano.com/a566f40c-6b60-459d-bc9e-259476c9f03b',
+      anual: 'https://pay.kirvano.com/0c85f948-b1df-45e4-8ecd-3eadc380ee5f'
+    },
     de: 131.90, mensal: 87.90, anual: { mes: 70.32, total: 843.84, economia: 210.96, off: '20% OFF' },
     itens: ['Tudo do Essencial', 'Vários pontos na mesma conta', 'Histórico completo e por período',
             'Exportar relatórios', 'Nota fiscal (com certificado digital, em breve)', 'Custo do dia, lucro e taxas da maquininha',
@@ -921,13 +928,12 @@ var SX_PLANS = {
     soonT = setTimeout(function () { box.hidden = true; }, 2600);
   }
   function linkFor(a) {
-    var u = SX_LINKS[a.dataset.link];
-    if (!isSet(u)) return null;
     if (a.hasAttribute('data-plan-cta')) {
-      var plan = a.closest('[data-plan]').dataset.plan;
-      u += (u.indexOf('?') < 0 ? '?' : '&') + 'plano=' + plan + '&ciclo=' + cycle;
+      var c = SX_PLANS[a.closest('[data-plan]').dataset.plan].checkout;
+      return isSet(c && c[cycle]) ? c[cycle] : null;
     }
-    return u;
+    var u = SX_LINKS[a.dataset.link];
+    return isSet(u) ? u : null;
   }
   function paintLinks() {
     $$('[data-link]').forEach(function (a) {
