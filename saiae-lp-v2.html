@@ -1,0 +1,1237 @@
+<title>Sai aê · Versão 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,500,0..1,0&display=block">
+<style>
+/* Sai aê · página de vendas. Tudo escopado em #saiae-lp (pode colar num widget HTML do Elementor). */
+body{margin:0;background:#F6F5F2}
+#saiae-lp{
+  color-scheme:light;
+  --m50:#FFF8E1;--m100:#FFEDB3;--m200:#FFE080;--m400:#FFCA33;--m500:#FFC21A;--m600:#E6A800;--m700:#B38300;
+  --t0:#FFFFFF;--t50:#F6F5F2;--t100:#ECEAE6;--t200:#D9D7DC;--t300:#B5B3BB;--t400:#8A8893;--t500:#5E5C66;--t600:#45434D;--t700:#2E2C35;--t800:#232229;--t900:#18171C;
+  --ok:#1FBF6A;--ok-bg:#E3F7EC;--ok-tx:#0E7A40;
+  --at:#FF8A1C;--at-bg:#FFF0E0;--at-tx:#A34E00;
+  --er:#F0412F;--er-bg:#FDE7E4;--er-tx:#B22514;
+  --in:#2F7BF5;--in-bg:#E6F0FE;--in-tx:#1A4FA8;
+  --pix:#32BCAD;
+  --fd:'Outfit',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --fb:'Figtree',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --fm:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+  --balao:20px 20px 20px 4px;
+  --sh-sm:0 1px 2px rgba(24,23,28,.06),0 1px 3px rgba(24,23,28,.05);
+  --sh-md:0 6px 16px -4px rgba(24,23,28,.12);
+  --sh-lg:0 20px 40px -12px rgba(24,23,28,.25);
+  --gut:16px;--hdr:64px;--sub:52px;
+  display:block;background:var(--t50);color:var(--t900);
+  font-family:var(--fb);font-size:16px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;text-size-adjust:100%;
+  overflow-x:clip;
+}
+#saiae-lp *,#saiae-lp *::before,#saiae-lp *::after{box-sizing:border-box}
+#saiae-lp :where(h1,h2,h3,h4,p,ul,ol,li,figure,blockquote,dl,dd,dt){margin:0;padding:0}
+#saiae-lp :where(ul,ol){list-style:none}
+#saiae-lp :where(a){color:inherit;text-decoration:none}
+#saiae-lp :where(button){font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+#saiae-lp :where(svg){display:block}
+#saiae-lp :where(:focus-visible){outline:3px solid var(--m500);outline-offset:2px;border-radius:10px}
+#saiae-lp [hidden]{display:none!important}
+#saiae-lp .sprite{position:absolute;width:0;height:0;overflow:hidden}
+#saiae-lp .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+#saiae-lp .nw{white-space:nowrap}
+#saiae-lp .tn{font-variant-numeric:tabular-nums}
+
+#saiae-lp .ms{font-family:'Material Symbols Rounded';font-weight:500;font-style:normal;font-size:22px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;direction:ltr;-webkit-font-smoothing:antialiased;font-variation-settings:'FILL' 0,'wght' 500,'GRAD' 0,'opsz' 24;flex:none;overflow:hidden;width:1em}
+#saiae-lp .ms.f{font-variation-settings:'FILL' 1,'wght' 500,'GRAD' 0,'opsz' 24}
+
+/* ---------- layout ---------- */
+#saiae-lp .wrap{width:100%;max-width:1200px;margin:0 auto;padding-inline:var(--gut)}
+#saiae-lp .sec{padding-block:72px}
+#saiae-lp [id]{scroll-margin-top:calc(var(--hdr) + var(--sub) + 12px)}
+#saiae-lp .sec--w{background:var(--t0)}
+#saiae-lp .sec--p{background:var(--t50)}
+#saiae-lp .head{display:flex;flex-direction:column;gap:14px;max-width:720px;margin-bottom:40px}
+#saiae-lp .head--c{margin-inline:auto;text-align:center;align-items:center}
+#saiae-lp .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--t500)}
+#saiae-lp .eyebrow i{width:8px;height:8px;border-radius:2px 2px 2px 0;background:var(--m500);transform:rotate(0)}
+#saiae-lp .h1{font-family:var(--fd);font-weight:800;font-size:clamp(40px,5vw + 16px,72px);line-height:1.12;letter-spacing:-.035em;text-wrap:balance}
+#saiae-lp .h2{font-family:var(--fd);font-weight:800;font-size:clamp(30px,2.8vw + 16px,50px);line-height:1.14;letter-spacing:-.03em;text-wrap:balance}
+#saiae-lp .h3{font-family:var(--fd);font-weight:700;font-size:21px;line-height:1.25;letter-spacing:-.01em}
+#saiae-lp .lead{font-size:18px;line-height:1.6;color:var(--t600);max-width:60ch;text-wrap:pretty}
+#saiae-lp .mark{display:inline-block;line-height:1;background:var(--m500);color:var(--t900);padding:.04em .14em .08em;margin-inline:-.04em;border-radius:.28em .28em .28em .08em}
+
+/* ---------- botões ---------- */
+#saiae-lp .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 20px;border-radius:14px;font-family:var(--fb);font-weight:600;font-size:16px;line-height:1;white-space:nowrap;cursor:pointer;user-select:none;transition:transform .12s cubic-bezier(.2,.8,.2,1),background-color .12s,box-shadow .12s}
+#saiae-lp .btn:active{transform:scale(.97)}
+#saiae-lp .btn .ms{font-size:20px}
+#saiae-lp .btn--pri{background:var(--m500);color:var(--t900)}
+#saiae-lp .btn--pri:hover{background:var(--m400);box-shadow:inset 0 0 0 1.5px var(--m600)}
+#saiae-lp .btn--sec{background:var(--t900);color:#fff}
+#saiae-lp .btn--sec:hover{background:var(--t700)}
+#saiae-lp .btn--out{background:transparent;color:var(--t900);box-shadow:inset 0 0 0 1.5px var(--t900)}
+#saiae-lp .btn--out:hover{background:var(--t100)}
+#saiae-lp .btn--gh{background:transparent;color:var(--t900)}
+#saiae-lp .btn--gh:hover{background:var(--t100)}
+#saiae-lp .btn--pill{border-radius:999px}
+#saiae-lp .btn--lg{height:56px;padding:0 26px;font-size:17px;font-weight:700}
+#saiae-lp .btn--sm{height:40px;padding:0 16px;font-size:15px;border-radius:12px}
+#saiae-lp .btn--block{display:flex;width:100%}
+
+/* ---------- header ---------- */
+#saiae-lp .hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(246,245,242,.86);-webkit-backdrop-filter:saturate(1.3) blur(12px);backdrop-filter:saturate(1.3) blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
+#saiae-lp .hdr.is-scrolled{border-bottom-color:var(--t100)}
+#saiae-lp .hdr-in{display:flex;align-items:center;justify-content:space-between;gap:12px;height:var(--hdr)}
+#saiae-lp .subnav{border-top:1px solid var(--t100)}
+#saiae-lp .subnav-in{display:flex;align-items:center;gap:6px;height:var(--sub);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+#saiae-lp .subnav-in::-webkit-scrollbar{display:none}
+#saiae-lp .subnav a{flex:none;display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 14px 0 12px;border-radius:999px;background:var(--t100);color:var(--t700);font-size:14px;font-weight:600;white-space:nowrap;transition:background-color .15s,color .15s}
+#saiae-lp .subnav a .ms{font-size:18px;color:var(--t500)}
+#saiae-lp .subnav a:hover{background:var(--t200);color:var(--t900)}
+#saiae-lp .subnav a[aria-current="true"]{background:var(--t900);color:#fff}
+#saiae-lp .subnav a[aria-current="true"] .ms{color:var(--m500)}
+@media (min-width:980px){#saiae-lp .subnav-in{justify-content:center}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+#saiae-lp .logo{display:inline-flex;align-items:center;min-height:48px}
+#saiae-lp .logo svg{width:auto;height:40px}
+#saiae-lp .hdr-act{display:flex;align-items:center;gap:6px}
+#saiae-lp .hdr-login{display:none}
+#saiae-lp .burger{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:var(--t100)}
+#saiae-lp .menu{position:absolute;left:0;right:0;top:100%;background:var(--t0);border-bottom:1px solid var(--t100);box-shadow:var(--sh-md);padding:8px var(--gut) 16px}
+#saiae-lp .menu nav{display:flex;flex-direction:column}
+#saiae-lp .menu nav a{display:flex;align-items:center;justify-content:space-between;min-height:52px;font-size:17px;font-weight:600;border-bottom:1px solid var(--t100)}
+#saiae-lp .menu .btn{margin-top:14px}
+@media (min-width:600px){#saiae-lp .hdr-login{display:inline-flex}}
+@media (min-width:980px){#saiae-lp .burger{display:none}#saiae-lp .menu{display:none!important}}
+
+/* ---------- hero ---------- */
+#saiae-lp .hero{padding-block:40px 72px;background:var(--t50)}
+#saiae-lp .hero-grid{display:grid;gap:40px;align-items:center}
+#saiae-lp .hero-copy{display:flex;flex-direction:column;gap:22px;align-items:flex-start}
+#saiae-lp .hero .h1 .mark{white-space:nowrap}
+#saiae-lp .hero-cta{display:flex;flex-wrap:wrap;gap:10px}
+#saiae-lp .hero-note{display:flex;flex-wrap:wrap;gap:8px}
+#saiae-lp .pill{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 12px;border:1px solid var(--t200);border-radius:999px;font-size:13px;font-weight:600;color:var(--t700);background:var(--t0)}
+#saiae-lp .pill .ms{font-size:18px}
+@media (min-width:1024px){#saiae-lp .hero{padding-block:56px 96px}#saiae-lp .hero-grid{grid-template-columns:1.05fr 1fr;gap:56px}}
+
+/* palco do hero: caixa → cozinha → senha */
+#saiae-lp .stage{position:relative;display:grid;gap:12px;grid-template-columns:1fr 1fr;grid-template-areas:"cx cx" "kd tv";max-width:560px;width:100%;margin-inline:auto}
+#saiae-lp .stage .cx{grid-area:cx}
+#saiae-lp .stage .kd{grid-area:kd}
+#saiae-lp .stage .tv{grid-area:tv}
+#saiae-lp .scap{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--t500);margin-bottom:8px}
+#saiae-lp .scap .ms{font-size:16px}
+#saiae-lp .dark .scap{color:var(--t300)}
+#saiae-lp .panel{border-radius:20px;padding:14px;background:var(--t0);box-shadow:var(--sh-md);border:1px solid var(--t100)}
+#saiae-lp .panel.dark{background:var(--t900);color:var(--t50);border-color:var(--t800)}
+/* caixa */
+#saiae-lp .cx-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--t100);font-size:14px}
+#saiae-lp .cx-row b{font-weight:600;flex:1;min-width:0}
+#saiae-lp .cx-row .pr{color:var(--t500);font-size:13px}
+#saiae-lp .qty{display:inline-flex;align-items:center;gap:6px}
+#saiae-lp .qty>span{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:var(--t100)}
+#saiae-lp .qty>span .ms{font-size:18px}
+#saiae-lp .qty .p{background:var(--m500)}
+#saiae-lp .qty em{font-style:normal;font-weight:700;min-width:14px;text-align:center}
+#saiae-lp .cx-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px}
+#saiae-lp .cx-foot small{display:block;font-size:12px;color:var(--t500)}
+#saiae-lp .cx-foot strong{font-family:var(--fd);font-size:22px;font-weight:800}
+#saiae-lp .cx-btn{display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:14px;background:var(--m500);font-weight:700;font-size:14px;transition:transform .15s,box-shadow .15s}
+#saiae-lp .cx-btn.is-press{transform:scale(.94);box-shadow:inset 0 0 0 1.5px var(--m600)}
+/* card da cozinha */
+#saiae-lp .kcard{border-radius:14px;background:var(--t800);border:1px solid var(--t700);padding:10px;display:flex;flex-direction:column;gap:8px;font-size:13px;transition:opacity .35s,transform .35s}
+#saiae-lp .kcard-h{display:flex;align-items:center;justify-content:space-between;gap:6px}
+#saiae-lp .kcard-h b{font-family:var(--fd);font-size:18px;font-weight:800}
+#saiae-lp .timer{display:inline-flex;align-items:center;gap:4px;height:24px;padding:0 8px;border-radius:999px;font-family:var(--fm);font-size:12px;font-weight:600;background:var(--ok);color:#fff;transition:background-color .3s}
+#saiae-lp .timer .ms{font-size:14px}
+#saiae-lp .timer[data-lv="1"]{background:var(--at)}
+#saiae-lp .timer[data-lv="2"]{background:var(--er)}
+#saiae-lp .timer[data-lv="done"]{background:var(--t600)}
+#saiae-lp .kcard ul{display:flex;flex-direction:column;gap:4px;color:var(--t200)}
+#saiae-lp .kcard li b{color:var(--m500);margin-right:4px}
+#saiae-lp .kbtn{display:flex;align-items:center;justify-content:center;gap:4px;height:34px;border-radius:10px;background:var(--m500);color:var(--t900);font-weight:700;font-size:13px;transition:transform .15s}
+#saiae-lp .kbtn.is-press{transform:scale(.94)}
+#saiae-lp .kcard.is-new{animation:sx-in .45s cubic-bezier(.2,.8,.2,1)}
+#saiae-lp .kcard.is-done{opacity:.55}
+@keyframes sx-in{from{transform:translateY(-8px);opacity:.3}to{transform:none;opacity:1}}
+/* TV de senha */
+#saiae-lp .tv{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+#saiae-lp .tv .scap{align-self:flex-start}
+#saiae-lp .tv-n{font-family:var(--fd);font-weight:800;font-size:clamp(52px,9vw,76px);line-height:1;letter-spacing:-.02em;color:var(--m500);font-variant-numeric:tabular-nums}
+#saiae-lp .tv-n.is-flash{animation:sx-flash .9s steps(1) 1}
+@keyframes sx-flash{0%,33%,66%{opacity:1}16%,50%,83%{opacity:.25}}
+#saiae-lp .tv p{font-size:13px;font-weight:600;color:var(--t200);margin-top:6px}
+#saiae-lp .tv-last{display:flex;gap:6px;margin-top:10px;font-family:var(--fd);font-weight:700;font-size:13px;color:var(--t400)}
+/* toast balão */
+#saiae-lp .toast{position:absolute;left:50%;top:-18px;transform:translate(-50%,0);display:inline-flex;align-items:center;gap:8px;padding:10px 16px 10px 12px;border-radius:var(--balao);background:var(--t900);color:#fff;font-weight:700;font-size:15px;box-shadow:var(--sh-lg);white-space:nowrap;z-index:2;transition:opacity .3s,transform .3s cubic-bezier(.2,.8,.2,1)}
+#saiae-lp .toast .ms{color:var(--ok)}
+#saiae-lp .toast.is-off{opacity:0;transform:translate(-50%,8px)}
+@media (min-width:1024px){#saiae-lp .toast{left:auto;right:-8px;transform:none}#saiae-lp .toast.is-off{transform:translateY(8px)}}
+
+/* ---------- manifesto (seção tinta) ---------- */
+#saiae-lp .mani{background:var(--t900);color:var(--t50);padding-block:80px 0;overflow:hidden}
+#saiae-lp .mani .eyebrow{color:var(--t300)}
+#saiae-lp .mani .lead{color:var(--t200)}
+#saiae-lp .mani-grid{display:grid;gap:36px}
+#saiae-lp .mani-list{display:grid;gap:12px}
+#saiae-lp .mani-item{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;padding:18px;border-radius:20px;background:var(--t800);border:1px solid var(--t700)}
+#saiae-lp .mani-item .ic{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:var(--m500);color:var(--t900)}
+#saiae-lp .mani-item h3{font-family:var(--fd);font-size:18px;font-weight:700;line-height:1.3}
+#saiae-lp .mani-item p{font-size:15px;color:var(--t300);margin-top:4px}
+@media (min-width:1024px){#saiae-lp .mani-grid{grid-template-columns:1fr 1fr;gap:64px;align-items:start}}
+#saiae-lp .marq{margin-top:64px;background:var(--m500);color:var(--t900);padding-block:16px;overflow:hidden;white-space:nowrap}
+#saiae-lp .marq-t{display:inline-flex;animation:sx-mq 40s linear infinite}
+#saiae-lp .marq-t span{display:inline-flex;align-items:center;gap:20px;padding-right:20px;font-family:var(--fd);font-weight:800;font-size:clamp(20px,1.6vw + 12px,30px);letter-spacing:-.01em}
+#saiae-lp .marq-t span i{font-style:normal;width:10px;height:10px;border-radius:3px 3px 3px 1px;background:var(--t900);display:inline-block}
+@keyframes sx-mq{to{transform:translateX(-50%)}}
+
+/* ---------- como funciona ---------- */
+#saiae-lp .steps{display:grid;gap:12px;counter-reset:st}
+#saiae-lp .step{position:relative;display:flex;flex-direction:column;gap:10px;padding:22px 20px;border-radius:20px;background:var(--t50);border:1px solid var(--t100)}
+#saiae-lp .step-top{display:flex;align-items:center;justify-content:space-between}
+#saiae-lp .step .ic{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:14px;background:var(--t900);color:var(--m500)}
+#saiae-lp .step .ic .ms{font-size:24px}
+#saiae-lp .step .n{font-family:var(--fm);font-size:13px;font-weight:600;color:var(--t400)}
+#saiae-lp .step h3{font-family:var(--fd);font-size:19px;font-weight:700}
+#saiae-lp .step p{font-size:15px;color:var(--t500)}
+@media (min-width:640px){#saiae-lp .steps{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1024px){#saiae-lp .steps{grid-template-columns:repeat(5,1fr)}}
+
+/* antes e depois */
+#saiae-lp .ba{display:grid;gap:14px;margin-top:40px}
+#saiae-lp .ba-card{border-radius:24px;padding:22px;display:flex;flex-direction:column;gap:14px}
+#saiae-lp .ba-card--a{background:#FBF6EA;border:1px dashed #D9C9A3}
+#saiae-lp .ba-card--d{background:var(--t900);color:var(--t50)}
+#saiae-lp .ba-tag{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:var(--balao);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+#saiae-lp .ba-card--a .ba-tag{background:var(--er-bg);color:var(--er-tx)}
+#saiae-lp .ba-card--d .ba-tag{background:var(--m500);color:var(--t900)}
+#saiae-lp .ba-card h3{font-family:var(--fd);font-size:22px;font-weight:800;line-height:1.2}
+#saiae-lp .ba-list{display:flex;flex-direction:column;gap:10px;font-size:15px}
+#saiae-lp .ba-list li{display:flex;gap:10px;align-items:flex-start}
+#saiae-lp .ba-card--a .ba-list .ms{color:var(--er)}
+#saiae-lp .ba-card--d .ba-list .ms{color:var(--m500)}
+#saiae-lp .ba-card--d .ba-list{color:var(--t200)}
+@media (min-width:768px){#saiae-lp .ba{grid-template-columns:1fr 1fr}}
+
+/* ---------- recursos ---------- */
+#saiae-lp .bento{display:grid;gap:14px}
+#saiae-lp .bc{display:flex;flex-direction:column;gap:16px;padding:22px;border-radius:24px;background:var(--t0);border:1px solid var(--t100);min-width:0}
+#saiae-lp .bc.dark{background:var(--t900);color:var(--t50);border-color:var(--t900)}
+#saiae-lp .bc-h{display:flex;flex-direction:column;gap:6px}
+#saiae-lp .bc-h .tag{align-self:flex-start;display:inline-flex;align-items:center;gap:5px;height:26px;padding:0 10px;border-radius:var(--balao);background:var(--t100);color:var(--t600);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+#saiae-lp .bc-h .tag .ms{font-size:15px}
+#saiae-lp .bc.dark .bc-h .tag{background:var(--t800);color:var(--t200)}
+#saiae-lp .bc-h h3{font-family:var(--fd);font-size:21px;font-weight:700;line-height:1.25}
+#saiae-lp .bc-h p{font-size:15px;color:var(--t500)}
+#saiae-lp .bc.dark .bc-h p{color:var(--t300)}
+#saiae-lp .mock{border-radius:16px;background:var(--t50);border:1px solid var(--t100);padding:12px;display:flex;flex-direction:column;gap:10px;font-size:14px}
+#saiae-lp .seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;padding:4px;border-radius:14px;background:var(--t100);font-size:13px;font-weight:600}
+#saiae-lp .seg>span{display:flex;align-items:center;justify-content:center;gap:4px;height:36px;border-radius:10px;color:var(--t600)}
+#saiae-lp .seg>span .ms{font-size:17px}
+#saiae-lp .seg .on{background:var(--t0);color:var(--t900);box-shadow:var(--sh-sm)}
+#saiae-lp .chips{display:flex;flex-wrap:wrap;gap:6px}
+#saiae-lp .chip{display:inline-flex;align-items:center;height:30px;padding:0 12px;border-radius:999px;background:var(--t0);border:1px solid var(--t200);font-size:12px;font-weight:600;color:var(--t600)}
+#saiae-lp .chip.on{background:var(--t900);border-color:var(--t900);color:#fff}
+#saiae-lp .prods{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#saiae-lp .prod{display:flex;flex-direction:column;gap:4px;padding:12px;border-radius:14px;background:var(--t0);border:1px solid var(--t100)}
+#saiae-lp .prod b{font-weight:600;font-size:14px;line-height:1.3}
+#saiae-lp .prod .v{font-family:var(--fd);font-weight:700;font-size:15px}
+#saiae-lp .prod .v small{font-size:.75em;font-weight:600;color:var(--t500);margin-right:2px}
+#saiae-lp .prod .qty{justify-content:space-between;margin-top:6px}
+#saiae-lp .prod.sel{border-color:var(--m500);box-shadow:0 0 0 3px var(--m100)}
+#saiae-lp .badge{align-self:flex-start;display:inline-flex;align-items:center;gap:3px;height:22px;padding:0 8px;border-radius:var(--balao);background:var(--m500);font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+#saiae-lp .badge .ms{font-size:13px}
+#saiae-lp .soon-tag{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:var(--balao);background:var(--in-bg);color:var(--in-tx);font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;vertical-align:middle;margin-left:6px}
+#saiae-lp .bc.dark .soon-tag{background:var(--in);color:#fff}
+/* cozinha grande */
+#saiae-lp .kds{display:grid;gap:8px}
+#saiae-lp .legend{display:flex;flex-wrap:wrap;gap:6px;font-size:12px;font-weight:600;color:var(--t300)}
+#saiae-lp .legend>span{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:999px;background:var(--t800)}
+#saiae-lp .legend i{width:8px;height:8px;border-radius:50%;background:var(--c)}
+/* senha */
+#saiae-lp .tvbig{border-radius:16px;background:var(--t900);color:#fff;padding:18px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px}
+#saiae-lp .tvbig .lbl{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--t300)}
+#saiae-lp .tvbig .n{font-family:var(--fd);font-weight:800;font-size:84px;line-height:1;color:var(--m500);font-variant-numeric:tabular-nums}
+#saiae-lp .tvbig p{font-weight:700;font-size:15px}
+/* pagamento */
+#saiae-lp .pay{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#saiae-lp .pay>span{display:flex;align-items:center;gap:8px;height:48px;padding:0 12px;border-radius:14px;background:var(--t0);border:1px solid var(--t200);font-weight:600;font-size:14px}
+#saiae-lp .pay>span .ms{color:var(--t500)}
+#saiae-lp .pay>span.on{border-color:var(--t900);box-shadow:inset 0 0 0 1px var(--t900)}
+#saiae-lp .pay>span.on .ms{color:var(--pix)}
+#saiae-lp .row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+#saiae-lp .row small{font-size:13px;color:var(--t500)}
+#saiae-lp .row .v{font-family:var(--fd);font-weight:700}
+/* relatório */
+#saiae-lp .kpis{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#saiae-lp .kpi:first-child{grid-column:span 2}
+#saiae-lp .kpi{padding:10px;border-radius:14px;background:var(--t0);border:1px solid var(--t100);display:flex;flex-direction:column;gap:2px;min-width:0}
+#saiae-lp .kpi small{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--t500)}
+#saiae-lp .kpi b{font-family:var(--fd);font-weight:800;font-size:clamp(17px,1.2vw + 10px,22px);line-height:1.15;font-variant-numeric:tabular-nums;white-space:nowrap}
+#saiae-lp .kpi em{font-style:normal;font-size:12px;font-weight:600;color:var(--ok-tx);display:inline-flex;align-items:center;gap:2px}
+#saiae-lp .kpi em .ms{font-size:14px}
+#saiae-lp .bars{display:flex;flex-direction:column;gap:8px}
+#saiae-lp .bar{display:grid;grid-template-columns:72px 1fr 40px;gap:10px;align-items:center;font-size:13px;font-weight:600}
+#saiae-lp .bar .tr{height:10px;border-radius:999px;background:var(--t100);overflow:hidden}
+#saiae-lp .bar .tr i{display:block;height:100%;width:var(--w);border-radius:inherit;background:var(--c,var(--t900))}
+#saiae-lp .bar em{font-style:normal;text-align:right;color:var(--t500);font-variant-numeric:tabular-nums}
+/* pequenos */
+#saiae-lp .mini{display:flex;flex-direction:column;gap:12px;padding:22px;border-radius:24px;background:var(--t0);border:1px solid var(--t100)}
+#saiae-lp .mini .ic{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:var(--m100);color:var(--t900)}
+#saiae-lp .mini h3{font-family:var(--fd);font-size:18px;font-weight:700}
+#saiae-lp .mini p{font-size:15px;color:var(--t500)}
+#saiae-lp .minis{display:grid;gap:14px;margin-top:14px}
+@media (min-width:640px){#saiae-lp .minis{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1024px){#saiae-lp .minis{grid-template-columns:repeat(4,1fr)}}
+@media (min-width:768px){
+  #saiae-lp .bento{grid-template-columns:repeat(2,1fr)}
+  #saiae-lp .bc--wide{grid-column:span 2}
+}
+@media (min-width:1024px){
+  #saiae-lp .bento{grid-template-columns:repeat(6,1fr)}
+  #saiae-lp .bc--cx{grid-column:span 3}#saiae-lp .bc--kd{grid-column:span 3}
+  #saiae-lp .bc--tv{grid-column:span 2}#saiae-lp .bc--pay{grid-column:span 2}#saiae-lp .bc--rep{grid-column:span 2}
+  #saiae-lp .bc--wide{grid-column:span 6}
+}
+#saiae-lp .qr-flow{display:grid;gap:8px;grid-template-columns:1fr}
+@media (min-width:768px){#saiae-lp .qr-flow{grid-template-columns:repeat(5,1fr)}}
+#saiae-lp .qr-flow li{display:flex;align-items:center;gap:10px;padding:14px;border-radius:14px;background:var(--t800);border:1px solid var(--t700);font-weight:600;font-size:15px}
+#saiae-lp .qr-flow .ms{color:var(--m500)}
+#saiae-lp .rep-grid{display:grid;gap:14px}
+@media (min-width:1024px){#saiae-lp .bc--rep .rep-grid{grid-template-columns:1fr}}
+
+/* ---------- maquininha ---------- */
+#saiae-lp .pos-grid{display:grid;gap:40px;align-items:center}
+#saiae-lp .checks{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+#saiae-lp .checks li{display:flex;gap:10px;align-items:flex-start;font-size:16px}
+#saiae-lp .checks .ms{color:var(--t900);background:var(--m500);border-radius:8px;padding:3px;font-size:18px;width:auto}
+#saiae-lp .pos{position:relative;width:min(100%,300px);margin-inline:auto;border-radius:36px;background:var(--t900);padding:18px 16px 22px;box-shadow:var(--sh-lg)}
+#saiae-lp .pos-scr{border-radius:18px;background:var(--t0);padding:14px;display:flex;flex-direction:column;gap:8px;font-size:13px}
+#saiae-lp .pos-scr .ttl{display:flex;align-items:center;justify-content:space-between;font-weight:700}
+#saiae-lp .pos-scr .ttl svg{height:22px;width:auto}
+#saiae-lp .pos-scr .ln{display:flex;justify-content:space-between;gap:8px;color:var(--t600)}
+#saiae-lp .pos-scr .tot{display:flex;justify-content:space-between;align-items:baseline;padding-top:8px;border-top:1px dashed var(--t200);font-family:var(--fd);font-weight:800;font-size:20px}
+#saiae-lp .pos-ok{display:flex;align-items:center;gap:6px;padding:8px 10px;border-radius:var(--balao);background:var(--ok-bg);color:var(--ok-tx);font-weight:700}
+#saiae-lp .pos-keys{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+#saiae-lp .pos-keys i{height:26px;border-radius:8px;background:var(--t700)}
+#saiae-lp .pos-keys i:nth-child(10){background:var(--er)}#saiae-lp .pos-keys i:nth-child(12){background:var(--ok)}
+#saiae-lp .pos-note{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:18px;font-size:13px;color:var(--t500)}
+@media (min-width:1024px){#saiae-lp .pos-grid{grid-template-columns:1.1fr 1fr;gap:64px}}
+
+/* ---------- sem letra miúda ---------- */
+#saiae-lp .tr-grid{display:grid;gap:14px}
+#saiae-lp .tr-c{display:flex;gap:16px;padding:24px;border-radius:24px;background:var(--t0);border:1px solid var(--t100)}
+#saiae-lp .tr-c .ic{flex:none;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px}
+#saiae-lp .tr-c--y .ic{background:var(--ok-bg);color:var(--ok-tx)}
+#saiae-lp .tr-c--n .ic{background:var(--er-bg);color:var(--er-tx)}
+#saiae-lp .tr-c h3{font-family:var(--fd);font-size:19px;font-weight:700}
+#saiae-lp .tr-c p{margin-top:4px;color:var(--t500);font-size:15px}
+#saiae-lp .tr-end{margin-top:14px;display:flex;align-items:center;gap:12px;padding:18px 20px;border-radius:var(--balao);background:var(--m100);font-weight:600}
+@media (min-width:768px){#saiae-lp .tr-grid{grid-template-columns:1fr 1fr}}
+
+/* ---------- app ---------- */
+#saiae-lp .app-grid{display:grid;gap:32px;align-items:center}
+#saiae-lp .app-ic{display:flex;align-items:center;gap:16px}
+#saiae-lp .app-ic svg{width:88px;height:88px;border-radius:22px;box-shadow:var(--sh-md)}
+#saiae-lp .app-ic b{display:block;font-family:var(--fd);font-weight:800;font-size:22px}
+#saiae-lp .app-ic small{color:var(--t500);font-size:14px}
+#saiae-lp .app-act{display:flex;flex-wrap:wrap;gap:10px}
+#saiae-lp .gp{height:56px;padding:0 20px;border-radius:14px;background:var(--t900);color:#fff;display:inline-flex;align-items:center;gap:10px}
+#saiae-lp .gp:hover{background:var(--t700)}
+#saiae-lp .gp .ms{font-size:28px;color:var(--m500)}
+#saiae-lp .gp small{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--t300);line-height:1.2}
+#saiae-lp .gp b{display:block;font-size:17px;line-height:1.2}
+#saiae-lp .app-feat{display:grid;gap:10px}
+#saiae-lp .app-feat li{display:flex;align-items:center;gap:12px;padding:16px;border-radius:18px;background:var(--t50);font-weight:600}
+#saiae-lp .app-feat .ms{color:var(--t900)}
+@media (min-width:1024px){#saiae-lp .app-grid{grid-template-columns:1.2fr 1fr;gap:64px}}
+
+/* ---------- teste + planos ---------- */
+#saiae-lp .trial{display:grid;gap:14px;margin-bottom:64px}
+#saiae-lp .trial li{display:flex;gap:14px;align-items:center;padding:18px;border-radius:20px;background:var(--t0);border:1px solid var(--t100);font-weight:600}
+#saiae-lp .trial li b{flex:none;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:12px;background:var(--t900);color:var(--m500);font-family:var(--fd);font-weight:800;font-size:18px}
+@media (min-width:768px){#saiae-lp .trial{grid-template-columns:repeat(3,1fr)}}
+#saiae-lp .launch{display:flex;align-items:center;justify-content:center;gap:8px;width:fit-content;max-width:100%;margin:-16px auto 20px;padding:10px 16px;border-radius:var(--balao);background:var(--t900);color:#fff;font-size:15px;text-align:left}
+#saiae-lp .launch .ms{color:var(--m500)}
+#saiae-lp .launch b{color:var(--m500)}
+#saiae-lp .was{display:block;font-size:14px;color:var(--t500);font-weight:600}
+#saiae-lp .was s{text-decoration-thickness:1.5px}
+#saiae-lp .cyc{display:flex;justify-content:center;margin-bottom:28px}
+#saiae-lp .cyc-in{display:inline-grid;grid-auto-flow:column;gap:4px;padding:4px;border-radius:999px;background:var(--t100)}
+#saiae-lp .cyc button{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;font-weight:600;font-size:15px;color:var(--t600);transition:background-color .2s,color .2s}
+#saiae-lp .cyc button[aria-checked="true"]{background:var(--t900);color:#fff}
+#saiae-lp .cyc .off{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:var(--balao);background:var(--m500);color:var(--t900);font-size:11px;font-weight:700}
+#saiae-lp .plans{display:grid;gap:18px;max-width:960px;margin:0 auto}
+#saiae-lp .plan{position:relative;display:flex;flex-direction:column;gap:16px;padding:26px;border-radius:24px;background:var(--t0);border:1px solid var(--t100)}
+#saiae-lp .plan--pro{border:2px solid var(--t900);box-shadow:var(--sh-lg)}
+#saiae-lp .plan-seal{position:absolute;top:-14px;left:24px;display:inline-flex;align-items:center;gap:4px;height:28px;padding:0 12px;border-radius:var(--balao);background:var(--m500);font-size:12px;font-weight:700;letter-spacing:.04em}
+#saiae-lp .plan-seal .ms{font-size:15px}
+#saiae-lp .plan h3{font-family:var(--fd);font-size:26px;font-weight:800}
+#saiae-lp .plan-d{color:var(--t500);font-size:15px;margin-top:-8px}
+#saiae-lp .plan .was{margin-bottom:-12px}
+#saiae-lp .price{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px}
+#saiae-lp .price small{font-family:var(--fd);font-weight:700;font-size:18px}
+#saiae-lp .price b{font-family:var(--fd);font-weight:800;font-size:48px;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+#saiae-lp .price span{color:var(--t500);font-weight:600}
+#saiae-lp .price .off{margin-left:6px;display:inline-flex;align-items:center;height:24px;padding:0 8px;border-radius:var(--balao);background:var(--ok-bg);color:var(--ok-tx);font-size:12px;font-weight:700}
+#saiae-lp .aux{font-size:14px;color:var(--t500);min-height:1.5em;margin-top:-8px}
+#saiae-lp .feat{display:flex;flex-direction:column;gap:10px;padding-top:16px;border-top:1px solid var(--t100);font-size:15px}
+#saiae-lp .feat li{display:flex;gap:10px;align-items:flex-start}
+#saiae-lp .feat .ms{font-size:20px;color:var(--ok)}
+#saiae-lp .plans-note{text-align:center;margin-top:24px;color:var(--t500);font-size:15px}
+#saiae-lp .plans-note b{color:var(--t900)}
+@media (min-width:768px){#saiae-lp .plans{grid-template-columns:1fr 1fr;align-items:start}}
+
+/* ---------- faq ---------- */
+#saiae-lp .faq-grid{display:grid;gap:32px}
+#saiae-lp .faq{display:flex;flex-direction:column;border-top:1px solid var(--t100)}
+#saiae-lp .faq details{border-bottom:1px solid var(--t100)}
+#saiae-lp .faq summary{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;padding-block:14px;font-family:var(--fd);font-weight:700;font-size:18px;cursor:pointer;list-style:none}
+#saiae-lp .faq summary::-webkit-details-marker{display:none}
+#saiae-lp .faq summary .ms{transition:transform .2s;color:var(--t500)}
+#saiae-lp .faq details[open] summary .ms{transform:rotate(45deg)}
+#saiae-lp .faq details p{padding-bottom:18px;color:var(--t600);max-width:64ch}
+@media (min-width:1024px){#saiae-lp .faq-grid{grid-template-columns:1fr 1.6fr;gap:64px}}
+
+/* ---------- chamada final (mostarda) ---------- */
+#saiae-lp .final{background:var(--m500);padding-block:88px;text-align:center}
+#saiae-lp .final-in{display:flex;flex-direction:column;align-items:center;gap:22px}
+#saiae-lp .final-bub{width:120px;height:auto}
+#saiae-lp .final .h2{max-width:18ch}
+#saiae-lp .final .lead{color:var(--t800)}
+#saiae-lp .final .btn--pri{background:var(--t900);color:#fff}
+#saiae-lp .final .btn--pri:hover{background:var(--t700);box-shadow:none}
+#saiae-lp .final .btn--out:hover{background:var(--m400)}
+
+/* ---------- rodapé ---------- */
+#saiae-lp .foot{background:var(--t900);color:var(--t300);padding-block:56px 32px;font-size:15px}
+#saiae-lp .foot-grid{display:grid;gap:32px}
+#saiae-lp .foot svg{height:44px;width:auto}
+#saiae-lp .foot p{max-width:40ch;margin-top:14px}
+#saiae-lp .foot h4{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--t400);margin-bottom:10px}
+#saiae-lp .foot li a{display:inline-flex;align-items:center;min-height:40px;color:var(--t100)}
+#saiae-lp .foot li a:hover{color:var(--m500)}
+#saiae-lp .foot-bot{margin-top:40px;padding-top:20px;border-top:1px solid var(--t800);font-size:13px;color:var(--t400)}
+@media (min-width:768px){#saiae-lp .foot-grid{grid-template-columns:2fr 1fr 1fr}}
+
+/* aviso "em breve" */
+#saiae-lp .soon{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,0);z-index:80;display:flex;align-items:center;gap:8px;max-width:calc(100% - 32px);padding:12px 18px 12px 14px;border-radius:var(--balao);background:var(--t900);color:#fff;font-weight:600;font-size:15px;box-shadow:var(--sh-lg)}
+#saiae-lp .soon .ms{color:var(--m500)}
+
+@media (min-width:768px){#saiae-lp .sec{padding-block:96px}#saiae-lp{--gut:24px}}
+
+/* ===== v2: hero com foto, calculadora, fatos, fotos, telas, comparação, passos, compra segura ===== */
+#saiae-lp .hero2{padding-block:32px 64px;background:var(--t50)}
+#saiae-lp .hero2-grid{display:grid;gap:40px;align-items:center}
+#saiae-lp .hero-bul{display:flex;flex-direction:column;gap:8px;font-weight:600}
+#saiae-lp .hero-bul li{display:flex;align-items:center;gap:8px}
+#saiae-lp .hero-bul .ms{color:var(--ok)}
+#saiae-lp .hero2-vis{position:relative;display:grid;gap:14px}
+#saiae-lp .seal{position:absolute;top:-14px;right:-6px;z-index:2;width:108px;height:108px;border-radius:50%;background:var(--t900);color:var(--m500);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(-10deg);box-shadow:var(--sh-lg);border:4px solid var(--m500)}
+#saiae-lp .seal b{font-family:var(--fd);font-weight:800;font-size:44px;line-height:.9}
+#saiae-lp .seal span{font-family:var(--fd);font-weight:700;font-size:13px;line-height:1.05;text-transform:uppercase;color:#fff}
+/* foto provisória */
+#saiae-lp .ph{position:relative;margin:0;overflow:hidden;border-radius:28px;background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.35),transparent 55%),repeating-linear-gradient(135deg,var(--m400) 0 18px,var(--m500) 18px 36px);display:flex;align-items:flex-end;justify-content:flex-start;min-height:220px}
+#saiae-lp .ph-ic{position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);width:72px;height:72px;border-radius:50%;background:rgba(24,23,28,.12);display:flex;align-items:center;justify-content:center;color:var(--t900)}
+#saiae-lp .ph-ic .ms{font-size:34px}
+#saiae-lp .ph figcaption{position:relative;margin:14px;padding:12px 14px;border-radius:var(--balao);background:rgba(24,23,28,.88);color:#fff;font-size:13px;line-height:1.45;max-width:380px}
+#saiae-lp .ph figcaption b{display:block;color:var(--m500);font-size:11px;letter-spacing:.08em;margin-bottom:2px}
+#saiae-lp .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#saiae-lp .ph--hero{min-height:420px;border-radius:32px 32px 32px 8px}
+#saiae-lp .ph--port{aspect-ratio:4/5;min-height:0}
+#saiae-lp .ph--land{aspect-ratio:4/3;min-height:0}
+#saiae-lp .ph-row{display:grid;gap:14px;margin-top:48px}
+@media (min-width:768px){#saiae-lp .ph-row{grid-template-columns:repeat(3,1fr)}}
+/* calculadora */
+#saiae-lp .calc{background:var(--t0);border-radius:24px;padding:20px;box-shadow:var(--sh-lg);display:flex;flex-direction:column;gap:10px;border:1px solid var(--t100);z-index:1}
+#saiae-lp .calc-k{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--t500)}
+#saiae-lp .calc-k .ms{font-size:18px}
+#saiae-lp .calc-t{font-family:var(--fd);font-size:21px;font-weight:800;line-height:1.2;letter-spacing:-.01em;margin-bottom:4px}
+#saiae-lp .calc-f{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;font-weight:600;color:var(--t700)}
+#saiae-lp .calc-f output{font-family:var(--fd);font-weight:800;font-size:16px;color:var(--t900)}
+#saiae-lp .calc input[type=range]{width:100%;height:28px;accent-color:var(--t900);margin:0 0 4px}
+#saiae-lp .calc-res{border-radius:18px;background:var(--m500);padding:14px 16px;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px}
+#saiae-lp .calc-res small{width:100%;font-size:13px;font-weight:600}
+#saiae-lp .calc-res strong{font-family:var(--fd);font-weight:800;font-size:34px;line-height:1;letter-spacing:-.02em}
+#saiae-lp .calc-res span{font-weight:600}
+#saiae-lp .calc-res p{width:100%;font-size:13px;font-weight:600;color:var(--t800)}
+#saiae-lp .calc-note{font-size:12px;color:var(--t500);text-align:center}
+/* faixa de fatos */
+#saiae-lp .facts{background:var(--m500);padding-block:28px}
+#saiae-lp .facts-in{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#saiae-lp .fact{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:20px;background:var(--t0)}
+#saiae-lp .fact b{font-family:var(--fd);font-weight:800;font-size:44px;line-height:1;letter-spacing:-.02em}
+#saiae-lp .fact span{font-size:13px;font-weight:600;line-height:1.35;color:var(--t700)}
+@media (min-width:1024px){#saiae-lp .facts-in{grid-template-columns:repeat(4,1fr)}}
+/* telas do app */
+#saiae-lp .phones{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media (min-width:1024px){#saiae-lp .phones{grid-template-columns:repeat(4,1fr);gap:24px}}
+#saiae-lp .phone{margin:0;display:flex;flex-direction:column;align-items:center;gap:12px}
+#saiae-lp .phone figcaption{font-family:var(--fd);font-weight:700;font-size:16px;text-align:center}
+#saiae-lp .phone-scr{width:100%;max-width:240px;aspect-ratio:9/19;border-radius:32px;border:8px solid var(--t900);background:var(--t0);box-shadow:var(--sh-lg);overflow:hidden;position:relative}
+#saiae-lp .phone-scr img{width:100%;height:100%;object-fit:cover;display:block}
+#saiae-lp .ph-scr{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:12px;color:var(--t500);background:repeating-linear-gradient(135deg,var(--t50) 0 12px,var(--t0) 12px 24px);font-size:13px}
+#saiae-lp .ph-scr .ms{font-size:36px;color:var(--t400)}
+/* comparação */
+#saiae-lp .cmp-wrap{overflow-x:auto;border-radius:24px;border:1px solid var(--t100);background:var(--t0)}
+#saiae-lp .cmp{width:100%;min-width:640px;border-collapse:collapse;font-size:15px}
+#saiae-lp .cmp th,#saiae-lp .cmp td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--t100);vertical-align:middle}
+#saiae-lp .cmp thead th{font-family:var(--fd);font-weight:800;font-size:16px;background:var(--t50)}
+#saiae-lp .cmp tbody th{font-weight:600;color:var(--t800)}
+#saiae-lp .cmp tr:last-child th,#saiae-lp .cmp tr:last-child td{border-bottom:0}
+#saiae-lp .cmp .us{background:var(--m50)}
+#saiae-lp .cmp thead .us{background:var(--m500)}
+#saiae-lp .cmp .yes,#saiae-lp .cmp .no,#saiae-lp .cmp .mid{display:inline-flex;align-items:center;gap:6px;font-weight:600}
+#saiae-lp .cmp .yes::before,#saiae-lp .cmp .no::before,#saiae-lp .cmp .mid::before{font-family:'Material Symbols Rounded';font-size:20px;font-weight:500;width:1em;overflow:hidden;line-height:1}
+#saiae-lp .cmp .yes::before{content:"check_circle";color:var(--ok)}
+#saiae-lp .cmp .no::before{content:"cancel";color:var(--er)}
+#saiae-lp .cmp .mid::before{content:"remove_circle";color:var(--at)}
+#saiae-lp .cmp .no{color:var(--t600)}
+/* 3 passos */
+#saiae-lp .start{display:grid;gap:24px;align-items:center;margin-bottom:72px}
+#saiae-lp .start-steps{display:flex;flex-direction:column;gap:14px}
+#saiae-lp .start-steps li{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;padding:16px;border-radius:20px;background:var(--t0);border:1px solid var(--t100)}
+#saiae-lp .start-steps b{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:var(--m500);font-family:var(--fd);font-weight:800;font-size:20px}
+#saiae-lp .start-steps h3{font-family:var(--fd);font-weight:700;font-size:18px}
+#saiae-lp .start-steps p{font-size:15px;color:var(--t500)}
+@media (min-width:1024px){#saiae-lp .start{grid-template-columns:1fr 1fr;gap:48px}}
+@media (min-width:1024px){
+  #saiae-lp .hero2{padding-block:48px 96px}
+  #saiae-lp .hero2-grid{grid-template-columns:1fr 1.05fr;gap:48px}
+  #saiae-lp .hero2-vis{display:block;min-height:620px}
+  #saiae-lp .ph--hero{position:absolute;inset:0 0 0 90px}
+  #saiae-lp .calc{position:absolute;left:0;bottom:-24px;width:340px}
+  #saiae-lp .seal{top:-18px;right:-18px}
+}
+#saiae-lp .ph--hero{align-items:flex-start;justify-content:flex-end}
+#saiae-lp .seal{right:8px}
+@media (min-width:1024px){#saiae-lp .ph--hero figcaption{margin-top:110px;max-width:300px}}
+/* compra segura */
+#saiae-lp .safe{display:grid;gap:10px;max-width:960px;margin:28px auto 0}
+#saiae-lp .safe li{display:flex;gap:12px;align-items:flex-start;padding:16px;border-radius:18px;background:var(--t0);border:1px solid var(--t100)}
+#saiae-lp .safe .ms{color:var(--ok);font-size:24px}
+#saiae-lp .safe b{display:block;font-family:var(--fd);font-weight:700}
+#saiae-lp .safe span:not(.ms){font-size:14px;color:var(--t500)}
+@media (min-width:768px){#saiae-lp .safe{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1024px){#saiae-lp .safe{grid-template-columns:repeat(4,1fr)}}
+@media (prefers-reduced-motion:reduce){
+  #saiae-lp *,#saiae-lp *::before,#saiae-lp *::after{animation:none!important;transition:none!important}
+}
+</style>
+
+<div id="saiae-lp">
+<svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- Letras oficiais da logo (Outfit), extraídas dos SVGs da marca -->
+    <g id="L-sai" style="fill:var(--sai,#18171C)">
+      <path d="M129.767 103.272V56.328H146.567V103.272H129.767ZM138.119 50.856C135.623 50.856 133.543 50.024 131.879 48.36C130.215 46.632 129.383 44.488 129.383 41.928C129.383 39.432 130.215 37.32 131.879 35.592C133.543 33.864 135.623 33 138.119 33C140.743 33 142.855 33.864 144.455 35.592C146.119 37.32 146.951 39.432 146.951 41.928C146.951 44.488 146.119 46.632 144.455 48.36C142.855 50.024 140.743 50.856 138.119 50.856Z"/>
+      <path d="M95.4435 104.232C91.0915 104.232 87.2195 103.176 83.8275 101.064C80.4355 98.952 77.7795 96.072 75.8595 92.424C73.9395 88.712 72.9795 84.52 72.9795 79.848C72.9795 75.112 73.9395 70.888 75.8595 67.176C77.7795 63.464 80.4355 60.584 83.8275 58.536C87.2195 56.424 91.0915 55.368 95.4435 55.368C98.3875 55.368 101.075 55.912 103.507 57C105.939 58.024 107.923 59.496 109.459 61.416C111.059 63.336 112.019 65.512 112.339 67.944V91.56C112.019 94.056 111.059 96.264 109.459 98.184C107.923 100.04 105.939 101.512 103.507 102.6C101.075 103.688 98.3875 104.232 95.4435 104.232ZM98.9955 89.352C101.747 89.352 103.955 88.456 105.619 86.664C107.347 84.872 108.211 82.568 108.211 79.752C108.211 77.896 107.827 76.264 107.059 74.856C106.291 73.448 105.203 72.328 103.795 71.496C102.451 70.664 100.883 70.248 99.0915 70.248C97.2995 70.248 95.6995 70.664 94.2915 71.496C92.9475 72.328 91.8595 73.48 91.0275 74.952C90.2595 76.36 89.8755 77.96 89.8755 79.752C89.8755 81.608 90.2595 83.272 91.0275 84.744C91.7955 86.152 92.8835 87.272 94.2915 88.104C95.6995 88.936 97.2675 89.352 98.9955 89.352ZM107.539 103.272V90.696L109.939 79.176L107.539 67.848V56.328H123.956V103.272H107.539Z"/>
+      <path d="M52.368 104.616C49.488 104.616 46.64 104.232 43.824 103.464C41.072 102.696 38.48 101.672 36.048 100.392C33.68 99.048 31.664 97.512 30 95.784L39.12 86.472C40.656 88.072 42.48 89.32 44.592 90.216C46.768 91.112 49.072 91.56 51.504 91.56C52.912 91.56 53.968 91.368 54.672 90.984C55.44 90.6 55.824 90.056 55.824 89.352C55.824 88.328 55.28 87.56 54.192 87.048C53.168 86.472 51.792 85.992 50.064 85.608C48.4 85.16 46.64 84.648 44.784 84.072C42.928 83.432 41.136 82.6 39.408 81.576C37.68 80.552 36.272 79.112 35.184 77.256C34.16 75.4 33.648 73.032 33.648 70.152C33.648 67.144 34.448 64.52 36.048 62.28C37.712 59.976 40.016 58.184 42.96 56.904C45.904 55.56 49.36 54.888 53.328 54.888C57.36 54.888 61.2 55.592 64.848 57C68.496 58.344 71.44 60.392 73.68 63.144L64.464 72.456C62.928 70.728 61.232 69.544 59.376 68.904C57.52 68.2 55.824 67.848 54.288 67.848C52.816 67.848 51.76 68.072 51.12 68.52C50.48 68.904 50.16 69.448 50.16 70.152C50.16 70.984 50.672 71.656 51.696 72.168C52.784 72.68 54.16 73.16 55.824 73.608C57.552 73.992 59.312 74.504 61.104 75.144C62.96 75.784 64.72 76.68 66.384 77.832C68.112 78.92 69.488 80.392 70.512 82.248C71.6 84.104 72.144 86.504 72.144 89.448C72.144 94.12 70.352 97.832 66.768 100.584C63.184 103.272 58.384 104.616 52.368 104.616Z"/>
+    </g>
+    <g id="L-ae" style="fill:var(--ae,#F6F5F2)">
+      <path d="M251.215 104.46C246.607 104.46 242.447 103.436 238.735 101.388C235.087 99.2761 232.175 96.3961 229.999 92.7481C227.887 89.1 226.831 85.004 226.831 80.46C226.831 75.916 227.887 71.852 229.999 68.268C232.111 64.62 234.959 61.74 238.543 59.628C242.191 57.516 246.223 56.46 250.639 56.46C254.927 56.46 258.703 57.452 261.967 59.436C265.295 61.42 267.887 64.14 269.743 67.5961C271.663 71.052 272.623 74.988 272.623 79.404C272.623 80.172 272.559 80.9721 272.431 81.8041C272.367 82.5721 272.239 83.436 272.047 84.396H234.223V75.756H250.399H266.575L262.639 79.212C262.511 76.396 259.984 78.4201 259.024 76.5001C258.064 74.5801 258.316 78.5241 256.524 77.5001C254.796 76.4761 252.959 78.5001 250.399 78.5001C247.711 78.5001 245.807 75.3481 243.823 76.5001C241.839 77.6521 240.612 75.3881 239.524 77.5001C238.436 79.5481 237.199 77.292 237.199 80.172C237.199 83.052 237.775 85.58 238.927 87.756C240.079 89.932 241.711 91.6281 243.823 92.8441C245.935 93.9961 248.367 94.572 251.119 94.572C253.487 94.572 255.663 94.156 257.647 93.324C259.695 92.492 261.423 91.2761 262.831 89.6761L269.551 96.492C267.311 99.116 264.591 101.1 261.391 102.444C258.191 103.788 254.799 104.46 251.215 104.46ZM236.669 54.5L231.247 49.7L250.658 35L269.743 49.7L264.322 54.5L246.537 41.732L254.562 41.828L236.669 54.5Z"/>
+      <path d="M199.176 104.46C195.016 104.46 191.24 103.404 187.848 101.292C184.52 99.18 181.864 96.332 179.88 92.748C177.96 89.1 177 85.036 177 80.556C177 76.012 177.96 71.948 179.88 68.364C181.864 64.716 184.52 61.836 187.848 59.724C191.24 57.548 195.016 56.46 199.176 56.46C202.696 56.46 205.8 57.228 208.488 58.764C211.24 60.236 213.416 62.284 215.016 64.908C216.616 67.532 217.416 70.508 217.416 73.836V87.084C217.416 90.412 216.616 93.388 215.016 96.012C213.48 98.636 211.336 100.716 208.584 102.252C205.832 103.724 202.696 104.46 199.176 104.46ZM200.904 94.476C204.808 94.476 207.944 93.164 210.312 90.54C212.744 87.916 213.96 84.556 213.96 80.46C213.96 77.708 213.416 75.276 212.328 73.164C211.24 71.052 209.704 69.42 207.72 68.268C205.8 67.052 203.528 66.444 200.904 66.444C198.344 66.444 196.072 67.052 194.088 68.268C192.168 69.42 190.632 71.052 189.48 73.164C188.392 75.276 187.848 77.708 187.848 80.46C187.848 83.212 188.392 85.644 189.48 87.756C190.632 89.868 192.168 91.532 194.088 92.748C196.072 93.9 198.344 94.476 200.904 94.476ZM213.288 103.5V91.116L215.112 79.884L213.288 68.748V57.42H223.848V103.5H213.288Z"/>
+    </g>
+    <path id="B-cheio" d="M157.947 118.144C147.737 129.361 134.944 135.252 125.5 135.252V160.996C125.5 161.837 125.202 162.847 124.009 163.521C122.816 164.194 120.529 163.521 119.535 162.679L67.8404 135.252L43.7417 135.252C38.274 135.252 25.8474 131.465 15.9061 123.049C4.47359 113.371 1.07288e-05 99.9062 1.07288e-05 91.4907V63.2986L0 43.7609C-5.13666e-06 39.1323 1.1792 30.2119 9.44424 18.0935C17.7093 5.97511 37.2798 7.90358e-05 46.7241 7.90358e-05L80.4999 0H118.5C135.5 0 145.5 5.45391 155 13.4959C164.5 21.5379 169.608 31.9959 169.608 43.4959L169.608 91.4906C169.608 96.9607 168.317 106.753 157.947 118.144Z"/>
+    <path id="B-contorno" fill="none" stroke-width="5" d="M46.7236 2.5H118.5C134.788 2.50003 144.235 7.65855 153.385 15.4043C162.379 23.018 167.107 32.8007 167.107 43.4961V91.4902C167.107 96.4408 165.985 105.601 156.099 116.462C146.221 127.312 134.055 132.752 125.5 132.752H123V160.996C123 161.129 122.976 161.183 122.972 161.192C122.97 161.196 122.965 161.205 122.947 161.223C122.935 161.235 122.908 161.258 122.86 161.291C122.852 161.292 122.842 161.293 122.831 161.294C122.702 161.3 122.499 161.286 122.244 161.229C121.994 161.172 121.744 161.086 121.528 160.987C121.303 160.884 121.181 160.797 121.15 160.771L120.945 160.597L120.707 160.471L69.0117 133.043L68.4629 132.752H43.7422C41.4452 132.752 37.3014 131.92 32.4238 129.982C27.5972 128.066 22.2506 125.144 17.5215 121.141C6.67547 111.959 2.5 99.2044 2.5 91.4902V43.7607C2.50002 39.6302 3.5305 31.2013 11.5098 19.502C15.263 13.999 21.7316 9.71944 28.6162 6.80469C35.4922 3.89364 42.412 2.5001 46.7236 2.5Z"/>
+    <path id="I-balao" d="M144.575 127.736C138.073 134.926 129.928 138.702 123.914 138.702V155.205C123.914 155.745 123.724 156.392 122.964 156.824C122.205 157.255 120.749 156.824 120.116 156.284L87.1983 138.702L71.8531 138.702C68.3715 138.702 60.4587 136.275 54.1284 130.88C46.8486 124.676 44 116.044 44 110.65V92.5772L44 80.0526C44 77.0855 44.7509 71.3671 50.0137 63.5987C55.2766 55.8303 67.7385 52.0001 73.7522 52.0001L95.2594 52H119.456C130.281 52 136.649 55.4962 142.698 60.6514C148.748 65.8067 152 72.5108 152 79.8828L152 110.649C152 114.156 151.178 120.433 144.575 127.736Z"/>
+    <path id="I-balao-contorno" fill="none" stroke-width="5" d="M73.752 54.5H119.456C129.564 54.5 135.377 57.6968 141.077 62.5547C146.621 67.2793 149.5 73.3092 149.5 79.8828V110.649C149.5 113.641 148.843 119.288 142.721 126.059C136.55 132.883 129.032 136.202 123.914 136.202H121.414V154.143L121.294 154.079L88.376 136.497L87.8242 136.202H71.8535C70.5526 136.202 68.0362 135.712 64.9873 134.493C61.9896 133.295 58.6741 131.468 55.75 128.977C49.0553 123.271 46.5 115.349 46.5 110.649V80.0527C46.5 77.58 47.1038 72.3508 52.083 65.001C54.3372 61.6736 58.2804 59.0199 62.582 57.1865C66.876 55.3564 71.1584 54.5001 73.752 54.5Z"/>
+    <path id="I-chapeu" d="M87.9243 104L84 98.879L99.631 88L115 98.879L110.192 104L99.134 96.7039L87.9243 104Z"/>
+
+    <!-- Versões montadas -->
+    <symbol id="logo-cheio" viewBox="0 0 273 164"><use href="#B-cheio" style="fill:var(--bub,#FFC21A)"/><use href="#L-sai"/><use href="#L-ae"/></symbol>
+    <symbol id="logo-contorno" viewBox="0 0 273 164"><use href="#B-contorno" style="stroke:var(--bub,#FFC21A)"/><use href="#L-sai"/><use href="#L-ae"/></symbol>
+    <symbol id="logo-texto" viewBox="0 0 224 72"><use href="#L-sai" transform="translate(-30 -33)"/><use href="#L-ae" transform="translate(-49.384 -33.728)"/></symbol>
+    <symbol id="logo-empilhada" viewBox="0 0 165 129"><use href="#L-sai" transform="translate(-30 -33)"/><use href="#L-ae" transform="translate(-108 24)"/></symbol>
+    <symbol id="icone-cheio" viewBox="0 0 196 196"><rect width="196" height="196" rx="40" fill="#FFC21A"/><use href="#I-balao" fill="#18171C"/><use href="#I-chapeu" fill="#FFC21A"/></symbol>
+    <symbol id="icone-contorno" viewBox="0 0 196 196"><rect width="196" height="196" rx="40" fill="#FFC21A"/><use href="#I-balao-contorno" stroke="#18171C"/><use href="#I-chapeu" fill="#18171C"/></symbol>
+    <symbol id="simbolo" viewBox="44 52 108 105"><use href="#I-balao-contorno" style="stroke:var(--sym,#FFC21A)"/><use href="#I-chapeu" style="fill:var(--sym,#FFC21A)"/></symbol>
+  </defs>
+</svg>
+
+<header class="hdr" data-hdr>
+  <div class="wrap hdr-in">
+    <a class="logo" href="#topo" aria-label="Sai aê, voltar ao início">
+      <svg viewBox="0 0 273 164" role="img" aria-hidden="true" style="--ae:#18171C"><use href="#logo-cheio"/></svg>
+    </a>
+    <div class="hdr-act">
+      <a class="btn btn--gh btn--sm hdr-login" href="#" data-link="loginUrl" data-soon="O acesso ao sistema">Entrar</a>
+      <a class="btn btn--pri btn--sm" href="#" data-link="trialUrl" data-soon="O teste grátis">Testar grátis</a>
+      <button class="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="sx-menu" data-burger><span class="ms">menu</span></button>
+    </div>
+  </div>
+  <nav class="subnav" aria-label="Seções da página">
+    <div class="wrap subnav-in" data-subnav>
+      <a href="#por-que" data-sec="por-que"><span class="ms">favorite</span>Por que o Sai aê</a>
+      <a href="#como-funciona" data-sec="como-funciona"><span class="ms">route</span>Como funciona</a>
+      <a href="#telas" data-sec="telas"><span class="ms">smartphone</span>Telas</a>
+      <a href="#comparar" data-sec="comparar"><span class="ms">compare_arrows</span>Comparar</a>
+      <a href="#recursos" data-sec="recursos"><span class="ms">apps</span>Recursos</a>
+      <a href="#cardapio-digital" data-sec="cardapio-digital"><span class="ms">qr_code_2</span>Cardápio digital</a>
+      <a href="#maquininha" data-sec="maquininha"><span class="ms">point_of_sale</span>Maquininha</a>
+      <a href="#planos" data-sec="planos"><span class="ms">sell</span>Planos</a>
+      <a href="#duvidas" data-sec="duvidas"><span class="ms">help</span>Dúvidas</a>
+    </div>
+  </nav>
+  <div class="menu" id="sx-menu" hidden>
+    <nav aria-label="Menu">
+      <a href="#como-funciona">Como funciona <span class="ms">chevron_right</span></a>
+      <a href="#recursos">Recursos <span class="ms">chevron_right</span></a>
+      <a href="#maquininha">Maquininha <span class="ms">chevron_right</span></a>
+      <a href="#planos">Planos <span class="ms">chevron_right</span></a>
+      <a href="#duvidas">Dúvidas <span class="ms">chevron_right</span></a>
+      <a href="#" data-link="loginUrl" data-soon="O acesso ao sistema">Entrar <span class="ms">login</span></a>
+    </nav>
+    <a class="btn btn--pri btn--lg btn--block" href="#" data-link="trialUrl" data-soon="O teste grátis">Testar 7 dias grátis <span class="ms">arrow_forward</span></a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero2" id="topo" aria-labelledby="sx-hero-t">
+  <div class="wrap hero2-grid">
+    <div class="hero-copy">
+      <p class="eyebrow"><i></i>Para feira, food truck, lanchonete e barraca</p>
+      <h1 class="h1" id="sx-hero-t">Sem papel, <span class="nw"><span class="mark">sem grito</span>,</span> sem pedido esquecido.</h1>
+      <p class="lead">Lança no caixa, aparece na cozinha e chama a senha na TV. Tudo no celular que você já tem, por preço de barraca.</p>
+      <ul class="hero-bul">
+        <li><span class="ms f">check_circle</span>7 dias grátis para testar</li>
+        <li><span class="ms f">check_circle</span>Pix, dinheiro, débito e crédito</li>
+        <li><span class="ms f">check_circle</span>Sem fidelidade no plano mensal</li>
+      </ul>
+      <div class="hero-cta">
+        <a class="btn btn--pri btn--pill btn--lg" href="#" data-link="trialUrl" data-soon="O teste grátis">Testar 7 dias grátis <span class="ms">arrow_forward</span></a>
+        <a class="btn btn--out btn--pill btn--lg" href="#como-funciona">Ver como funciona</a>
+      </div>
+    </div>
+
+    <div class="hero2-vis">
+      <figure class="ph ph--hero" data-foto="1">
+        <span class="ph-ic"><span class="ms">photo_camera</span></span>
+        <figcaption><b>FOTO 1 · Hero</b>Feirante sorrindo atrás da barraca de pastel, de avental mostarda, celular na mão. Luz de dia, fundo da feira desfocado.</figcaption>
+      </figure>
+      <div class="seal" aria-hidden="true"><b>7</b><span>dias<br>grátis</span></div>
+
+      <form class="calc" data-calc aria-labelledby="sx-calc-t" onsubmit="return false">
+        <p class="calc-k"><span class="ms">calculate</span>Calculadora rápida</p>
+        <h2 class="calc-t" id="sx-calc-t">Quanto a comanda de papel te custa?</h2>
+        <label class="calc-f" for="sx-ped">Pedidos num dia bom <output class="tn" data-o="ped">60</output></label>
+        <input id="sx-ped" type="range" min="10" max="300" step="5" value="60" data-i="ped">
+        <label class="calc-f" for="sx-tic">Valor médio do pedido <output class="tn" data-o="tic">R$ 25</output></label>
+        <input id="sx-tic" type="range" min="5" max="100" step="1" value="25" data-i="tic">
+        <label class="calc-f" for="sx-dia">Dias de trabalho no mês <output class="tn" data-o="dia">20</output></label>
+        <input id="sx-dia" type="range" min="4" max="30" step="1" value="20" data-i="dia">
+        <div class="calc-res" aria-live="polite">
+          <small>Você pode estar deixando na mesa</small>
+          <strong class="tn" data-o="perda">R$ 1.500</strong><span>por mês</span>
+          <p data-o="paga">Isso paga o plano Essencial 26 vezes.</p>
+        </div>
+        <a class="btn btn--sec btn--pill btn--block" href="#" data-link="trialUrl" data-soon="O teste grátis">Fazer o Raio-X grátis <span class="ms">arrow_forward</span></a>
+        <p class="calc-note">Estimativa: 5% dos pedidos perdidos com erro, esquecimento e desistência na fila.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FAIXA DE FATOS -->
+<section class="facts" aria-label="Sai aê em números">
+  <div class="wrap facts-in">
+    <div class="fact"><b class="tn">3</b><span>telas conectadas:<br>caixa, cozinha e TV</span></div>
+    <div class="fact"><b class="tn">4</b><span>formas de pagamento<br>no mesmo fluxo</span></div>
+    <div class="fact"><b class="tn">7</b><span>dias grátis para<br>testar no seu ponto</span></div>
+    <div class="fact"><b class="tn">0</b><span>computador no balcão:<br>roda no celular</span></div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="mani" id="por-que" aria-labelledby="sx-mani-t">
+  <div class="wrap mani-grid">
+    <div class="head" style="margin-bottom:0">
+      <p class="eyebrow"><i></i>Feito para quem o mercado esqueceu</p>
+      <h2 class="h2" id="sx-mani-t">Os sistemas grandes nunca olharam para o seu balcão. <span class="mark">A gente olhou.</span></h2>
+      <p class="lead">Sistema de restaurante foi pensado para quem tem gerente, garçom e computador no caixa. Quem vende pastel na feira, açaí na praça ou lanche no food truck ficou com o bloquinho, a caneta e a memória. O Sai aê nasceu para esse balcão.</p>
+    </div>
+    <ul class="mani-list">
+      <li class="mani-item"><span class="ic"><span class="ms">payments</span></span><div><h3>Preço de barraca</h3><p>Você paga pelo que usa no dia a dia. Nada de pacote de restaurante grande.</p></div></li>
+      <li class="mani-item"><span class="ic"><span class="ms">smartphone</span></span><div><h3>Roda no que você já tem</h3><p>Celular, tablet, maquininha ou uma TV velha para a senha. Sem computador no balcão.</p></div></li>
+      <li class="mani-item"><span class="ic"><span class="ms">bolt</span></span><div><h3>Feito para a correria</h3><p>Botões grandes, poucas telas e tudo na ordem certa. Dá para usar com a mão engordurada.</p></div></li>
+      <li class="mani-item"><span class="ic"><span class="ms">forum</span></span><div><h3>Gente de verdade no WhatsApp</h3><p>Ficou com dúvida no meio do movimento? Chama a gente.</p></div></li>
+    </ul>
+  </div>
+  <div class="wrap">
+    <div class="ph-row">
+      <figure class="ph ph--port" data-foto="2"><span class="ph-ic"><span class="ms">photo_camera</span></span><figcaption><b>FOTO 2 · Açaí</b>Atendente de camiseta mostarda entregando um copo de açaí no balcão, sorrindo para o cliente.</figcaption></figure>
+      <figure class="ph ph--port" data-foto="3"><span class="ph-ic"><span class="ms">photo_camera</span></span><figcaption><b>FOTO 3 · Food truck</b>Dono do food truck na janela do caminhão, boné mostarda, tablet com a tela da cozinha ao lado.</figcaption></figure>
+      <figure class="ph ph--port" data-foto="4"><span class="ph-ic"><span class="ms">photo_camera</span></span><figcaption><b>FOTO 4 · Lanchonete</b>Cozinheira de avental mostarda olhando a tela da cozinha na parede, pedido na mão.</figcaption></figure>
+    </div>
+  </div>
+  <div class="marq" aria-label="Feito para feira, food truck, lanchonete, pastelaria, açaí, evento e quermesse.">
+    <div class="marq-t" aria-hidden="true">
+      <span>Feira <i></i> Food truck <i></i> Lanchonete <i></i> Pastelaria <i></i> Açaí <i></i> Evento <i></i> Quermesse <i></i> Barraca de praia <i></i></span>
+      <span>Feira <i></i> Food truck <i></i> Lanchonete <i></i> Pastelaria <i></i> Açaí <i></i> Evento <i></i> Quermesse <i></i> Barraca de praia <i></i></span>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="sec sec--w" id="como-funciona" aria-labelledby="sx-como-t">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><i></i>Como funciona</p>
+      <h2 class="h2" id="sx-como-t">Do pedido à senha, num fluxo só.</h2>
+      <p class="lead">Cada pedido percorre o mesmo caminho, e todo mundo da equipe vê em que ponto ele está.</p>
+    </div>
+    <ol class="steps">
+      <li class="step"><div class="step-top"><span class="ic"><span class="ms">receipt_long</span></span><span class="n">1 de 5</span></div><h3>Lance o pedido</h3><p>Escolha no cardápio, marque balcão, mesa ou viagem e anote a observação de cada item.</p></li>
+      <li class="step"><div class="step-top"><span class="ic"><span class="ms">qr_code_2</span></span><span class="n">2 de 5</span></div><h3>Receba</h3><p>Pix, dinheiro, débito ou crédito. A senha sai na confirmação do pagamento.</p></li>
+      <li class="step"><div class="step-top"><span class="ic"><span class="ms">skillet</span></span><span class="n">3 de 5</span></div><h3>A cozinha vê na hora</h3><p>O pedido chega com número, horário e itens. O cronômetro muda de cor com o tempo.</p></li>
+      <li class="step"><div class="step-top"><span class="ic"><span class="ms">campaign</span></span><span class="n">4 de 5</span></div><h3>Sai aê!</h3><p>Um toque em "Pronto" e a senha aparece na TV com o logo do seu ponto.</p></li>
+      <li class="step"><div class="step-top"><span class="ic"><span class="ms">bar_chart</span></span><span class="n">5 de 5</span></div><h3>Feche o dia</h3><p>Vendas por hora e por pagamento, os mais vendidos e o lucro, no celular.</p></li>
+    </ol>
+
+    <div class="ba">
+      <article class="ba-card ba-card--a">
+        <span class="ba-tag"><span class="ms">close</span>Com papel</span>
+        <h3>Comanda solta no balcão e cliente perguntando "e o meu?"</h3>
+        <ul class="ba-list">
+          <li><span class="ms">close</span>Pedido que some ou sai trocado</li>
+          <li><span class="ms">close</span>Gritaria para chamar o cliente</li>
+          <li><span class="ms">close</span>No fim do dia, ninguém sabe quanto vendeu</li>
+        </ul>
+      </article>
+      <article class="ba-card ba-card--d">
+        <span class="ba-tag"><span class="ms">check</span>Com Sai aê</span>
+        <h3>Tudo na tela, na ordem certa.</h3>
+        <ul class="ba-list">
+          <li><span class="ms">check</span>A cozinha recebe o pedido no mesmo segundo</li>
+          <li><span class="ms">check</span>A senha aparece na TV e o cliente retira</li>
+          <li><span class="ms">check</span>Quem quiser pede e paga pelo celular, sem fila</li>
+          <li><span class="ms">check</span>Relatório do dia pronto quando você baixa a porta</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TELAS DO APP -->
+<section class="sec sec--p" id="telas" aria-labelledby="sx-telas-t">
+  <div class="wrap">
+    <div class="head head--c">
+      <p class="eyebrow"><i></i>Telas do app</p>
+      <h2 class="h2" id="sx-telas-t">É assim no seu celular.</h2>
+      <p class="lead">Poucas telas, botões grandes e tudo na ordem certa.</p>
+    </div>
+    <div class="phones">
+      <figure class="phone"><div class="phone-scr ph-scr" data-print="lancar"><span class="ms">smartphone</span><b>Print: Lançar pedido</b></div><figcaption>Lance o pedido</figcaption></figure>
+      <figure class="phone"><div class="phone-scr ph-scr" data-print="pagamento"><span class="ms">smartphone</span><b>Print: Pagamento</b></div><figcaption>Receba no Pix ou cartão</figcaption></figure>
+      <figure class="phone"><div class="phone-scr ph-scr" data-print="cozinha"><span class="ms">smartphone</span><b>Print: Cozinha</b></div><figcaption>A cozinha vê na hora</figcaption></figure>
+      <figure class="phone"><div class="phone-scr ph-scr" data-print="relatorio"><span class="ms">smartphone</span><b>Print: Relatório</b></div><figcaption>Feche o dia</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARAÇÃO -->
+<section class="sec sec--w" id="comparar" aria-labelledby="sx-cmp-t">
+  <div class="wrap">
+    <div class="head head--c">
+      <p class="eyebrow"><i></i>Compare</p>
+      <h2 class="h2" id="sx-cmp-t">Papel, planilha ou Sai aê?</h2>
+      <p class="lead">O que muda no seu dia quando o pedido deixa de depender da memória.</p>
+    </div>
+    <div class="cmp-wrap">
+      <table class="cmp">
+        <thead><tr><th scope="col"><span class="sr">Recurso</span></th><th scope="col">Papel e caneta</th><th scope="col">Planilha</th><th scope="col" class="us">Sai aê</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Pedido chega na cozinha na hora</th><td><span class="no">Não</span></td><td><span class="no">Não</span></td><td class="us"><span class="yes">Sim</span></td></tr>
+          <tr><th scope="row">Chama a senha na TV</th><td><span class="no">Não, no grito</span></td><td><span class="no">Não</span></td><td class="us"><span class="yes">Sim</span></td></tr>
+          <tr><th scope="row">Mostra quem espera há mais tempo</th><td><span class="no">Não</span></td><td><span class="no">Não</span></td><td class="us"><span class="yes">Cronômetro por cor</span></td></tr>
+          <tr><th scope="row">Pix, dinheiro e cartão no mesmo fluxo</th><td><span class="no">Não</span></td><td><span class="mid">Anota à parte</span></td><td class="us"><span class="yes">Sim</span></td></tr>
+          <tr><th scope="row">Relatório do dia pronto</th><td><span class="no">Conta à mão</span></td><td><span class="mid">Se você digitar tudo</span></td><td class="us"><span class="yes">Automático</span></td></tr>
+          <tr><th scope="row">Funciona na correria, com uma mão</th><td><span class="mid">Mais ou menos</span></td><td><span class="no">Não</span></td><td class="us"><span class="yes">Feito para isso</span></td></tr>
+          <tr><th scope="row">Custo por mês</th><td>O bloquinho</td><td>Grátis, mas toma seu tempo</td><td class="us"><b>A partir de R$ 57,90</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- RECURSOS -->
+<section class="sec sec--p" id="recursos" aria-labelledby="sx-rec-t">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><i></i>Recursos</p>
+      <h2 class="h2" id="sx-rec-t">Cada tela faz uma coisa, e faz direito.</h2>
+      <p class="lead">Do caixa ao relatório, sem menu escondido. Os valores abaixo são exemplos.</p>
+    </div>
+
+    <div class="bento">
+      <article class="bc bc--cx">
+        <div class="bc-h"><span class="tag"><span class="ms">point_of_sale</span>Caixa</span><h3>Lançar pedido</h3><p>Cardápio com categorias, os mais pedidos no topo e observação por item.</p></div>
+        <div class="mock" aria-hidden="true">
+          <div class="seg"><span class="on"><span class="ms">storefront</span>Balcão</span><span><span class="ms">table_restaurant</span>Mesa</span><span><span class="ms">takeout_dining</span>Viagem</span></div>
+          <div class="chips"><span class="chip on">Todos</span><span class="chip">Pastéis</span><span class="chip">Bebidas</span><span class="chip">Doces</span></div>
+          <div class="prods">
+            <div class="prod sel"><span class="badge"><span class="ms f">star</span>Mais vendido</span><b>Pastel de carne</b><span class="v tn"><small>R$</small>12,00</span><span class="qty"><span><span class="ms">remove</span></span><em class="tn">2</em><span class="p"><span class="ms">add</span></span></span></div>
+            <div class="prod"><span class="badge" style="background:var(--t100)">Novo</span><b>Caldo de cana 500ml</b><span class="v tn"><small>R$</small>8,00</span><span class="qty"><span><span class="ms">remove</span></span><em class="tn">0</em><span class="p"><span class="ms">add</span></span></span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="bc dark bc--kd">
+        <div class="bc-h"><span class="tag"><span class="ms">skillet</span>Cozinha</span><h3>Cozinha em tempo real</h3><p>O cronômetro muda de cor sozinho e mostra quem está esperando há mais tempo.</p></div>
+        <div class="kds" aria-hidden="true">
+          <div class="kcard"><div class="kcard-h"><b class="tn">#131</b><span class="timer" data-lv="0"><span class="ms">timer</span><span class="tn">03:12</span></span></div><ul><li><b>2</b>Pastel de carne</li><li><b>1</b>Caldo de cana</li></ul></div>
+          <div class="kcard"><div class="kcard-h"><b class="tn">#129</b><span class="timer" data-lv="1"><span class="ms">timer</span><span class="tn">08:45</span></span></div><ul><li><b>1</b>Pastel de queijo · sem cebola</li><li><b>3</b>Coxinha</li></ul></div>
+          <div class="kcard"><div class="kcard-h"><b class="tn">#127</b><span class="timer" data-lv="2"><span class="ms">timer</span><span class="tn">13:20</span></span></div><ul><li><b>1</b>Açaí 500ml</li></ul></div>
+        </div>
+        <div class="legend"><span style="--c:var(--ok)"><i></i>0 a 7 min</span><span style="--c:var(--at)"><i></i>7 a 12 min</span><span style="--c:var(--er)"><i></i>+12 min</span></div>
+      </article>
+
+      <article class="bc bc--tv">
+        <div class="bc-h"><span class="tag"><span class="ms">campaign</span>Senha</span><h3>Chamada na TV</h3><p>Tela cheia para tablet ou TV, com o logo do seu ponto. Dá para ler de longe.</p></div>
+        <div class="tvbig" aria-hidden="true"><span class="lbl"><span class="ms">campaign</span>Senha chamada</span><span class="n">042</span><p>Pode retirar!</p></div>
+      </article>
+
+      <article class="bc bc--pay">
+        <div class="bc-h"><span class="tag"><span class="ms">payments</span>Pagamento</span><h3>Todas as formas</h3><p>A senha só é gerada depois que o pagamento é confirmado.</p></div>
+        <div class="mock" aria-hidden="true">
+          <div class="row"><small>Total</small><span class="v tn">R$ 32,00</span></div>
+          <div class="pay"><span class="on"><span class="ms">qr_code_2</span>Pix</span><span><span class="ms">payments</span>Dinheiro</span><span><span class="ms">credit_card</span>Débito</span><span><span class="ms">credit_card</span>Crédito</span></div>
+        </div>
+      </article>
+
+      <article class="bc bc--rep">
+        <div class="bc-h"><span class="tag"><span class="ms">bar_chart</span>Relatório</span><h3>Relatório do dia</h3><p>O que vendeu, por hora e por pagamento.</p></div>
+        <div class="mock" aria-hidden="true">
+          <div class="kpis"><div class="kpi"><small>Vendas</small><b>R$ 1.284,50</b></div><div class="kpi"><small>Pedidos</small><b>48</b></div><div class="kpi"><small>Preparo</small><b>7 min</b></div></div>
+          <div class="bars">
+            <div class="bar"><span>Pix</span><span class="tr"><i style="--w:46%;--c:var(--pix)"></i></span><em>46%</em></div>
+            <div class="bar"><span>Crédito</span><span class="tr"><i style="--w:22%"></i></span><em>22%</em></div>
+            <div class="bar"><span>Débito</span><span class="tr"><i style="--w:18%"></i></span><em>18%</em></div>
+            <div class="bar"><span>Dinheiro</span><span class="tr"><i style="--w:14%;--c:var(--m600)"></i></span><em>14%</em></div>
+          </div>
+        </div>
+      </article>
+      <article class="bc dark bc--wide bc--qr" id="cardapio-digital">
+        <div class="bc-h"><span class="tag"><span class="ms">qr_code_2</span>Cardápio digital</span><h3>O cliente pede e paga pelo celular, sem fila <span class="soon-tag">Em breve</span></h3><p>Ele aponta a câmera para o QR code, escolhe no seu cardápio, paga no Pix ou no cartão e o pedido cai direto na cozinha. Quando fica pronto, a senha aparece na TV. O caixa fica livre para quem prefere pedir no balcão.</p></div>
+        <ol class="qr-flow" aria-hidden="true">
+          <li><span class="ms">qr_code_scanner</span>Lê o QR code</li>
+          <li><span class="ms">restaurant_menu</span>Escolhe no cardápio</li>
+          <li><span class="ms">qr_code_2</span>Paga no Pix ou cartão</li>
+          <li><span class="ms">skillet</span>Cai na cozinha</li>
+          <li><span class="ms">campaign</span>Sai aê! Retira</li>
+        </ol>
+      </article>
+    </div>
+
+    <div class="minis">
+      <article class="mini"><span class="ic"><span class="ms">savings</span></span><h3>Custo, lucro e histórico</h3><p>Desconta o custo do dia e as taxas da maquininha. Filtre por período e exporte quando precisar.</p></article>
+      <article class="mini"><span class="ic"><span class="ms">receipt</span></span><h3>Nota fiscal <span class="soon-tag">Em breve</span></h3><p>Tem CNPJ e certificado digital? O Sai aê emite a nota do pedido. Não tem? Continua usando normal, sem nota.</p></article>
+      <article class="mini"><span class="ic"><span class="ms">storefront</span></span><h3>Vários pontos</h3><p>Cardápio, pedidos e histórico separados por ponto, na mesma conta.</p></article>
+      <article class="mini"><span class="ic"><span class="ms">shield_person</span></span><h3>Cada um no seu lugar</h3><p>Senha de operador, senha de administrador e Face ID.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- MAQUININHA -->
+<section class="sec sec--w" id="maquininha" aria-labelledby="sx-pos-t">
+  <div class="wrap pos-grid">
+    <div class="head" style="margin-bottom:0">
+      <p class="eyebrow"><i></i>Maquininha e bancos</p>
+      <h2 class="h2" id="sx-pos-t">Lança, cobra e manda para a cozinha. Tudo na maquininha.</h2>
+      <p class="lead">O Sai aê roda dentro da maquininha e se integra com bancos e adquirentes. Um aparelho só no balcão.</p>
+      <ul class="checks">
+        <li><span class="ms">check</span>Cardápio e pedidos na tela da maquininha</li>
+        <li><span class="ms">check</span>Débito, crédito e Pix no mesmo fluxo do pedido</li>
+        <li><span class="ms">check</span>Comanda impressa na hora</li>
+        <li><span class="ms">check</span>Menos digitação, menos erro no valor cobrado</li>
+      </ul>
+      <div class="hero-cta" style="margin-top:8px"><a class="btn btn--sec btn--pill btn--lg" href="#" data-link="posUrl" data-soon="O Sai aê na maquininha">Quero usar na maquininha <span class="ms">arrow_forward</span></a></div>
+      <p class="pos-note"><span class="pill">Cielo</span><span class="pill">Bancos</span><span class="pill">Pix</span></p>
+    </div>
+    <div class="pos" aria-hidden="true">
+      <div class="pos-scr">
+        <div class="ttl"><svg viewBox="0 0 224 72"><use href="#logo-texto" style="--sai:#18171C;--ae:#B38300"/></svg><span class="tn">#132 · Balcão</span></div>
+        <div class="ln"><span>2× Pastel de carne</span><span class="tn">24,00</span></div>
+        <div class="ln"><span>1× Caldo de cana</span><span class="tn">8,00</span></div>
+        <div class="tot"><span>Total</span><span class="tn">R$ 32,00</span></div>
+        <div class="pos-ok"><span class="ms f">check_circle</span>Pix aprovado · na cozinha</div>
+      </div>
+      <div class="pos-keys"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- SEM LETRA MIÚDA -->
+<section class="sec sec--p" aria-labelledby="sx-tr-t">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><i></i>Sem letra miúda</p>
+      <h2 class="h2" id="sx-tr-t">O que o Sai aê faz, e o que ele não faz.</h2>
+    </div>
+    <div class="tr-grid">
+      <article class="tr-c tr-c--y"><span class="ic"><span class="ms">check</span></span><div><h3>O que ele faz</h3><p>Pedido, cozinha, senha, pagamento e relatório. Em breve, também cardápio digital com pedido e pagamento pelo celular, e nota fiscal para quem tem certificado.</p></div></article>
+      <article class="tr-c tr-c--n"><span class="ic"><span class="ms">block</span></span><div><h3>O que ele ainda não faz</h3><p>Integração com aplicativos de delivery. <span class="soon-tag" style="margin-left:0">Em breve</span></p></div></article>
+    </div>
+    <p class="tr-end"><span class="ms">sell</span>Você paga só pelo que usa no dia a dia, por preço de barraca.</p>
+  </div>
+</section>
+
+<!-- APP -->
+<section class="sec sec--w" id="app" aria-labelledby="sx-app-t">
+  <div class="wrap app-grid">
+    <div class="head" style="margin-bottom:0">
+      <p class="eyebrow"><i></i>Aplicativo</p>
+      <h2 class="h2" id="sx-app-t">O balcão inteiro no seu bolso.</h2>
+      <p class="lead">Baixe no Android e tenha caixa, cozinha e relatório na palma da mão. Prefere não instalar? Ele abre no navegador de qualquer celular.</p>
+      <div class="app-ic"><svg viewBox="0 0 196 196" role="img" aria-label="Ícone do app Sai aê"><use href="#icone-cheio"/></svg><div><b>Sai aê</b><small>Android e navegador</small></div></div>
+      <div class="app-act">
+        <a class="gp" href="#" data-link="playStoreUrl" data-soon="O app na Google Play"><span class="ms f">shop</span><span><small>Disponível no</small><b>Google Play</b></span></a>
+        <a class="btn btn--out btn--lg" href="#" data-link="loginUrl" data-soon="A versão no navegador">Usar no navegador</a>
+      </div>
+    </div>
+    <ul class="app-feat">
+      <li><span class="ms">dark_mode</span>Tema escuro para a cozinha e para a noite</li>
+      <li><span class="ms">face</span>Face ID e senha de operador</li>
+      <li><span class="ms">storefront</span>Vários pontos na mesma conta</li>
+      <li><span class="ms">wifi_off</span>Caiu a internet? O pedido fica salvo e sobe quando voltar</li>
+    </ul>
+  </div>
+</section>
+
+<!-- TESTE + PLANOS -->
+<section class="sec sec--p" id="planos" aria-labelledby="sx-planos-t">
+  <div class="wrap">
+    <div class="head head--c">
+      <p class="eyebrow"><i></i>Comece em 3 passos</p>
+      <h2 class="h2">Teste no seu movimento de verdade.</h2>
+      <p class="lead">Cadastre o cardápio, lance pedidos e veja a cozinha funcionando. Depois escolha o plano que cabe no seu negócio.</p>
+    </div>
+    <div class="start">
+      <ol class="start-steps">
+        <li><b>1</b><div><h3>Crie sua conta</h3><p>Leva poucos minutos e já libera os 7 dias grátis.</p></div></li>
+        <li><b>2</b><div><h3>Cadastre o cardápio</h3><p>Foto, preço e categoria de cada produto. Dá para fazer pelo celular.</p></div></li>
+        <li><b>3</b><div><h3>Lance o primeiro pedido</h3><p>Veja chegar na cozinha e chame a senha na TV no mesmo dia.</p></div></li>
+      </ol>
+      <figure class="ph ph--land" data-foto="5"><span class="ph-ic"><span class="ms">photo_camera</span></span><figcaption><b>FOTO 5 · Começando</b>Dona de lanchonete de camisa mostarda cadastrando o cardápio no celular, apoiada no balcão, sorrindo.</figcaption></figure>
+    </div>
+
+    <div class="head head--c">
+      <p class="eyebrow"><i></i>Planos</p>
+      <h2 class="h2" id="sx-planos-t">Preço de barraca, não de restaurante grande.</h2>
+    </div>
+    <div class="launch"><span class="ms f">local_fire_department</span><span><b>Preço de lançamento:</b> 33% OFF para quem entrar agora.</span></div>
+    <div class="cyc">
+      <div class="cyc-in" role="radiogroup" aria-label="Ciclo de cobrança" data-cyc>
+        <button type="button" role="radio" aria-checked="true" data-c="mensal">Mensal</button>
+        <button type="button" role="radio" aria-checked="false" data-c="anual">Anual <span class="off">até 20% OFF</span></button>
+      </div>
+    </div>
+    <div class="plans">
+      <article class="plan" data-plan="essencial">
+        <h3>Essencial</h3>
+        <p class="plan-d">Para quem tem um ponto e quer largar o papel.</p>
+        <p class="was" data-f="was">De <s>R$ 86,90</s> por</p>
+        <div class="price"><small>R$</small><b data-f="price">57,90</b><span>/mês</span><span class="off" data-f="off" hidden></span></div>
+        <p class="aux" data-f="aux" aria-live="polite">Cobrado todo mês. Sem fidelidade.</p>
+        <a class="btn btn--out btn--lg btn--block" href="#" data-link="checkout" data-plan-cta data-soon="A assinatura do Essencial">Começar com o Essencial</a>
+        <ul class="feat" data-f="itens"></ul>
+      </article>
+      <article class="plan plan--pro" data-plan="pro">
+        <span class="plan-seal"><span class="ms f">star</span>MAIS COMPLETO</span>
+        <h3>Pro</h3>
+        <p class="plan-d">Para quem quer controle total ou tem mais de um ponto.</p>
+        <p class="was" data-f="was">De <s>R$ 131,90</s> por</p>
+        <div class="price"><small>R$</small><b data-f="price">87,90</b><span>/mês</span><span class="off" data-f="off" hidden></span></div>
+        <p class="aux" data-f="aux" aria-live="polite">Cobrado todo mês. Sem fidelidade.</p>
+        <a class="btn btn--pri btn--lg btn--block" href="#" data-link="checkout" data-plan-cta data-soon="A assinatura do Pro">Quero o Pro</a>
+        <ul class="feat" data-f="itens"></ul>
+      </article>
+    </div>
+    <ul class="safe">
+      <li><span class="ms f">verified_user</span><div><b>Pagamento seguro</b><span>Pagamento processado pela Kirvano.</span></div></li>
+      <li><span class="ms f">event_available</span><div><b>7 dias grátis</b><span>Teste no seu movimento antes de pagar.</span></div></li>
+      <li><span class="ms f">lock_open</span><div><b>Sem fidelidade</b><span>No mensal, cancele quando quiser.</span></div></li>
+      <li><span class="ms f">support_agent</span><div><b>Gente de verdade</b><span>Suporte pelo WhatsApp.</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec sec--w" id="duvidas" aria-labelledby="sx-faq-t">
+  <div class="wrap faq-grid">
+    <div class="head" style="margin-bottom:0">
+      <p class="eyebrow"><i></i>Dúvidas</p>
+      <h2 class="h2" id="sx-faq-t">Perguntas frequentes</h2>
+      <p class="lead">Não achou sua resposta? Chama a gente no WhatsApp.</p>
+      <div><a class="btn btn--sec btn--pill" href="#" data-link="whatsappUrl" data-soon="O atendimento no WhatsApp"><span class="ms">chat</span>Falar no WhatsApp</a></div>
+    </div>
+    <div class="faq">
+      <details><summary>Funciona em qualquer celular?<span class="ms">add</span></summary><p>Sim. Tem app para Android e também abre no navegador de qualquer celular, que você pode adicionar à tela inicial.</p></details>
+      <details><summary>Precisa de internet?<span class="ms">add</span></summary><p>Sim, é a internet que liga o caixa à cozinha em tempo real. Se ela cair, o pedido fica salvo e sobe quando voltar.</p></details>
+      <details><summary>Emite nota fiscal?<span class="ms">add</span></summary><p>Em breve, para quem tem CNPJ e certificado digital: a nota sai junto com o pedido. Quem não emite nota continua usando o Sai aê normalmente.</p></details>
+      <details><summary>O cliente pode pedir pelo celular?<span class="ms">add</span></summary><p>Pode. Com o cardápio digital, ele lê o QR code e escolhe no seu cardápio. Em breve, também vai pagar por ali, e o pedido vai direto para a cozinha, sem passar pela fila do caixa.</p></details>
+      <details><summary>Funciona na maquininha?<span class="ms">add</span></summary><p>Sim. O Sai aê se integra com bancos e maquininhas, como a Cielo: você lança o pedido e recebe no mesmo aparelho.</p></details>
+      <details><summary>Como funciona a chamada de senha?<span class="ms">add</span></summary><p>É uma tela cheia com a senha e o logo do seu ponto. Pode ficar num tablet ou numa TV.</p></details>
+      <details><summary>Posso usar em mais de um ponto?<span class="ms">add</span></summary><p>Sim, no plano Pro. Cada ponto tem seu cardápio, seus pedidos e seu histórico.</p></details>
+      <details><summary>Tem teste grátis?<span class="ms">add</span></summary><p>Tem. São 7 dias para testar no seu movimento de verdade antes de escolher um plano.</p></details>
+      <details><summary>Posso trocar de plano depois?<span class="ms">add</span></summary><p>Pode, quando quiser.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final" aria-labelledby="sx-final-t">
+  <div class="wrap final-in">
+    <svg class="final-bub" viewBox="0 0 196 196" aria-hidden="true"><use href="#icone-contorno"/></svg>
+    <h2 class="h2" id="sx-final-t">Sua próxima fila vai andar mais rápido.</h2>
+    <p class="lead">Teste grátis por 7 dias e deixe o papel para a lista de compras.</p>
+    <div class="hero-cta" style="justify-content:center">
+      <a class="btn btn--pri btn--pill btn--lg" href="#" data-link="trialUrl" data-soon="O teste grátis">Testar 7 dias grátis <span class="ms">arrow_forward</span></a>
+      <a class="btn btn--out btn--pill btn--lg" href="#" data-link="whatsappUrl" data-soon="O atendimento no WhatsApp"><span class="ms">chat</span>Falar no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <svg viewBox="0 0 224 72" role="img" aria-label="Sai aê"><use href="#logo-texto" style="--sai:#F6F5F2;--ae:#FFC21A"/></svg>
+        <p>Pedido, cozinha e senha para feira, food truck, lanchonete e barraca.</p>
+      </div>
+      <div><h4>Navegação</h4><ul><li><a href="#como-funciona">Como funciona</a></li><li><a href="#planos">Planos</a></li><li><a href="#maquininha">Maquininha</a></li><li><a href="#duvidas">Dúvidas</a></li></ul></div>
+      <div><h4>Comece</h4><ul><li><a href="#" data-link="trialUrl" data-soon="O teste grátis">Teste grátis</a></li><li><a href="#" data-link="playStoreUrl" data-soon="O app na Google Play">Baixar o app</a></li><li><a href="#" data-link="whatsappUrl" data-soon="O atendimento no WhatsApp">WhatsApp</a></li><li><a href="#" data-link="loginUrl" data-soon="O acesso ao sistema">Entrar</a></li></ul></div>
+    </div>
+    <p class="foot-bot">© <span data-year>2026</span> Sai aê. Todos os direitos reservados. Powered by AIA</p>
+  </div>
+</footer>
+
+<div class="soon" data-soonbox role="status" hidden><span class="ms f">schedule</span><span data-soontxt></span></div>
+</div>
+
+<script>
+/* ==========================================================
+   Sai aê · configuração (edite só este bloco)
+   Links que começam com COLE_AQUI mostram o aviso "Em breve".
+   ========================================================== */
+var SX_LINKS = {
+  trialUrl: 'raio-x.html',                          // Raio-X do Negócio (teste que libera os 7 dias grátis)
+  loginUrl: 'COLE_AQUI_LINK_APP',
+  playStoreUrl: 'COLE_AQUI_LINK_GOOGLE_PLAY',
+  posUrl: 'COLE_AQUI_LINK_MAQUININHA',
+  whatsappUrl: 'https://wa.me/5561999531848'
+};
+var SX_PLANS = {
+  essencial: {
+    checkout: { // links de pagamento (Kirvano)
+      mensal: 'https://pay.kirvano.com/83b4bb2a-4004-41dc-bb3f-c76ef27856ee',
+      anual: 'https://pay.kirvano.com/3a01dd0a-cd26-4367-87d6-727ac6cc04b4'
+    },
+    de: 86.90, mensal: 57.90, anual: { mes: 49.22, total: 590.58, economia: 104.22, off: '15% OFF' },
+    itens: ['1 ponto de venda', 'Lançar pedido (balcão, mesa e viagem)', 'Cozinha em tempo real com cronômetro',
+            'Chamada de senha com seu logo', 'Pix, dinheiro, débito e crédito', 'Cardápio digital com QR code', 'Relatório do dia',
+            'Histórico de 7 dias', 'Tema claro e escuro']
+  },
+  pro: {
+    checkout: { // links de pagamento (Kirvano)
+      mensal: 'https://pay.kirvano.com/a566f40c-6b60-459d-bc9e-259476c9f03b',
+      anual: 'https://pay.kirvano.com/0c85f948-b1df-45e4-8ecd-3eadc380ee5f'
+    },
+    de: 131.90, mensal: 87.90, anual: { mes: 70.32, total: 843.84, economia: 210.96, off: '20% OFF' },
+    itens: ['Tudo do Essencial', 'Vários pontos na mesma conta', 'Histórico completo e por período',
+            'Exportar relatórios', 'Nota fiscal (com certificado digital, em breve)', 'Custo do dia, lucro e taxas da maquininha',
+            'Mais vendidos, ritmo e pontos de atenção', 'Senha de operador e de administrador',
+            'Suporte prioritário no WhatsApp']
+  }
+};
+/* ========================================================== */
+(function () {
+  var root = document.getElementById('saiae-lp');
+  if (!root || root.dataset.on) return;
+  root.dataset.on = '1';
+  var $ = function (s, el) { return (el || root).querySelector(s); };
+  var $$ = function (s, el) { return Array.prototype.slice.call((el || root).querySelectorAll(s)); };
+  var brl = function (n) { return n.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cycle = 'mensal';
+  var isSet = function (u) { return u && u.indexOf('COLE_AQUI') !== 0; };
+
+  /* links e aviso "em breve" */
+  var soonT;
+  function soon(what) {
+    var box = $('[data-soonbox]');
+    $('[data-soontxt]').textContent = what + ' chega em breve.';
+    box.hidden = false;
+    clearTimeout(soonT);
+    soonT = setTimeout(function () { box.hidden = true; }, 2600);
+  }
+  function linkFor(a) {
+    if (a.hasAttribute('data-plan-cta')) {
+      var c = SX_PLANS[a.closest('[data-plan]').dataset.plan].checkout;
+      return isSet(c && c[cycle]) ? c[cycle] : null;
+    }
+    var u = SX_LINKS[a.dataset.link];
+    return isSet(u) ? u : null;
+  }
+  function paintLinks() {
+    $$('[data-link]').forEach(function (a) {
+      var u = linkFor(a);
+      if (u) { a.href = u; if (/^https?:/.test(u)) { a.target = '_blank'; a.rel = 'noopener'; } else a.removeAttribute('target'); } else { a.href = '#'; a.removeAttribute('target'); }
+    });
+  }
+  root.addEventListener('click', function (e) {
+    var a = e.target.closest('[data-link]');
+    if (a && !linkFor(a)) { e.preventDefault(); soon(a.dataset.soon || 'Isso'); }
+  });
+  paintLinks();
+
+  /* header e menu */
+  var hdr = $('[data-hdr]'), burger = $('[data-burger]'), menu = $('#sx-menu');
+  var onScroll = function () { hdr.classList.toggle('is-scrolled', window.scrollY > 8); };
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  function setMenu(open) {
+    menu.hidden = !open;
+    burger.setAttribute('aria-expanded', String(open));
+    burger.firstElementChild.textContent = open ? 'close' : 'menu';
+  }
+  burger.addEventListener('click', function () { setMenu(menu.hidden); });
+  $$('a', menu).forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+
+  /* calculadora rápida (estimativa: 5% dos pedidos perdidos) */
+  var calc = $('[data-calc]');
+  if (calc) {
+    var CALC_TAXA = 0.05, PRECO_ESSENCIAL = 57.90;
+    var inr = function (v) { return 'R$ ' + Math.round(v).toLocaleString('pt-BR'); };
+    var upd = function () {
+      var ped = +$('[data-i="ped"]', calc).value, tic = +$('[data-i="tic"]', calc).value, dia = +$('[data-i="dia"]', calc).value;
+      var perda = ped * tic * dia * CALC_TAXA, vezes = Math.floor(perda / PRECO_ESSENCIAL);
+      $('[data-o="ped"]', calc).textContent = ped;
+      $('[data-o="tic"]', calc).textContent = inr(tic);
+      $('[data-o="dia"]', calc).textContent = dia;
+      $('[data-o="perda"]', calc).textContent = inr(perda);
+      $('[data-o="paga"]', calc).textContent = vezes >= 2 ? 'Isso paga o plano Essencial ' + vezes + ' vezes.' : 'Isso já cobre o plano Essencial.';
+    };
+    $$('input[type=range]', calc).forEach(function (i) { i.addEventListener('input', upd); });
+    upd();
+  }
+
+  /* navegação por seções: destaca a seção visível */
+  var subnav = $('[data-subnav]'), chips = $$('[data-sec]', subnav), current = null;
+  function setActive(id) {
+    if (id === current) return; current = id;
+    chips.forEach(function (a) {
+      var on = a.dataset.sec === id;
+      a.setAttribute('aria-current', on ? 'true' : 'false');
+      if (on) subnav.scrollTo({ left: a.offsetLeft - (subnav.clientWidth - a.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
+    });
+  }
+  if ('IntersectionObserver' in window) {
+    var secIO = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) setActive(e.target.id); });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    chips.forEach(function (a) { var t = document.getElementById(a.dataset.sec); if (t) secIO.observe(t); });
+  }
+  chips.forEach(function (a) { a.addEventListener('click', function () { setActive(a.dataset.sec); }); });
+
+  /* planos */
+  function renderPlans() {
+    $$('[data-plan]').forEach(function (card) {
+      var p = SX_PLANS[card.dataset.plan];
+      var off = $('[data-f="off"]', card);
+      if (cycle === 'anual') {
+        $('[data-f="price"]', card).textContent = brl(p.anual.mes);
+        off.textContent = p.anual.off; off.hidden = false;
+        $('[data-f="aux"]', card).textContent = 'R$ ' + brl(p.anual.total) + ' por ano. Você economiza R$ ' + brl(p.anual.economia) + '.';
+      } else {
+        $('[data-f="price"]', card).textContent = brl(p.mensal);
+        off.textContent = '33% OFF'; off.hidden = false;
+        $('[data-f="aux"]', card).textContent = 'Cobrado todo mês. Sem fidelidade.';
+      }
+      var was = $('[data-f="was"]', card);
+      was.innerHTML = 'De <s>R$ ' + brl(p.de) + '</s> por';
+      was.style.visibility = cycle === 'anual' ? 'hidden' : '';
+      var ul = $('[data-f="itens"]', card);
+      if (!ul.children.length) {
+        ul.innerHTML = p.itens.map(function (t) { return '<li><span class="ms f">check_circle</span><span>' + t + '</span></li>'; }).join('');
+      }
+    });
+    paintLinks();
+  }
+  var cycBtns = $$('[data-cyc] button');
+  function setCycle(c, focus) {
+    cycle = c;
+    cycBtns.forEach(function (b) {
+      var on = b.dataset.c === c;
+      b.setAttribute('aria-checked', String(on)); b.tabIndex = on ? 0 : -1;
+      if (on && focus) b.focus();
+    });
+    renderPlans();
+  }
+  cycBtns.forEach(function (b, i) {
+    b.addEventListener('click', function () { setCycle(b.dataset.c); });
+    b.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); setCycle(cycBtns[(i + 1) % 2].dataset.c, true); }
+    });
+  });
+  setCycle('mensal');
+
+  var y = $('[data-year]'); if (y) y.textContent = new Date().getFullYear();
+
+  /* palco do hero: caixa → cozinha → senha, em loop leve */
+  var stage = $('[data-stage]');
+  if (!stage) return;
+  if (reduce) { $('[data-toast]').classList.remove('is-off'); return; }
+  var n = 132, running = false, timers = [];
+  var el = {
+    cxN: $('[data-cx-n]'), cxBtn: $('[data-cx-btn]'), card: $('[data-kcard]'), kN: $('[data-k-n]'),
+    timer: $('[data-timer]'), timerT: $('[data-timer-t]'), kbtn: $('[data-kbtn]'),
+    tvN: $('[data-tv-n]'), tvLast: $('[data-tv-last]'), toast: $('[data-toast]'), toastN: $('[data-toast-n]')
+  };
+  var pad = function (v) { return String(v).padStart(3, '0'); };
+  var later = function (fn, ms) { timers.push(setTimeout(fn, ms)); };
+  function tick(from, to, dur) {
+    var t0 = performance.now();
+    (function f(now) {
+      if (!running) return;
+      var k = Math.min(1, (now - t0) / dur), s = Math.round(from + (to - from) * k);
+      el.timerT.textContent = String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0');
+      el.timer.dataset.lv = s >= 720 ? '2' : s >= 420 ? '1' : '0';
+      if (k < 1) requestAnimationFrame(f);
+    })(t0);
+  }
+  function cycleOnce() {
+    if (!running) return;
+    el.cxN.textContent = n;
+    el.toast.classList.add('is-off');
+    el.cxBtn.classList.add('is-press');
+    later(function () {
+      el.cxBtn.classList.remove('is-press');
+      el.kN.textContent = n;
+      el.card.classList.remove('is-done', 'is-new'); void el.card.offsetWidth; el.card.classList.add('is-new');
+      el.timer.dataset.lv = '0'; el.timerT.textContent = '00:00';
+      tick(0, 470, 2600);
+    }, 350);
+    later(function () { el.kbtn.classList.add('is-press'); }, 3100);
+    later(function () {
+      el.kbtn.classList.remove('is-press');
+      el.card.classList.add('is-done'); el.timer.dataset.lv = 'done';
+      var prev = +el.tvN.textContent;
+      var last = [prev].concat($$('span', el.tvLast).map(function (s) { return +s.textContent; })).slice(0, 3);
+      el.tvLast.innerHTML = last.map(function (v) { return '<span>' + pad(v) + '</span>'; }).join('');
+      el.tvN.textContent = pad(n);
+      el.tvN.classList.remove('is-flash'); void el.tvN.offsetWidth; el.tvN.classList.add('is-flash');
+      el.toastN.textContent = pad(n);
+      el.toast.classList.remove('is-off');
+      n += 1;
+    }, 3400);
+    later(cycleOnce, 6200);
+  }
+  function start() { if (running) return; running = true; cycleOnce(); }
+  function stop() { running = false; timers.forEach(clearTimeout); timers = []; }
+  el.tvN.textContent = pad(131);
+  $$('span', el.tvLast).forEach(function (s) { s.textContent = pad(+s.textContent); });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { es[0].isIntersecting ? start() : stop(); }, { threshold: 0.25 }).observe(stage);
+  } else start();
+})();
+</script>
