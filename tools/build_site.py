@@ -83,6 +83,10 @@ shutil.copy(ROOT / 'assets' / 'icon-512.png', OUT / 'icon-512.png')
 for f in list((ROOT / 'assets' / 'fotos').glob('*.webp')) + list((ROOT / 'assets' / 'app').glob('*.jpg')):
     shutil.copy(f, OUT / 'img' / f.name)
 
+# logo usada nos e-mails do app (confirmar cadastro, redefinir senha)
+(OUT / 'email').mkdir(exist_ok=True)
+shutil.copy(ROOT / 'assets' / 'email' / 'logo-sai-ae.png', OUT / 'email' / 'logo-sai-ae.png')
+
 # ---------- planilha limpa ----------
 shutil.copy(ROOT / 'planilha-controle-vendas-sai-ae.xlsx', OUT / 'planilha-controle-vendas-sai-ae.xlsx')
 
