@@ -86,6 +86,9 @@ for f in list((ROOT / 'assets' / 'fotos').glob('*.webp')) + list((ROOT / 'assets
 # logo usada nos e-mails do app (confirmar cadastro, redefinir senha)
 (OUT / 'email').mkdir(exist_ok=True)
 shutil.copy(ROOT / 'assets' / 'email' / 'logo-sai-ae.png', OUT / 'email' / 'logo-sai-ae.png')
+# modelos dos e-mails publicados em texto, para copiar e colar no Supabase
+for f in (ROOT / 'emails').glob('*.html'):
+    shutil.copy(f, OUT / 'email' / (f.stem + '.txt'))
 
 # ---------- planilha limpa ----------
 shutil.copy(ROOT / 'planilha-controle-vendas-sai-ae.xlsx', OUT / 'planilha-controle-vendas-sai-ae.xlsx')
