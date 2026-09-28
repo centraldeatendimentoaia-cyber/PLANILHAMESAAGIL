@@ -60,11 +60,14 @@ rx = rx.replace('<meta name="viewport" content="width=device-width,initial-scale
                 '<meta name="theme-color" content="#FFC21A">\n<link rel="icon" type="image/svg+xml" href="/favicon.svg">\n'
                 '<link rel="apple-touch-icon" href="/apple-touch-icon.png">\n'
                 '<meta property="og:type" content="website">\n<meta property="og:locale" content="pt_BR">\n'
-                '<meta property="og:title" content="Raio-X grátis do seu negócio · Sai aê">\n'
-                '<meta property="og:description" content="Em 2 minutos, descubra quanto você deixa na mesa todo mês e ganhe a planilha de controle de vendas.">\n'
+                '<meta property="og:title" content="Raio-X grátis: quanto seu negócio deixa na mesa? · Sai aê">\n'
+                '<meta property="og:description" content="6 perguntas, 2 minutos. Veja quanto você perde com pedido esquecido e fila, e ganhe a planilha de controle de vendas.">\n'
                 f'<meta property="og:url" content="{SITE_URL}/raio-x">\n'
-                f'<meta property="og:image" content="{SITE_URL}/og-image.png">\n'
+                f'<meta property="og:image" content="{SITE_URL}/og-raio-x.png">\n'
+                f'<meta property="og:image:secure_url" content="{SITE_URL}/og-raio-x.png">\n'
+                '<meta property="og:image:type" content="image/png">\n'
                 '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n'
+                '<meta property="og:image:alt" content="Raio-X grátis do Sai aê: quanto o seu negócio deixa na mesa todo mês?">\n'
                 '<meta name="twitter:card" content="summary_large_image">', 1)
 rx = rx.replace('<div class="brand"><svg', '<a class="brand" href="/" aria-label="Sai aê, voltar ao site"><svg', 1)
 rx = rx.replace('<use href="#logo-cheio"/></svg></div>', '<use href="#logo-cheio"/></svg></a>', 1)
@@ -75,6 +78,7 @@ rx = rx.replace('var PLANILHA_URL = "planilha-controle-vendas-sai-ae.xlsx";', 'v
 
 # ---------- imagens de compartilhamento e ícones ----------
 shutil.copy(ROOT / 'assets' / 'og-image.png', OUT / 'og-image.png')
+shutil.copy(ROOT / 'assets' / 'og-raio-x.png', OUT / 'og-raio-x.png')
 shutil.copy(ROOT / 'assets' / 'icon-180.png', OUT / 'apple-touch-icon.png')
 shutil.copy(ROOT / 'assets' / 'icon-512.png', OUT / 'icon-512.png')
 
