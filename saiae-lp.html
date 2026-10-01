@@ -893,7 +893,7 @@ body{margin:0;background:#F6F5F2}
       </article>
     </div>
     <ul class="safe">
-      <li><span class="ms f">verified_user</span><div><b>Pagamento seguro</b><span>Pagamento processado pela Kirvano.</span></div></li>
+      <li><span class="ms f">verified_user</span><div><b>Checkout seguro</b><span>Pagamento processado pela Stripe, com criptografia.</span></div></li>
       <li><span class="ms f">event_available</span><div><b>30 dias grátis</b><span>Teste no seu movimento antes de pagar.</span></div></li>
       <li><span class="ms f">lock_open</span><div><b>Sem fidelidade</b><span>No mensal, cancele quando quiser.</span></div></li>
       <li><span class="ms f">support_agent</span><div><b>Gente de verdade</b><span>Suporte pelo WhatsApp.</span></div></li>
@@ -963,7 +963,7 @@ body{margin:0;background:#F6F5F2}
 var SX_LINKS = {
   trialUrl: 'raio-x.html',                          // Raio-X do Negócio (teste que libera os 30 dias grátis)
   loginUrl: 'https://app.saiae.com.br',
-  assinarUrl: 'https://app.saiae.com.br/assinar',   // botões dos planos (o app leva pro checkout da Kirvano)
+  assinarUrl: 'https://app.saiae.com.br/assinar',   // botões dos planos (o app leva pro checkout)
   playStoreUrl: 'COLE_AQUI_LINK_GOOGLE_PLAY',
   posUrl: 'COLE_AQUI_LINK_MAQUININHA',
   whatsappUrl: 'https://wa.me/5561999531848'
@@ -1006,7 +1006,7 @@ var SX_PLANS = {
   }
   function linkFor(a) {
     if (a.hasAttribute('data-plan-cta')) {
-      // passa pelo app: ele pede login/cadastro e manda pra Kirvano com o id da conta (?src=)
+      // passa pelo app: ele pede login/cadastro e manda pro checkout com o id da conta
       var base = SX_LINKS.assinarUrl;
       return isSet(base) ? base + '?plano=' + a.closest('[data-plan]').dataset.plan + '&ciclo=' + cycle : null;
     }
