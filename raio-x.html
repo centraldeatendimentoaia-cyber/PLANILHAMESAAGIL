@@ -381,7 +381,7 @@ button,input{font-family:inherit}
     var items = [
       ["clock","Menos de 2 minutos, direto no celular"],
       ["bulb","Diagnóstico personalizado pro seu tipo de negócio"],
-      ["gift","Planilha grátis e 7 dias do Sai aê liberados no final"]
+      ["gift","Planilha grátis e 30 dias do Sai aê liberados no final"]
     ];
     items.forEach(function(it){
       var row = h("div", {class:"miniItem"});
@@ -431,7 +431,7 @@ button,input{font-family:inherit}
     var wrap = h("div", {class:"step"});
     wrap.appendChild(renderBack());
     wrap.appendChild(h("h2", {class:"stepTitle"}, [document.createTextNode("Pra onde a gente manda seu diagnóstico?")]));
-    wrap.appendChild(h("p", {class:"stepHint"}, [document.createTextNode("É rapidinho. Usamos só pra te enviar o resultado e liberar seus 7 dias grátis.")]));
+    wrap.appendChild(h("p", {class:"stepHint"}, [document.createTextNode("É rapidinho. Usamos só pra te enviar o resultado e liberar seus 30 dias grátis.")]));
 
     var nomeField = h("div", {class:"field"});
     nomeField.appendChild(h("label", {class:"fieldLabel", for:"inpNome"}, [document.createTextNode("Seu nome")]));
@@ -556,7 +556,7 @@ button,input{font-family:inherit}
     var done = h("div", {class:"ctaCard"});
     done.appendChild(h("span", {class:"doneTag", html: ms("task_alt", true) + "Teste concluído"}));
     done.appendChild(h("p", {class:"ctaTitle"}, [document.createTextNode("Pronto, " + (answers.nome.split(" ")[0] || "tudo certo") + "! Sua planilha grátis está liberada.")]));
-    done.appendChild(h("p", {class:"ctaBody"}, [document.createTextNode("Baixe a planilha e crie sua conta para usar o Sai aê por 7 dias grátis.")]));
+    done.appendChild(h("p", {class:"ctaBody"}, [document.createTextNode("Baixe a planilha e crie sua conta para usar o Sai aê por 30 dias grátis.")]));
     var soonNote = h("p", {class:"soonNote", hidden:"hidden", role:"status"});
     function soonMsg(what){ soonNote.textContent = what + " chega em breve. Enquanto isso, fale com a gente no WhatsApp."; soonNote.hidden = false; }
     var dl = h("a", {class:"btnDark", href: PLANILHA_URL || "#", html: ms("download") + "Baixar planilha grátis"});

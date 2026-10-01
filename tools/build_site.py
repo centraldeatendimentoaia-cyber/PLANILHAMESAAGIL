@@ -12,7 +12,7 @@ SITE_URL = 'https://saiae.com.br'
 # Enquanto False, os botões do app (Entrar, Usar no navegador, Criar minha conta) mostram "em breve".
 APP_ONLINE = True
 TITLE = 'Sai aê · Sistema de pedidos para feira, food truck e lanchonete'
-DESC = ('Teste 7 dias grátis. O pedido sai do caixa direto pra cozinha e a senha aparece na TV. '
+DESC = ('Teste 30 dias grátis. O pedido sai do caixa direto pra cozinha e a senha aparece na TV. '
         'Feito pra feira, food truck e lanchonete, por preço de barraca.')
 HEAD = f'''<!doctype html>
 <html lang="pt-BR">
@@ -34,7 +34,7 @@ HEAD = f'''<!doctype html>
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Sai aê: sem papel, sem grito, sem pedido esquecido. Teste 7 dias grátis.">
+<meta property="og:image:alt" content="Sai aê: sem papel, sem grito, sem pedido esquecido. Teste 30 dias grátis.">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
