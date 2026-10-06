@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sai aê CRM · Disparo, agendador e respostas automáticas no WhatsApp</title>
+<meta name="description" content="CRM de WhatsApp para lanchonete, food truck, açaíteria e feira. Disparo de promoções, mensagens agendadas, respostas automáticas, etiquetas e textos com IA. Planos a partir de R$ 49/mês.">
+<meta name="keywords" content="CRM WhatsApp, disparo WhatsApp, mensagem em massa WhatsApp, resposta automática WhatsApp, agendar mensagem WhatsApp, CRM para lanchonete, CRM para restaurante, marketing para food truck">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#FFC21A">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Sai aê">
+<meta property="og:title" content="Sai aê CRM · Seu cliente lembra de você no WhatsApp">
+<meta property="og:description" content="Disparo, agendador, respostas automáticas e textos com IA no WhatsApp da sua lanchonete. A partir de R$ 49/mês.">
+<meta property="og:image" content="{{BASE}}/og-crm.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sai aê CRM: sai aê mais uma mensagem">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sai aê CRM · Seu cliente lembra de você no WhatsApp">
+<meta name="twitter:description" content="Disparo, agendador, respostas automáticas e textos com IA no WhatsApp da sua lanchonete. A partir de R$ 49/mês.">
+<meta name="twitter:image" content="{{BASE}}/og-crm.png">
+<link rel="icon" href="{{BASE}}/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{{BASE}}/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,500,0..1,0&display=block">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Sai aê CRM","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":"pt-BR","description":"CRM de WhatsApp para lanchonetes, food trucks, açaíterias e feiras: disparo, agendador, respostas automáticas, etiquetas e textos com IA.","image":"{{BASE}}/og-crm.png","publisher":{"@type":"Organization","name":"Sai aê","url":"https://saiae.com.br"},
+"offers":[
+{"@type":"Offer","name":"Essencial","price":"49.00","priceCurrency":"BRL"},
+{"@type":"Offer","name":"Pro","price":"99.00","priceCurrency":"BRL"},
+{"@type":"Offer","name":"Escala","price":"199.00","priceCurrency":"BRL"}]}
+</script>
+<script type="application/ld+json">
+{{FAQ_JSONLD}}
+</script>
+<style>
+:root{
+  color-scheme:light;
+  --m50:#FFF8E1;--m100:#FFEDB3;--m200:#FFE080;--m400:#FFCA33;--m500:#FFC21A;--m600:#E6A800;--m700:#B38300;
+  --t0:#FFFFFF;--t50:#F6F5F2;--t100:#ECEAE6;--t200:#D9D7DC;--t300:#B5B3BB;--t400:#8A8893;--t500:#5E5C66;--t600:#45434D;--t700:#2E2C35;--t800:#232229;--t900:#18171C;
+  --ok:#1FBF6A;--ok-bg:#E3F7EC;--ok-tx:#0E7A40;--wa:#25D366;--wa-bg:#E7F6EC;
+  --fd:'Outfit',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --fb:'Figtree',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --balao:20px 20px 20px 4px;
+  --sh-sm:0 1px 2px rgba(24,23,28,.06),0 1px 3px rgba(24,23,28,.05);
+  --sh-md:0 6px 16px -4px rgba(24,23,28,.12);
+  --sh-lg:0 24px 48px -16px rgba(24,23,28,.28);
+  --gut:16px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--t50);color:var(--t900);font-family:var(--fb);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;text-size-adjust:100%;overflow-x:clip}
+h1,h2,h3,p,ul,ol,li,figure,dl,dd,dt{margin:0;padding:0}
+ul,ol{list-style:none}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;height:auto}
+svg{display:block}
+:focus-visible{outline:3px solid var(--m500);outline-offset:2px;border-radius:10px}
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+.nw{white-space:nowrap}
+.ms{font-family:'Material Symbols Rounded';font-weight:500;font-style:normal;font-size:22px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;direction:ltr;font-variation-settings:'FILL' 0,'wght' 500,'GRAD' 0,'opsz' 24;flex:none;overflow:hidden;width:1em}
+.ms.f{font-variation-settings:'FILL' 1,'wght' 500,'GRAD' 0,'opsz' 24}
+.wa-ic{width:20px;height:20px;flex:none}
+[id]{scroll-margin-top:84px}
+
+/* layout */
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding-inline:var(--gut)}
+.sec{padding-block:72px}
+.sec--w{background:var(--t0)}
+.head{display:flex;flex-direction:column;gap:14px;max-width:720px;margin-bottom:40px}
+.head--c{margin-inline:auto;text-align:center;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--t500)}
+.eyebrow i{width:8px;height:8px;border-radius:2px 2px 2px 0;background:var(--m500)}
+.h1{font-family:var(--fd);font-weight:800;font-size:clamp(40px,5vw + 14px,70px);line-height:1.08;letter-spacing:-.035em;text-wrap:balance}
+.h2{font-family:var(--fd);font-weight:800;font-size:clamp(30px,2.6vw + 16px,48px);line-height:1.12;letter-spacing:-.03em;text-wrap:balance}
+.h3{font-family:var(--fd);font-weight:700;font-size:20px;line-height:1.25;letter-spacing:-.01em}
+.lead{font-size:18px;line-height:1.6;color:var(--t600);max-width:60ch;text-wrap:pretty}
+.mark{display:inline-block;background:var(--m500);color:var(--t900);padding:0 .14em;border-radius:.16em .16em .16em .04em;line-height:1.02}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:48px;padding:0 20px;border-radius:14px;font-family:var(--fb);font-weight:700;font-size:16px;line-height:1;white-space:nowrap;cursor:pointer;transition:transform .12s cubic-bezier(.2,.8,.2,1),background-color .12s,box-shadow .12s}
+.btn:active{transform:scale(.97)}
+.btn .ms{font-size:20px}
+.btn--pri{background:var(--m500);color:var(--t900);box-shadow:0 10px 24px -10px rgba(230,168,0,.75)}
+.btn--pri:hover{background:var(--m400)}
+.btn--dark{background:var(--t900);color:#fff}
+.btn--dark:hover{background:var(--t700)}
+.btn--out{background:var(--t0);color:var(--t900);box-shadow:inset 0 0 0 1.5px var(--t200)}
+.btn--out:hover{box-shadow:inset 0 0 0 1.5px var(--t900)}
+.btn--lg{height:56px;padding:0 26px;font-size:17px}
+.btn--sm{height:40px;padding:0 16px;font-size:15px;border-radius:12px}
+.btn--block{display:flex;width:100%}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:50;padding-top:12px}
+.hdr-in{display:flex;align-items:center;gap:16px;height:60px;padding:0 10px 0 18px;background:rgba(255,255,255,.88);-webkit-backdrop-filter:saturate(1.3) blur(12px);backdrop-filter:saturate(1.3) blur(12px);border-radius:999px;box-shadow:var(--sh-md);max-width:1168px;margin:0 auto}
+.logo{display:inline-flex;align-items:center;gap:10px;min-height:44px}
+.logo svg{height:34px;width:auto}
+.logo .tag{font-family:var(--fd);font-weight:800;font-size:13px;letter-spacing:.06em;padding:4px 8px;border-radius:8px 8px 8px 2px;background:var(--t900);color:var(--m500)}
+.nav{display:none;gap:4px;margin-left:auto}
+.nav a{padding:10px 14px;border-radius:10px;font-size:15px;font-weight:600;color:var(--t600)}
+.nav a:hover{background:var(--t100);color:var(--t900)}
+.hdr .btn{margin-left:auto;border-radius:999px}
+.hdr .btn .lbl-l{display:none}
+@media (min-width:860px){.nav{display:flex}.hdr .btn{margin-left:8px}.hdr .btn .lbl-l{display:inline}.hdr .btn .lbl-s{display:none}}
+
+/* hero */
+.hero{padding-block:48px 64px;position:relative}
+.hero::before{content:"";position:absolute;inset:-120px 0 auto;height:620px;background:radial-gradient(60% 60% at 75% 40%,rgba(255,194,26,.22),transparent 70%);pointer-events:none}
+.hero-g{position:relative;display:grid;gap:40px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 8px;border-radius:999px;background:var(--t0);box-shadow:var(--sh-sm);font-size:14px;font-weight:600;color:var(--t600)}
+.pill b{background:var(--m500);color:var(--t900);font-size:12px;padding:3px 8px;border-radius:999px;font-weight:800}
+.hero-tx{display:flex;flex-direction:column;gap:22px;align-items:flex-start}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.facts{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;font-weight:600;color:var(--t500)}
+.facts span{display:inline-flex;align-items:center;gap:6px}
+.facts .ms{font-size:18px;color:var(--ok)}
+.hero-vis{position:relative;max-width:520px;width:100%;margin-inline:auto}
+.hero-ph{border-radius:32px 32px 32px 8px;overflow:hidden;aspect-ratio:4/5;box-shadow:var(--sh-lg);background:var(--t200)}
+.hero-ph img{width:100%;height:100%;object-fit:cover}
+.chat{position:absolute;display:flex;flex-direction:column;gap:8px;width:min(300px,78%)}
+.chat--a{left:-6px;top:9%}
+.chat--b{right:-6px;bottom:7%}
+.msg{background:var(--t0);border-radius:var(--balao);padding:10px 14px 8px;box-shadow:var(--sh-lg);font-size:14px;line-height:1.4}
+.msg small{display:flex;justify-content:flex-end;align-items:center;gap:3px;font-size:11px;color:var(--t400);margin-top:2px}
+.msg small .ms{font-size:15px;color:#34B7F1}
+.msg--wa{background:#DCF8C6}
+.msg-h{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--t600);margin-bottom:4px}
+.msg-h .ms{font-size:16px;color:var(--m700)}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--t900);color:#fff;padding:8px 12px;border-radius:var(--balao);font-size:13px;font-weight:700;box-shadow:var(--sh-lg);align-self:flex-start}
+.badge .ms{font-size:17px;color:var(--m500)}
+@media (min-width:960px){.hero{padding-block:72px 96px}.hero-g{grid-template-columns:1.05fr .95fr;gap:56px}.chat--a{left:-56px}.chat--b{right:-40px}}
+
+/* para quem */
+.who{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.who figure{position:relative;border-radius:24px 24px 24px 6px;overflow:hidden;aspect-ratio:4/5;background:var(--t200)}
+.who img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.who figure:hover img{transform:scale(1.04)}
+.who figcaption{position:absolute;left:10px;bottom:10px;right:10px;display:flex;flex-direction:column;gap:2px;background:rgba(255,255,255,.94);border-radius:16px 16px 16px 4px;padding:10px 12px}
+.who figcaption b{font-family:var(--fd);font-size:17px}
+.who figcaption span{font-size:13px;color:var(--t500);line-height:1.35}
+@media (min-width:860px){.who{grid-template-columns:repeat(4,1fr);gap:16px}}
+
+/* dark */
+.dark{background:var(--t900);color:#fff}
+.dark .eyebrow{color:var(--t300)}
+.dark .lead{color:var(--t300)}
+.pains{display:grid;gap:16px}
+.pain{background:var(--t800);border-radius:24px 24px 24px 6px;padding:24px;display:flex;flex-direction:column;gap:12px}
+.pain .q{font-family:var(--fd);font-weight:700;font-size:15px;color:var(--t400);text-decoration:line-through;text-decoration-color:rgba(240,65,47,.7)}
+.pain .h3{color:#fff}
+.pain p{color:var(--t300);font-size:15px}
+.pain .ic{width:44px;height:44px;border-radius:14px 14px 14px 4px;background:var(--m500);color:var(--t900);display:grid;place-items:center}
+@media (min-width:860px){.pains{grid-template-columns:repeat(3,1fr)}}
+
+/* recursos */
+.feats{display:grid;gap:12px}
+.feat{background:var(--t0);border:1px solid var(--t100);border-radius:24px 24px 24px 6px;padding:24px;display:flex;flex-direction:column;gap:10px;position:relative}
+.feat .ic{width:46px;height:46px;border-radius:14px 14px 14px 4px;background:var(--m50);color:var(--m700);display:grid;place-items:center;margin-bottom:6px}
+.feat p{font-size:15px;color:var(--t500)}
+.feat .plan{position:absolute;top:20px;right:20px;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:4px 8px;border-radius:999px;background:var(--t900);color:var(--m500)}
+@media (min-width:640px){.feats{grid-template-columns:repeat(2,1fr);gap:16px}}
+@media (min-width:1024px){.feats{grid-template-columns:repeat(4,1fr)}}
+
+/* como funciona */
+.how{display:grid;gap:40px;align-items:center}
+.steps{display:flex;flex-direction:column;gap:14px}
+.step{display:flex;gap:16px;background:var(--t0);border-radius:24px 24px 24px 6px;padding:20px;box-shadow:var(--sh-sm)}
+.step .n{flex:none;width:40px;height:40px;border-radius:12px 12px 12px 3px;background:var(--m500);font-family:var(--fd);font-weight:800;font-size:18px;display:grid;place-items:center}
+.step p{font-size:15px;color:var(--t500);margin-top:4px}
+.comp{background:var(--t0);border-radius:28px 28px 28px 8px;box-shadow:var(--sh-lg);padding:20px;display:flex;flex-direction:column;gap:14px;max-width:460px;width:100%;margin-inline:auto}
+.comp-h{display:flex;align-items:center;justify-content:space-between;font-family:var(--fd);font-weight:800;font-size:18px}
+.comp-h span{font-family:var(--fb);font-size:12px;font-weight:700;color:var(--ok-tx);background:var(--ok-bg);padding:4px 10px;border-radius:999px;display:inline-flex;align-items:center;gap:6px}
+.comp-h span i{width:8px;height:8px;border-radius:50%;background:var(--ok)}
+.fld{display:flex;flex-direction:column;gap:6px}
+.fld label{font-size:12px;font-weight:700;color:var(--t500);text-transform:uppercase;letter-spacing:.05em}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:700;padding:6px 10px;border-radius:999px;background:var(--t100);color:var(--t600)}
+.chip.on{background:var(--t900);color:#fff}
+.chip .ms{font-size:16px}
+.ta{background:var(--t50);border-radius:16px 16px 16px 4px;padding:14px;font-size:15px;line-height:1.5;border:1.5px solid var(--t100)}
+.ta .var{background:var(--m100);color:var(--m700);font-weight:700;padding:1px 6px;border-radius:6px}
+.ia{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--m700)}
+.ia .ms{font-size:18px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.box{background:var(--t50);border-radius:14px;padding:10px 12px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700}
+.box .ms{color:var(--t500);font-size:19px}
+.comp .btn{border-radius:14px 14px 14px 4px}
+@media (min-width:960px){.how{grid-template-columns:1fr 1fr;gap:64px}}
+
+/* planos */
+.plans{display:grid;gap:16px;align-items:stretch}
+.plan-c{background:var(--t0);border:1.5px solid var(--t100);border-radius:28px 28px 28px 8px;padding:28px 24px;display:flex;flex-direction:column;gap:20px;position:relative}
+.plan-c.hi{border-color:var(--t900);box-shadow:var(--sh-lg)}
+.plan-c .rib{position:absolute;top:-14px;left:24px;background:var(--m500);font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+.plan-n{font-family:var(--fd);font-weight:800;font-size:24px}
+.plan-d{font-size:15px;color:var(--t500);margin-top:4px}
+.price{display:flex;align-items:baseline;gap:4px;font-family:var(--fd)}
+.price small{font-size:18px;font-weight:700}
+.price b{font-size:52px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.price span{font-family:var(--fb);font-size:15px;color:var(--t500);font-weight:600}
+.lim{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.lim div{background:var(--t50);border-radius:14px 14px 14px 4px;padding:10px 12px}
+.lim b{display:block;font-family:var(--fd);font-size:20px;font-weight:800;line-height:1.1}
+.lim span{font-size:12.5px;color:var(--t500);font-weight:600}
+.hi .lim div{background:var(--m50)}
+.inc{display:flex;flex-direction:column;gap:9px;font-size:15px}
+.inc li{display:flex;gap:10px;align-items:flex-start}
+.inc .ms{font-size:20px;color:var(--ok);margin-top:1px}
+.plan-c .btn{margin-top:auto}
+.plan-note{text-align:center;color:var(--t500);font-size:14px;margin-top:22px}
+@media (min-width:960px){.plans{grid-template-columns:repeat(3,1fr);gap:20px}}
+
+/* combo */
+.combo{display:grid;gap:28px;background:var(--m500);border-radius:32px 32px 32px 8px;padding:28px;overflow:hidden;align-items:center}
+.combo .h2{font-size:clamp(28px,2vw + 16px,40px)}
+.combo p{color:var(--t700);font-size:17px}
+.combo-tx{display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.combo-vis{display:flex;justify-content:center;gap:14px}
+.combo-vis img{width:46%;max-width:210px;border-radius:24px;box-shadow:var(--sh-lg);border:6px solid var(--t900);background:var(--t900)}
+.combo-vis img:last-child{transform:translateY(24px)}
+@media (min-width:960px){.combo{grid-template-columns:1.1fr .9fr;padding:48px 56px}}
+
+/* faq */
+.faq{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.faq details{background:var(--t0);border-radius:20px 20px 20px 6px;padding:0 20px;border:1px solid var(--t100)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;font-family:var(--fd);font-weight:700;font-size:18px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .ms{transition:transform .2s;color:var(--t500)}
+.faq details[open] summary .ms{transform:rotate(45deg)}
+.faq details p{padding:0 0 20px;color:var(--t600)}
+.faq-cta{text-align:center;margin-top:28px}
+
+/* final */
+.final{background:var(--t900);color:#fff;text-align:center;position:relative;overflow:hidden}
+.final::before{content:"";position:absolute;inset:auto -10% -60% -10%;height:120%;background:radial-gradient(50% 50% at 50% 50%,rgba(255,194,26,.28),transparent 70%);pointer-events:none}
+.final .wrap{position:relative;display:flex;flex-direction:column;align-items:center;gap:22px}
+.final .lead{color:var(--t300)}
+.final .mark{color:var(--t900)}
+
+/* footer */
+.ftr{padding-block:28px;border-top:1px solid var(--t100)}
+.ftr-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;font-size:14px;color:var(--t500)}
+.ftr-in nav{display:flex;flex-wrap:wrap;gap:6px 18px}
+.ftr-in nav a:hover{color:var(--t900)}
+
+/* entrada suave */
+@media (prefers-reduced-motion:no-preference){
+  .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
+  .rv.in{opacity:1;transform:none}
+  .float{animation:fl 6s ease-in-out infinite}
+  .float.d2{animation-delay:-3s}
+  @keyframes fl{50%{transform:translateY(-8px)}}
+}
+</style>
+</head>
+<body>
+{{SPRITE}}
+<svg class="sprite" aria-hidden="true"><defs><symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.05-1.33A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.1.82.83-3.02-.2-.31A8.2 8.2 0 1 1 12 20.2zm4.5-6.13c-.24-.12-1.44-.71-1.66-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.78.97-.14.16-.28.18-.53.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.83-.2-.48-.4-.42-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.13 3.65.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></symbol></defs></svg>
+
+<header class="hdr">
+  <div class="wrap"><div class="hdr-in">
+    <a class="logo" href="#topo" aria-label="Sai aê CRM, voltar ao início">
+      <svg viewBox="0 0 273 164" aria-hidden="true" style="--ae:#18171C"><use href="#logo-cheio"/></svg>
+      <span class="tag">CRM</span>
+    </a>
+    <nav class="nav" aria-label="Seções">
+      <a href="#recursos">Recursos</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#planos">Planos</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <a class="btn btn--dark btn--sm" href="{{WA:header}}" target="_blank" rel="noopener"><svg class="wa-ic" style="color:var(--wa)"><use href="#wa"/></svg><span class="lbl-l">Falar no WhatsApp</span><span class="lbl-s">WhatsApp</span></a>
+  </div></div>
+</header>
+
+<main id="topo">
+<section class="hero">
+  <div class="wrap hero-g">
+    <div class="hero-tx">
+      <span class="pill"><b>NOVO</b> CRM de WhatsApp do Sai aê</span>
+      <h1 class="h1">Sai aê mais uma <span class="mark">mensagem.</span></h1>
+      <p class="lead">Promoção, lembrete e resposta pronta saindo sozinhos do WhatsApp da sua lanchonete. O cliente lembra de você, volta e pede de novo.</p>
+      <div class="hero-cta">
+        <a class="btn btn--pri btn--lg" href="{{WA:hero}}" target="_blank" rel="noopener"><svg class="wa-ic"><use href="#wa"/></svg>Quero conhecer o CRM</a>
+        <a class="btn btn--out btn--lg" href="#planos">Ver planos</a>
+      </div>
+      <div class="facts">
+        <span><i class="ms f">check_circle</i>A partir de R$ 49/mês</span>
+        <span><i class="ms f">check_circle</i>Textos escritos com IA</span>
+        <span><i class="ms f">check_circle</i>De 1 a 5 números</span>
+      </div>
+    </div>
+    <div class="hero-vis">
+      <div class="hero-ph"><img src="{{BASE}}/img/foto-comecando.webp" alt="Dona de lanchonete sorrindo enquanto envia mensagens pelo celular" width="900" height="1125" fetchpriority="high"></div>
+      <div class="chat chat--a float">
+        <span class="badge"><i class="ms f">schedule_send</i>Agendado: sexta, 17h30</span>
+        <div class="msg msg--wa">Oi, Carla! Hoje tem pastel em dobro até as 20h 🥟🥟 Bora?<small>17:30 <i class="ms">done_all</i></small></div>
+      </div>
+      <div class="chat chat--b float d2">
+        <div class="msg"><div class="msg-h"><i class="ms f">bolt</i>Resposta automática</div>Oi! Aqui está nosso cardápio. Pedido pelo balcão ou retirada 😉<small>agora <i class="ms">done_all</i></small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--w" aria-labelledby="t-quem">
+  <div class="wrap">
+    <div class="head head--c rv">
+      <span class="eyebrow"><i></i>Pra quem vende comida</span>
+      <h2 class="h2" id="t-quem">Feito pra quem vive de cliente que volta.</h2>
+      <p class="lead">Quem compra uma vez e recebe a mensagem certa na hora certa volta. O Sai aê CRM faz esse lembrete por você.</p>
+    </div>
+    <div class="who">
+      <figure class="rv"><img src="{{BASE}}/img/foto-lanchonete.webp" alt="Atendente de lanchonete entregando lanche no balcão" loading="lazy" width="900" height="1125"><figcaption><b>Lanchonete</b><span>Combo do dia pra quem já é cliente</span></figcaption></figure>
+      <figure class="rv"><img src="{{BASE}}/img/foto-acai.webp" alt="Atendente de açaíteria entregando um copo de açaí" loading="lazy" width="900" height="1125"><figcaption><b>Açaíteria</b><span>Calor chegou? Avisa a lista toda</span></figcaption></figure>
+      <figure class="rv"><img src="{{BASE}}/img/foto-foodtruck.webp" alt="Cozinheiro sorrindo dentro de um food truck" loading="lazy" width="900" height="1125"><figcaption><b>Food truck</b><span>Conta onde você estaciona hoje</span></figcaption></figure>
+      <figure class="rv"><img src="{{BASE}}/img/foto-feirante.webp" alt="Feirante sorrindo com o celular na mão em sua barraca" loading="lazy" width="1000" height="1250"><figcaption><b>Feira e barraca</b><span>Lembrete no dia da feira</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark" aria-labelledby="t-dor">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow"><i></i>O problema</span>
+      <h2 class="h2" id="t-dor">O cliente esquece.<br>O WhatsApp <span class="mark">lembra.</span></h2>
+      <p class="lead">Você não tem tempo de mandar mensagem um por um no meio do movimento. E é aí que o cliente vai pro concorrente.</p>
+    </div>
+    <div class="pains">
+      <div class="pain rv"><div class="ic"><i class="ms">campaign</i></div><span class="q">"Esqueci de avisar da promoção"</span><h3 class="h3">A promoção sai sozinha</h3><p>Escreve uma vez, escolhe pra quem e agenda. No horário certo, a mensagem sai.</p></div>
+      <div class="pain rv"><div class="ic"><i class="ms">quick_reply</i></div><span class="q">"Vi a mensagem só depois"</span><h3 class="h3">Ninguém fica sem resposta</h3><p>"Tá aberto?", "Qual o cardápio?" A resposta automática atende enquanto você frita.</p></div>
+      <div class="pain rv"><div class="ic"><i class="ms">sell</i></div><span class="q">"Nem sei quem é meu cliente"</span><h3 class="h3">Cada cliente na sua etiqueta</h3><p>Separe quem pede açaí, quem pede lanche e quem sumiu. Mande a oferta certa pra cada um.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="recursos" aria-labelledby="t-rec">
+  <div class="wrap">
+    <div class="head head--c rv">
+      <span class="eyebrow"><i></i>Recursos</span>
+      <h2 class="h2" id="t-rec">Tudo o que precisa pra vender mais no WhatsApp.</h2>
+      <p class="lead">Sem complicação: abre no navegador, conecta o seu número e já começa.</p>
+    </div>
+    <div class="feats">
+      <div class="feat rv"><div class="ic"><i class="ms">campaign</i></div><h3 class="h3">Disparo de mensagens</h3><p>Mande promoção, novidade ou aviso pra sua lista de clientes de uma vez.</p></div>
+      <div class="feat rv"><div class="ic"><i class="ms">schedule_send</i></div><h3 class="h3">Agendador</h3><p>Deixe a mensagem pronta e escolha dia e hora. Ela sai mesmo com você no fogão.</p></div>
+      <div class="feat rv"><div class="ic"><i class="ms">quick_reply</i></div><h3 class="h3">Respostas automáticas</h3><p>Palavra-chave chegou, resposta saiu. Horário, cardápio, endereço e Pix sem digitar.</p></div>
+      <div class="feat rv"><div class="ic"><i class="ms">sell</i></div><h3 class="h3">Etiquetas</h3><p>Organize clientes por grupo e mande a mensagem certa pra cada um.</p></div>
+      <div class="feat rv"><div class="ic"><i class="ms">auto_awesome</i></div><h3 class="h3">Textos com IA</h3><p>Sem ideia do que escrever? A IA monta o texto da promoção pra você ajustar.</p></div>
+      <div class="feat rv"><span class="plan">Pro</span><div class="ic"><i class="ms">badge</i></div><h3 class="h3">Nome do cliente</h3><p>"Oi, Carla!" em vez de "Oi, cliente". Cada mensagem chega com o nome da pessoa.</p></div>
+      <div class="feat rv"><span class="plan">Pro</span><div class="ic"><i class="ms">bar_chart</i></div><h3 class="h3">Relatórios</h3><p>Veja quantas mensagens saíram e acompanhe suas campanhas.</p></div>
+      <div class="feat rv"><div class="ic"><i class="ms">group</i></div><h3 class="h3">Equipe e números</h3><p>De 1 a 5 números de WhatsApp e até 8 pessoas usando, conforme o plano.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--w" id="como-funciona" aria-labelledby="t-how">
+  <div class="wrap how">
+    <div>
+      <div class="head rv" style="margin-bottom:28px">
+        <span class="eyebrow"><i></i>Como funciona</span>
+        <h2 class="h2" id="t-how">Três passos e a mensagem sai.</h2>
+      </div>
+      <ol class="steps">
+        <li class="step rv"><span class="n">1</span><div><h3 class="h3">Conecte seu WhatsApp</h3><p>Leia o QR code com o celular, igual ao WhatsApp Web. Você continua usando o mesmo número.</p></div></li>
+        <li class="step rv"><span class="n">2</span><div><h3 class="h3">Separe seus clientes</h3><p>Coloque etiquetas: "açaí", "lanche", "sumiu faz 30 dias". Leva minutos.</p></div></li>
+        <li class="step rv"><span class="n">3</span><div><h3 class="h3">Escreva e agende</h3><p>Escreva você ou peça pra IA. Escolha a etiqueta, o horário e pronto.</p></div></li>
+      </ol>
+    </div>
+    <div class="comp rv" role="img" aria-label="Exemplo de tela de nova campanha no Sai aê CRM">
+      <div class="comp-h">Nova campanha <span><i></i>WhatsApp conectado</span></div>
+      <div class="fld"><label>Pra quem</label><div class="chips"><span class="chip on"><i class="ms">sell</i>Clientes do açaí</span><span class="chip">Lanche</span><span class="chip">Sumiu faz 30 dias</span></div></div>
+      <div class="fld"><label>Mensagem</label><div class="ta">Oi, <span class="var">{nome}</span>! 🍇 Sexta tem açaí de 500 ml com 2 adicionais grátis. Só até as 22h. Vem?</div><span class="ia"><i class="ms f">auto_awesome</i>Escrito com IA</span></div>
+      <div class="row2"><div class="box"><i class="ms">event</i>Sexta, 17h30</div><div class="box"><i class="ms">group</i>148 clientes</div></div>
+      <span class="btn btn--dark btn--block"><i class="ms">schedule_send</i>Agendar campanha</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="planos" aria-labelledby="t-planos">
+  <div class="wrap">
+    <div class="head head--c rv">
+      <span class="eyebrow"><i></i>Planos</span>
+      <h2 class="h2" id="t-planos">Escolha o tamanho do seu movimento.</h2>
+      <p class="lead">Todos os planos têm disparo, agendador, respostas automáticas, etiquetas e textos com IA.</p>
+    </div>
+    <div class="plans">
+      <article class="plan-c rv">
+        <div><h3 class="plan-n">Essencial</h3><p class="plan-d">Pra começar a falar com seus clientes.</p></div>
+        <div class="price"><small>R$</small><b>49</b><span>/mês</span></div>
+        <div class="lim">
+          <div><b>1</b><span>número de WhatsApp</span></div>
+          <div><b>1</b><span>usuário</span></div>
+          <div><b>1.000</b><span>disparos/mês</span></div>
+          <div><b>50</b><span>textos com IA/mês</span></div>
+        </div>
+        <ul class="inc">
+          <li><i class="ms">check</i>Disparo de mensagens</li>
+          <li><i class="ms">check</i>Agendador</li>
+          <li><i class="ms">check</i>Respostas automáticas</li>
+          <li><i class="ms">check</i>Etiquetas</li>
+        </ul>
+        <a class="btn btn--out btn--lg btn--block" href="{{WA:essencial}}" target="_blank" rel="noopener"><svg class="wa-ic" style="color:var(--wa)"><use href="#wa"/></svg>Quero o Essencial</a>
+      </article>
+      <article class="plan-c hi rv">
+        <span class="rib">Recomendado</span>
+        <div><h3 class="plan-n">Pro</h3><p class="plan-d">Pra quem tem equipe e quer acompanhar resultado.</p></div>
+        <div class="price"><small>R$</small><b>99</b><span>/mês</span></div>
+        <div class="lim">
+          <div><b>2</b><span>números de WhatsApp</span></div>
+          <div><b>3</b><span>usuários</span></div>
+          <div><b>5.000</b><span>disparos/mês</span></div>
+          <div><b>300</b><span>textos com IA/mês</span></div>
+        </div>
+        <ul class="inc">
+          <li><i class="ms">check</i>Tudo do Essencial</li>
+          <li><i class="ms">check</i>Nome do cliente na mensagem</li>
+          <li><i class="ms">check</i>Relatórios</li>
+        </ul>
+        <a class="btn btn--pri btn--lg btn--block" href="{{WA:pro}}" target="_blank" rel="noopener"><svg class="wa-ic"><use href="#wa"/></svg>Quero o Pro</a>
+      </article>
+      <article class="plan-c rv">
+        <div><h3 class="plan-n">Escala</h3><p class="plan-d">Pra rede, várias unidades ou muito volume.</p></div>
+        <div class="price"><small>R$</small><b>199</b><span>/mês</span></div>
+        <div class="lim">
+          <div><b>5</b><span>números de WhatsApp</span></div>
+          <div><b>8</b><span>usuários</span></div>
+          <div><b>20.000</b><span>disparos/mês</span></div>
+          <div><b>1.000</b><span>textos com IA/mês</span></div>
+        </div>
+        <ul class="inc">
+          <li><i class="ms">check</i>Tudo do Pro</li>
+          <li><i class="ms">check</i>Suporte prioritário</li>
+        </ul>
+        <a class="btn btn--dark btn--lg btn--block" href="{{WA:escala}}" target="_blank" rel="noopener"><svg class="wa-ic" style="color:var(--wa)"><use href="#wa"/></svg>Quero o Escala</a>
+      </article>
+    </div>
+    <p class="plan-note">Ficou na dúvida entre dois planos? <a href="{{WA:duvida_plano}}" target="_blank" rel="noopener" style="font-weight:700;text-decoration:underline">Chama no WhatsApp</a> que a gente te ajuda a escolher.</p>
+  </div>
+</section>
+
+<section class="sec sec--w" aria-labelledby="t-combo">
+  <div class="wrap">
+    <div class="combo rv">
+      <div class="combo-tx">
+        <span class="eyebrow" style="color:var(--t800)"><i style="background:var(--t900)"></i>Sai aê completo</span>
+        <h2 class="h2" id="t-combo">Já usa o Sai aê no caixa? Junta com o CRM.</h2>
+        <p>O Sai aê tira o pedido do caixa e manda direto pra cozinha. O CRM traz o cliente de volta. Os dois juntos cuidam da venda do começo ao fim.</p>
+        <a class="btn btn--dark btn--lg" href="{{WA:combo}}" target="_blank" rel="noopener"><svg class="wa-ic" style="color:var(--wa)"><use href="#wa"/></svg>Quero o caixa + CRM</a>
+      </div>
+      <div class="combo-vis">
+        <img src="{{BASE}}/img/app-lancar.jpg" alt="Tela de lançar pedido do Sai aê" loading="lazy" width="540" height="1168">
+        <img src="{{BASE}}/img/app-cozinha.jpg" alt="Tela da cozinha do Sai aê" loading="lazy" width="540" height="1168">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="duvidas" aria-labelledby="t-faq">
+  <div class="wrap">
+    <div class="head head--c rv">
+      <span class="eyebrow"><i></i>Dúvidas</span>
+      <h2 class="h2" id="t-faq">Perguntas de balcão.</h2>
+    </div>
+    <div class="faq">
+{{FAQ_HTML}}
+    </div>
+    <div class="faq-cta"><a class="btn btn--out btn--lg" href="{{WA:faq}}" target="_blank" rel="noopener"><svg class="wa-ic" style="color:var(--wa)"><use href="#wa"/></svg>Tenho outra dúvida</a></div>
+  </div>
+</section>
+
+<section class="sec final" aria-labelledby="t-final">
+  <div class="wrap">
+    <h2 class="h1" id="t-final">Sai aê mais uma <span class="mark">venda.</span></h2>
+    <p class="lead">Chama a gente no WhatsApp. Em poucos minutos seu número está conectado e a primeira campanha está no ar.</p>
+    <a class="btn btn--pri btn--lg" href="{{WA:final}}" target="_blank" rel="noopener"><svg class="wa-ic"><use href="#wa"/></svg>Começar pelo WhatsApp</a>
+  </div>
+</section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap ftr-in">
+    <a class="logo" href="https://saiae.com.br" aria-label="Sai aê">
+      <svg viewBox="0 0 273 164" aria-hidden="true" style="--ae:#18171C;height:30px"><use href="#logo-cheio"/></svg>
+    </a>
+    <nav aria-label="Rodapé">
+      <a href="#recursos">Recursos</a>
+      <a href="#planos">Planos</a>
+      <a href="https://saiae.com.br">Sai aê caixa e cozinha</a>
+      <a href="{{WA:rodape}}" target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
+    <span>© 2026 Sai aê. Todos os direitos reservados.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e)});
+  setTimeout(function(){els.forEach(function(e){e.classList.add('in')})},2500);
+})();
+</script>
+</body>
+</html>

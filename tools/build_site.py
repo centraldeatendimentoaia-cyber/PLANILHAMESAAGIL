@@ -79,6 +79,7 @@ rx = rx.replace('var PLANILHA_URL = "planilha-controle-vendas-sai-ae.xlsx";', 'v
 # ---------- imagens de compartilhamento e ícones ----------
 shutil.copy(ROOT / 'assets' / 'og-image.png', OUT / 'og-image.png')
 shutil.copy(ROOT / 'assets' / 'og-raio-x.png', OUT / 'og-raio-x.png')
+shutil.copy(ROOT / 'assets' / 'og-crm.png', OUT / 'og-crm.png')
 shutil.copy(ROOT / 'assets' / 'icon-180.png', OUT / 'apple-touch-icon.png')
 shutil.copy(ROOT / 'assets' / 'icon-512.png', OUT / 'icon-512.png')
 
