@@ -563,6 +563,28 @@ body{margin:0;background:#F6F5F2}
 @media (prefers-reduced-motion:reduce){
   #saiae-lp *,#saiae-lp *::before,#saiae-lp *::after{animation:none!important;transition:none!important}
 }
+
+/* ---------- Sai aê CRM (venda cruzada) ---------- */
+#saiae-lp .crm{display:grid;gap:32px;align-items:center;background:var(--m500);border-radius:32px 32px 32px 8px;padding:28px;overflow:hidden}
+#saiae-lp .crm-tx{display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+#saiae-lp .crm-tag{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--t900)}
+#saiae-lp .crm-tag b{background:var(--t900);color:var(--m500);padding:3px 8px;border-radius:8px 8px 8px 2px;letter-spacing:.06em}
+#saiae-lp .crm .h2{font-size:clamp(28px,2vw + 16px,42px)}
+#saiae-lp .crm-tx p{color:var(--t700);font-size:17px;max-width:52ch}
+#saiae-lp .crm-li{display:flex;flex-wrap:wrap;gap:8px}
+#saiae-lp .crm-li li{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.55);border-radius:999px;padding:6px 12px;font-size:14px;font-weight:700}
+#saiae-lp .crm-li .ms{font-size:18px}
+#saiae-lp .crm-cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px}
+#saiae-lp .crm-cta small{font-size:14px;font-weight:700;color:var(--t700)}
+#saiae-lp .crm-ph{width:100%;max-width:340px;margin-inline:auto;background:#ECE5DD;border:8px solid var(--t900);border-radius:36px;box-shadow:var(--sh-lg);padding:0 14px 18px;display:flex;flex-direction:column;gap:10px;font-size:14.5px;line-height:1.4}
+#saiae-lp .crm-bar{display:flex;align-items:center;gap:10px;background:#fff;margin:0 -14px 4px;padding:14px 16px;border-radius:28px 28px 0 0;font-weight:700}
+#saiae-lp .crm-av{width:34px;height:34px;border-radius:50%;background:var(--m500);display:grid;place-items:center;font-family:var(--fd);font-weight:800}
+#saiae-lp .crm-chip{align-self:center;background:var(--t900);color:#fff;font-size:12.5px;font-weight:700;padding:6px 12px;border-radius:999px}
+#saiae-lp .crm-chip b{color:var(--m500)}
+#saiae-lp .crm-m{background:#fff;border-radius:16px 16px 16px 4px;padding:9px 12px 6px;max-width:88%;box-shadow:0 1px 1px rgba(0,0,0,.08)}
+#saiae-lp .crm-m.o{align-self:flex-end;background:#DCF8C6;border-radius:16px 16px 4px 16px}
+#saiae-lp .crm-m small{display:block;text-align:right;font-size:11px;color:var(--t400)}
+@media (min-width:960px){#saiae-lp .crm{grid-template-columns:1.15fr .85fr;padding:48px 56px}}
 </style>
 
 <div id="saiae-lp">
@@ -901,6 +923,36 @@ body{margin:0;background:#F6F5F2}
   </div>
 </section>
 
+<!-- Sai aê CRM -->
+<section class="sec sec--w" id="crm" aria-labelledby="sx-crm-t">
+  <div class="wrap">
+    <div class="crm">
+      <div class="crm-tx">
+        <span class="crm-tag"><b>NOVO</b> Sai aê CRM</span>
+        <h2 class="h2" id="sx-crm-t">O pedido saiu. Agora faz o cliente voltar.</h2>
+        <p>O Sai aê cuida do caixa e da cozinha. O Sai aê CRM cuida do WhatsApp: manda a promoção, lembra o cliente e responde sozinho enquanto você atende.</p>
+        <ul class="crm-li">
+          <li><span class="ms">campaign</span>Disparo</li>
+          <li><span class="ms">schedule_send</span>Agendador</li>
+          <li><span class="ms">quick_reply</span>Respostas automáticas</li>
+          <li><span class="ms">auto_awesome</span>Textos com IA</li>
+        </ul>
+        <div class="crm-cta">
+          <a class="btn btn--sec btn--lg" href="#" data-link="crmUrl" data-soon="O Sai aê CRM">Conhecer o Sai aê CRM <span class="ms">arrow_forward</span></a>
+          <small>A partir de R$ 49/mês</small>
+        </div>
+      </div>
+      <div class="crm-ph" role="img" aria-label="Conversa de WhatsApp com promoção agendada pelo Sai aê CRM">
+        <div class="crm-bar"><span class="crm-av">C</span>Carla · cliente</div>
+        <span class="crm-chip"><b>Agendado</b> · sexta, 17h30</span>
+        <div class="crm-m o">Oi, Carla! Hoje tem pastel em dobro até as 20h. Bora? 🥟<small>17:30 ✓✓</small></div>
+        <div class="crm-m">Opaaa, tô indo! Separa 2 pra mim 😋<small>17:32</small></div>
+        <div class="crm-m o">Separado! Te espero no balcão 🙌<small>17:32 ✓✓</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="sec sec--w" id="duvidas" aria-labelledby="sx-faq-t">
   <div class="wrap faq-grid">
@@ -966,7 +1018,8 @@ var SX_LINKS = {
   assinarUrl: 'https://app.saiae.com.br/assinar',   // botões dos planos (o app leva pro checkout)
   playStoreUrl: 'COLE_AQUI_LINK_GOOGLE_PLAY',
   posUrl: 'COLE_AQUI_LINK_MAQUININHA',
-  whatsappUrl: 'https://wa.me/5561999531848'
+  whatsappUrl: 'https://wa.me/5561999531848',
+  crmUrl: 'https://crm.saiae.com.br'                // página de vendas do Sai aê CRM
 };
 var SX_PLANS = {
   essencial: {

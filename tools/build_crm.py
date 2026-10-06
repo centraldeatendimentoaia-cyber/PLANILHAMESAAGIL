@@ -1,5 +1,5 @@
 """Gera a página de vendas do Sai aê CRM (crm/sai-ae-crm.html) a partir de tools/crm-src.html."""
-import html, json, re
+import base64, html, io, json, re
 from pathlib import Path
 from urllib.parse import quote
 
@@ -37,6 +37,18 @@ FAQ = [
      'Clique no botão do plano que você quer. Ele abre uma conversa no nosso WhatsApp e a gente faz tudo com você por lá.'),
 ]
 
+def embutir(m):
+    """Troca {{IMG:arquivo}} por data URI webp (a página funciona em qualquer domínio)."""
+    from PIL import Image
+    nome = m.group(1)
+    pasta = 'app' if nome.startswith('app-') else 'fotos'
+    im = Image.open(ROOT / 'assets' / pasta / nome).convert('RGB')
+    largura = 420 if pasta == 'app' else 720
+    if im.width > largura:
+        im = im.resize((largura, round(im.height * largura / im.width)), Image.LANCZOS)
+    buf = io.BytesIO(); im.save(buf, 'WEBP', quality=72, method=6)
+    return 'data:image/webp;base64,' + base64.b64encode(buf.getvalue()).decode()
+
 def wa(key):
     return f'https://wa.me/{WHATSAPP}?text={quote(MSGS[key])}'
 
@@ -53,6 +65,7 @@ faq_ld = json.dumps({'@context': 'https://schema.org', '@type': 'FAQPage', 'main
 
 out = src.replace('{{SPRITE}}', sprite).replace('{{FAQ_HTML}}', faq_html).replace('{{FAQ_JSONLD}}', faq_ld)
 out = re.sub(r'\{\{WA:(\w+)\}\}', lambda m: html.escape(wa(m.group(1))), out)
+out = re.sub(r'\{\{IMG:([\w.-]+)\}\}', embutir, out)
 out = out.replace('{{BASE}}', BASE)
 assert '{{' not in out, re.findall(r'\{\{.*?\}\}', out)
 dest = ROOT / 'crm' / 'sai-ae-crm.html'
