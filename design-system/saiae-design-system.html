@@ -1,0 +1,926 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saiaê Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,500,0..1,0&display=block">
+<style>
+:root{
+  color-scheme:light;
+  --m50:#FFF8E1;--m100:#FFEDB3;--m200:#FFE080;--m300:#FFD34D;--m400:#FFCA33;--m500:#FFC21A;--m600:#E6A800;--m700:#B38300;--m800:#805E00;--m900:#4D3800;
+  --t0:#FFFFFF;--t50:#F6F5F2;--t100:#ECEAE6;--t200:#D9D7DC;--t300:#B5B3BB;--t400:#8A8893;--t500:#5E5C66;--t600:#45434D;--t700:#2E2C35;--t800:#232229;--t900:#18171C;
+  --ok:#1FBF6A;--ok-bg:#E3F7EC;--ok-tx:#0E7A40;
+  --at:#FF8A1C;--at-bg:#FFF0E0;--at-tx:#A34E00;
+  --er:#F0412F;--er-bg:#FDE7E4;--er-tx:#B22514;
+  --in:#2F7BF5;--in-bg:#E6F0FE;--in-tx:#1A4FA8;
+  --pix:#32BCAD;
+  --fd:'Outfit',system-ui,sans-serif;--fb:'Figtree',system-ui,sans-serif;--fm:'JetBrains Mono',ui-monospace,monospace;
+  --balao:20px 20px 20px 4px;
+}
+*{box-sizing:border-box}
+body{background:var(--t50);color:var(--t900);font-family:var(--fb);font-size:15px;line-height:1.5;padding-inline:16px;padding-block:32px 64px;margin:0}
+.ms{font-family:'Material Symbols Rounded';font-weight:500;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;direction:ltr;-webkit-font-smoothing:antialiased;font-variation-settings:'FILL' 0,'wght' 500,'GRAD' 0,'opsz' 24}
+.ms.f{font-variation-settings:'FILL' 1,'wght' 500,'GRAD' 0,'opsz' 24}
+.wrap{max-width:1360px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:20px}
+.p{background:var(--t0);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:20px;min-width:0}
+.p.dark{background:var(--t900);color:var(--t50)}
+.p.mus{background:var(--m500)}
+.stack{display:flex;flex-direction:column;gap:20px;min-width:0}
+.s3{grid-column:span 3}.s4{grid-column:span 4}.s5{grid-column:span 5}.s6{grid-column:span 6}.s7{grid-column:span 7}.s8{grid-column:span 8}.s12{grid-column:span 12}
+.lbl{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--t500)}
+.dark .lbl{color:var(--t300)}
+.lbl b{font-family:var(--fm);font-weight:600;color:var(--t900);background:var(--m500);border-radius:6px;padding:2px 7px;letter-spacing:0}
+.sub{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--t400)}
+.mono{font-family:var(--fm);font-size:11.5px;color:var(--t500)}
+.dark .mono{color:var(--t300)}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.col{display:flex;flex-direction:column;gap:12px}
+h1,h2,h3{margin:0}
+p{margin:0}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:20px}
+.hero .p{padding:40px}
+.hero h1{font-family:var(--fd);font-weight:800;font-size:clamp(36px,4.6vw,64px);line-height:1.12;letter-spacing:-.03em;text-wrap:balance}
+.hero h1 em{font-style:normal;background:var(--m500);padding:0 .18em;border-radius:var(--balao)}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--t200);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600}
+.pill .ms{font-size:18px}
+.ver{align-self:flex-start;font-family:var(--fm);font-size:12px;background:var(--t100);border-radius:6px;padding:3px 8px}
+
+/* logo */
+.logos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lg{border-radius:16px;display:flex;align-items:center;justify-content:center;padding:22px;min-height:118px}
+.lg svg{width:100%;height:auto}
+
+/* colors */
+.sw-main{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.sw{border-radius:16px;overflow:hidden;border:1px solid var(--t100)}
+.sw .c{height:96px;display:flex;align-items:flex-end;padding:10px;font-family:var(--fd);font-weight:700;font-size:13px}
+.sw .t{padding:10px 12px;display:flex;flex-direction:column;gap:2px}
+.sw .t b{font-size:14px}
+.scale{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));border-radius:14px;overflow:hidden}
+.scale.n{grid-template-columns:repeat(11,minmax(0,1fr))}
+.scale div{height:64px;display:flex;flex-direction:column;justify-content:flex-end;padding:6px;font-family:var(--fm);font-size:10px;line-height:1.25}
+.status{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.st{border-radius:14px;overflow:hidden;border:1px solid var(--t100)}
+.st .c{height:56px;display:flex;align-items:center;gap:8px;padding:0 12px;color:#fff;font-weight:700}
+.st .b{padding:10px 12px;display:flex;flex-direction:column;gap:4px;font-size:13px}
+.timer{display:flex;border-radius:12px;overflow:hidden;font-size:13px;font-weight:700}
+.timer div{flex:1;padding:10px 12px;display:flex;justify-content:space-between;gap:8px;color:#fff}
+
+/* type */
+.aa{font-family:var(--fd);font-weight:800;font-size:120px;line-height:.9;letter-spacing:-.04em}
+.fam{display:grid;grid-template-columns:auto 1fr 1fr;gap:28px;align-items:start}
+.fam .col{gap:6px}
+.fam .nm{font-size:22px;font-weight:700}
+.tscale{display:flex;flex-direction:column}
+.tr{display:grid;grid-template-columns:110px 1fr 170px;gap:16px;align-items:baseline;padding:12px 0;border-top:1px solid var(--t100)}
+.tr .mono{white-space:nowrap}
+
+/* spacing radius shadow */
+.sp{display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap}
+.sp .b{display:flex;flex-direction:column;align-items:center;gap:6px}
+.sp .b i{display:block;background:var(--m500);border-radius:3px}
+.rad{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.rad div{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.rad i{display:block;width:100%;aspect-ratio:1.4;background:var(--t100);border:2px solid var(--t900);max-width:100%}
+.shd{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;background:var(--t50);border-radius:16px;padding:20px}
+.shd div{background:#fff;border-radius:14px;height:72px;display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:12px}
+
+/* icons */
+.icons{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.icons div{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 4px;border-radius:12px;background:var(--t50);font-size:11px;color:var(--t500);text-align:center}
+.icons .ms{color:var(--t900)}
+
+/* buttons */
+.btn{font-family:var(--fb);font-weight:600;font-size:16px;height:48px;padding:0 20px;border-radius:14px;border:0;display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;white-space:nowrap;transition:transform .12s cubic-bezier(.2,.8,.2,1),background .12s}
+.btn .ms{font-size:20px}
+.btn:active{transform:scale(.97)}
+.btn:focus-visible{outline:3px solid var(--m500);outline-offset:2px}
+.b-pri{background:var(--m500);color:var(--t900)}
+.b-pri:hover,.b-pri.hv{background:var(--m400);box-shadow:inset 0 0 0 1.5px var(--m600)}
+.b-sec{background:var(--t900);color:#fff}
+.b-out{background:transparent;color:var(--t900);box-shadow:inset 0 0 0 1.5px var(--t900)}
+.b-gh{background:transparent;color:var(--t900)}
+.b-dg{background:var(--er);color:#fff}
+.b-ic{width:48px;padding:0;background:var(--t100);color:var(--t900)}
+.b-sm{height:36px;font-size:14px;padding:0 14px;border-radius:12px}
+.b-lg{height:56px;font-size:17px;font-weight:700;padding:0 24px}
+.b-xl{height:64px;font-size:18px;font-weight:700;padding:0 28px}
+.b-pill{border-radius:999px}
+.b-dis{opacity:.4;cursor:not-allowed}
+.b-foc{outline:3px solid var(--m500);outline-offset:2px}
+.spin{width:18px;height:18px;border-radius:50%;border:2.5px solid rgba(24,23,28,.2);border-top-color:var(--t900);animation:sp 0.8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.bst{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.bst div{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+
+/* inputs */
+.fld{display:flex;flex-direction:column;gap:6px;min-width:0}
+.fld label{font-size:14px;font-weight:600}
+.fld .h{font-size:13px;color:var(--t500)}
+.fld .h.e{color:var(--er-tx);font-weight:600}
+.inp{height:48px;border:1px solid var(--t200);border-radius:10px;background:#fff;display:flex;align-items:center;gap:10px;padding:0 14px;font-size:16px;color:var(--t900);min-width:0}
+.inp .ph{color:var(--t400)}
+.inp .ms{font-size:20px;color:var(--t500)}
+.inp.fo{border-color:var(--t900);box-shadow:0 0 0 3px var(--m300)}
+.inp.er{border:1.5px solid var(--er)}
+.inp.okk .ms.r{color:var(--ok);margin-left:auto}
+.inp .pre{font-weight:700;color:var(--t500)}
+.inp.dis{background:var(--t100);color:var(--t400)}
+.fgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+
+/* selection */
+.cb,.rd{width:22px;height:22px;flex:none;display:inline-flex;align-items:center;justify-content:center}
+.cb{border-radius:6px;border:2px solid var(--t300);background:#fff}
+.cb.on{background:var(--t900);border-color:var(--t900);color:#fff}
+.cb.on .ms{font-size:18px;font-variation-settings:'FILL' 0,'wght' 700,'GRAD' 0,'opsz' 20}
+.rd{border-radius:50%;border:2px solid var(--t300);background:#fff}
+.rd.on{border-color:var(--t900)}
+.rd.on::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--t900)}
+.dis-o{opacity:.4}
+.tg{width:48px;height:28px;border-radius:999px;background:var(--t200);position:relative;flex:none}
+.tg::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.tg.on{background:var(--m500)}
+.tg.on::after{left:23px;background:var(--t900);box-shadow:none}
+.opt{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500}
+.seg{display:grid;grid-template-columns:1fr 1fr;align-self:flex-start;width:100%;max-width:320px;background:var(--t100);border-radius:14px;padding:4px;gap:4px}
+.seg>span{height:44px;padding:0 16px;border-radius:10px;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:15px;color:var(--t600)}
+.seg>span.on{background:var(--t900);color:#fff}
+.seg .ms{font-size:20px;color:inherit}
+.seg>span.on .ms{color:var(--m500);font-variation-settings:'FILL' 1,'wght' 500,'GRAD' 0,'opsz' 20}
+.sel3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+
+/* badges chips */
+.bdg{height:28px;border-radius:999px;padding:0 11px 0 8px;display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:700}
+.bdg .ms{font-size:16px}
+.chip{height:36px;border-radius:999px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:14px;border:1px solid var(--t200);background:#fff}
+.chip.on{background:var(--t900);color:#fff;border-color:var(--t900)}
+.chip .ms{font-size:18px}
+.pay{height:44px;border-radius:12px;padding:0 14px;display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;border:1.5px solid var(--t200);background:#fff}
+.pay.on{border-color:var(--t900);box-shadow:inset 0 0 0 1px var(--t900)}
+.tagb{display:inline-flex;align-items:center;gap:6px;background:var(--t900);color:var(--m500);font-weight:700;font-size:12px;letter-spacing:.04em;text-transform:uppercase;padding:6px 12px;border-radius:var(--balao)}
+
+/* cards */
+.prod{border:1px solid var(--t200);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:10px;min-height:120px;background:#fff}
+.prod .nm{font-weight:700;font-size:15px;line-height:1.25}
+.prod .pr{font-family:var(--fd);font-weight:700;font-size:18px;font-variant-numeric:tabular-nums}
+.prod .pr small{font-size:11px;font-weight:600;color:var(--t500);margin-right:2px}
+.prod.sel{border:2px solid var(--t900);background:var(--m50)}
+.qty{margin-top:auto;display:flex;align-items:center;justify-content:space-between}
+.qty i{width:32px;height:32px;border-radius:10px;background:var(--t100);display:flex;align-items:center;justify-content:center;font-style:normal}
+.qty i.on{background:var(--t900);color:#fff}
+.qty b{font-family:var(--fd);font-size:16px}
+.pgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.ord{background:var(--t800);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;border:1px solid #3A3842}
+.ord .tm{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;font-weight:700;color:#fff;font-variant-numeric:tabular-nums}
+.ord .tm span{display:flex;align-items:center;gap:6px}
+.ord .bd{padding:14px;display:flex;flex-direction:column;gap:10px;color:var(--t50)}
+.ord .n{display:flex;justify-content:space-between;align-items:center}
+.ord .n b{font-family:var(--fd);font-size:24px;letter-spacing:-.02em}
+.ord .typ{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--t300);display:flex;align-items:center;gap:4px}
+.ord .typ .ms{font-size:16px}
+.ord ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.ord li{display:flex;gap:10px}
+.ord li b{font-family:var(--fd);color:var(--m500);min-width:24px}
+.obs{background:var(--m500);color:var(--t900);border-radius:10px;padding:8px 10px;font-size:13px;font-weight:700;display:flex;gap:6px;align-items:center}
+.obs .ms{font-size:18px}
+.ord .bd{flex:1}
+.ord .n{align-items:flex-start;gap:8px}
+.ord .n>div{display:flex;flex-direction:column;gap:2px}
+.oi{width:44px;height:44px;flex:none;border-radius:12px;border:1px solid #3A3842;background:var(--t700);color:var(--t50);display:flex;align-items:center;justify-content:center;cursor:pointer}
+.oi:focus-visible,.lnk-cancel:focus-visible{outline:3px solid var(--m500);outline-offset:2px}
+.acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:auto}
+.acts .btn{width:100%;height:52px;padding:0 10px;font-size:15px}
+.b-dk{background:transparent;color:var(--t50);box-shadow:inset 0 0 0 1.5px var(--t500)}
+.lnk-cancel{background:none;border:0;color:#FF7A6B;font:600 14px var(--fb);height:40px;display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;padding:0 8px;align-self:center}
+.lnk-cancel .ms{font-size:18px}
+.legend{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;font-size:13px;color:var(--t300)}
+.legend span{display:flex;flex-direction:column;gap:4px}
+.legend .k{color:#fff;font-size:14px;display:flex;align-items:center;gap:6px}
+.legend .k .ms{font-size:20px}
+.full{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:16px;align-items:start}
+.sheet{background:var(--t800);border:1px solid #3A3842;border-radius:20px;overflow:hidden}
+.sh-top{display:flex;justify-content:space-between;padding:10px 16px;font-weight:700;color:#fff;font-variant-numeric:tabular-nums}
+.sh-top span{display:flex;align-items:center;gap:6px}
+.sh-bd{padding:16px;display:flex;flex-direction:column;gap:14px;color:var(--t50)}
+.sh-hd{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.sh-hd>div{display:flex;flex-direction:column;gap:2px}
+.sh-hd b{font-family:var(--fd);font-size:28px;letter-spacing:-.02em}
+.sh-hd .typ,.cmodal .typ{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--t300);display:flex;align-items:center;gap:4px}
+.sh-hd .typ .ms{font-size:16px}
+.sh-sec{display:flex;flex-direction:column;gap:8px;padding-top:12px;border-top:1px solid #3A3842;font-size:15px}
+.cap2{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--t400)}
+.it{display:flex;justify-content:space-between;gap:12px;font-size:15px;font-variant-numeric:tabular-nums}
+.it span:first-child{display:flex;gap:10px}
+.it b{font-family:var(--fd);color:var(--m500);min-width:20px}
+.it.tot{padding-top:12px;border-top:1px solid #3A3842;align-items:baseline;font-weight:700}
+.it.tot span:last-child{font-family:var(--fd);font-size:24px;letter-spacing:-.02em}
+.it.tot small{font-size:13px;color:var(--t300);font-family:var(--fb)}
+.tl{display:flex;flex-direction:column}
+.tl .d{display:grid;grid-template-columns:16px 1fr auto;gap:10px;align-items:center;padding:5px 0;position:relative;color:var(--t400);font-size:14px}
+.tl .d i{width:12px;height:12px;border-radius:50%;border:2px solid var(--t500);justify-self:center;background:var(--t800);position:relative;z-index:1}
+.tl .d:not(:last-child)::before{content:"";position:absolute;left:7px;top:50%;height:100%;width:2px;background:#3A3842}
+.tl .d.on{color:var(--t50)}
+.tl .d.on i{background:var(--m500);border-color:var(--m500)}
+.tl .d em{font-style:normal;font-variant-numeric:tabular-nums;font-size:13px}
+.cmodal{background:var(--t800);border:1px solid #3A3842;border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:12px;color:var(--t50)}
+.cmodal .ic{width:48px;height:48px;border-radius:var(--balao);background:rgba(240,65,47,.16);color:#FF7A6B;display:flex;align-items:center;justify-content:center}
+.cmodal h3{font-family:var(--fd);font-size:20px;letter-spacing:-.01em}
+.cmodal p{color:var(--t300);font-size:14px}
+.chip.dkc{background:transparent;color:var(--t200);border-color:#45434D}
+.chip.dkc.on{background:var(--t50);color:var(--t900);border-color:var(--t50)}
+.ogrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.met{background:var(--t50);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:6px}
+.met .v{font-family:var(--fd);font-weight:700;font-size:28px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.met .v small{font-size:14px;color:var(--t500);font-weight:600}
+.met .d{font-size:13px;font-weight:700;display:flex;align-items:center;gap:2px}
+.mgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.plan{border:1px solid var(--t200);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:14px;background:#fff;position:relative}
+.plan.rec{border:2px solid var(--m500);background:var(--m50)}
+.plan .tagb{position:absolute;top:-14px;left:20px}
+.plan .pp{font-family:var(--fd);font-weight:800;font-size:34px;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.plan .pp small{font-size:14px;font-weight:600;color:var(--t500);font-family:var(--fb);letter-spacing:0}
+.plan ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:14px}
+.plan li{display:flex;gap:8px;align-items:center}
+.plan li .ms{font-size:20px;color:var(--ok)}
+.plgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding-top:10px}
+
+/* feedback */
+.toast{background:var(--t900);color:#fff;border-radius:var(--balao);padding:14px 16px;display:flex;align-items:center;gap:12px;font-weight:600;box-shadow:0 6px 16px rgba(24,23,28,.14)}
+.toast .ms{color:var(--ok)}
+.toast small{display:block;font-weight:500;color:var(--t300);font-size:13px}
+.al{border-radius:14px;padding:12px 14px;display:flex;gap:10px;align-items:flex-start;font-size:14px}
+.al .ms{font-size:20px}
+.al b{display:block}
+.tip{display:inline-block;background:var(--t900);color:#fff;font-size:13px;font-weight:600;padding:8px 12px;border-radius:var(--balao)}
+.tabs{display:flex;gap:24px;border-bottom:1px solid var(--t200)}
+.tabs span{padding:10px 0;font-weight:600;font-size:14px;color:var(--t500);border-bottom:3px solid transparent;margin-bottom:-1px}
+.tabs span.on{color:var(--t900);border-color:var(--m500)}
+.bnav{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1px solid var(--t200);border-radius:20px;padding:8px}
+.bnav div{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:12px;font-weight:600;color:var(--t500);padding:6px 0}
+.bnav div .ms{padding:4px 16px;border-radius:999px}
+.bnav div.on{color:var(--t900)}
+.bnav div.on .ms{background:var(--m100);font-variation-settings:'FILL' 1,'wght' 500,'GRAD' 0,'opsz' 24}
+.prog{height:10px;background:var(--t100);border-radius:999px;overflow:hidden}
+.prog i{display:block;height:100%;width:68%;background:var(--m500);border-radius:999px}
+.spinner{width:36px;height:36px;border-radius:50%;border:4px solid var(--t100);border-top-color:var(--m500);animation:sp .9s linear infinite}
+.sk{background:var(--t100);border-radius:8px;height:14px}
+.empty{border:1.5px dashed var(--t200);border-radius:18px;padding:24px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.empty .ic{width:64px;height:64px;border-radius:var(--balao);background:var(--m100);display:flex;align-items:center;justify-content:center}
+.empty .ic .ms{font-size:32px}
+.acc{border-radius:16px;background:var(--t50);padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.acc .q{display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:700}
+.acc .q .ms{width:32px;height:32px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:20px}
+.acc p{color:var(--t600);font-size:14px}
+.modal{background:#fff;border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:12px;box-shadow:0 16px 40px rgba(24,23,28,.16);border:1px solid var(--t100)}
+.modal h3{font-family:var(--fd);font-size:18px}
+
+/* screens */
+.tv{background:var(--t900);border-radius:24px;padding:40px;display:grid;grid-template-columns:minmax(0,3fr) minmax(0,1fr);gap:24px;border:8px solid #0E0D11}
+.tv .now{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.tv .cap{color:var(--t300);font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.tv .big{background:var(--m500);color:var(--t900);border-radius:36px 36px 36px 8px;padding:6px 36px 10px;font-family:var(--fd);font-weight:800;font-size:clamp(72px,11vw,150px);line-height:1;letter-spacing:-.05em;font-variant-numeric:tabular-nums;animation:blink 1.8s ease-in-out 1}
+@keyframes blink{0%,33%,66%{opacity:1}16%,50%,83%{opacity:.35}}
+.tv .go{font-family:var(--fd);font-weight:700;color:#fff;font-size:26px}
+.tv .last{display:flex;flex-direction:column;gap:10px;border-left:1px solid #3A3842;padding-left:22px}
+.tv .last div{font-family:var(--fd);font-weight:700;font-size:34px;color:var(--t400);font-variant-numeric:tabular-nums}
+.tv .last div:first-of-type{color:var(--t200)}
+.tv .brand{display:flex;align-items:center;gap:8px;color:var(--t400);font-size:12px;margin-top:auto}
+.cx{background:var(--t50);border-radius:20px;border:1px solid var(--t200);display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);overflow:hidden}
+.cx .l{padding:18px;display:flex;flex-direction:column;gap:14px}
+.cx .r{background:#fff;border-left:1px solid var(--t200);padding:18px;display:flex;flex-direction:column;gap:12px}
+.cx .line{display:flex;justify-content:space-between;font-size:14px}
+.cx .tot{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--t200);padding-top:12px}
+.cx .tot b{font-family:var(--fd);font-size:26px;letter-spacing:-.02em}
+.site{background:#fff;border-radius:20px;border:1px solid var(--t200);overflow:hidden}
+.site .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;border-bottom:1px solid var(--t100);gap:12px}
+.site .nav .lk{display:flex;gap:20px;font-size:14px;font-weight:600;color:var(--t600)}
+.site .hh{padding:36px 22px 30px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:20px;align-items:center}
+.site h2{font-family:var(--fd);font-weight:800;font-size:clamp(28px,3.4vw,44px);line-height:1.05;letter-spacing:-.03em;text-wrap:balance}
+.site h2 em{font-style:normal;background:var(--m500);padding:0 .15em;border-radius:14px 14px 14px 4px}
+.phone{background:var(--t900);border-radius:26px;padding:10px;max-width:220px;justify-self:center;width:100%}
+.phone .scr{background:var(--t50);border-radius:18px;padding:12px;display:flex;flex-direction:column;gap:8px}
+.phone .mini{background:#fff;border-radius:10px;padding:8px 10px;display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:700}
+.cta{background:var(--m500);padding:26px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.cta h3{font-family:var(--fd);font-weight:800;font-size:24px;letter-spacing:-.02em}
+
+/* voice */
+.voice{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.vc{border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:8px;font-size:14px}
+.vc .h{display:flex;align-items:center;gap:6px;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.06em}
+.vc ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.dont{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.dont div{display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:600;color:var(--t600)}
+.dont .bx{height:84px;border-radius:12px;background:var(--t50);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.dont .bx::after{content:"";position:absolute;inset:0;background:linear-gradient(to top right,transparent calc(50% - 1.5px),var(--er) calc(50% - 1.5px),var(--er) calc(50% + 1.5px),transparent calc(50% + 1.5px))}
+
+.foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;background:var(--t900);color:var(--t300);border-radius:24px;padding:24px 28px;font-size:13px}
+.feat{display:flex;gap:28px;flex-wrap:wrap}
+.feat div{display:flex;align-items:center;gap:8px;color:#fff;font-weight:600}
+.feat .ms{color:var(--m500)}
+
+@media (max-width:1100px){
+  .s3,.s4,.s5{grid-column:span 6}.s7,.s8{grid-column:span 12}.s6{grid-column:span 12}
+  .bst{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:760px){
+  .grid{grid-template-columns:1fr}
+  .grid>.p,.grid>.stack{grid-column:1/-1}
+  .hero,.site .hh,.cx,.tv{grid-template-columns:1fr}
+  .hero .p{padding:26px}
+  .p{padding:20px}
+  .sw-main,.status{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .scale div{font-size:0;height:44px}
+  .fam{grid-template-columns:1fr}
+  .aa{font-size:88px}
+  .tr{grid-template-columns:1fr;gap:4px}
+  .fgrid,.sel3,.pgrid,.ogrid,.mgrid,.plgrid,.voice,.full{grid-template-columns:1fr}
+  .legend{grid-template-columns:1fr 1fr}
+  .icons{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .bst{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rad,.dont{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .shd{grid-template-columns:1fr}
+  .cx .r{border-left:0;border-top:1px solid var(--t200)}
+  .tv .last{border-left:0;padding-left:0;flex-direction:row;flex-wrap:wrap;gap:16px}
+  .site .nav .lk{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- Letras oficiais da logo (Outfit), extraídas dos SVGs da marca -->
+    <g id="L-sai" style="fill:var(--sai,#18171C)">
+      <path d="M129.767 103.272V56.328H146.567V103.272H129.767ZM138.119 50.856C135.623 50.856 133.543 50.024 131.879 48.36C130.215 46.632 129.383 44.488 129.383 41.928C129.383 39.432 130.215 37.32 131.879 35.592C133.543 33.864 135.623 33 138.119 33C140.743 33 142.855 33.864 144.455 35.592C146.119 37.32 146.951 39.432 146.951 41.928C146.951 44.488 146.119 46.632 144.455 48.36C142.855 50.024 140.743 50.856 138.119 50.856Z"/>
+      <path d="M95.4435 104.232C91.0915 104.232 87.2195 103.176 83.8275 101.064C80.4355 98.952 77.7795 96.072 75.8595 92.424C73.9395 88.712 72.9795 84.52 72.9795 79.848C72.9795 75.112 73.9395 70.888 75.8595 67.176C77.7795 63.464 80.4355 60.584 83.8275 58.536C87.2195 56.424 91.0915 55.368 95.4435 55.368C98.3875 55.368 101.075 55.912 103.507 57C105.939 58.024 107.923 59.496 109.459 61.416C111.059 63.336 112.019 65.512 112.339 67.944V91.56C112.019 94.056 111.059 96.264 109.459 98.184C107.923 100.04 105.939 101.512 103.507 102.6C101.075 103.688 98.3875 104.232 95.4435 104.232ZM98.9955 89.352C101.747 89.352 103.955 88.456 105.619 86.664C107.347 84.872 108.211 82.568 108.211 79.752C108.211 77.896 107.827 76.264 107.059 74.856C106.291 73.448 105.203 72.328 103.795 71.496C102.451 70.664 100.883 70.248 99.0915 70.248C97.2995 70.248 95.6995 70.664 94.2915 71.496C92.9475 72.328 91.8595 73.48 91.0275 74.952C90.2595 76.36 89.8755 77.96 89.8755 79.752C89.8755 81.608 90.2595 83.272 91.0275 84.744C91.7955 86.152 92.8835 87.272 94.2915 88.104C95.6995 88.936 97.2675 89.352 98.9955 89.352ZM107.539 103.272V90.696L109.939 79.176L107.539 67.848V56.328H123.956V103.272H107.539Z"/>
+      <path d="M52.368 104.616C49.488 104.616 46.64 104.232 43.824 103.464C41.072 102.696 38.48 101.672 36.048 100.392C33.68 99.048 31.664 97.512 30 95.784L39.12 86.472C40.656 88.072 42.48 89.32 44.592 90.216C46.768 91.112 49.072 91.56 51.504 91.56C52.912 91.56 53.968 91.368 54.672 90.984C55.44 90.6 55.824 90.056 55.824 89.352C55.824 88.328 55.28 87.56 54.192 87.048C53.168 86.472 51.792 85.992 50.064 85.608C48.4 85.16 46.64 84.648 44.784 84.072C42.928 83.432 41.136 82.6 39.408 81.576C37.68 80.552 36.272 79.112 35.184 77.256C34.16 75.4 33.648 73.032 33.648 70.152C33.648 67.144 34.448 64.52 36.048 62.28C37.712 59.976 40.016 58.184 42.96 56.904C45.904 55.56 49.36 54.888 53.328 54.888C57.36 54.888 61.2 55.592 64.848 57C68.496 58.344 71.44 60.392 73.68 63.144L64.464 72.456C62.928 70.728 61.232 69.544 59.376 68.904C57.52 68.2 55.824 67.848 54.288 67.848C52.816 67.848 51.76 68.072 51.12 68.52C50.48 68.904 50.16 69.448 50.16 70.152C50.16 70.984 50.672 71.656 51.696 72.168C52.784 72.68 54.16 73.16 55.824 73.608C57.552 73.992 59.312 74.504 61.104 75.144C62.96 75.784 64.72 76.68 66.384 77.832C68.112 78.92 69.488 80.392 70.512 82.248C71.6 84.104 72.144 86.504 72.144 89.448C72.144 94.12 70.352 97.832 66.768 100.584C63.184 103.272 58.384 104.616 52.368 104.616Z"/>
+    </g>
+    <g id="L-ae" style="fill:var(--ae,#F6F5F2)">
+      <path d="M251.215 104.46C246.607 104.46 242.447 103.436 238.735 101.388C235.087 99.2761 232.175 96.3961 229.999 92.7481C227.887 89.1 226.831 85.004 226.831 80.46C226.831 75.916 227.887 71.852 229.999 68.268C232.111 64.62 234.959 61.74 238.543 59.628C242.191 57.516 246.223 56.46 250.639 56.46C254.927 56.46 258.703 57.452 261.967 59.436C265.295 61.42 267.887 64.14 269.743 67.5961C271.663 71.052 272.623 74.988 272.623 79.404C272.623 80.172 272.559 80.9721 272.431 81.8041C272.367 82.5721 272.239 83.436 272.047 84.396H234.223V75.756H250.399H266.575L262.639 79.212C262.511 76.396 259.984 78.4201 259.024 76.5001C258.064 74.5801 258.316 78.5241 256.524 77.5001C254.796 76.4761 252.959 78.5001 250.399 78.5001C247.711 78.5001 245.807 75.3481 243.823 76.5001C241.839 77.6521 240.612 75.3881 239.524 77.5001C238.436 79.5481 237.199 77.292 237.199 80.172C237.199 83.052 237.775 85.58 238.927 87.756C240.079 89.932 241.711 91.6281 243.823 92.8441C245.935 93.9961 248.367 94.572 251.119 94.572C253.487 94.572 255.663 94.156 257.647 93.324C259.695 92.492 261.423 91.2761 262.831 89.6761L269.551 96.492C267.311 99.116 264.591 101.1 261.391 102.444C258.191 103.788 254.799 104.46 251.215 104.46ZM236.669 54.5L231.247 49.7L250.658 35L269.743 49.7L264.322 54.5L246.537 41.732L254.562 41.828L236.669 54.5Z"/>
+      <path d="M199.176 104.46C195.016 104.46 191.24 103.404 187.848 101.292C184.52 99.18 181.864 96.332 179.88 92.748C177.96 89.1 177 85.036 177 80.556C177 76.012 177.96 71.948 179.88 68.364C181.864 64.716 184.52 61.836 187.848 59.724C191.24 57.548 195.016 56.46 199.176 56.46C202.696 56.46 205.8 57.228 208.488 58.764C211.24 60.236 213.416 62.284 215.016 64.908C216.616 67.532 217.416 70.508 217.416 73.836V87.084C217.416 90.412 216.616 93.388 215.016 96.012C213.48 98.636 211.336 100.716 208.584 102.252C205.832 103.724 202.696 104.46 199.176 104.46ZM200.904 94.476C204.808 94.476 207.944 93.164 210.312 90.54C212.744 87.916 213.96 84.556 213.96 80.46C213.96 77.708 213.416 75.276 212.328 73.164C211.24 71.052 209.704 69.42 207.72 68.268C205.8 67.052 203.528 66.444 200.904 66.444C198.344 66.444 196.072 67.052 194.088 68.268C192.168 69.42 190.632 71.052 189.48 73.164C188.392 75.276 187.848 77.708 187.848 80.46C187.848 83.212 188.392 85.644 189.48 87.756C190.632 89.868 192.168 91.532 194.088 92.748C196.072 93.9 198.344 94.476 200.904 94.476ZM213.288 103.5V91.116L215.112 79.884L213.288 68.748V57.42H223.848V103.5H213.288Z"/>
+    </g>
+    <path id="B-cheio" d="M157.947 118.144C147.737 129.361 134.944 135.252 125.5 135.252V160.996C125.5 161.837 125.202 162.847 124.009 163.521C122.816 164.194 120.529 163.521 119.535 162.679L67.8404 135.252L43.7417 135.252C38.274 135.252 25.8474 131.465 15.9061 123.049C4.47359 113.371 1.07288e-05 99.9062 1.07288e-05 91.4907V63.2986L0 43.7609C-5.13666e-06 39.1323 1.1792 30.2119 9.44424 18.0935C17.7093 5.97511 37.2798 7.90358e-05 46.7241 7.90358e-05L80.4999 0H118.5C135.5 0 145.5 5.45391 155 13.4959C164.5 21.5379 169.608 31.9959 169.608 43.4959L169.608 91.4906C169.608 96.9607 168.317 106.753 157.947 118.144Z"/>
+    <path id="B-contorno" fill="none" stroke-width="5" d="M46.7236 2.5H118.5C134.788 2.50003 144.235 7.65855 153.385 15.4043C162.379 23.018 167.107 32.8007 167.107 43.4961V91.4902C167.107 96.4408 165.985 105.601 156.099 116.462C146.221 127.312 134.055 132.752 125.5 132.752H123V160.996C123 161.129 122.976 161.183 122.972 161.192C122.97 161.196 122.965 161.205 122.947 161.223C122.935 161.235 122.908 161.258 122.86 161.291C122.852 161.292 122.842 161.293 122.831 161.294C122.702 161.3 122.499 161.286 122.244 161.229C121.994 161.172 121.744 161.086 121.528 160.987C121.303 160.884 121.181 160.797 121.15 160.771L120.945 160.597L120.707 160.471L69.0117 133.043L68.4629 132.752H43.7422C41.4452 132.752 37.3014 131.92 32.4238 129.982C27.5972 128.066 22.2506 125.144 17.5215 121.141C6.67547 111.959 2.5 99.2044 2.5 91.4902V43.7607C2.50002 39.6302 3.5305 31.2013 11.5098 19.502C15.263 13.999 21.7316 9.71944 28.6162 6.80469C35.4922 3.89364 42.412 2.5001 46.7236 2.5Z"/>
+    <path id="I-balao" d="M144.575 127.736C138.073 134.926 129.928 138.702 123.914 138.702V155.205C123.914 155.745 123.724 156.392 122.964 156.824C122.205 157.255 120.749 156.824 120.116 156.284L87.1983 138.702L71.8531 138.702C68.3715 138.702 60.4587 136.275 54.1284 130.88C46.8486 124.676 44 116.044 44 110.65V92.5772L44 80.0526C44 77.0855 44.7509 71.3671 50.0137 63.5987C55.2766 55.8303 67.7385 52.0001 73.7522 52.0001L95.2594 52H119.456C130.281 52 136.649 55.4962 142.698 60.6514C148.748 65.8067 152 72.5108 152 79.8828L152 110.649C152 114.156 151.178 120.433 144.575 127.736Z"/>
+    <path id="I-balao-contorno" fill="none" stroke-width="5" d="M73.752 54.5H119.456C129.564 54.5 135.377 57.6968 141.077 62.5547C146.621 67.2793 149.5 73.3092 149.5 79.8828V110.649C149.5 113.641 148.843 119.288 142.721 126.059C136.55 132.883 129.032 136.202 123.914 136.202H121.414V154.143L121.294 154.079L88.376 136.497L87.8242 136.202H71.8535C70.5526 136.202 68.0362 135.712 64.9873 134.493C61.9896 133.295 58.6741 131.468 55.75 128.977C49.0553 123.271 46.5 115.349 46.5 110.649V80.0527C46.5 77.58 47.1038 72.3508 52.083 65.001C54.3372 61.6736 58.2804 59.0199 62.582 57.1865C66.876 55.3564 71.1584 54.5001 73.752 54.5Z"/>
+    <path id="I-chapeu" d="M87.9243 104L84 98.879L99.631 88L115 98.879L110.192 104L99.134 96.7039L87.9243 104Z"/>
+
+    <!-- Versões montadas -->
+    <symbol id="logo-cheio" viewBox="0 0 273 164"><use href="#B-cheio" style="fill:var(--bub,#FFC21A)"/><use href="#L-sai"/><use href="#L-ae"/></symbol>
+    <symbol id="logo-contorno" viewBox="0 0 273 164"><use href="#B-contorno" style="stroke:var(--bub,#FFC21A)"/><use href="#L-sai"/><use href="#L-ae"/></symbol>
+    <symbol id="logo-texto" viewBox="0 0 224 72"><use href="#L-sai" transform="translate(-30 -33)"/><use href="#L-ae" transform="translate(-49.384 -33.728)"/></symbol>
+    <symbol id="logo-empilhada" viewBox="0 0 165 129"><use href="#L-sai" transform="translate(-30 -33)"/><use href="#L-ae" transform="translate(-108 24)"/></symbol>
+    <symbol id="icone-cheio" viewBox="0 0 196 196"><rect width="196" height="196" rx="40" fill="#FFC21A"/><use href="#I-balao" fill="#18171C"/><use href="#I-chapeu" fill="#FFC21A"/></symbol>
+    <symbol id="icone-contorno" viewBox="0 0 196 196"><rect width="196" height="196" rx="40" fill="#FFC21A"/><use href="#I-balao-contorno" stroke="#18171C"/><use href="#I-chapeu" fill="#18171C"/></symbol>
+    <symbol id="simbolo" viewBox="44 52 108 105"><use href="#I-balao-contorno" style="stroke:var(--sym,#FFC21A)"/><use href="#I-chapeu" style="fill:var(--sym,#FFC21A)"/></symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="p">
+      <span class="ver">v1.0 · setembro 2026</span>
+      <svg viewBox="0 0 273 164" width="200" role="img" aria-label="Logo saiaê" style="--ae:#18171C"><use href="#logo-cheio"/></svg>
+      <h1>Design System do <em>saiaê</em></h1>
+      <p style="font-size:18px;color:var(--t600);max-width:56ch">Tudo o que você precisa para construir a página de vendas e o aplicativo: cor, tipografia, espaçamento, componentes e as telas do caixa, da cozinha e da senha.</p>
+      <div class="pills">
+        <span class="pill"><span class="ms">bolt</span>Direto</span>
+        <span class="pill"><span class="ms">celebration</span>Alegre</span>
+        <span class="pill"><span class="ms">storefront</span>De balcão</span>
+        <span class="pill"><span class="ms">touch_app</span>Feito para o toque</span>
+      </div>
+    </div>
+    <div class="p dark">
+      <div class="lbl"><b>01</b>Logo</div>
+      <div class="logos">
+        <div class="lg" style="background:#232229">
+          <svg viewBox="0 0 273 164" width="170" role="img" aria-label="Logo principal com balão cheio"><use href="#logo-cheio"/></svg>
+        </div>
+        <div class="lg" style="background:#232229">
+          <svg viewBox="0 0 273 164" width="170" role="img" aria-label="Logo com balão contorno" style="--sai:#FFC21A"><use href="#logo-contorno"/></svg>
+        </div>
+        <div class="lg" style="background:#232229">
+          <svg viewBox="0 0 224 72" width="160" role="img" aria-label="Logo só texto" style="--sai:#F6F5F2;--ae:#FFC21A"><use href="#logo-texto"/></svg>
+        </div>
+        <div class="lg" style="background:#232229">
+          <svg viewBox="0 0 165 129" width="110" role="img" aria-label="Logo empilhada" style="--sai:#F6F5F2;--ae:#FFC21A"><use href="#logo-empilhada"/></svg>
+        </div>
+      </div>
+      <div class="row" style="gap:14px">
+        <svg viewBox="0 0 196 196" width="72" role="img" aria-label="Ícone do app cheio"><use href="#icone-cheio"/></svg>
+        <svg viewBox="0 0 196 196" width="72" role="img" aria-label="Ícone do app contorno"><use href="#icone-contorno"/></svg>
+        <svg viewBox="0 0 108 105" width="48" role="img" aria-label="Símbolo"><use href="#simbolo"/></svg>
+        <svg viewBox="0 0 108 105" width="24" aria-hidden="true"><use href="#simbolo"/></svg>
+        <svg viewBox="0 0 108 105" width="16" aria-hidden="true"><use href="#simbolo"/></svg>
+        <span class="mono">ícone · símbolo · favicon 16px</span>
+      </div>
+      <p class="mono">Respiro mínimo = altura do “a” · Mínimo 96px (logo) e 16px (símbolo) · “sai” e “aê” sempre com peso ou cor diferente</p>
+    </div>
+  </div>
+
+  <!-- COR -->
+  <div class="grid">
+    <div class="p s8">
+      <div class="lbl"><b>02</b>Cor</div>
+      <div class="sw-main">
+        <div class="sw"><div class="c" style="background:#FFC21A">Aa</div><div class="t"><b>Mostarda 500</b><span class="mono">#FFC21A · principal</span></div></div>
+        <div class="sw"><div class="c" style="background:#18171C;color:#FFC21A">Aa</div><div class="t"><b>Tinta 900</b><span class="mono">#18171C · texto e fundo</span></div></div>
+        <div class="sw"><div class="c" style="background:#F6F5F2">Aa</div><div class="t"><b>Papel 50</b><span class="mono">#F6F5F2 · fundo claro</span></div></div>
+        <div class="sw"><div class="c" style="background:#FFFFFF">Aa</div><div class="t"><b>Branco</b><span class="mono">#FFFFFF · superfícies</span></div></div>
+      </div>
+      <span class="sub">Escala mostarda</span>
+      <div class="scale">
+        <div style="background:#FFF8E1">50<br>FFF8E1</div><div style="background:#FFEDB3">100<br>FFEDB3</div><div style="background:#FFE080">200<br>FFE080</div><div style="background:#FFD34D">300<br>FFD34D</div><div style="background:#FFCA33">400<br>FFCA33</div><div style="background:#FFC21A;font-weight:700">500<br>FFC21A</div><div style="background:#E6A800">600<br>E6A800</div><div style="background:#B38300;color:#fff">700<br>B38300</div><div style="background:#805E00;color:#fff">800<br>805E00</div><div style="background:#4D3800;color:#fff">900<br>4D3800</div>
+      </div>
+      <span class="sub">Escala tinta · neutros com leve tom da marca</span>
+      <div class="scale n">
+        <div style="background:#FFFFFF;box-shadow:inset 0 0 0 1px #ECEAE6">0<br>FFFFFF</div><div style="background:#F6F5F2">50<br>F6F5F2</div><div style="background:#ECEAE6">100<br>ECEAE6</div><div style="background:#D9D7DC">200<br>D9D7DC</div><div style="background:#B5B3BB">300<br>B5B3BB</div><div style="background:#8A8893;color:#fff">400<br>8A8893</div><div style="background:#5E5C66;color:#fff">500<br>5E5C66</div><div style="background:#45434D;color:#fff">600<br>45434D</div><div style="background:#2E2C35;color:#fff">700<br>2E2C35</div><div style="background:#232229;color:#fff">800<br>232229</div><div style="background:#18171C;color:#FFC21A;font-weight:700">900<br>18171C</div>
+      </div>
+    </div>
+    <div class="p s4">
+      <div class="lbl"><b>02</b>Contraste</div>
+      <div class="col">
+        <div style="background:#FFC21A;border-radius:14px;padding:18px;display:flex;justify-content:space-between;align-items:center"><b style="font-family:var(--fd);font-size:22px">Tinta</b><span class="bdg" style="background:var(--t900);color:#fff"><span class="ms">check</span>11:1</span></div>
+        <div style="background:#FFC21A;border-radius:14px;padding:18px;display:flex;justify-content:space-between;align-items:center"><b style="font-family:var(--fd);font-size:22px;color:#fff">Branco</b><span class="bdg" style="background:var(--er);color:#fff"><span class="ms">close</span>1,6:1</span></div>
+        <div style="background:#18171C;border-radius:14px;padding:18px;display:flex;justify-content:space-between;align-items:center"><b style="font-family:var(--fd);font-size:22px;color:#FFC21A">Mostarda</b><span class="bdg" style="background:var(--ok);color:#fff"><span class="ms">check</span>11:1</span></div>
+      </div>
+      <p style="font-size:14px;color:var(--t600)">Texto sobre mostarda é <b>sempre tinta</b>. Nunca branco.</p>
+    </div>
+
+    <div class="p s12">
+      <div class="lbl"><b>02</b>Status e cronômetro da cozinha</div>
+      <div class="status">
+        <div class="st"><div class="c" style="background:var(--ok)"><span class="ms">check_circle</span>No prazo</div><div class="b"><span class="mono">#1FBF6A · bg #E3F7EC · tx #0E7A40</span><span>Pedido no tempo, pronto, pago</span></div></div>
+        <div class="st"><div class="c" style="background:var(--at)"><span class="ms">schedule</span>Atenção</div><div class="b"><span class="mono">#FF8A1C · bg #FFF0E0 · tx #A34E00</span><span>Chegando no limite. Laranja para não confundir com a marca</span></div></div>
+        <div class="st"><div class="c" style="background:var(--er)"><span class="ms">error</span>Atrasado</div><div class="b"><span class="mono">#F0412F · bg #FDE7E4 · tx #B22514</span><span>Atrasado, cancelado, erro</span></div></div>
+        <div class="st"><div class="c" style="background:var(--in)"><span class="ms">info</span>Info</div><div class="b"><span class="mono">#2F7BF5 · bg #E6F0FE · tx #1A4FA8</span><span>Avisos neutros, pedido novo</span></div></div>
+      </div>
+      <div class="timer">
+        <div style="background:var(--ok)"><span>0 a 7 min</span><span>No prazo</span></div>
+        <div style="background:var(--at)"><span>7 a 12 min</span><span>Atenção</span></div>
+        <div style="background:var(--er)"><span>+12 min</span><span>Atrasado</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIPOGRAFIA -->
+  <div class="grid">
+    <div class="p s5">
+      <div class="lbl"><b>03</b>Tipografia</div>
+      <div class="fam">
+        <div class="aa">Aa</div>
+        <div class="col"><span class="nm" style="font-family:var(--fd)">Outfit</span><span class="sub">Display · títulos e números</span><span class="mono">600 · 700 · 800</span></div>
+        <div class="col"><span class="nm">Figtree</span><span class="sub">Texto · interface</span><span class="mono">400 · 500 · 600 · 700</span></div>
+      </div>
+      <div style="background:var(--t900);border-radius:16px;padding:18px;display:flex;align-items:baseline;gap:12px;color:#fff">
+        <span style="font-family:var(--fd);font-weight:800;font-size:64px;line-height:1;color:var(--m500);letter-spacing:-.04em;font-variant-numeric:tabular-nums">042</span>
+        <span style="font-size:13px;color:var(--t300)">Senha · Outfit 800 · 200px na TV · números tabulares</span>
+      </div>
+      <div class="row" style="align-items:baseline;gap:8px">
+        <span style="font-size:14px;font-weight:600;color:var(--t500)">R$</span><span style="font-family:var(--fd);font-weight:700;font-size:32px;letter-spacing:-.02em">12,00</span>
+        <span class="mono" style="margin-left:8px">Preço: R$ menor e mais leve</span>
+      </div>
+    </div>
+    <div class="p s7">
+      <div class="lbl"><b>03</b>Escala</div>
+      <div class="tscale">
+        <div class="tr"><span class="mono">display-xl</span><span style="font-family:var(--fd);font-weight:800;font-size:48px;line-height:1.05;letter-spacing:-.03em">Sai aí!</span><span class="mono">64 / 1.05 · 800</span></div>
+        <div class="tr"><span class="mono">display</span><span style="font-family:var(--fd);font-weight:800;font-size:36px;line-height:1.1;letter-spacing:-.02em">Sem grito</span><span class="mono">48 / 1.1 · 800</span></div>
+        <div class="tr"><span class="mono">h1</span><span style="font-family:var(--fd);font-weight:700;font-size:30px;letter-spacing:-.02em">Pedidos de hoje</span><span class="mono">36 / 1.15 · 700</span></div>
+        <div class="tr"><span class="mono">h2</span><span style="font-family:var(--fd);font-weight:700;font-size:24px;letter-spacing:-.01em">Cozinha</span><span class="mono">28 / 1.2 · 700</span></div>
+        <div class="tr"><span class="mono">h3</span><span style="font-family:var(--fd);font-weight:700;font-size:20px;letter-spacing:-.01em">Pedido #128</span><span class="mono">22 / 1.25 · 700</span></div>
+        <div class="tr"><span class="mono">h4</span><span style="font-weight:700;font-size:18px">Formas de pagamento</span><span class="mono">18 / 1.35 · Figtree 700</span></div>
+        <div class="tr"><span class="mono">body-lg</span><span style="font-size:18px">Tudo na tela, na ordem certa.</span><span class="mono">18 / 1.6 · 400</span></div>
+        <div class="tr"><span class="mono">body</span><span style="font-size:16px">O pedido aparece na cozinha na hora.</span><span class="mono">16 / 1.55 · 400</span></div>
+        <div class="tr"><span class="mono">body-sm</span><span style="font-size:14px;font-weight:500;color:var(--t600)">Sem cebola, capricha no queijo</span><span class="mono">14 / 1.5 · 500</span></div>
+        <div class="tr"><span class="mono">caption</span><span style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--t500)">Para viagem</span><span class="mono">12 / 1.4 · 700 · +8%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ESPAÇO FORMA ICONES -->
+  <div class="grid">
+    <div class="p s4">
+      <div class="lbl"><b>04</b>Espaçamento · base 4</div>
+      <div class="sp">
+        <div class="b"><i style="width:4px;height:4px"></i><span class="mono">4</span></div>
+        <div class="b"><i style="width:8px;height:8px"></i><span class="mono">8</span></div>
+        <div class="b"><i style="width:12px;height:12px"></i><span class="mono">12</span></div>
+        <div class="b"><i style="width:16px;height:16px"></i><span class="mono">16</span></div>
+        <div class="b"><i style="width:20px;height:20px"></i><span class="mono">20</span></div>
+        <div class="b"><i style="width:24px;height:24px"></i><span class="mono">24</span></div>
+        <div class="b"><i style="width:32px;height:32px"></i><span class="mono">32</span></div>
+        <div class="b"><i style="width:40px;height:40px"></i><span class="mono">40</span></div>
+        <div class="b"><i style="width:48px;height:48px"></i><span class="mono">48</span></div>
+        <div class="b"><i style="width:64px;height:64px"></i><span class="mono">64</span></div>
+      </div>
+      <p class="mono">96 e 128 entre seções da página de vendas</p>
+      <div style="display:flex;gap:10px;align-items:center;background:var(--t50);border-radius:14px;padding:14px">
+        <div style="width:48px;height:48px;border:2px dashed var(--t900);border-radius:10px;display:flex;align-items:center;justify-content:center"><span class="ms">touch_app</span></div>
+        <p style="font-size:14px"><b>Toque mínimo 48px.</b> Produto no caixa: 88px de altura.</p>
+      </div>
+    </div>
+    <div class="p s4">
+      <div class="lbl"><b>05</b>Cantos e sombras</div>
+      <div class="rad">
+        <div><i style="border-radius:6px"></i><span class="mono">xs · 6</span></div>
+        <div><i style="border-radius:10px"></i><span class="mono">sm · 10</span></div>
+        <div><i style="border-radius:14px"></i><span class="mono">md · 14</span></div>
+        <div><i style="border-radius:20px"></i><span class="mono">lg · 20</span></div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:center;background:var(--m50);border-radius:16px;padding:14px">
+        <i style="display:block;width:72px;height:56px;background:var(--m500);border-radius:var(--balao);flex:none"></i>
+        <p style="font-size:14px"><b>Canto balão ⭐</b><br><span class="mono">20 20 20 4</span> · assinatura da marca. Toasts, senha, tooltip, etiquetas.</p>
+      </div>
+      <div class="shd">
+        <div style="box-shadow:0 1px 2px rgba(24,23,28,.06)">sm</div>
+        <div style="box-shadow:0 6px 16px rgba(24,23,28,.10)">md</div>
+        <div style="box-shadow:0 16px 40px rgba(24,23,28,.16)">lg</div>
+      </div>
+    </div>
+    <div class="p s4">
+      <div class="lbl"><b>07</b>Ícones · Material Symbols Rounded</div>
+      <div class="icons">
+        <div><span class="ms">receipt_long</span>Pedidos</div>
+        <div><span class="ms">skillet</span>Cozinha</div>
+        <div><span class="ms">campaign</span>Senha</div>
+        <div><span class="ms">point_of_sale</span>Caixa</div>
+        <div><span class="ms">bar_chart</span>Relatório</div>
+        <div><span class="ms">storefront</span>Barraca</div>
+        <div><span class="ms">qr_code_2</span>Pix</div>
+        <div><span class="ms">payments</span>Dinheiro</div>
+        <div><span class="ms">credit_card</span>Cartão</div>
+        <div><span class="ms">timer</span>Tempo</div>
+        <div><span class="ms">check_circle</span>Pronto</div>
+        <div><span class="ms">takeout_dining</span>Viagem</div>
+      </div>
+      <p class="mono">Peso 500 · 24px padrão · preenchido = ativo</p>
+    </div>
+  </div>
+
+  <!-- BOTÕES -->
+  <div class="grid">
+    <div class="p s7">
+      <div class="lbl"><b>09</b>Botões · variantes</div>
+      <div class="row">
+        <button class="btn b-pri"><span class="ms">add</span>Lançar pedido</button>
+        <button class="btn b-sec">Chamar senha<span class="ms">campaign</span></button>
+        <button class="btn b-out">Ver cardápio</button>
+        <button class="btn b-gh">Cancelar</button>
+        <button class="btn b-dg"><span class="ms">delete</span>Cancelar pedido</button>
+        <button class="btn b-ic" aria-label="Filtrar"><span class="ms">tune</span></button>
+      </div>
+      <span class="sub">Tamanhos</span>
+      <div class="row" style="align-items:flex-end">
+        <div class="col" style="gap:6px"><button class="btn b-pri b-sm">Pequeno</button><span class="mono">sm · 36</span></div>
+        <div class="col" style="gap:6px"><button class="btn b-pri">Médio</button><span class="mono">md · 48</span></div>
+        <div class="col" style="gap:6px"><button class="btn b-pri b-lg">Grande</button><span class="mono">lg · 56</span></div>
+        <div class="col" style="gap:6px"><button class="btn b-pri b-xl">Caixa<span class="ms">arrow_forward</span></button><span class="mono">xl · 64</span></div>
+      </div>
+      <span class="sub">Página de vendas · pílula</span>
+      <div class="row">
+        <button class="btn b-pri b-lg b-pill">Testar 3 dias grátis<span class="ms">arrow_forward</span></button>
+        <button class="btn b-out b-lg b-pill">Ver como funciona</button>
+      </div>
+    </div>
+    <div class="p s5">
+      <div class="lbl"><b>09</b>Botões · estados</div>
+      <div class="bst" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+        <div><button class="btn b-pri">Normal</button><span class="mono">padrão</span></div>
+        <div><button class="btn b-pri hv">Hover</button><span class="mono">mostarda 400</span></div>
+        <div><button class="btn b-pri" style="transform:scale(.97)">Pressionado</button><span class="mono">scale .97</span></div>
+        <div><button class="btn b-pri b-foc">Foco</button><span class="mono">anel 3px</span></div>
+        <div><button class="btn b-pri"><span class="spin"></span>Salvando</button><span class="mono">carregando</span></div>
+        <div><button class="btn b-pri b-dis">Desativado</button><span class="mono">opacidade 40%</span></div>
+      </div>
+      <div class="al" style="background:var(--m50)"><span class="ms">priority_high</span><div><b>Um primário por tela</b>A mostarda chama atenção. Se tudo é mostarda, nada se destaca.</div></div>
+    </div>
+  </div>
+
+  <!-- CAMPOS E SELEÇÃO -->
+  <div class="grid">
+    <div class="p s7">
+      <div class="lbl"><b>09</b>Campos</div>
+      <div class="fgrid">
+        <div class="fld"><label>Nome do cliente</label><div class="inp"><span class="ph">Ex.: Joana</span></div><span class="h">Opcional</span></div>
+        <div class="fld"><label>Buscar produto</label><div class="inp fo"><span class="ms">search</span>past|</div><span class="h">Foco: borda tinta + anel mostarda</span></div>
+        <div class="fld"><label>Valor recebido</label><div class="inp"><span class="pre">R$</span>50,00</div><span class="h">Troco: R$ 26,00</span></div>
+        <div class="fld"><label>WhatsApp do cliente</label><div class="inp er">(11) 9123-45</div><span class="h e">Número incompleto. Confira os dígitos.</span></div>
+        <div class="fld"><label>Chave Pix</label><div class="inp okk">pix@barraca.com<span class="ms r">check_circle</span></div><span class="h">Chave válida</span></div>
+        <div class="fld"><label>Categoria</label><div class="inp">Pastéis<span class="ms" style="margin-left:auto">expand_more</span></div><span class="h">Seleção</span></div>
+      </div>
+      <div class="fld"><label>Observação do pedido</label><div class="inp" style="height:76px;align-items:flex-start;padding-top:12px"><span class="ph">Ex.: sem cebola, bem passado</span></div></div>
+    </div>
+    <div class="p s5">
+      <div class="lbl"><b>09</b>Seleção</div>
+      <span class="sub">Tipo do pedido · segmentado</span>
+      <div class="seg"><span class="on"><span class="ms">storefront</span>Balcão</span><span><span class="ms">takeout_dining</span>Viagem</span></div>
+      <div class="sel3">
+        <div class="col">
+          <span class="sub">Checkbox</span>
+          <span class="opt"><span class="cb on"><span class="ms">check</span></span>Com queijo</span>
+          <span class="opt"><span class="cb"></span>Sem cebola</span>
+          <span class="opt dis-o"><span class="cb"></span>Esgotado</span>
+        </div>
+        <div class="col">
+          <span class="sub">Radio</span>
+          <span class="opt"><span class="rd on"></span>Pequeno</span>
+          <span class="opt"><span class="rd"></span>Médio</span>
+          <span class="opt dis-o"><span class="rd"></span>Grande</span>
+        </div>
+        <div class="col">
+          <span class="sub">Toggle</span>
+          <span class="opt"><span class="tg on"></span>Som</span>
+          <span class="opt"><span class="tg"></span>Imprimir</span>
+          <span class="opt dis-o"><span class="tg"></span>Delivery</span>
+        </div>
+      </div>
+      <span class="sub">Pagamento</span>
+      <div class="row" style="gap:8px">
+        <span class="pay on"><span class="ms" style="color:var(--pix)">qr_code_2</span>Pix</span>
+        <span class="pay"><span class="ms" style="color:var(--ok)">payments</span>Dinheiro</span>
+        <span class="pay"><span class="ms" style="color:var(--in)">credit_card</span>Débito</span>
+        <span class="pay"><span class="ms">credit_card</span>Crédito</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ETIQUETAS / NAV / FEEDBACK -->
+  <div class="grid">
+    <div class="p s4">
+      <div class="lbl"><b>09</b>Status do pedido</div>
+      <div class="row" style="gap:8px">
+        <span class="bdg" style="background:var(--in-bg);color:var(--in-tx)"><span class="ms">fiber_new</span>Novo</span>
+        <span class="bdg" style="background:var(--at-bg);color:var(--at-tx)"><span class="ms">skillet</span>Preparando</span>
+        <span class="bdg" style="background:var(--ok-bg);color:var(--ok-tx)"><span class="ms">check_circle</span>Pronto</span>
+        <span class="bdg" style="background:var(--t100);color:var(--t600)"><span class="ms">done_all</span>Entregue</span>
+        <span class="bdg" style="background:var(--er-bg);color:var(--er-tx)"><span class="ms">cancel</span>Cancelado</span>
+      </div>
+      <span class="sub">Chips de categoria</span>
+      <div class="row" style="gap:8px">
+        <span class="chip on">Todos</span><span class="chip">Pastéis</span><span class="chip">Bebidas</span><span class="chip">Doces</span><span class="chip"><span class="ms">add</span>Nova</span>
+      </div>
+      <span class="sub">Etiqueta destaque · canto balão</span>
+      <div class="row"><span class="tagb"><span class="ms f" style="font-size:16px">star</span>Mais vendido</span><span class="tagb" style="background:var(--m500);color:var(--t900)">Novo</span></div>
+    </div>
+    <div class="p s4">
+      <div class="lbl"><b>09</b>Navegação</div>
+      <div class="tabs"><span class="on">Hoje</span><span>Semana</span><span>Mês</span></div>
+      <span class="sub">Barra inferior do app</span>
+      <div class="bnav">
+        <div class="on"><span class="ms">receipt_long</span>Pedidos</div>
+        <div><span class="ms">skillet</span>Cozinha</div>
+        <div><span class="ms">campaign</span>Senha</div>
+        <div><span class="ms">bar_chart</span>Relatório</div>
+      </div>
+      <span class="sub">Progresso e carregamento</span>
+      <div class="row" style="gap:16px;flex-wrap:nowrap">
+        <div class="spinner" role="status" aria-label="Carregando"></div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:6px"><div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600"><span>Meta do dia</span><span>68%</span></div><div class="prog"><i></i></div></div>
+      </div>
+      <div class="col" style="gap:8px"><div class="sk" style="width:70%"></div><div class="sk" style="width:90%"></div><div class="sk" style="width:45%"></div></div>
+    </div>
+    <div class="p s4">
+      <div class="lbl"><b>09</b>Avisos</div>
+      <div class="toast"><span class="ms f">check_circle</span><div>Saiaê! Senha 042<small>Pedido pronto e chamado na TV</small></div></div>
+      <div class="al" style="background:var(--at-bg);color:var(--at-tx)"><span class="ms">wifi_off</span><div><b>Sem internet</b>O pedido fica salvo e sobe quando voltar.</div></div>
+      <div class="al" style="background:var(--er-bg);color:var(--er-tx)"><span class="ms">error</span><div><b>Pagamento recusado</b>Tente outro cartão ou Pix.</div></div>
+      <div class="row"><span class="tip">Toque para chamar de novo</span></div>
+    </div>
+  </div>
+
+  <!-- COZINHA -->
+  <div class="grid">
+    <div class="p s12 dark">
+      <div class="lbl"><b>10</b>Card de pedido · cozinha (tema escuro)</div>
+      <div class="ogrid">
+        <div class="ord">
+          <div class="tm" style="background:var(--ok)"><span><span class="ms">timer</span>03:12</span><span>No prazo</span></div>
+          <div class="bd">
+            <div class="n"><div><b>#131</b><span class="typ"><span class="ms">storefront</span>Balcão</span></div><button class="oi" aria-label="Abrir pedido completo"><span class="ms">receipt_long</span></button></div>
+            <ul><li><b>2</b>Pastel de carne</li><li><b>1</b>Caldo de cana</li></ul>
+            <div class="acts"><button class="btn b-pri"><span class="ms">check</span>Pronto</button><button class="btn b-dk"><span class="ms">done_all</span>Entregar direto</button></div>
+            <button class="lnk-cancel"><span class="ms">close</span>Cancelar pedido</button>
+          </div>
+        </div>
+        <div class="ord">
+          <div class="tm" style="background:var(--at)"><span><span class="ms">timer</span>08:45</span><span>Atenção</span></div>
+          <div class="bd">
+            <div class="n"><div><b>#129</b><span class="typ"><span class="ms">storefront</span>Balcão</span></div><button class="oi" aria-label="Abrir pedido completo"><span class="ms">receipt_long</span></button></div>
+            <ul><li><b>1</b>Pastel de queijo</li><li><b>3</b>Coxinha</li></ul>
+            <div class="obs"><span class="ms">sticky_note_2</span>Sem cebola</div>
+            <div class="acts"><button class="btn b-pri"><span class="ms">check</span>Pronto</button><button class="btn b-dk"><span class="ms">done_all</span>Entregar direto</button></div>
+            <button class="lnk-cancel"><span class="ms">close</span>Cancelar pedido</button>
+          </div>
+        </div>
+        <div class="ord">
+          <div class="tm" style="background:var(--er)"><span><span class="ms">timer</span>13:20</span><span>Atrasado</span></div>
+          <div class="bd">
+            <div class="n"><div><b>#127</b><span class="typ"><span class="ms">takeout_dining</span>Viagem</span></div><button class="oi" aria-label="Abrir pedido completo"><span class="ms">receipt_long</span></button></div>
+            <ul><li><b>1</b>Açaí 500ml</li><li><b>1</b>Pastel de frango</li></ul>
+            <div class="acts"><button class="btn b-pri"><span class="ms">check</span>Pronto</button><button class="btn b-dk"><span class="ms">done_all</span>Entregar direto</button></div>
+            <button class="lnk-cancel"><span class="ms">close</span>Cancelar pedido</button>
+          </div>
+        </div>
+      </div>
+      <div class="legend">
+        <span><b class="k">Pronto</b>Chama a senha na TV. Ação principal, em mostarda.</span>
+        <span><b class="k">Entregar direto</b>Entrega sem chamar senha. Contorno.</span>
+        <span><b class="k"><span class="ms">receipt_long</span></b>Abre o pedido completo.</span>
+        <span><b class="k" style="color:#FF7A6B">Cancelar</b>Link discreto. Sempre pede confirmação.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARDS -->
+  <div class="grid">
+    <div class="s5 stack">
+    <div class="p">
+      <div class="lbl"><b>09</b>Card de produto · caixa</div>
+      <div class="pgrid">
+        <div class="prod sel"><span class="nm">Pastel de carne</span><span class="pr"><small>R$</small>12,00</span><div class="qty"><i><span class="ms">remove</span></i><b>2</b><i class="on"><span class="ms">add</span></i></div></div>
+        <div class="prod"><span class="nm">Pastel de queijo</span><span class="pr"><small>R$</small>11,00</span><div class="qty"><i><span class="ms">remove</span></i><b>0</b><i class="on"><span class="ms">add</span></i></div></div>
+        <div class="prod"><span class="nm">Caldo de cana 500ml</span><span class="pr"><small>R$</small>8,00</span><div class="qty"><i><span class="ms">remove</span></i><b>0</b><i class="on"><span class="ms">add</span></i></div></div>
+      </div>
+      <span class="sub">Métricas · relatório</span>
+      <div class="mgrid">
+        <div class="met"><span class="sub">Vendas</span><span class="v"><small>R$</small> 2.480</span><span class="d" style="color:var(--ok-tx)"><span class="ms" style="font-size:18px">arrow_upward</span>18% vs. sábado</span></div>
+        <div class="met"><span class="sub">Pedidos</span><span class="v">186</span><span class="d" style="color:var(--ok-tx)"><span class="ms" style="font-size:18px">arrow_upward</span>12%</span></div>
+        <div class="met"><span class="sub">Tempo médio</span><span class="v">6<small> min</small></span><span class="d" style="color:var(--er-tx)"><span class="ms" style="font-size:18px">arrow_upward</span>1 min</span></div>
+      </div>
+    </div>
+    <div class="p" style="flex:1">
+      <div class="lbl"><b>10</b>Caixa · tablet</div>
+      <div class="cx">
+        <div class="l">
+          <div class="row" style="gap:6px"><span class="chip on" style="height:32px;font-size:13px">Todos</span><span class="chip" style="height:32px;font-size:13px">Pastéis</span><span class="chip" style="height:32px;font-size:13px">Bebidas</span></div>
+          <div class="pgrid" style="grid-template-columns:repeat(2,minmax(0,1fr));gap:8px">
+            <div class="prod sel" style="min-height:88px;padding:10px"><span class="nm" style="font-size:13px">Pastel de carne</span><span class="pr" style="font-size:15px"><small>R$</small>12,00</span></div>
+            <div class="prod" style="min-height:88px;padding:10px"><span class="nm" style="font-size:13px">Pastel de queijo</span><span class="pr" style="font-size:15px"><small>R$</small>11,00</span></div>
+            <div class="prod" style="min-height:88px;padding:10px"><span class="nm" style="font-size:13px">Caldo de cana</span><span class="pr" style="font-size:15px"><small>R$</small>8,00</span></div>
+            <div class="prod" style="min-height:88px;padding:10px"><span class="nm" style="font-size:13px">Coxinha</span><span class="pr" style="font-size:15px"><small>R$</small>7,00</span></div>
+          </div>
+        </div>
+        <div class="r">
+          <b style="font-family:var(--fd)">Pedido #132</b>
+          <div class="line"><span>2× Pastel de carne</span><span>24,00</span></div>
+          <div class="line"><span>1× Caldo de cana</span><span>8,00</span></div>
+          <div class="tot"><span class="sub">Total</span><b><small style="font-size:13px;color:var(--t500)">R$ </small>32,00</b></div>
+          <button class="btn b-pri" style="width:100%;height:56px">Lançar pedido</button>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="p s7 dark">
+      <div class="lbl"><b>10</b>Pedido completo e cancelamento</div>
+      <div class="full">
+        <div class="sheet">
+          <div class="sh-top" style="background:var(--at)"><span><span class="ms">timer</span>08:45</span><span>Atenção</span></div>
+          <div class="sh-bd">
+            <div class="sh-hd">
+              <div><b>#129</b><span class="typ"><span class="ms">storefront</span>Balcão · lançado 11:48</span></div>
+              <button class="oi" aria-label="Fechar"><span class="ms">close</span></button>
+            </div>
+            <div class="row" style="gap:8px"><span class="bdg" style="background:var(--at-bg);color:var(--at-tx)"><span class="ms">skillet</span>Preparando</span><span class="bdg" style="background:var(--ok-bg);color:var(--ok-tx)"><span class="ms">qr_code_2</span>Pix · pago</span></div>
+            <div class="sh-sec"><span class="cap2">Cliente</span><span>Joana · (11) 91234-5678</span></div>
+            <div class="sh-sec">
+              <span class="cap2">Itens</span>
+              <div class="it"><span><b>1</b>Pastel de queijo</span><span>11,00</span></div>
+              <div class="it"><span><b>3</b>Coxinha</span><span>21,00</span></div>
+              <div class="obs"><span class="ms">sticky_note_2</span>Sem cebola</div>
+            </div>
+            <div class="it tot"><span>Total</span><span><small>R$ </small>32,00</span></div>
+            <div class="sh-sec">
+              <span class="cap2">Andamento</span>
+              <div class="tl">
+                <div class="d on"><i></i><span>Lançado no caixa</span><em>11:48</em></div>
+                <div class="d on"><i></i><span>Na cozinha</span><em>11:48</em></div>
+                <div class="d"><i></i><span>Pronto</span><em>—</em></div>
+                <div class="d"><i></i><span>Entregue</span><em>—</em></div>
+              </div>
+            </div>
+            <div class="acts"><button class="btn b-pri"><span class="ms">check</span>Pronto</button><button class="btn b-dk"><span class="ms">done_all</span>Entregar direto</button></div>
+            <div class="row" style="justify-content:space-between;gap:8px">
+              <button class="btn b-dk b-sm"><span class="ms">print</span>Imprimir</button>
+              <button class="lnk-cancel"><span class="ms">close</span>Cancelar pedido</button>
+            </div>
+          </div>
+        </div>
+        <div class="col" style="gap:14px">
+          <div class="cmodal">
+            <div class="ic"><span class="ms">cancel</span></div>
+            <h3>Cancelar o pedido #129?</h3>
+            <p>Ele sai da cozinha e não entra no relatório de vendas.</p>
+            <span class="cap2">Motivo</span>
+            <div class="row" style="gap:8px">
+              <span class="chip dkc on">Cliente desistiu</span><span class="chip dkc">Pedido errado</span><span class="chip dkc">Acabou o produto</span>
+            </div>
+            <div class="acts"><button class="btn b-dk">Voltar</button><button class="btn b-dg">Cancelar pedido</button></div>
+          </div>
+          <div class="toast" style="background:var(--t700)"><span class="ms f" style="color:#FF7A6B">cancel</span><div>Pedido #129 cancelado<small>Toque para desfazer · 5 s</small></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TELAS -->
+  <div class="grid">
+    <div class="p s12">
+      <div class="lbl"><b>10</b>Tela de senha · TV</div>
+      <div class="tv">
+        <div class="now">
+          <span class="cap"><span class="ms" style="color:var(--m500)">campaign</span>Senha chamada</span>
+          <span class="big">042</span>
+          <span class="go">Pode retirar!</span>
+          <div class="brand"><svg viewBox="0 0 224 72" width="64" role="img" aria-label="saiaê" style="--sai:#F6F5F2;--ae:#FFC21A"><use href="#logo-texto"/></svg></div>
+        </div>
+        <div class="last">
+          <span class="cap">Últimas</span>
+          <div>041</div><div>040</div><div>039</div><div>038</div>
+        </div>
+      </div>
+      <p class="mono">Senha com no mínimo 15% da altura da tela · pisca 3× com o “dlim” · legível a 8 metros</p>
+    </div>
+  </div>
+
+  <!-- PÁGINA DE VENDAS -->
+  <div class="grid">
+    <div class="p s7">
+      <div class="lbl"><b>11</b>Página de vendas · topo</div>
+      <div class="site">
+        <div class="nav">
+          <svg viewBox="0 0 273 164" width="84" role="img" aria-label="saiaê" style="--ae:#18171C"><use href="#logo-cheio"/></svg>
+          <div class="lk"><span>Como funciona</span><span>Planos</span><span>Dúvidas</span></div>
+          <button class="btn b-pri b-sm b-pill">Testar grátis</button>
+        </div>
+        <div class="hh">
+          <div class="col" style="gap:16px">
+            <span class="tagb">Para feira, food truck e lanchonete</span>
+            <h2>Sem papel, sem grito, sem pedido <em>esquecido</em>.</h2>
+            <p style="color:var(--t600)">Lança no caixa, aparece na cozinha e chama a senha na TV. Tudo na tela, na ordem certa.</p>
+            <div class="row"><button class="btn b-pri b-lg b-pill">Testar 3 dias grátis</button><button class="btn b-gh">Ver como funciona<span class="ms">play_circle</span></button></div>
+          </div>
+          <div class="phone"><div class="scr">
+            <div class="toast" style="padding:10px 12px;font-size:12px"><span class="ms f" style="font-size:18px">check_circle</span>Saiaê! Senha 042</div>
+            <div class="mini"><span>#131 Balcão</span><span class="bdg" style="background:var(--ok-bg);color:var(--ok-tx);height:22px;font-size:11px">Pronto</span></div>
+            <div class="mini"><span>#132 Balcão</span><span class="bdg" style="background:var(--at-bg);color:var(--at-tx);height:22px;font-size:11px">Preparando</span></div>
+            <div class="mini"><span>#133 Viagem</span><span class="bdg" style="background:var(--in-bg);color:var(--in-tx);height:22px;font-size:11px">Novo</span></div>
+            <button class="btn b-pri b-sm" style="width:100%">Lançar pedido</button>
+          </div></div>
+        </div>
+        <div class="cta"><h3>Sai aí mais uma venda.</h3><button class="btn b-sec b-lg b-pill">Começar agora<span class="ms">arrow_forward</span></button></div>
+      </div>
+      <p class="mono">Ritmo: seções alternam papel e branco · 1 seção tinta de destaque · chamada final em mostarda · 96px entre seções</p>
+    </div>
+    <div class="p s5">
+      <div class="lbl"><b>11</b>Planos e dúvidas</div>
+      <div class="plgrid">
+        <div class="plan"><span class="sub">Barraca</span><span class="pp">R$ 49<small>/mês</small></span><ul><li><span class="ms">check</span>1 barraca</li><li><span class="ms">check</span>Caixa, cozinha e senha</li><li><span class="ms">check</span>Relatório do dia</li></ul><button class="btn b-out b-pill">Escolher</button></div>
+        <div class="plan rec"><span class="tagb">Mais vendido</span><span class="sub">Pro</span><span class="pp">R$ 89<small>/mês</small></span><ul><li><span class="ms">check</span>Várias barracas</li><li><span class="ms">check</span>Tudo do Barraca</li><li><span class="ms">check</span>Suporte no WhatsApp</li></ul><button class="btn b-pri b-pill">Escolher</button></div>
+      </div>
+      <div class="acc"><div class="q">Precisa de internet?<span class="ms">remove</span></div><p>Precisa para começar. Se cair no meio da feira, os pedidos ficam salvos e sobem quando voltar.</p></div>
+      <div class="acc"><div class="q">Funciona com a minha maquininha?<span class="ms">add</span></div></div>
+      <div class="empty"><div class="ic"><span class="ms">receipt_long</span></div><b style="font-family:var(--fd)">Nenhum pedido ainda</b><p style="font-size:14px;color:var(--t500)">Lance o primeiro e ele aparece na cozinha.</p><button class="btn b-pri b-sm">Lançar pedido</button></div>
+    </div>
+  </div>
+
+  <!-- VOZ E NÃO FAÇA -->
+  <div class="grid">
+    <div class="p s6">
+      <div class="lbl"><b>01</b>Voz e tom</div>
+      <div class="voice">
+        <div class="vc" style="background:var(--ok-bg)"><span class="h" style="color:var(--ok-tx)"><span class="ms">check</span>Faça</span><ul><li>Lançar pedido</li><li>Pedido pronto</li><li>Sem internet. O pedido fica salvo.</li><li>Saiaê! Senha 42</li></ul></div>
+        <div class="vc" style="background:var(--er-bg)"><span class="h" style="color:var(--er-tx)"><span class="ms">close</span>Não faça</span><ul><li>Criar nova ordem</li><li>Status atualizado com sucesso!</li><li>Erro 503: falha na requisição</li><li>Notificar cliente</li></ul></div>
+      </div>
+    </div>
+    <div class="p s6">
+      <div class="lbl"><b>01</b>Logo · não faça</div>
+      <div class="dont">
+        <div><div class="bx"><svg viewBox="0 0 273 164" width="70" preserveAspectRatio="none" style="width:120px;height:44px;--ae:#18171C"><use href="#logo-cheio"/></svg></div>Esticar</div>
+        <div><div class="bx"><svg viewBox="0 0 273 164" width="80" style="--bub:#2F7BF5;--sai:#fff;--ae:#18171C"><use href="#logo-cheio"/></svg></div>Trocar a cor</div>
+        <div><div class="bx"><svg viewBox="0 0 224 72" width="100" style="--sai:#18171C;--ae:#18171C"><use href="#logo-texto"/></svg></div>“sai” e “aê” iguais</div>
+        <div><div class="bx"><svg viewBox="0 0 273 164" width="80" style="transform:rotate(-12deg);--ae:#18171C"><use href="#logo-cheio"/></svg></div>Girar</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="feat">
+      <div><span class="ms">palette</span>Tokens em CSS e Tailwind</div>
+      <div><span class="ms">dark_mode</span>Tema claro e escuro</div>
+      <div><span class="ms">touch_app</span>Toque mínimo 48px</div>
+      <div><span class="ms">accessibility_new</span>Contraste AA</div>
+    </div>
+    <span>Saiaê Design System v1.0 · fonte da verdade: DESIGN-SYSTEM.md</span>
+  </div>
+</div>
+
