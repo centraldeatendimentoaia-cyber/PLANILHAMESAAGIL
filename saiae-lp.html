@@ -74,7 +74,7 @@ body{margin:0;background:#F6F5F2}
 #saiae-lp .btn--gh:hover{background:var(--t100)}
 #saiae-lp .btn--pill{border-radius:999px}
 #saiae-lp .btn--lg{height:56px;padding:0 26px;font-size:17px;font-weight:700}
-#saiae-lp .btn--sm{height:40px;padding:0 16px;font-size:15px;border-radius:12px}
+#saiae-lp .btn--sm{height:44px;padding:0 16px;font-size:15px;border-radius:12px}
 #saiae-lp .btn--block{display:flex;width:100%}
 
 /* ---------- header ---------- */
@@ -412,7 +412,7 @@ body{margin:0;background:#F6F5F2}
 #saiae-lp .foot li a{display:inline-flex;align-items:center;min-height:40px;color:var(--t100)}
 #saiae-lp .foot li a:hover{color:var(--m500)}
 #saiae-lp .foot-bot{margin-top:40px;padding-top:20px;border-top:1px solid var(--t800);font-size:13px;color:var(--t400)}
-@media (min-width:768px){#saiae-lp .foot-grid{grid-template-columns:2fr 1fr 1fr}}
+@media (min-width:768px){#saiae-lp .foot-grid{grid-template-columns:2fr 1fr 1fr 1fr}}
 
 /* aviso "em breve" */
 #saiae-lp .soon{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,0);z-index:80;display:flex;align-items:center;gap:8px;max-width:calc(100% - 32px);padding:12px 18px 12px 14px;border-radius:var(--balao);background:var(--t900);color:#fff;font-weight:600;font-size:15px;box-shadow:var(--sh-lg)}
@@ -585,6 +585,31 @@ body{margin:0;background:#F6F5F2}
 #saiae-lp .crm-m.o{align-self:flex-end;background:#DCF8C6;border-radius:16px 16px 4px 16px}
 #saiae-lp .crm-m small{display:block;text-align:right;font-size:11px;color:var(--t400)}
 @media (min-width:960px){#saiae-lp .crm{grid-template-columns:1.15fr .85fr;padding:48px 56px}}
+
+/* ---------- correções out/2026 ---------- */
+#saiae-lp .where{max-width:880px}
+@media (min-width:900px){#saiae-lp .where{grid-template-columns:repeat(2,1fr)}}
+#saiae-lp .where-c .gp-note{flex:0;font-size:13px;color:var(--t500)}
+#saiae-lp .pro-tag{display:inline-flex;align-items:center;height:22px;padding:0 8px;margin-left:4px;border-radius:999px;background:var(--t900);color:var(--m500);font-size:11px;font-weight:800;letter-spacing:.05em;vertical-align:middle}
+#saiae-lp .mini h3 .soon-tag{margin-left:4px;vertical-align:middle}
+@media (min-width:1024px){#saiae-lp .minis{grid-template-columns:repeat(3,1fr)}}
+#saiae-lp .minis-more{margin-top:14px;display:none}
+@media (max-width:767px){
+  #saiae-lp .minis:not(.is-open) .mini:nth-child(n+9){display:none}
+  #saiae-lp .minis-more{display:inline-flex}
+}
+#saiae-lp .cmp-plans{max-width:960px;margin:40px auto 0}
+#saiae-lp .cmp-plans h3{font-family:var(--fd);font-size:22px;font-weight:800;text-align:center;margin-bottom:16px}
+#saiae-lp .cmp-wrap{overflow-x:auto;border-radius:20px;border:1px solid var(--t100);background:var(--t0)}
+#saiae-lp .cmp-plans table{width:100%;border-collapse:collapse;font-size:15px}
+#saiae-lp .cmp-plans th,#saiae-lp .cmp-plans td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--t100);vertical-align:top}
+#saiae-lp .cmp-plans thead th{font-family:var(--fd);font-size:17px;font-weight:800;background:var(--t50)}
+#saiae-lp .cmp-plans thead th:last-child{background:var(--m100)}
+#saiae-lp .cmp-plans tbody th{font-weight:600;color:var(--t700);width:44%}
+#saiae-lp .cmp-plans tr:last-child th,#saiae-lp .cmp-plans tr:last-child td{border-bottom:0}
+#saiae-lp .cmp-plans .yes{color:var(--ok-tx);font-weight:700}
+#saiae-lp .cmp-plans .no{color:var(--t400)}
+@media (max-width:767px){#saiae-lp .cmp-plans table{font-size:14px}#saiae-lp .cmp-plans th,#saiae-lp .cmp-plans td{padding:10px 10px}}
 </style>
 
 <div id="saiae-lp">
@@ -658,11 +683,11 @@ body{margin:0;background:#F6F5F2}
 <section class="hero2" id="topo" aria-labelledby="sx-hero-t">
   <div class="wrap hero2-grid">
     <div class="hero-copy">
-      <p class="eyebrow"><i></i>Para feira, food truck, lanchonete e barraca</p>
+      <p class="eyebrow"><i></i>Para lanchonete, pizzaria, hamburgueria, açaí, pastelaria, restaurante, food truck e feira</p>
       <h1 class="h1" id="sx-hero-t">Sem papel, <span class="nw"><span class="mark">sem grito</span>,</span> sem pedido esquecido.</h1>
       <p class="lead">Lança no caixa, aparece na cozinha e chama a senha na TV. Tudo no celular que você já tem, por preço de barraca.</p>
       <ul class="hero-bul">
-        <li><span class="ms f">check_circle</span>30 dias grátis para testar</li>
+        <li><span class="ms f">check_circle</span>30 dias grátis do Essencial, sem cartão</li>
         <li><span class="ms f">check_circle</span>Pix, dinheiro, débito e crédito</li>
         <li><span class="ms f">check_circle</span>Sem fidelidade no plano mensal</li>
       </ul>
@@ -717,7 +742,7 @@ body{margin:0;background:#F6F5F2}
     </div>
     <ul class="mani-list">
       <li class="mani-item"><span class="ic"><span class="ms">payments</span></span><div><h3>Preço de barraca</h3><p>Você paga pelo que usa no dia a dia. Nada de pacote de restaurante grande.</p></div></li>
-      <li class="mani-item"><span class="ic"><span class="ms">smartphone</span></span><div><h3>Roda no que você já tem</h3><p>Celular, tablet, maquininha ou uma TV velha para a senha. Sem computador no balcão.</p></div></li>
+      <li class="mani-item"><span class="ic"><span class="ms">smartphone</span></span><div><h3>Roda no que você já tem</h3><p>Celular, tablet ou uma TV velha para a senha. Sem computador no balcão.</p></div></li>
       <li class="mani-item"><span class="ic"><span class="ms">bolt</span></span><div><h3>Feito para a correria</h3><p>Botões grandes, poucas telas e tudo na ordem certa. Dá para usar com a mão engordurada.</p></div></li>
       <li class="mani-item"><span class="ic"><span class="ms">forum</span></span><div><h3>Gente de verdade no WhatsApp</h3><p>Ficou com dúvida no meio do movimento? Chama a gente.</p></div></li>
     </ul>
@@ -729,10 +754,10 @@ body{margin:0;background:#F6F5F2}
       <figure class="ph ph--port" data-foto="4"><img src="img/foto-lanchonete.webp" alt="Cozinheira de avental mostarda olhando a tela de pedidos na cozinha" loading="lazy" width="900" height="1125"></figure>
     </div>
   </div>
-  <div class="marq" aria-label="Sai aê um pastel, um açaí, um lanche, um caldo: o que o seu cliente pedir.">
+  <div class="marq" aria-label="Sai aê um pastel, um açaí, um lanche, uma pizza, um hambúrguer: o que o seu cliente pedir.">
     <div class="marq-t" aria-hidden="true">
-      <span>Sai aê um pastel <i></i> Sai aê um açaí <i></i> Sai aê um lanche <i></i> Sai aê um caldo <i></i> Sai aê um espetinho <i></i> Sai aê uma tapioca <i></i></span>
-      <span>Sai aê um pastel <i></i> Sai aê um açaí <i></i> Sai aê um lanche <i></i> Sai aê um caldo <i></i> Sai aê um espetinho <i></i> Sai aê uma tapioca <i></i></span>
+      <span>Sai aê um pastel <i></i> Sai aê um açaí <i></i> Sai aê um lanche <i></i> Sai aê uma pizza <i></i> Sai aê um hambúrguer <i></i> Sai aê um caldo <i></i> Sai aê uma tapioca <i></i></span>
+      <span>Sai aê um pastel <i></i> Sai aê um açaí <i></i> Sai aê um lanche <i></i> Sai aê uma pizza <i></i> Sai aê um hambúrguer <i></i> Sai aê um caldo <i></i> Sai aê uma tapioca <i></i></span>
     </div>
   </div>
 </section>
@@ -746,7 +771,7 @@ body{margin:0;background:#F6F5F2}
       <p class="lead">Cada pedido percorre o mesmo caminho, e todo mundo da equipe vê em que ponto ele está.</p>
     </div>
     <ol class="steps">
-      <li class="step"><div class="step-top"><span class="ic"><span class="ms">receipt_long</span></span><span class="n">1 de 5</span></div><h3>Lance o pedido</h3><p>Escolha no cardápio, marque balcão, mesa ou viagem e anote a observação de cada item.</p></li>
+      <li class="step"><div class="step-top"><span class="ic"><span class="ms">receipt_long</span></span><span class="n">1 de 5</span></div><h3>Lance o pedido</h3><p>Escolha no cardápio, marque mesa, balcão, retirada ou entrega e anote a observação de cada item.</p></li>
       <li class="step"><div class="step-top"><span class="ic"><span class="ms">qr_code_2</span></span><span class="n">2 de 5</span></div><h3>Receba</h3><p>Pix, dinheiro, débito ou crédito. A senha sai na confirmação do pagamento.</p></li>
       <li class="step"><div class="step-top"><span class="ic"><span class="ms">skillet</span></span><span class="n">3 de 5</span></div><h3>A cozinha vê na hora</h3><p>O pedido chega com número, horário e itens. O cronômetro muda de cor com o tempo.</p></li>
       <li class="step"><div class="step-top"><span class="ic"><span class="ms">campaign</span></span><span class="n">4 de 5</span></div><h3>Sai aê!</h3><p>Um toque em "Pronto" e a senha aparece na TV com o logo do seu ponto.</p></li>
@@ -802,46 +827,62 @@ body{margin:0;background:#F6F5F2}
   <div class="wrap">
     <div class="head">
       <p class="eyebrow"><i></i>Recursos</p>
-      <h2 class="h2" id="sx-rec-t">E tem mais.</h2>
-      <p class="lead">O que vem junto, além do caixa, da cozinha e da senha.</p>
+      <h2 class="h2" id="sx-rec-t">Tudo que vem no Sai aê.</h2>
+      <p class="lead">Além do caixa, da cozinha e da senha.</p>
     </div>
 
     <div class="bento">
       <article class="bc dark bc--wide bc--qr" id="cardapio-digital">
-        <div class="bc-h"><span class="tag"><span class="ms">qr_code_2</span>Cardápio digital</span><h3>O cliente pede e paga pelo celular, sem fila <span class="soon-tag">Em breve</span></h3><p>Ele aponta a câmera para o QR code, escolhe no seu cardápio, paga no Pix ou no cartão e o pedido cai direto na cozinha. Quando fica pronto, a senha aparece na TV. O caixa fica livre para quem prefere pedir no balcão.</p></div>
+        <div class="bc-h"><span class="tag"><span class="ms">qr_code_2</span>Cardápio digital</span><h3>O cliente pede e paga pelo celular, sem fila</h3><p>O cliente lê o QR code, escolhe no seu cardápio e paga no Pix. O pedido só cai na cozinha depois que o Pix é confirmado. Prefere receber na entrega? O cliente escolhe "pagar na entrega" e o pedido vai direto para a cozinha.</p></div>
         <ol class="qr-flow" aria-hidden="true">
           <li><span class="ms">qr_code_scanner</span>Lê o QR code</li>
           <li><span class="ms">restaurant_menu</span>Escolhe no cardápio</li>
-          <li><span class="ms">qr_code_2</span>Paga no Pix ou cartão</li>
+          <li><span class="ms">qr_code_2</span>Paga no Pix</li>
           <li><span class="ms">skillet</span>Cai na cozinha</li>
           <li><span class="ms">campaign</span>Sai aê! Retira</li>
         </ol>
       </article>
     </div>
 
-    <div class="minis">
-      <article class="mini"><span class="ic"><span class="ms">savings</span></span><h3>Custo, lucro e histórico</h3><p>Desconta o custo do dia e as taxas da maquininha. Filtre por período e exporte quando precisar.</p></article>
+    <div class="minis" data-minis>
+      <article class="mini"><span class="ic"><span class="ms">auto_awesome</span></span><h3>Cadastro guiado em minutos</h3><p>O app pergunta o tipo do negócio e já cria um cardápio de exemplo: pizzaria, hamburgueria, açaí, pastelaria, lanchonete, PF, feira ou quermesse.</p></article>
+      <article class="mini"><span class="ic"><span class="ms">tune</span></span><h3>Variações e adicionais</h3><p>Tamanho, sabor, ponto da carne, combos e adicionais, com mínimo e máximo.</p></article>
+      <article class="mini"><span class="ic"><span class="ms">two_wheeler</span></span><h3>Entrega completa</h3><p>Taxa por bairro, coluna "Saiu para entrega", link para o entregador confirmar a entrega e botão para chamá-lo no WhatsApp.</p></article>
+      <article class="mini"><span class="ic"><span class="ms">schedule</span></span><h3>Pagar depois</h3><p>Na retirada e na entrega, o cliente paga quando retira ou recebe.</p></article>
+      <article class="mini"><span class="ic"><span class="ms">sell</span></span><h3>Cupons de desconto</h3><p>O cliente digita o código no cardápio digital e ganha o desconto.</p></article>
+      <article class="mini"><span class="ic"><span class="ms">print</span></span><h3>Impressora Bluetooth</h3><p>No app Android, a comanda da cozinha sai sozinha na impressora térmica.</p></article>
+      <article class="mini"><span class="ic"><span class="ms">notifications_active</span></span><h3>Pedido pronto no WhatsApp</h3><p>O cliente recebe o aviso "seu pedido está pronto".</p></article>
+      <article class="mini"><span class="ic"><span class="ms">wifi_off</span></span><h3>Funciona sem internet</h3><p>Caiu a rede? O pedido fica salvo e sobe sozinho quando ela volta.</p></article>
+      <article class="mini"><span class="ic"><span class="ms">inventory_2</span></span><h3>Estoque por item</h3><p>Baixa sozinho a cada venda e marca "esgotado" quando acaba.</p></article>
+      <article class="mini"><span class="ic"><span class="ms">point_of_sale</span></span><h3>Caixa</h3><p>Abertura, fechamento com conferência, sangria e suprimento.</p></article>
+      <article class="mini"><span class="ic"><span class="ms">edit</span></span><h3>Valor livre</h3><p>Item sem preço fixo: o operador digita o valor na hora.</p></article>
+      <article class="mini"><span class="ic"><span class="ms">qr_code_2</span></span><h3>Seu endereço e QR code</h3><p>Cardápio digital com endereço personalizado e QR code.</p></article>
+      <article class="mini"><span class="ic"><span class="ms">storefront</span></span><h3>Horário de funcionamento</h3><p>O cardápio mostra "Aberto agora" no seu horário.</p></article>
+      <article class="mini"><span class="ic"><span class="ms">bar_chart</span></span><h3>Relatórios</h3><p>Vendas por hora, por forma de pagamento, por tipo de atendimento e os mais vendidos.</p></article>
+      <article class="mini"><span class="ic"><span class="ms">savings</span></span><h3>Custo, lucro e histórico <span class="pro-tag">Pro</span></h3><p>Desconta o custo do dia e as taxas da maquininha. Filtre por período e exporte quando precisar.</p></article>
+      <article class="mini"><span class="ic"><span class="ms">store</span></span><h3>Vários pontos <span class="pro-tag">Pro</span></h3><p>Cardápio, pedidos e histórico separados por ponto, na mesma conta.</p></article>
+      <article class="mini"><span class="ic"><span class="ms">shield_person</span></span><h3>Cada um no seu lugar</h3><p>Senha de operador, senha de administrador e desbloqueio por biometria (digital ou rosto).</p></article>
       <article class="mini"><span class="ic"><span class="ms">receipt</span></span><h3>Nota fiscal <span class="soon-tag">Em breve</span></h3><p>Tem CNPJ e certificado digital? O Sai aê emite a nota do pedido. Não tem? Continua usando normal, sem nota.</p></article>
-      <article class="mini"><span class="ic"><span class="ms">storefront</span></span><h3>Vários pontos</h3><p>Cardápio, pedidos e histórico separados por ponto, na mesma conta.</p></article>
-      <article class="mini"><span class="ic"><span class="ms">shield_person</span></span><h3>Cada um no seu lugar</h3><p>Senha de operador, senha de administrador e Face ID.</p></article>
     </div>
+    <button type="button" class="feat-more minis-more" data-minis-more>Ver todos os 18 recursos</button>
   </div>
 </section>
 
-<!-- ONDE USAR (app, navegador e maquininha) -->
+<!-- ONDE USAR (app e navegador) -->
 <section class="sec sec--w" id="maquininha" aria-labelledby="sx-onde-t">
   <div class="wrap">
     <div class="head">
       <p class="eyebrow"><i></i>Onde usar</p>
-      <h2 class="h2" id="sx-onde-t">No celular, no navegador ou na maquininha.</h2>
+      <h2 class="h2" id="sx-onde-t">No celular ou no navegador.</h2>
       <p class="lead">Use no aparelho que você já tem. Sem computador no balcão.</p>
     </div>
     <div class="where">
       <article class="where-c">
         <span class="where-ic"><svg viewBox="0 0 196 196" aria-hidden="true"><use href="#icone-cheio"/></svg></span>
         <h3>App para Android</h3>
-        <p>Caixa, cozinha e relatório na palma da mão.</p>
-        <a class="gp" href="#" data-link="playStoreUrl" data-soon="O app na Google Play"><span class="ms f">shop</span><span><small>Disponível no</small><b>Google Play</b></span></a>
+        <p>Caixa, cozinha, relatório e impressora Bluetooth na palma da mão.</p>
+        <a class="gp" href="#" data-link="playTesteUrl" data-soon="O app na Google Play"><span class="ms f">shop</span><span><small>Em teste no</small><b>Google Play</b></span></a>
+        <p class="gp-note">Está em teste fechado. Peça seu acesso pelo WhatsApp.</p>
       </article>
       <article class="where-c">
         <span class="where-ic where-ic--n"><span class="ms">language</span></span>
@@ -849,16 +890,10 @@ body{margin:0;background:#F6F5F2}
         <p>Não quer instalar? Abre em qualquer celular, tablet ou TV.</p>
         <a class="btn btn--out btn--lg" href="#" data-link="loginUrl" data-soon="A versão no navegador">Usar no navegador</a>
       </article>
-      <article class="where-c">
-        <span class="where-ic where-ic--n"><span class="ms">point_of_sale</span></span>
-        <h3>Na maquininha <span class="soon-tag" style="margin-left:4px">Em breve</span></h3>
-        <p>Lança, cobra no débito, crédito ou Pix e manda pra cozinha, num aparelho só.</p>
-        <a class="btn btn--sec btn--lg" href="#" data-link="posUrl" data-soon="O Sai aê na maquininha">Quero usar na maquininha</a>
-      </article>
     </div>
     <ul class="where-feat">
       <li><span class="ms">dark_mode</span>Tema escuro para a cozinha</li>
-      <li><span class="ms">face</span>Face ID e senha de operador</li>
+      <li><span class="ms">fingerprint</span>Biometria e senha de operador</li>
       <li><span class="ms">storefront</span>Vários pontos na mesma conta</li>
       <li><span class="ms">wifi_off</span>Caiu a internet? O pedido fica salvo</li>
     </ul>
@@ -875,7 +910,7 @@ body{margin:0;background:#F6F5F2}
     </div>
     <div class="start">
       <ol class="start-steps">
-        <li><b>1</b><div><h3>Crie sua conta</h3><p>Leva poucos minutos e já libera os 30 dias grátis.</p></div></li>
+        <li><b>1</b><div><h3>Crie sua conta</h3><p>Leva poucos minutos e já libera os 30 dias grátis do plano Essencial.</p></div></li>
         <li><b>2</b><div><h3>Cadastre o cardápio</h3><p>Foto, preço e categoria de cada produto. Dá para fazer pelo celular.</p></div></li>
         <li><b>3</b><div><h3>Lance o primeiro pedido</h3><p>Veja chegar na cozinha e chame a senha na TV no mesmo dia.</p></div></li>
       </ol>
@@ -914,9 +949,27 @@ body{margin:0;background:#F6F5F2}
         <ul class="feat" data-f="itens"></ul>
       </article>
     </div>
+    <div class="cmp-plans">
+      <h3>Essencial ou Pro, lado a lado</h3>
+      <div class="cmp-wrap"><table>
+        <thead><tr><th scope="col"><span class="sr">Item</span></th><th scope="col">Essencial</th><th scope="col">Pro</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Mensal</th><td>R$ 57,90</td><td>R$ 87,90</td></tr>
+          <tr><th scope="row">Anual (por mês)</th><td>R$ 49,22</td><td>R$ 70,32</td></tr>
+          <tr><th scope="row">30 dias grátis</th><td><span class="yes">Sim, sem cartão</span></td><td>Não, é upgrade pago</td></tr>
+          <tr><th scope="row">Caixa, cozinha, senha e cardápio digital</th><td><span class="yes">Sim</span></td><td><span class="yes">Sim</span></td></tr>
+          <tr><th scope="row">Pontos de venda</th><td>1</td><td>Vários</td></tr>
+          <tr><th scope="row">Histórico</th><td>7 dias</td><td>Completo e por período</td></tr>
+          <tr><th scope="row">Exportar relatórios</th><td><span class="no">Não</span></td><td><span class="yes">Sim</span></td></tr>
+          <tr><th scope="row">Custo do dia, lucro e taxas da maquininha</th><td><span class="no">Não</span></td><td><span class="yes">Sim</span></td></tr>
+          <tr><th scope="row">Nota fiscal</th><td><span class="no">Não</span></td><td>Em breve</td></tr>
+          <tr><th scope="row">Suporte no WhatsApp</th><td><span class="yes">Sim</span></td><td><span class="yes">Prioritário</span></td></tr>
+        </tbody>
+      </table></div>
+    </div>
     <ul class="safe">
       <li><span class="ms f">verified_user</span><div><b>Checkout seguro</b><span>Pagamento processado pela Stripe, com criptografia.</span></div></li>
-      <li><span class="ms f">event_available</span><div><b>30 dias grátis</b><span>Teste no seu movimento antes de pagar.</span></div></li>
+      <li><span class="ms f">event_available</span><div><b>30 dias grátis</b><span>Do plano Essencial, sem cartão. Teste no seu movimento antes de pagar.</span></div></li>
       <li><span class="ms f">lock_open</span><div><b>Sem fidelidade</b><span>No mensal, cancele quando quiser.</span></div></li>
       <li><span class="ms f">support_agent</span><div><b>Gente de verdade</b><span>Suporte pelo WhatsApp.</span></div></li>
     </ul>
@@ -930,12 +983,11 @@ body{margin:0;background:#F6F5F2}
       <div class="crm-tx">
         <span class="crm-tag"><b>NOVO</b> Sai aê CRM</span>
         <h2 class="h2" id="sx-crm-t">O pedido saiu. Agora faz o cliente voltar.</h2>
-        <p>O Sai aê cuida do caixa e da cozinha. O Sai aê CRM cuida do WhatsApp: manda a promoção, lembra o cliente e responde sozinho enquanto você atende.</p>
+        <p>O Sai aê cuida do caixa e da cozinha. O Sai aê CRM cuida do WhatsApp: manda a promoção, agenda o lembrete e responde as perguntas de sempre com respostas automáticas.</p>
         <ul class="crm-li">
           <li><span class="ms">campaign</span>Disparo</li>
           <li><span class="ms">schedule_send</span>Agendador</li>
           <li><span class="ms">quick_reply</span>Respostas automáticas</li>
-          <li><span class="ms">auto_awesome</span>Textos com IA</li>
         </ul>
         <div class="crm-cta">
           <a class="btn btn--sec btn--lg" href="#" data-link="crmUrl" data-soon="O Sai aê CRM">Conhecer o Sai aê CRM <span class="ms">arrow_forward</span></a>
@@ -963,16 +1015,17 @@ body{margin:0;background:#F6F5F2}
       <div><a class="btn btn--sec btn--pill" href="#" data-link="whatsappUrl" data-soon="O atendimento no WhatsApp"><span class="ms">chat</span>Falar no WhatsApp</a></div>
     </div>
     <div class="faq">
-      <details><summary>Funciona em qualquer celular?<span class="ms">add</span></summary><p>Sim. Tem app para Android e também abre no navegador de qualquer celular, que você pode adicionar à tela inicial.</p></details>
+      <details><summary>Funciona em qualquer celular?<span class="ms">add</span></summary><p>Sim. Abre no navegador de qualquer celular, e você pode adicionar à tela inicial. O app para Android está em teste fechado no Google Play: peça seu acesso pelo WhatsApp.</p></details>
       <details><summary>Precisa de internet?<span class="ms">add</span></summary><p>Sim, é a internet que liga o caixa à cozinha em tempo real. Se ela cair, o pedido fica salvo e sobe quando voltar.</p></details>
       <details><summary>O que o Sai aê não faz?<span class="ms">add</span></summary><p>Ainda não integra com aplicativos de delivery (em breve). O foco é o seu balcão e a sua fila, e por isso custa menos.</p></details>
       <details><summary>Emite nota fiscal?<span class="ms">add</span></summary><p>Em breve, para quem tem CNPJ e certificado digital: a nota sai junto com o pedido. Quem não emite nota continua usando o Sai aê normalmente.</p></details>
-      <details><summary>O cliente pode pedir pelo celular?<span class="ms">add</span></summary><p>Pode. Com o cardápio digital, ele lê o QR code e escolhe no seu cardápio. Em breve, também vai pagar por ali, e o pedido vai direto para a cozinha, sem passar pela fila do caixa.</p></details>
-      <details><summary>Funciona na maquininha?<span class="ms">add</span></summary><p>Sim. O Sai aê se integra com bancos e maquininhas, como a Cielo: você lança o pedido e recebe no mesmo aparelho.</p></details>
+      <details><summary>O cliente pode pedir pelo celular?<span class="ms">add</span></summary><p>Pode. Com o cardápio digital, ele lê o QR code, escolhe no seu cardápio e paga no Pix (ou escolhe pagar na entrega). O pedido cai direto na cozinha.</p></details>
+      <details><summary>Funciona na maquininha?<span class="ms">add</span></summary><p>Você usa a sua maquininha normalmente e marca no Sai aê como o cliente pagou (débito, crédito, Pix ou dinheiro). A integração direta com a maquininha ainda não existe.</p></details>
       <details><summary>Como funciona a chamada de senha?<span class="ms">add</span></summary><p>É uma tela cheia com a senha e o logo do seu ponto. Pode ficar num tablet ou numa TV.</p></details>
       <details><summary>Posso usar em mais de um ponto?<span class="ms">add</span></summary><p>Sim, no plano Pro. Cada ponto tem seu cardápio, seus pedidos e seu histórico.</p></details>
-      <details><summary>Tem teste grátis?<span class="ms">add</span></summary><p>Tem. São 30 dias para testar no seu movimento de verdade antes de escolher um plano.</p></details>
-      <details><summary>Posso trocar de plano depois?<span class="ms">add</span></summary><p>Pode, quando quiser.</p></details>
+      <details><summary>Tem teste grátis?<span class="ms">add</span></summary><p>Tem. São 30 dias do plano Essencial, sem cartão, para testar no seu movimento de verdade antes de escolher um plano.</p></details>
+      <details><summary>O que acontece quando acaba o teste?<span class="ms">add</span></summary><p>Você escolhe um plano ou o acesso é pausado. Seus dados ficam guardados.</p></details>
+      <details><summary>Como troco de plano ou cancelo?<span class="ms">add</span></summary><p>Pelo WhatsApp do suporte, (61) 98269-4384. No mensal não tem fidelidade.</p></details>
     </div>
   </div>
 </section>
@@ -981,8 +1034,8 @@ body{margin:0;background:#F6F5F2}
 <section class="final" aria-labelledby="sx-final-t">
   <div class="wrap final-in">
     <svg class="final-bub" viewBox="0 0 196 196" aria-hidden="true"><use href="#icone-contorno"/></svg>
-    <h2 class="h2 final-t" id="sx-final-t">Sai aê um <span class="final-word" data-rot="pastel?|açaí?|lanche?|caldo?">pastel?</span></h2>
-    <p class="lead">Com o Sai aê, seu cliente pede pelo celular e a fila anda. Teste 30 dias grátis.</p>
+    <h2 class="h2 final-t" id="sx-final-t">Sai aê um <span class="final-word" data-rot="pastel?|açaí?|lanche?|pizza?|hambúrguer?">pastel?</span></h2>
+    <p class="lead">Com o Sai aê, seu cliente pede pelo celular e a fila anda. Teste 30 dias grátis o plano Essencial, sem cartão.</p>
     <div class="hero-cta" style="justify-content:center">
       <a class="btn btn--pri btn--pill btn--lg" href="#" data-link="trialUrl" data-soon="O teste grátis">Testar 30 dias grátis <span class="ms">arrow_forward</span></a>
       <a class="btn btn--out btn--pill btn--lg" href="#" data-link="whatsappUrl" data-soon="O atendimento no WhatsApp"><span class="ms">chat</span>Falar no WhatsApp</a>
@@ -995,10 +1048,11 @@ body{margin:0;background:#F6F5F2}
     <div class="foot-grid">
       <div>
         <svg viewBox="0 0 224 72" role="img" aria-label="Sai aê"><use href="#logo-texto" style="--sai:#F6F5F2;--ae:#FFC21A"/></svg>
-        <p>Pedido, cozinha e senha para feira, food truck, lanchonete e barraca.</p>
+        <p>Pedido, cozinha e senha para lanchonete, pizzaria, hamburgueria, açaí, pastelaria, restaurante, food truck e feira.</p>
       </div>
       <div><h4>Navegação</h4><ul><li><a href="#como-funciona">Como funciona</a></li><li><a href="#planos">Planos</a></li><li><a href="#maquininha">Onde usar</a></li><li><a href="#duvidas">Dúvidas</a></li></ul></div>
-      <div><h4>Comece</h4><ul><li><a href="#" data-link="trialUrl" data-soon="O teste grátis">Teste grátis</a></li><li><a href="#" data-link="playStoreUrl" data-soon="O app na Google Play">Baixar o app</a></li><li><a href="#" data-link="whatsappUrl" data-soon="O atendimento no WhatsApp">WhatsApp</a></li><li><a href="#" data-link="loginUrl" data-soon="O acesso ao sistema">Entrar</a></li></ul></div>
+      <div><h4>Legal</h4><ul><li><a href="https://app.saiae.com.br/privacidade" target="_blank" rel="noopener">Política de Privacidade</a></li></ul></div>
+      <div><h4>Comece</h4><ul><li><a href="#" data-link="trialUrl" data-soon="O teste grátis">Teste grátis</a></li><li><a href="#" data-link="playTesteUrl" data-soon="O app na Google Play">App Android (em teste)</a></li><li><a href="#" data-link="whatsappUrl" data-soon="O atendimento no WhatsApp">WhatsApp</a></li><li><a href="#" data-link="loginUrl" data-soon="O acesso ao sistema">Entrar</a></li></ul></div>
     </div>
     <p class="foot-bot">© <span data-year>2026</span> Sai aê. Todos os direitos reservados. Powered by AIA</p>
   </div>
@@ -1017,14 +1071,14 @@ var SX_LINKS = {
   loginUrl: 'https://app.saiae.com.br',
   assinarUrl: 'https://app.saiae.com.br/assinar',   // botões dos planos (o app leva pro checkout)
   playStoreUrl: 'COLE_AQUI_LINK_GOOGLE_PLAY',
-  posUrl: 'COLE_AQUI_LINK_MAQUININHA',
-  whatsappUrl: 'https://wa.me/5561999531848',
+  whatsappUrl: 'https://wa.me/5561982694384',         // suporte e vendas (humano)
+  playTesteUrl: 'https://wa.me/5561982694384?text=' + encodeURIComponent('Oi! Quero acesso ao teste do app Sai aê no Google Play.'),
   crmUrl: 'https://crm.saiae.com.br'                // página de vendas do Sai aê CRM
 };
 var SX_PLANS = {
   essencial: {
     de: 86.90, mensal: 57.90, anual: { mes: 49.22, total: 590.58, economia: 104.22, off: '15% OFF' },
-    itens: ['1 ponto de venda', 'Lançar pedido (balcão, mesa e viagem)', 'Cozinha em tempo real com cronômetro',
+    itens: ['1 ponto de venda', 'Lançar pedido (mesa, balcão, retirada e entrega)', 'Cozinha em tempo real com cronômetro',
             'Chamada de senha com seu logo', 'Pix, dinheiro, débito e crédito', 'Cardápio digital com QR code', 'Relatório do dia',
             'Histórico de 7 dias', 'Tema claro e escuro']
   },
@@ -1077,6 +1131,10 @@ var SX_PLANS = {
     if (a && !linkFor(a)) { e.preventDefault(); soon(a.dataset.soon || 'Isso'); }
   });
   paintLinks();
+
+  /* recursos: no celular mostra 8 e abre o resto */
+  var mm = $('[data-minis-more]'), mg = $('[data-minis]');
+  if (mm && mg) mm.addEventListener('click', function () { var o = mg.classList.toggle('is-open'); mm.textContent = o ? 'Ver menos' : 'Ver todos os 18 recursos'; });
 
   /* header e menu */
   var hdr = $('[data-hdr]'), burger = $('[data-burger]'), menu = $('#sx-menu');
