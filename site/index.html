@@ -495,6 +495,8 @@ body{margin:0;background:#F6F5F2}
 #saiae-lp .fact b{font-family:var(--fd);font-weight:800;font-size:44px;line-height:1;letter-spacing:-.02em}
 #saiae-lp .fact span{font-size:13px;font-weight:600;line-height:1.35;color:var(--t700)}
 @media (min-width:1024px){#saiae-lp .facts-in{grid-template-columns:repeat(4,1fr)}}
+#saiae-lp .fact b{font-size:34px;white-space:nowrap}
+#saiae-lp .facts-src{margin:12px auto 0;max-width:1120px;padding-inline:var(--gut,16px);font-size:12px;font-weight:600;color:var(--t700);text-align:center}
 /* telas do app */
 #saiae-lp .phones{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
 @media (min-width:1024px){#saiae-lp .phones{grid-template-columns:repeat(4,1fr);gap:24px}}
@@ -722,7 +724,7 @@ body{margin:0;background:#F6F5F2}
       <ul class="hero-bul">
         <li><span class="ms f">check_circle</span>30 dias grátis do Essencial, sem cartão</li>
         <li><span class="ms f">check_circle</span>Pix, dinheiro, débito e crédito</li>
-        <li><span class="ms f">check_circle</span>Sem fidelidade no plano mensal</li>
+        <li><span class="ms f">check_circle</span>Garantia de 7 dias de reembolso</li>
       </ul>
       <div class="hero-cta">
         <a class="btn btn--pri btn--pill btn--lg" href="#" data-link="trialUrl" data-soon="O teste grátis">Testar 30 dias grátis <span class="ms">arrow_forward</span></a>
@@ -758,11 +760,12 @@ body{margin:0;background:#F6F5F2}
 <!-- FAIXA DE FATOS -->
 <section class="facts" aria-label="Sai aê em números">
   <div class="wrap facts-in">
+    <div class="fact"><b class="tn">3.600+</b><span>pedidos registrados<br>em 10 semanas</span></div>
+    <div class="fact"><b class="tn">R$ 133 mil</b><span>em pedidos lançados<br>no Sai aê</span></div>
     <div class="fact"><b class="tn">3</b><span>telas conectadas:<br>caixa, cozinha e TV</span></div>
-    <div class="fact"><b class="tn">4</b><span>formas de pagamento<br>no mesmo fluxo</span></div>
     <div class="fact"><b class="tn">30</b><span>dias grátis para<br>testar no seu ponto</span></div>
-    <div class="fact"><b class="tn">0</b><span>computador no balcão:<br>roda no celular</span></div>
   </div>
+  <p class="facts-src">Dados reais de uso, de 12/08 a 23/10/2026.</p>
 </section>
 
 <!-- MANIFESTO -->
@@ -852,6 +855,26 @@ body{margin:0;background:#F6F5F2}
         </tbody>
       </table>
     </div>
+
+    <div class="head head--c" style="margin-top:56px">
+      <h3 class="h2" style="font-size:clamp(24px,3.2vw,34px)">E contra um sistema completo de delivery?</h3>
+      <p class="lead">Eles fazem mais coisas. Você paga por todas, mesmo sem usar.</p>
+    </div>
+    <div class="cmp-wrap">
+      <table class="cmp">
+        <thead><tr><th scope="col"><span class="sr">Recurso</span></th><th scope="col">Sistema completo de delivery</th><th scope="col" class="us">Sai aê</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Preço de entrada por mês</th><td>Costuma começar perto de R$ 170</td><td class="us"><b>A partir de R$ 57,90</b></td></tr>
+          <tr><th scope="row">Preço visível antes de falar com alguém</th><td><span class="mid">Em muitos, só com consultor</span></td><td class="us"><span class="yes">Na tela, agora</span></td></tr>
+          <tr><th scope="row">Para começar</th><td>Contato com consultor</td><td class="us"><span class="yes">Você mesmo, em minutos</span></td></tr>
+          <tr><th scope="row">Teste grátis</th><td>Varia</td><td class="us"><span class="yes">30 dias, sem cartão</span></td></tr>
+          <tr><th scope="row">Garantia de reembolso</th><td><span class="mid">Planos longos, em geral sem</span></td><td class="us"><span class="yes">7 dias</span></td></tr>
+          <tr><th scope="row">Chatbot de WhatsApp e delivery</th><td><span class="yes">Sim</span></td><td class="us"><span class="no">Não: o foco é o balcão</span></td></tr>
+          <tr><th scope="row">Nota fiscal</th><td>Módulo pago à parte</td><td class="us">Em breve, com o emissor que você escolher</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="max-width:720px;margin:14px auto 0;font-size:13px;color:var(--t500);text-align:center">Valores públicos de planos de entrada de sistemas de delivery e mesas em 2026. Podem mudar. Confira antes de decidir.</p>
   </div>
 </section>
 
@@ -954,7 +977,7 @@ body{margin:0;background:#F6F5F2}
       <p class="eyebrow"><i></i>Planos</p>
       <h2 class="h2" id="sx-planos-t">Preço de barraca, não de restaurante grande.</h2>
     </div>
-    <div class="launch"><span class="ms f">local_fire_department</span><span><b>Preço de lançamento:</b> 33% OFF para quem entrar agora.</span></div>
+    <div class="launch"><span class="ms f">local_fire_department</span><span data-launch><b>Preço de lançamento:</b> 33% OFF para os primeiros 20 clientes.</span></div>
     <div class="cyc">
       <div class="cyc-in" role="radiogroup" aria-label="Ciclo de cobrança" data-cyc>
         <button type="button" role="radio" aria-checked="true" data-c="mensal">Mensal</button>
@@ -995,7 +1018,7 @@ body{margin:0;background:#F6F5F2}
           <tr><th scope="row">Histórico</th><td>7 dias</td><td>Completo e por período</td></tr>
           <tr><th scope="row">Exportar relatórios</th><td><span class="no">Não</span></td><td><span class="yes">Sim</span></td></tr>
           <tr><th scope="row">Custo do dia, lucro e taxas da maquininha</th><td><span class="no">Não</span></td><td><span class="yes">Sim</span></td></tr>
-          <tr><th scope="row">Nota fiscal</th><td><span class="no">Não</span></td><td>Em breve</td></tr>
+          <tr><th scope="row">Nota fiscal (emissor à sua escolha, cobrado por ele)</th><td><span class="no">Não</span></td><td>Em breve</td></tr>
           <tr><th scope="row">Suporte no WhatsApp</th><td><span class="yes">Sim</span></td><td><span class="yes">Prioritário</span></td></tr>
         </tbody>
       </table></div>
@@ -1003,7 +1026,7 @@ body{margin:0;background:#F6F5F2}
     <ul class="safe">
       <li><span class="ms f">verified_user</span><div><b>Checkout seguro</b><span>Pagamento processado pela Stripe, com criptografia.</span></div></li>
       <li><span class="ms f">event_available</span><div><b>30 dias grátis</b><span>Do plano Essencial, sem cartão. Teste no seu movimento antes de pagar.</span></div></li>
-      <li><span class="ms f">lock_open</span><div><b>Sem fidelidade</b><span>No mensal, cancele quando quiser.</span></div></li>
+      <li><span class="ms f">undo</span><div><b>Garantia de 7 dias</b><span>Pagou e não gostou? Devolvemos em até 7 dias da primeira cobrança. No mensal, sem fidelidade.</span></div></li>
       <li><span class="ms f">support_agent</span><div><b>Gente de verdade</b><span>Suporte pelo WhatsApp.</span></div></li>
     </ul>
   </div>
@@ -1051,7 +1074,8 @@ body{margin:0;background:#F6F5F2}
       <details><summary>Funciona em qualquer celular?<span class="ms">add</span></summary><p>Sim. Abre no navegador de qualquer celular, e você pode adicionar à tela inicial. O app para Android está em teste fechado no Google Play: peça seu acesso pelo WhatsApp.</p></details>
       <details><summary>Precisa de internet?<span class="ms">add</span></summary><p>Sim, é a internet que liga o caixa à cozinha em tempo real. Se ela cair, o pedido fica salvo e sobe quando voltar.</p></details>
       <details><summary>O que o Sai aê não faz?<span class="ms">add</span></summary><p>Ainda não integra com aplicativos de delivery (em breve). O foco é o seu balcão e a sua fila, e por isso custa menos.</p></details>
-      <details><summary>Emite nota fiscal?<span class="ms">add</span></summary><p>Em breve, para quem tem CNPJ e certificado digital: a nota sai junto com o pedido. Quem não emite nota continua usando o Sai aê normalmente.</p></details>
+      <details><summary>Emite nota fiscal?<span class="ms">add</span></summary><p>Em breve, no plano Pro. Você contrata um emissor de nota fiscal de sua escolha (esse serviço é cobrado por ele), pega o token e o Sai aê faz a nota sair junto com o pedido. Quem não emite nota continua usando o Sai aê normalmente.</p></details>
+      <details><summary>Tem garantia de reembolso?<span class="ms">add</span></summary><p>Tem. Se você pagar e não gostar, pede pelo WhatsApp do suporte em até 7 dias da primeira cobrança e devolvemos o valor pago. Antes disso, são 30 dias de teste sem cartão.</p></details>
       <details><summary>O cliente pode pedir pelo celular?<span class="ms">add</span></summary><p>Pode. Com o cardápio digital, ele lê o QR code, escolhe no seu cardápio e paga no Pix (ou escolhe pagar na entrega). O pedido cai direto na cozinha.</p></details>
       <details><summary>Funciona na maquininha?<span class="ms">add</span></summary><p>Você usa a sua maquininha normalmente e marca no Sai aê como o cliente pagou (débito, crédito, Pix ou dinheiro). A integração direta com a maquininha ainda não existe.</p></details>
       <details><summary>Como funciona a chamada de senha?<span class="ms">add</span></summary><p>É uma tela cheia com a senha e o logo do seu ponto. Pode ficar num tablet ou numa TV.</p></details>
@@ -1118,11 +1142,14 @@ var SX_PLANS = {
   pro: {
     de: 131.90, mensal: 87.90, anual: { mes: 70.32, total: 843.84, economia: 210.96, off: '20% OFF' },
     itens: ['Tudo do Essencial', 'Vários pontos na mesma conta', 'Histórico completo e por período',
-            'Exportar relatórios', 'Nota fiscal (com certificado digital, em breve)', 'Custo do dia, lucro e taxas da maquininha',
+            'Exportar relatórios', 'Nota fiscal pelo emissor de sua escolha (você contrata e traz o token, em breve)', 'Custo do dia, lucro e taxas da maquininha',
             'Mais vendidos, ritmo e pontos de atenção', 'Senha de operador e de administrador',
             'Suporte prioritário no WhatsApp']
   }
 };
+/* Vagas de lançamento: atualize "ocupadas" a cada novo cliente pagante.
+   Quando ocupadas >= vagas, a página mostra o preço cheio sozinha. */
+var SX_LAUNCH = { vagas: 20, ocupadas: 3 };
 /* ========================================================== */
 (function () {
   var root = document.getElementById('saiae-lp');
@@ -1247,18 +1274,19 @@ var SX_PLANS = {
     $$('[data-plan]').forEach(function (card) {
       var p = SX_PLANS[card.dataset.plan];
       var off = $('[data-f="off"]', card);
+      var lancamento = SX_LAUNCH.ocupadas < SX_LAUNCH.vagas;
       if (cycle === 'anual') {
         $('[data-f="price"]', card).textContent = brl(p.anual.mes);
         off.textContent = p.anual.off; off.hidden = false;
         $('[data-f="aux"]', card).textContent = 'R$ ' + brl(p.anual.total) + ' por ano. Você economiza R$ ' + brl(p.anual.economia) + '.';
       } else {
-        $('[data-f="price"]', card).textContent = brl(p.mensal);
-        off.textContent = '33% OFF'; off.hidden = false;
+        $('[data-f="price"]', card).textContent = brl(lancamento ? p.mensal : p.de);
+        off.textContent = '33% OFF'; off.hidden = !lancamento;
         $('[data-f="aux"]', card).textContent = 'Cobrado todo mês. Sem fidelidade.';
       }
       var was = $('[data-f="was"]', card);
       was.innerHTML = 'De <s>R$ ' + brl(p.de) + '</s> por';
-      was.style.visibility = cycle === 'anual' ? 'hidden' : '';
+      was.style.visibility = (cycle === 'anual' || !lancamento) ? 'hidden' : '';
       var ul = $('[data-f="itens"]', card);
       if (!ul.children.length) {
         ul.innerHTML = p.itens.map(function (t) { return '<li><span class="ms f">check_circle</span><span>' + t + '</span></li>'; }).join('');
@@ -1268,6 +1296,13 @@ var SX_PLANS = {
         ul.after(more);
       }
     });
+    var lb = $('[data-launch]');
+    if (lb) {
+      var rest = SX_LAUNCH.vagas - SX_LAUNCH.ocupadas;
+      lb.innerHTML = rest > 0
+        ? '<b>Preço de lançamento:</b> 33% OFF para os primeiros ' + SX_LAUNCH.vagas + ' clientes. Restam ' + rest + ' de ' + SX_LAUNCH.vagas + ' vagas.'
+        : '<b>Vagas de lançamento esgotadas.</b> Valem os preços cheios.';
+    }
     paintLinks();
   }
   var cycBtns = $$('[data-cyc] button');
