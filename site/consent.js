@@ -3,7 +3,7 @@
   var KEY = 'sx_consent';
   var read = function () { try { return localStorage.getItem(KEY); } catch (e) { return null; } };
   var save = function (v) { try { localStorage.setItem(KEY, v); } catch (e) {} };
-  var PIXEL_ID = ''; // Pixel do Meta: cole o ID aqui; vazio = pixel desligado
+  var PIXEL_ID = '442066388679102'; // Pixel do Meta (portfólio João Marcos); vazio = pixel desligado
   var loadPixel = function () {
     if (!PIXEL_ID || window.fbq) return;
     !function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
