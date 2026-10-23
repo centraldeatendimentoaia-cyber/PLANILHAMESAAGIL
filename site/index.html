@@ -1170,6 +1170,12 @@ var SX_PLANS = {
         cycle: plan ? cycle : undefined
       });
     }
+    if (a && window.fbq) {
+      var k = a.dataset.link;
+      if (a.closest('[data-plan]')) fbq('track', 'InitiateCheckout', { content_name: a.closest('[data-plan]').dataset.plan });
+      else if (k === 'trialUrl') fbq('track', 'Lead');
+      else if (k === 'whatsappUrl' || k === 'playTesteUrl') fbq('track', 'Contact');
+    }
     if (a && !linkFor(a)) { e.preventDefault(); soon(a.dataset.soon || 'Isso'); }
   });
   paintLinks();
