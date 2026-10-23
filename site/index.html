@@ -7,6 +7,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="Teste 30 dias grátis o plano Essencial, sem cartão. O pedido sai do caixa direto pra cozinha e a senha aparece na TV. Para lanchonete, pizzaria, hamburgueria, açaí, pastelaria, restaurante, food truck e feira.">
 <meta name="theme-color" content="#FFC21A">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R72CK0Q5DV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-R72CK0Q5DV');
+</script>
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="Sai aê · Sem papel, sem grito, sem pedido esquecido">
@@ -1153,6 +1160,15 @@ var SX_PLANS = {
   }
   root.addEventListener('click', function (e) {
     var a = e.target.closest('[data-link]');
+    if (a && window.gtag) {
+      var plan = a.closest('[data-plan]');
+      gtag('event', plan ? 'select_plan' : 'cta_click', {
+        cta: a.dataset.link,
+        cta_text: a.textContent.trim().replace(/\s+/g, ' ').slice(0, 60),
+        plan: plan ? plan.dataset.plan : undefined,
+        cycle: plan ? cycle : undefined
+      });
+    }
     if (a && !linkFor(a)) { e.preventDefault(); soon(a.dataset.soon || 'Isso'); }
   });
   paintLinks();
