@@ -155,7 +155,9 @@ button,input{font-family:inherit}
   gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
   gtag('js', new Date());
   gtag('config', 'G-R72CK0Q5DV');
-</script></head>
+</script>
+<script src="/sx.js"></script>
+</head>
 <body>
 <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
   <defs>
@@ -335,8 +337,7 @@ button,input{font-family:inherit}
     var linhas = [
       "Oi! Fiz o Raio-X do meu negócio no Sai aê e quero saber mais 🙌",
       "",
-      "Nome: " + a.nome,
-      "WhatsApp: " + a.whatsapp,
+    ].concat(a.nome ? ["Nome: " + a.nome, "WhatsApp: " + a.whatsapp] : []).concat([
       "Tipo de negócio: " + LABELS.tipo[a.tipo],
       "Pedidos/dia: " + LABELS.pedidos[a.pedidos],
       "Ticket médio: " + LABELS.ticket[a.ticket],
@@ -345,7 +346,7 @@ button,input{font-family:inherit}
       "Perde cliente por demora: " + LABELS.fila[a.fila],
       "",
       "Diagnóstico: pode estar deixando cerca de " + fmtBRL(diag.potencial) + "/mês na mesa."
-    ];
+    ]);
     return linhas.join("\n");
   }
 
@@ -454,7 +455,7 @@ button,input{font-family:inherit}
     var wrap = h("div", {class:"step"});
     wrap.appendChild(renderBack());
     wrap.appendChild(h("h2", {class:"stepTitle"}, [document.createTextNode("Pra onde a gente manda seu diagnóstico?")]));
-    wrap.appendChild(h("p", {class:"stepHint"}, [document.createTextNode("É rapidinho. Usamos só pra te enviar o resultado e liberar seus 3 dias grátis do plano Essencial.")]));
+    wrap.appendChild(h("p", {class:"stepHint"}, [document.createTextNode("Opcional. Deixe seu WhatsApp para receber o resultado e uma ajuda para começar os 3 dias grátis do plano Essencial.")]));
 
     var nomeField = h("div", {class:"field"});
     nomeField.appendChild(h("label", {class:"fieldLabel", for:"inpNome"}, [document.createTextNode("Seu nome")]));
@@ -492,17 +493,28 @@ button,input{font-family:inherit}
       answers.nome = nome;
       answers.whatsapp = whats;
       saveLead();
+      if (window.SX) SX.evento("generate_lead", { name: "LeadRaioX", custom: true }, { metodo: "raio-x" });
       goNext();
     }
     btn.addEventListener("click", submit);
+    var skip = h("button", {class:"copyLink", type:"button"}, [document.createTextNode("Pular e ver meu resultado")]);
+    skip.addEventListener("click", function(){ answers.nome = answers.nome || ""; goNext(); });
     whatsInput.addEventListener("keydown", function(e){ if (e.key === "Enter") submit(); });
     bottom.appendChild(btn);
-    bottom.appendChild(h("p", {class:"footNote"}, [document.createTextNode("Ao continuar, você concorda em receber seu diagnóstico e o contato do Sai aê pelo WhatsApp.")]));
+    bottom.appendChild(skip);
+    bottom.appendChild(h("p", {class:"footNote"}, [document.createTextNode("Ao enviar seu WhatsApp, você concorda em receber seu diagnóstico e o contato do Sai aê. Detalhes na Política de Privacidade.")]));
     wrap.appendChild(bottom);
     return wrap;
   }
 
   // Grava o contato na planilha do Google. Nunca trava o teste: se falhar, a pessoa segue normalmente.
+  // Origem para a planilha: "fonte / meio" (ex.: instagram / bio). Sem UTM: o site de onde veio, ou "direto".
+  function origemLead(q){
+    var o = window.SX ? SX.origem() : { source: q.get("utm_source") || "", medium: q.get("utm_medium") || "" };
+    if (o.source) return o.source + (o.medium ? " / " + o.medium : "");
+    return document.referrer || "direto";
+  }
+
   function saveLead(){
     if (!PLANILHA_LEADS_URL) return;
     var diag = computeDiagnosis(answers);
@@ -513,8 +525,8 @@ button,input{font-family:inherit}
       tipo: LABELS.tipo[answers.tipo], pedidos: LABELS.pedidos[answers.pedidos], ticket: LABELS.ticket[answers.ticket],
       anota: LABELS.anota[answers.anota], erros: LABELS.erros[answers.erros], fila: LABELS.fila[answers.fila],
       potencial: Math.round(diag.potencial), faturamento: Math.round(diag.faturamentoMensal),
-      origem: q.get("utm_source") || document.referrer || "direto",
-      campanha: q.get("utm_campaign") || ""
+      origem: origemLead(q),
+      campanha: (window.SX && SX.origem().campaign) || q.get("utm_campaign") || ""
     };
     try {
       fetch(PLANILHA_LEADS_URL, { method:"POST", mode:"no-cors", keepalive:true,
@@ -543,7 +555,7 @@ button,input{font-family:inherit}
     var diag = computeDiagnosis(answers);
     var wrap = h("div", {class:"step"});
 
-    var tag = h("span", {class:"resultTag"}); tag.innerHTML = ms("check_circle", true); tag.appendChild(document.createTextNode("Diagnóstico pronto, " + (answers.nome.split(" ")[0] || "")));
+    var tag = h("span", {class:"resultTag"}); tag.innerHTML = ms("check_circle", true); tag.appendChild(document.createTextNode("Diagnóstico pronto" + ((answers.nome || "").split(" ")[0] ? ", " + answers.nome.split(" ")[0] : "")));
     var header = h("div", {class:"resultHeader"});
     header.appendChild(tag);
     header.appendChild(h("h2", {class:"stepTitle"}, [document.createTextNode("Seu negócio pode estar deixando dinheiro na mesa todo mês")]));
@@ -578,13 +590,13 @@ button,input{font-family:inherit}
 
     var done = h("div", {class:"ctaCard"});
     done.appendChild(h("span", {class:"doneTag", html: ms("task_alt", true) + "Teste concluído"}));
-    done.appendChild(h("p", {class:"ctaTitle"}, [document.createTextNode("Pronto, " + (answers.nome.split(" ")[0] || "tudo certo") + "! Sua planilha grátis está liberada.")]));
+    done.appendChild(h("p", {class:"ctaTitle"}, [document.createTextNode("Pronto, " + ((answers.nome || "").split(" ")[0] || "tudo certo") + "! Sua planilha grátis está liberada.")]));
     done.appendChild(h("p", {class:"ctaBody"}, [document.createTextNode("Baixe a planilha e crie sua conta para usar o plano Essencial do Sai aê por 3 dias grátis, sem cartão.")]));
     var soonNote = h("p", {class:"soonNote", hidden:"hidden", role:"status"});
     function soonMsg(what){ soonNote.textContent = what + " chega em breve. Enquanto isso, fale com a gente no WhatsApp."; soonNote.hidden = false; }
     var dl = h("a", {class:"btnDark", href: PLANILHA_URL || "#", html: ms("download") + "Baixar planilha grátis"});
     if (PLANILHA_URL) dl.setAttribute("download", "Controle de Vendas - Sai aê.xlsx"); else dl.addEventListener("click", function(e){ e.preventDefault(); soonMsg("A planilha"); });
-    var cad = h("a", {class:"btnOut", href: CADASTRO_URL || "#", html: "Criar minha conta grátis " + ms("arrow_forward")});
+    var cad = h("a", {class:"btnOut", href: CADASTRO_URL ? (window.SX ? SX.comUtm(CADASTRO_URL) : CADASTRO_URL) : "#", html: "Criar minha conta grátis " + ms("arrow_forward")});
     if (!CADASTRO_URL) cad.addEventListener("click", function(e){ e.preventDefault(); soonMsg("O cadastro no aplicativo"); });
     done.appendChild(dl); done.appendChild(cad); done.appendChild(soonNote);
     wrap.appendChild(done);

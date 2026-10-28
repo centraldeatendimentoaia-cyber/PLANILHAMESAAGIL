@@ -29,11 +29,16 @@
 
   var box = document.createElement('div');
   box.className = 'sx-ck';
+  // No Raio-X o botão de avançar fica fixo embaixo: o aviso vai para o topo para não cobrir.
+  if (document.querySelector('.bottomBar, [data-bottom-cta]') || /raio-x/.test(location.pathname)) {
+    box.style.bottom = 'auto';
+    box.style.top = 'calc(12px + env(safe-area-inset-top,0px))';
+  }
   box.setAttribute('role', 'region');
   box.setAttribute('aria-label', 'Aviso de cookies');
   box.innerHTML =
     '<p>Usamos cookies para medir como o site é usado e melhorar a página. Detalhes na ' +
-    '<a href="https://app.saiae.com.br/privacidade" target="_blank" rel="noopener">Política de Privacidade</a>.</p>' +
+    '<a href="/privacidade">Política de Privacidade</a>.</p>' +
     '<span style="display:flex;gap:8px"><button type="button" class="no">Recusar</button><button type="button" class="ok">Aceitar</button></span>';
   document.body.appendChild(box);
 

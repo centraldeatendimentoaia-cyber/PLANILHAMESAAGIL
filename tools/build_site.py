@@ -1,6 +1,14 @@
 """Gera a pasta site/ pronta para subir na Vercel a partir dos arquivos da raiz.
 Uso: python3 tools/build_site.py"""
 import pathlib, re, shutil
+import sys
+
+# Desde 23/10/2026 o site é editado direto na pasta site/ (index, raio-x, feirante, termos, privacidade, sx.js).
+# O saiae-lp.html e o raio-x.html da raiz ficaram desatualizados: rodar este script APAGARIA o que está no ar
+# (3 dias grátis, garantia, números, GA4/Pixel, Instagram, página do feirante...).
+if '--sobrescrever-site' not in sys.argv:
+    sys.exit('Parado: o site agora é editado direto em site/. Este script sobrescreveria o que está no ar.\n'
+             'Só rode com --sobrescrever-site se tiver certeza de que saiae-lp.html está atualizado.')
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / 'site'
